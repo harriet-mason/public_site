@@ -4,8 +4,6 @@ project:
 execute: 
   freeze: auto
 
-bibliography: references.bib
-
 website:
   title: "Harriet Mason"
   navbar:
