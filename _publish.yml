@@ -1,0 +1,4 @@
+- source: project
+  netlify:
+    - id: 96905657-4099-4eab-a4bc-ef251cadf996
+      url: 'https://tangerine-boba-85739e.netlify.app'

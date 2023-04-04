@@ -1,0 +1,28 @@
+project:
+  type: website
+
+execute: 
+  freeze: auto
+
+bibliography: references.bib
+
+website:
+  title: "Harriet Mason"
+  navbar:
+    background: primary
+    search: true
+    left:
+      - index.qmd
+      - href: posts/index.qmd
+        text: Blog Posts
+
+        
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    from: markdown+emoji
+ #   reference-location: margin
+  #  citation-location: margin
