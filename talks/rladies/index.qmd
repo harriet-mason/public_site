@@ -1,8 +1,8 @@
 ---
-title: "Teaching Computers to See Scatterplots with Scagnostics"
-subtitle: "R-Ladies Meet-up November 8"
+title: "R-Ladies Meet-up"
+subtitle: "Teaching Computers to See Scatterplots with Scagnostics"
 author: Harriet Mason
-institute: "Co-Authors: Di Cook, Ursula Laa, Stuart Lee"
+institute: "Package Co-Authors: Di Cook, Ursula Laa, Stuart Lee"
 format: 
   revealjs: 
     theme: [default, custom.scss]

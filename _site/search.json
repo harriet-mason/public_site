@@ -81,7 +81,7 @@
     "href": "posts/pca/index.html#conclusion",
     "title": "Using PCA to Bully My Housemates (Specifically Tom)",
     "section": "Conclusion",
-    "text": "Conclusion\nWhile PCA plots can seem confusing at first, once you break them down into their components, they are pretty straight forward to understand. Also Zac said I need to include his twitter handle which is (zaccheus_e?) so I can direct people to an illiterate and poorly structured rebuttal."
+    "text": "Conclusion\nWhile PCA plots can seem confusing at first, once you break them down into their components, they are pretty straight forward to understand. Also Zac said I need to include his twitter handle which is @zaccheus_e so I can direct people to an illiterate and poorly structured rebuttal."
   },
   {
     "objectID": "posts/bootstrapCI/index.html",
@@ -413,17 +413,17 @@
     "text": "Conclusion\nRegularisation can be used to reduce the variance and improve the interpretability of our model, but human intuition can still outperform it if we know enough about our data. That being said the models for our grade predictions turned out to be useless. Results for this semester have been released and Tom was 32 off, while the simple model was 55 off. Really, the lesson here is that no model, no matter how fine tuned, can predict a response variable that has an inexplicably high variance."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "About",
-    "section": "",
-    "text": "work in progress"
-  },
-  {
     "objectID": "talks/index.html",
     "href": "talks/index.html",
     "title": "Talks",
     "section": "",
-    "text": "Teaching Computers to See Scatterplots with Scagnostics\n\n\nR-Ladies Meet-up November 8\n\n\n\n\n\n\n\n\n\nHarriet Mason\n\n\n\n\n\n\nNo matching items"
+    "text": "R-Ladies Meet-up\n\n\nTeaching Computers to See Scatterplots with Scagnostics\n\n\n\n\n\n\n\n\n\nHarriet Mason\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About",
+    "section": "",
+    "text": "Hello, I’m Harriet, and if you are here it is likely because I have directed you here to look at some of my work.\nThis is Public website that I use to share stuff that is for public consumption. You should find the thing you are looking for, but feel free to look at other stuff while you are here."
   }
 ]
