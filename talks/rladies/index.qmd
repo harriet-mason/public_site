@@ -10,18 +10,17 @@ format:
     slide-number: true
 editor_options: 
   chunk_output_type: console
+execute:
+  echo: false
+  warning: false
+  message: false
+logo: rladieslogo.png
 ---
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(
-        echo = FALSE,
-        warning = FALSE, 
-        message = FALSE,
-        fig.retina = 6)
-```
+```{r setup}
+#| label: setup
+#| include: false
 
-```{r loadlibrary, include=FALSE, echo=FALSE}
 library(tidyverse)
 library(cassowaryr)
 library(ggimg)
@@ -32,85 +31,80 @@ library(xaringanthemer)
 library(GGally)
 library(plotly)
 library(tourr)
-```
-
-```{r xaringan-themer, include=FALSE, warning=FALSE}
 
 #generate palette
 mypal <- c("#b2182b", "#d53e4f","#FF4E50", "#FC913A", "#fdae61",
            "#F9D423", "#fee08b" , "#abdda4" , "#a6d96a" , "#66c2a5" ,
            "#66bd63","#3B8183", "#3288bd", "#74add1",  "#abd9e9")
 
-#style_mono_accent(
-#  base_color = "#fb8072",
-#  header_h1_font_size = "2.25rem",
-#  header_h2_font_size = "1.75rem",
-#  header_h3_font_size = "1.5rem",
-#  header_font_google = google_font("Pangolin"),
-#  text_font_google   = google_font("Pangolin"),
-#  text_font_size = "1.5rem",
-#  code_font_google   = google_font("Shadows Into Light Two"),
-#  code_font_size = "0.5rem"
-#) 
 ```
 
-class: center, middle
 
 # Overview
 Big Data  -  Scagnostics  -  Cassowaryr  - AFLW
 
-???
-- Hi everyone, I'm Harriet Mason, a PhD student at Monash University, it is 4am here, I decided to stay up late instead of wake up early and I now think that was a terrible decision, so we will see how this goes. 
-- Today I'm going to be talking about scagnostics
-- What are scagnostics you may be thinking,
-- They are a group of measures that evaluate the visual features of a scatter plot.
-- Your next question might be, well why do you care about them?
-- Well, scatterplots are particularly useful for examining all kinds of association between variables, 
-- but unfortunately big data has too many variables to plot them all.
-- So, what if instead of looking at every pairwise plot, we instead picked out an interesting subst and only looked at those? That is the main idea behind scagnostics
-- In this presentation I'm first going to explain how scagnostics work, then i'm going to explain the structure of the cassowaryr package that calculates the scagnostics, and finally I'll show how you can use the package yourself by going through an example using Australian football league statistics, 
+::: {.notes}
+- Hi everyone, I'm Harriet Mason, a PhD student at Monash University
+- Today I'm going to be talking about scagnostics and the package that calculates them, cassowaryr
+- What are scagnostics you may be thinking, it is pretty likely you have never come across the term before
+- They are a group of measures that evaluate the visual features of a scatter plot
+- Scatterplots are particularly useful for examining all kinds of association between variables
+- and we assess that association by looking at the shape made by the points in a scatter plot, that is, its visual featues
+- unfortunately big data has too many variables to plot them all.
+- So, instead of looking at every pairwise plot, we instead picked out an interesting subst and only looked at those? That is the main idea behind scagnostics
+- In this presentation I'm first going to explain how scagnostics work, then i'm going to explain the structure of the cassowaryr package that calculates the scagnostics, and finally I'll show how you can use the package yourself by going through an example using Australian football league statistics
+:::
 
----
-
-# How Do Scagnostics Work?
+## How Do Scagnostics Work?
 
 Take this "Ring" scatter plot...
   
-```{r, Example Data, include=FALSE, echo=FALSE, warning=FALSE}
+```{r}
+#| label: exampledata
+#| include: false
 example <- features %>% filter(feature=="ring") %>%
   select(x,y)
 ```
 
-```{r, Ring Scatter,fig.width=5, fig.height=5, fig.align='center', echo=FALSE}
+```{r}
+#| label: ringscatter
+#| fig-width: 5
+#| fig-hight: 8
+#| fig-align: "center"
 ggplot(example, aes(x,y)) + geom_point(colour = "#3288bd") + theme_minimal() 
 
 ```
-???
-- So, lets see how the scagnostics are caulculated by looking at this "ring" shaped scatter plot.
----
 
-# How Do Scagnostics Work?
+::: {.notes}
+- So, lets see how the scagnostics are caulculated by looking at this "ring" shaped scatter plot.
+:::
+
+## How Do Scagnostics Work?
 
 ... and strip away everything but it's shape
   
-```{r, Void Scatter,fig.width=5, fig.height=5, fig.align='center', echo=FALSE}
+```{r}
+#| label: voidscatter
+#| fig-width: 5
+#| fig-hight: 5
+#| fig-align: "center"
 ggplot(example, aes(x,y)) + geom_point() + theme_void() + #colour = "#3288bd"
-  theme(aspect.ratio=1, axis.text = element_blank()
-        ) 
+  theme(aspect.ratio=1, axis.text = element_blank()) 
 ```
 
 
-???
+::: {.notes}
 - The first thing we do is remove the numbers and just look at the points in relation to each other
 - from here we want to make several objects that represent the scatter plot's shape,
+:::
 
----
-
-# How Do Scagnostics Work?
+## How Do Scagnostics Work?
 
 ... then build the graph based objects
 
-```{r, include=FALSE}
+```{r}
+#| label: prep1
+#| include: false
 d1 <- draw_convexhull(example$x, example$y) +
   ggtitle("Convex hull") +
   xlab("") + ylab("") +
@@ -130,96 +124,96 @@ d3 <- draw_mst(example$x, example$y) +
   theme(aspect.ratio=1, axis.text = element_blank())
 ```
 
-```{r, echo=FALSE, fig.align='left', fig.height=4, fig.width=10, warning=FALSE}
+```{r}
+#| label: alldrawings
+#| fig-width: 10
+#| fig-hight: 4
+#| fig-align: "left"
 grid.arrange(d1,d2,d3, nrow=1)
-
 ```
 
 
-???
+::: {.notes}
 
 - the convex hull which is the shape we would get if we stretched a rubber band around the outside of the ring
 - the alpha hull which is made by outlining the shape
 - and the MST which is made by connecting every point up using as little edges as possible
 - with these three objects we can define our scagnostics
 
----
+:::
 
-# The Scagnostics
-.pull-left[
+## The Scagnostics
+:::: {.columns .v-center-container}
+
+::: {.column width="50%"}
 - Convex and Alpha Hull Measures
-    + Convex
-    + Skinny
-]
-
-.pull-right[
-- MST Measures
-    + Outlying
-    + Clumpy*
-    + Striated*
-    + Sparse
-    + Skewed
-    + Stringy
-]
-
+  - Convex
+  - Skinny
 
 - Association Measures
-    + Monotonic
-    + Splines
-    + Dcor
+  - Monotonic
+  - Splines
+  - Dcor
 
+:::
 
-???
+::: {.column width="50%"}
+- MST Measures
+  - Outlying
+  - Clumpy*
+  - Striated*
+  - Sparse
+  - Skewed
+  - Stringy
+
+:::
+
+::::
+
+::: {.notes}
 - These are the scagnostics that are in the cassowaryR package, all of which have previously been defined in scagnostic liteature
 - They are sorted into their three groups depending on which graph based object they use
 - Those with an astrix have two versions, a calculation that was defined in "Scagnostic Distributions", a paper by Leland Wilkson and Graham Wills, as well as a new adjusted version that was created by us to solve some issues with binning that I will get to later. 
-- To understand some of these scagnostics it helps to see some examples, so lets go through three of them
+- To understand how we convert those graph based objects to scagnostics are calculated it helps to break it down
+- so I will go through three of the scagnostics in a bit more detail
 
----
+:::
 
-# The Scagnostics
+
+## The Scagnostics
 Convex uses the alpha hull and convex hull
   
-```{r echo=FALSE, out.height=200, out.width= 500}
-knitr::include_graphics("figures/drawconvex.png")
-```
+![](figures/drawconvex.png){fig-align="center"}
 
-???
+::: {.notes}
 - First up we have the scagnostic convex. This is a hull based measure, that is the ratio between the alpha hull and the convex hull
+:::
 
----
-
-# The Scagnostics
+## The Scagnostics
 
 Outlying uses the MST
   
-```{r echo=FALSE, out.height=250, out.width= 600}
-knitr::include_graphics("figures/drawoutlying.png")
-```
+![](figures/drawoutlying.png){fig-align="center"}
 
-???
+::: {.notes}
 - Second is outlying. This is an example of a measure that uses the minimum spanning tree
 - First it identifies the outlying points and the length of their edges, then it calculates how much of the total MST length is due to these outling edges
+:::
 
----
 
-# The Scagnostics
+## The Scagnostics
 
 Splines using the original data
 
-```{r echo=FALSE, out.height=200, out.width= 800}
-knitr::include_graphics("figures/drawsplines.png")
-```
+![](figures/drawsplines.png){fig-align="center"}
 
-???
+::: {.notes}
 - Finally we have splines. This is an example of an association measure, so it take in the raw data
 - it calculates two splines models, one with x as a dependent variable and one with y as the dependent variable
 - if either of these splines models have very low variance in their residuals, the splines scagnostic will be high
+:::
 
-
----
-
-# Assessing the Scagnostics
+## Assessing the Scagnostics
 
 - All are on a uniform scale: 0-1, where 0 is low and 1 is high
   
@@ -229,42 +223,41 @@ knitr::include_graphics("figures/drawsplines.png")
 
  
 
-???
+::: {.notes}
 - There are a couple rules for the scagnostics, they aren't just a free for all
-- so, as well as defining several scagnostics, the scagnostic distributions paper i mentioned earlier also specifies three main rules these measures must follow.
+- so, as well as defining several scagnostics, the scagnostic distributions paper I mentioned earlier also specifies three main rules these measures must follow.
 - First they should all be on a uniform scale so they are directly comparable
 - Second, each scagnostic should order a set of scatter plots in a way that lines up with human intuition
 - Finally the scagnostics should be mostly uncorrelated. If two measures are highly correlated they are probably identifying a similar visual structure and we could do without one of the scagnostics.
 - Of course these are not all 100% achievable, but these assessments should be kept in mind when adjusting and creating scagnostics.
 
----
-# The CassowaryR Package
-## Name
-CAlculate Scagnostics on Scatterplots Over Wads of Associated Real numberYs in R
+:::
 
-???
+# The CassowaryR Package
+
+::: {.notes}
 - If you want to calculate these scagnostics yourself, you can do it very easily with the cassowaryr package
-- The name is also an acronym and it stands for CAlculate Scagnostics on Scatterplots Over Wads of Associated Real numberYs in R
-- I know what you are thinking, and no, we definiately didnt come up with the acronym after the name
+:::
 
----
-
-# The CassowaryR Package
 ## Structure
 - Under the Hood Scagnostic Functions
-    + Scree object
-    + Scagnostic calculations  
-- Summary Functions   
-    + Wide and long data scagnostic summary
-    + Top Summary
-- Draw Functions  
-    + MST, Convex Hull and Alpha hull
-- Data
-    + Datasaurus dozen/ Anscombe Quartet
-    + Features
+  - Scree object
+  - Scagnostic calculations  
 
-???
+- Summary Functions   
+  - Wide and long data scagnostic summary
+  - Top Summary
+
+- Draw Functions  
+  - MST, Convex Hull and Alpha hull
+
+- Data
+  - Datasaurus dozen/ Anscombe Quartet
+  - Features
+
+::: {.notes}
 - The packages has been written so you can easily incorperate calculating scagnostics into a tidy data workflow
+- The functions that calculate the scagnostics themselves are accessible and can be used in isolation, but
 - The summary functions are how most people will use the cassowaryr package. 
 - There are the two main scagnostic summary functions, one for long data and one for wide data.
 - and also two further summary functions of that summary
@@ -273,12 +266,14 @@ CAlculate Scagnostics on Scatterplots Over Wads of Associated Real numberYs in R
 - The draw functions are mostly a debugging tool, they are designed to help you see the graph based objects so you can better understand the outputs of the package.
 - cassowaryr also comes with some data that you can use to test the scagnostics, the most important of which is the features data.
 
----
+:::
 
-# The Features Dataset
+## The Features Dataset
 
-```{r, Features plot, echo = FALSE, fig.height=8, fig.width=12, out.width = "100%", fig.align='center'}
-#plot them
+```{r}
+#| label: featuresplot
+#| fig-align: "center"
+
 ggplot(features, aes(x,y,colour=feature))+
   geom_point() +
   theme_minimal() + 
@@ -291,15 +286,17 @@ ggplot(features, aes(x,y,colour=feature))+
 
 ```
 
-???
+::: {.notes}
 - The features dataset is a set of scatter plots, each with a distinct feature that we want to identify.
-- For example, the Ring is a hollow version of the disk scatter plot, and we want the scagnostics to be able to identify the difference between them.
+- It is not only important that the scagnostics can identify the features of the scatter plots but also differentiate between them
+- For example, the Ring is a hollow version of the disk scatter plot, and we want the scagnostics to be able to see that
+:::
 
----
-# Features Scagnostics 
+## Features Scagnostics 
 
-```{r, echo=TRUE}
-# Calculate the scagnostics
+```{r}
+#| label: featurescalc
+#| echo: true
 features_scagnostics_wide <- features %>%
   group_by(feature) %>%
   summarise(calc_scags(x,y))
@@ -307,14 +304,18 @@ features_scagnostics_wide <- features %>%
 # Look at the output
 features_scagnostics_wide[1:5, 1:6]
 ```
-???
+
+::: {.notes}
 - Because the features data set is a long data set, we use group by with the `calc_scags()` function to get a scagnostic summary of the data set
 - the scagnostic summary can be quite large so this is a glimpse of what you would usually get.
----
+:::
 
-# A Scagnostic Visual Table
+## A Scagnostic Visual Table
 
-```{r, Scag Calculation, include=FALSE}
+```{r}
+#| label: scagcalculations
+#| include: false
+
 #long version of
 features_scagnostics_long <- features_scagnostics_wide %>%
   pivot_longer(cols=outlying:dcor, names_to = "scagnostic")
@@ -324,7 +325,10 @@ t_features_scagnostics_wide <- features_scagnostics_long %>%
   pivot_wider(names_from = "feature")
 ```
 
-```{r, Scatter Plots as images,  include=FALSE, eval=FALSE}
+```{r}
+#| label: scatterplotsasimages
+#| include: false
+#| eval: false
 
 #set theme so all scatter plots in table match
 plot_theme <-  theme_void() + #theme_minimal() + 
@@ -349,7 +353,9 @@ for (i in seq(length(plots))){
 ```
 
 
-```{r, Table of Plots, include=FALSE}
+```{r}
+#| label: tableofplots
+#| include: false
 
 # edit data frame
 plot_path_data <- features_scagnostics_long %>%
@@ -430,11 +436,16 @@ visual_table <- ggplot(plot_data, aes(x=value , y=scagnostic, colour=feature))+
 #ggsave("figures/visual_table.png", visual_table, width=10, height=10)
 ```
 
-```{r, Show Visual Table, echo=FALSE, fig.height=6, fig.width=9, out.width = "100%", fig.align='center'}
+```{r}
+#| label: visualtable
+#| fig-height: 6
+#| fig-width: 9
+#| fig-align: center
+
 visual_table
 ```
 
-???
+::: {.notes}
 - Taking the full scagnostic summary we can make a visual table and have a look at what each scagnostic sees
 - On the x axis is the scagnostic value
 - On the y axis are the scagnostics
@@ -443,13 +454,14 @@ visual_table
 - this occurs because all previous work in scagnostics had binning as a pre processing step, we want binning to be optional in the cassowaryr package
 - when we removed binning and allowed for infinitely small edges in the MST, it warped a few of the scagnostics
 - and so to try and fix this, we have designed some adjusted scagnostics
+:::
 
----
+## Clumpy Adjusted 
 
+```{r}
+#| label: clumpycomparison
+#| include: false
 
-# Clumpy Adjusted 
-
-```{r,  Clumpy Comparison, include=FALSE}
 plot_data_clumpy <- plot_path_data %>%
   group_by(scagnostic, feature) %>%
   mutate(doplot = ifelse(all(scagnostic %in% c("clumpy","clumpy2"), 
@@ -484,16 +496,21 @@ clumpy_visual_table <- ggplot(plot_data_clumpy, aes(x=value , y=scagnostic))+
 #ggsave("figures/clumpy_visual_table.png", clumpy_visual_table, width=10, height=10)
 ```
 
-```{r, Clumpy Table, echo=FALSE, fig.height=8, fig.width=12, out.width = "100%", fig.align='center'}
+```{r}
+#| label: clumpytable
+#| fig-width: 12
+#| fig-height: 8
+#| fig-align: center
 clumpy_visual_table
 ```
-???
+
+::: {.notes}
 - Here is the same visual table but we are only plotting clumpy with clumpy2 where clumpy2, an adjusted measure that does not require binning.
 - you can see clumpy2 both a better job of identifying the clusters plot as it appears relatively higher on the measure and also is more uniform from 0 to 1.
 - This measure is still being adjusted as it is quite slow, but even in its current state it performs better than the original measure without binning.
+:::
 
----
-# AFLW Example: The Data
+## AFLW Example: The Data
 
 - Australian Football League Women's
   
@@ -506,15 +523,20 @@ clumpy_visual_table
 - What are we expecting the scagnostics to find?
   
   
-???
+::: {.notes}
 - While it is nice to know that the scagnostics work, correctly ordering scatter plots is not what they are used for, the measures need to be able to pick out interesting scatter plots from a large selection of scatter plots
 - In order to do show that they do, in fact do this, I'm going to give an example using data from the AFLW 2020 season
 - This data set is large, and has more pairs of variables than we could plot ourselves
 - Hopefully the scagnostics will pick out some interesting pairs of variables
----
-# AFLW Example: The Data
+:::
 
-```{r, echo=TRUE, eval=FALSE}
+## AFLW Example: The Data
+
+```{r}
+#| label: getafldata
+#| echo: true
+#| eval: false
+
 # Get AFLW data
 aflw <- fitzroy::fetch_player_stats(2020, comp = "AFLW")
 
@@ -530,45 +552,13 @@ aflw_num <- aggregate(aflw_num[,5:37],
 # Calculate scagnostics
 AFLW_scags <- calc_scags_wide(aflw_num[,c(2:34)])
 ```
-???
-- So we fetch the data using the fitzroy package, and we have to make sure we are only using numeric variables since scagnostics only work on numeric variable
-- Then we use the calc_scags_wide function to calculate every scagnostic on every possible pair of variables. This one can be a bit computationally heavy so you do have to leave it for a bit.
-- Once you have this data the best way to analyse it is to look at a SPLOM of the scagnostics. 
 
----
-# AFLW Example: SPLOM
+```{r}
+#| label: makeafledata
+#| eval: false
+#| echo: false
+#| include: false
 
-```{r, fig.width=6, fig.height=6, fig.align='center',eval=FALSE}
-#LOAD DATA
-load("data/aflw.rda")
-load("data/aflw_num.rda")
-load("data/AFLW_scags.rda")
-
-#rename for new scag
-AFLW_scags <- AFLW_scags %>%
-  rename(striated2 = striated_adjusted) %>%
-  rename(clumpy2 = clumpy_adjusted)
-
-# add a label
-AFLW_splom <- AFLW_scags %>%
-  mutate(lab = paste0(Var1, ", ", Var2))
-
-# make SPLOM
-p <- GGally::ggpairs(AFLW_splom, columns=c(3,6,10,14,15), aes(label=lab)) +
-  theme_classic()+
-  theme(aspect.ratio = 1)
-p <- ggplotly(p)
-htmltools::save_html(p, file="aflwscag.html")
-```
-
-<iframe src="aflwscag.html" width="800" height="500" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
-
-???
-- Unfortunately a SPLOM of all the scagnostics won't fit on the slides so for this example I've made one with only a subset 
-- The best way to find interesting scatter plots is to find plots that are away from the main mass of scatter plots in this splom. 
----
-# AFLW Example: Quiz!
-```{r, include=FALSE, eval=FALSE}
 aflw <- fetch_player_stats(2020, comp = "AFLW")
 save(aflw, file="data/aflw.rda")
 
@@ -584,7 +574,53 @@ AFLW_scags <- calc_scags_wide(aflw_num[,c(2:34)])
 save(AFLW_scags, file="data/AFLW_scags.rda")
 ```
 
-```{r, AFLW Scatter Plots, echo=FALSE, fig.height=5, fig.width=9, out.width = "95%", fig.align='center'}
+::: {.notes}
+- So we fetch the data using the fitzroy package, and we have to make sure we are only using numeric variables since scagnostics only work on numeric variable
+- Then we use the calc_scags_wide function to calculate every scagnostic on every possible pair of variables. This one can be a bit computationally heavy so you do have to leave it for a bit.
+- Once you have this data the best way to analyse it is to look at a SPLOM of the scagnostics. 
+:::
+
+## AFLW Example: SPLOM
+
+```{r}
+#| label: aflsplom
+
+#LOAD DATA
+load("data/aflw.rda")
+load("data/aflw_num.rda")
+load("data/AFLW_scags.rda")
+
+#rename for new scag
+#AFLW_scags <- AFLW_scags %>%
+  #rename(striated2 = striated_adjusted) %>%
+  #rename(clumpy2 = clumpy_adjusted)
+
+# add a label
+AFLW_splom <- AFLW_scags %>%
+  mutate(lab = paste0(Var1, ", ", Var2))
+
+# make SPLOM
+p <- GGally::ggpairs(AFLW_splom, columns=c(3,6,10,14,15), aes(label=lab)) +
+  theme_classic()+
+  theme(aspect.ratio = 1)
+ggplotly(p)
+
+#htmltools::save_html(p, file="aflwscag.html")
+```
+
+
+::: {.notes}
+- Unfortunately a SPLOM of all the scagnostics won't fit on the slides so for this example I've made one with only a subset 
+- The best way to find interesting scatter plots is to find plots that are away from the main mass of scatter plots in this splom. 
+:::
+
+## AFLW Example: Quiz!
+
+```{r}
+#| label: aflscatterplots
+#| fig-height: 5
+#| fig-width: 9
+
 load("data/aflw.rda")
 load("data/aflw_num.rda")
 load("data/AFLW_scags.rda")
@@ -633,18 +669,22 @@ grid.arrange(p1, p2, p3, p4, p5, p6,  nrow=2)
 
 Which of these scatter plots was not identified  (have a high value) by scagnostics?
 
-???
+::: {.notes}
 - Ok time for a bit of fun
 - So, we run the scagnostics on this data and it tells us how interesting each scatter plot is
 - 5 of these scatter plots had a high value, or a strange combination on one or more of the 11 scagnostics
 - one of them were just two variables I plotted against each other not really knowing what they looked like
 - Ill give you 10 seconds to try and guess which plot number you think was the one I picked at random before I change the slide
 
----
-# AFLW Example: Plot 6!
+:::
+
+## AFLW Example: Plot 6!
 - Plot 6! 
   
-```{r, 3 Random Plots, echo=FALSE, fig.height=3, fig.width=9, out.width = "100%", fig.align='center'}
+```{r}
+#| label: randomplots
+#| fig-height: 3
+#| fig-width: 9
 p7 <- ggplot(aflw_num, aes(x=goals, y=clangers)) + 
   geom_point() +
   theme_classic()+ 
@@ -659,16 +699,18 @@ grid.arrange(p6, p7, p8, nrow=1)
 
 ```
 
-???
+::: {.notes}
 - It was plot 6! I picked the two variables that were the easiest to spell.
 - Here is plot 6 alongside two other randomly chosen plots 
 - These plots don't have structure that is as interesting as the plots chosen with scagnostics
 - I'll show you how a couple of them were selected.
-  
----
-# AFLW Example: Plot 1
+:::
 
-```{r, Red Scatter, include= FALSE, echo=FALSE, fig.height=3, fig.width=9, out.width = "100%", fig.align='center'}
+## AFLW Example: Plot 1
+
+```{r}
+#| label: redscatter
+#| include: false
 test <- AFLW_scags %>%
   mutate(lab = paste0(Var1, ", ", Var2)) %>%
   mutate(plot1=ifelse(lab=="disposalEfficiency, hitouts", TRUE,FALSE),
@@ -687,28 +729,42 @@ s1 <- ggplot(test, aes(x=outlying, skewed, colour=plot1, label=lab)) +
 #grid.arrange(p1, s1, nrow=1)
 ```
 
-.pull-left[
-```{r, Red p1, echo=FALSE, warning=FALSE, fig.height=6, fig.width=6, out.width = "100%"}
+:::: {.columns .v-center-container}
+
+::: {.column width="50%"}
+```{r}
+#| label: redp1
+#| fig-height: 6
+#| fig-width: 6
 ggplotly(p1)%>%
   config(displayModeBar = FALSE)
 ```
-]
-.pull-right[
-```{r, Red p2, echo=FALSE, fig.height=6, fig.width=6, out.width = "100%"}
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| label: redp2
+#| fig-height: 6
+#| fig-width: 6
 ggplotly(s1)%>%
   config(displayModeBar = FALSE)
 ```
-]
+:::
 
-???
+::::
+
+::: {.notes}
 - Plot 1 was high on outlying and skewed
 - This means that even after removing outliers, the data was still really spread out
 - This structure is clearly visible in the scatter plot
----
+:::
 
-# AFLW Example: Plot 2
+## AFLW Example: Plot 2
 
-```{r, Organge Scatter, include=FALSE, echo=FALSE, fig.height=4, fig.width=8, out.width = "100%", fig.align='center'}
+```{r}
+#| label: orangescatter
+#| include: false
 s2 <- ggplot(test, aes(x=splines, dcor, colour=plot2, label=lab)) + 
   geom_point() +
   theme_classic() +
@@ -718,28 +774,43 @@ s2 <- ggplot(test, aes(x=splines, dcor, colour=plot2, label=lab)) +
 #grid.arrange(p2, s2, nrow=1)
 ```
 
-.pull-left[
-```{r, organge p1, echo=FALSE, warning=FALSE, fig.height=6, fig.width=6, out.width = "100%"}
+:::: {.columns .v-center-container}
+
+::: {.column width="50%"}
+```{r}
+#| label: organgep1
+#| fig-height: 6
+#| fig-width: 6
 ggplotly(p2)%>%
   config(displayModeBar = FALSE)
 ```
-]
-.pull-right[
-```{r, orange p2, echo=FALSE, fig.height=6, fig.width=6, out.width = "100%"}
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| label: orangep2
+#| fig-height: 6
+#| fig-width: 6
 ggplotly(s2)%>%
   config(displayModeBar = FALSE)
 ```
-]
 
-???
+:::
+
+::::
+
+::: {.notes}
 - This plot is really high on the association measures
 - usually a plot that deviates from this big mass, in the middle has a non-linear relationship in the scatter plot
 - we dont have that here, so total posessions and disposals just have a strong linear relationships
+:::
 
----
-# AFLW Example: Plot 5
+## AFLW Example: Plot 5
 
-```{r, Blue Scatter, include=FALSE, echo=FALSE, fig.height=4, fig.width=8, out.width = "100%", fig.align='center'}
+```{r}
+#| label: bluescatter
+#| include: false
 s5 <- ggplot(test, aes(x=outlying, y = striated_adjusted, colour=plot5, label=lab)) +
   geom_point() +
   theme_classic() +
@@ -751,72 +822,90 @@ s5 <- ggplot(test, aes(x=outlying, y = striated_adjusted, colour=plot5, label=la
 
 ```
 
-.pull-left[
-```{r, blue p1, echo=FALSE, warning=FALSE, fig.height=6, fig.width=6, out.width = "100%"}
+:::: {.columns .v-center-container}
+
+::: {.column width="50%"}
+```{r}
+#| label: bluep1
+#| fig-height: 6
+#| fig-width: 6
 ggplotly(p5)%>%
   config(displayModeBar = FALSE)
 ```
-]
-.pull-right[
-```{r, blue p2, echo=FALSE, fig.height=6, fig.width=6, out.width = "100%"}
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| label: bluep2
+#| fig-height: 6
+#| fig-width: 6
 ggplotly(s5)%>%
   config(displayModeBar = FALSE)
 ```
-]
+:::
 
-???
+::::
+
+::: {.notes}
 - This plot is the last we will look at, and its my favourite
 - it was identifiable because it was high on striated adjsuted and low on outlying
 - This plot clearly shows that almost no players do both bounces and hitouts
 -  hitouts are when you punch the ball when the ref throws it back in and they are done by your tall players, bounces have to be done while running so they are done by your fast players
 - In AFL these two categories seem to have no overlap, tall and fast are mutually exclusive
 - This is a fun example of what we can learn from our data
+:::
 
----
-# Top Summaries
+## Top Summaries
 - `top_pairs()`
-```{r, include=FALSE}
-AFLW_scags <- AFLW_scags %>%
-  rename(striated2 = striated_adjusted) %>%
-  rename(clumpy2 = clumpy_adjusted) %>%
-  select(-c(clumpy, striated))
-```
 
-```{r, echo=TRUE}
-AFLW_pairs <- top_pairs(AFLW_scags)
+```{r}
+#| label: toppairs
+#| echo: true
+AFLW_pairs <- AFLW_scags %>%
+  select(-c(clumpy, striated)) %>%
+  top_pairs()
 head(AFLW_pairs)
 ```
-???
-- The cassowaryr package also has two functions that summarise the scagnostic information, they are top_scags() and top_pairs().
-- the top_scags() function gives the top scagnostic for each scatter plot,
 
----
-# Top Summaries
+::: {.notes}
+- The cassowaryr package also has two functions that summarise the scagnostic information, they are top_scags() and top_pairs().
+- the top_pairs() function gives the top scagnostic for each scatter plot,
+
+:::
+
+## Top Summaries
 - `top_pairs()`
+
 ```{r, echo=TRUE}
 table(AFLW_pairs$scag)
 ```
 
-???
+::: {.notes}
 - since the scagnostics are supposed to be directly comparable on a 0 to 1 scale, if one scagnostic appears a lot, it is likely identifying an underlying structure through the whole data set
+:::
 
----
-# Top Summaries
+
+## Top Summaries
 - `top_scags()` and `top_pairs()`
 
 ```{r, echo=TRUE}
-#scags with short named scatter plots so they fit
+#| label: topscags
+#| echo: true
 top_scags(AFLW_scags)[-c(3,4),] 
+
 ```
 
-???
-- top_scags() gives you the scatter plot that had the highest value on that scatter plot for each scagnostic
+::: {.notes}
+- top_scags() gives you the scatter plot that had the highest value on each scagnostic 
 - a reccuring scatter plot that is high on a lot of measures is likely a scatter plot with an interesting structure
+:::
 
----
-# Projection Pursuit Index
+## Projection Pursuit Index
 
-```{r eval=FALSE, echo=FALSE, warning=FALSE}
+```{r}
+#| label: projpcalc
+
 # set seed
 set.seed(2020)
 # get L-shape data
@@ -886,65 +975,59 @@ p <- ggplot() +
 pg <- ggplotly(p, width=700, height=400) %>%
   animation_opts(200, redraw = FALSE, 
                  easing = "linear", transition=0)
-htmltools::save_html(pg, file="scagtour.html")
+pg
+#htmltools::save_html(pg, file="scagtour.html")
 ```
 
-<iframe src="scagtour.html" width="800" height="500" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
 
 
-???
+::: {.notes}
 - All the methods I have been through so far have been how you will typically use scagnostics as an exploratory data method
 - This is an example of a guided tour using the convex scagnostic as a projection pursuit index. 
 - The data has the features L shape on the x1 and x4 biplot, and noise on all other variables
 - The use for scagnostics as a projection pursuit index with the tour package is not in the cassowaryr package and some of the measures are not well suited to be used as projection pursuit indexes, either due to being too slow or noisey, but this is an area of future development for scagnostics.
+:::
 
----
+
 # Is It on CRAN?
 
-???
+- Yes
+- but...
+
+::: {.notes}
 - You may be thinking to yourself, wow what a neat package, is it on cran?
-- and the answer to that is no.
+- yes it is and it was a nightmare getting there however the version on cran does not calculate these examples
+- one of the packages we are dependent on updated, which broke all these examples, and then the package underneath THAT updated, which fixed all these examples.
+- this means the current version on cran will sometimes have a fit because of complicated reasons, the development version works without issues, so use that one if you can and hopefully the non-broken version will be on cran soon.
+:::
 
---
-  
-- no
 
-???
-- We were originally rejected because we depended on tripack and alphahull which both had an ACM lisence and even though these two packages are on CRAN, since they want to transition to only FOSS packages, we were rejected
-- Then, a couple months ago, alphahull was updated despite still being on an ACM license and so we applied for CRAN again and said "hey we have an ACM license for the same reason alphahull does, which is that we both depend on tripack" and CRAN said "if you need tripack so bad why dont you replace it"
-- Then we decided to make a FOSS package to replace tripack 
-- Unfortunately it seems the alphahull people were doing the same thing
-- and a couple weeks ago they released interp wwhich is an open source version of tripack, and a few days ago updated alphahull to rely on interp
-- So... now I have to swap all the code over to using interp instead of tripack. 
-- Fun week
----
-# The Future of the Package
-## Near and probable
-- Debug issues from alphahull update
-- Get package on cran
+## The Future of the Package
+### Near
+- Get new version on cran
+- Publish paper
   
-## Distant and improbable
+### Far
 - Hexagonal binning
-- Improve speed of calculations
 - Projection pursuit indexes
 
-???
+::: {.notes}
 - What is next for for cassowaryR package
-- Until I literally had to stop to give this talk, I was debugging the issues with the alphahull update, so having the package working again is in the VERY near future
-- After that I'll re-enter the hellish landscape that is trying to get a package on CRAN
-- A version two of the package, will probably have faster calculated, especially for the clumpy scagnostic, ill also try to introduce hexagonal binning so the original scagnostics aren't essentially useless.
-- I also want to continue to test the scagnostics as projection pursuit indexes and maybe also have those be easy to implement in another package. I have already started doing that but finishing it up always seems to be off in the distance.
+- we currently have a paper in the works, and now that our package is no longer completely broken, the examples work again we might be able to get it published.
+- We also want to make make some changes to the package later down the line, like I want to try and introduce hexagonal binning so the original scagnostics aren't essentially useless.
+- I also want to continue to test the scagnostics as projection pursuit indexes and maybe also have those be easy to implement in another package. I didn't show the code for implementing that projection pursuit in this presentation, but it is very long and tedious. 
+- even as the author of the package is took me several weeks to get it working, so something that would be easier to impleent would be nice.
 
+:::
 
----
-class: centre, middle
 # Thanks for Listening
 
 - R package: https://github.com/numbats/cassowaryr
 - Paper: https://github.com/harriet-mason/paper-cassowaryr (private)
 - Slides: https://github.com/harriet-mason/UserTalk_2022 
 
-???
+::: {.notes}
 - Thanks for listening,
 - here is the link to the package if you want to have some fun with scagnostics
 - And I'm now happy to take any questions
+:::
