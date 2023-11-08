@@ -13,6 +13,8 @@ website:
       - index.qmd
       - href: posts/index.qmd
         text: Blog Posts
+      - href: talks/index.qmd
+        text: Talks
 
         
 
