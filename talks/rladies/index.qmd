@@ -560,7 +560,7 @@ AFLW_scags <- calc_scags_wide(aflw_num[,c(2:34)])
 #| include: false
 
 aflw <- fetch_player_stats(2020, comp = "AFLW")
-save(aflw, file="data/aflw.rda")
+save(aflw, file="talks/rladies/data/aflw.rda")
 
 aflw_num <- aflw %>%
   select_if(is.numeric)
@@ -568,10 +568,10 @@ aflw_num <- aflw %>%
 aflw_num <- aggregate(aflw_num[,5:37], 
   list(aflw$player.player.player.surname),
   mean)
-save(aflw_num, file="data/aflw_num.rda")
+save(aflw_num, file="talks/rladies/data/aflw_num.rda")
 
 AFLW_scags <- calc_scags_wide(aflw_num[,c(2:34)])
-save(AFLW_scags, file="data/AFLW_scags.rda")
+save(AFLW_scags, file="talks/rladies/data/AFLW_scags.rda")
 ```
 
 ::: {.notes}
@@ -590,10 +590,6 @@ load("data/aflw.rda")
 load("data/aflw_num.rda")
 load("data/AFLW_scags.rda")
 
-#rename for new scag
-#AFLW_scags <- AFLW_scags %>%
-  #rename(striated2 = striated_adjusted) %>%
-  #rename(clumpy2 = clumpy_adjusted)
 
 # add a label
 AFLW_splom <- AFLW_scags %>%
@@ -620,10 +616,6 @@ ggplotly(p)
 #| label: aflscatterplots
 #| fig-height: 5
 #| fig-width: 9
-
-load("data/aflw.rda")
-load("data/aflw_num.rda")
-load("data/AFLW_scags.rda")
 
 mypal <- c("#FF4E50", "#fdae61","#fee08b", "#66c2a5", "#3288bd", "#abd9e9")
 
@@ -734,8 +726,8 @@ s1 <- ggplot(test, aes(x=outlying, skewed, colour=plot1, label=lab)) +
 ::: {.column width="50%"}
 ```{r}
 #| label: redp1
-#| fig-height: 6
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 5
 ggplotly(p1)%>%
   config(displayModeBar = FALSE)
 ```
@@ -745,8 +737,8 @@ ggplotly(p1)%>%
 ::: {.column width="50%"}
 ```{r}
 #| label: redp2
-#| fig-height: 6
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 5
 ggplotly(s1)%>%
   config(displayModeBar = FALSE)
 ```
@@ -779,8 +771,8 @@ s2 <- ggplot(test, aes(x=splines, dcor, colour=plot2, label=lab)) +
 ::: {.column width="50%"}
 ```{r}
 #| label: organgep1
-#| fig-height: 6
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 5
 ggplotly(p2)%>%
   config(displayModeBar = FALSE)
 ```
@@ -790,8 +782,8 @@ ggplotly(p2)%>%
 ::: {.column width="50%"}
 ```{r}
 #| label: orangep2
-#| fig-height: 6
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 5
 ggplotly(s2)%>%
   config(displayModeBar = FALSE)
 ```
@@ -811,7 +803,7 @@ ggplotly(s2)%>%
 ```{r}
 #| label: bluescatter
 #| include: false
-s5 <- ggplot(test, aes(x=outlying, y = striated_adjusted, colour=plot5, label=lab)) +
+s5 <- ggplot(test, aes(x=outlying, y = striated2, colour=plot5, label=lab)) +
   geom_point() +
   theme_classic() +
   theme(legend.position ="none") +
@@ -827,8 +819,8 @@ s5 <- ggplot(test, aes(x=outlying, y = striated_adjusted, colour=plot5, label=la
 ::: {.column width="50%"}
 ```{r}
 #| label: bluep1
-#| fig-height: 6
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 5
 ggplotly(p5)%>%
   config(displayModeBar = FALSE)
 ```
@@ -838,8 +830,8 @@ ggplotly(p5)%>%
 ::: {.column width="50%"}
 ```{r}
 #| label: bluep2
-#| fig-height: 6
-#| fig-width: 6
+#| fig-height: 5
+#| fig-width: 5
 ggplotly(s5)%>%
   config(displayModeBar = FALSE)
 ```
@@ -862,9 +854,7 @@ ggplotly(s5)%>%
 ```{r}
 #| label: toppairs
 #| echo: true
-AFLW_pairs <- AFLW_scags %>%
-  select(-c(clumpy, striated)) %>%
-  top_pairs()
+AFLW_pairs <- top_pairs(AFLW_scags)
 head(AFLW_pairs)
 ```
 
@@ -892,8 +882,8 @@ table(AFLW_pairs$scag)
 ```{r, echo=TRUE}
 #| label: topscags
 #| echo: true
-top_scags(AFLW_scags)[-c(3,4),] 
-
+AFLW_tscag <- top_scags(AFLW_scags)
+head(AFLW_tscag)
 ```
 
 ::: {.notes}
@@ -1024,7 +1014,7 @@ pg
 
 - R package: https://github.com/numbats/cassowaryr
 - Paper: https://github.com/harriet-mason/paper-cassowaryr (private)
-- Slides: https://github.com/harriet-mason/UserTalk_2022 
+- Slides: https://harrietmason.netlify.app/talks/
 
 ::: {.notes}
 - Thanks for listening,
