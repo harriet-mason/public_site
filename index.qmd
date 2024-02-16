@@ -2,8 +2,14 @@
 title: "About"
 callout-icon: false
 callout-appearance: "simple"
+resources:
+    - ThesisAnimation.mp4
 ---
 
 Hello, I'm Harriet, and if you are here it is likely because I have directed you here to look at some of my work.
 
 This is Public website that I use to share stuff that is for public consumption. You should find the thing you are looking for, but feel free to look at other stuff while you are here.
+
+This video is layperson summary of the work I do:
+
+{{< video ThesisAnimation.mp4 >}}
