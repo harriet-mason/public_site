@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Harriet Mason - Talks</title>
+<title>Harriet Mason - Tutorial Help Sheets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,20 +63,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-helpsheets .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-helpsheets'] = new List('listing-helpsheets', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -120,12 +120,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Blog Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../talks/index.html" aria-current="page">
- <span class="menu-text">Talks</span></a>
+    <a class="nav-link active" href="../teaching/index.html" aria-current="page">
+ <span class="menu-text">Tutorial Help Sheets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching/index.html">
- <span class="menu-text">Tutorial Help Sheets</span></a>
+    <a class="nav-link" href="../talks/index.html">
+ <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -138,14 +138,20 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#etc3250-tutorial-help-sheet" id="toc-etc3250-tutorial-help-sheet" class="nav-link active" data-scroll-target="#etc3250-tutorial-help-sheet">ETC3250 Tutorial Help Sheet</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Talks</h1>
+<h1 class="title">Tutorial Help Sheets</h1>
 </div>
 
 
@@ -160,45 +166,37 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<section id="etc3250-tutorial-help-sheet" class="level1">
+<h1>ETC3250 Tutorial Help Sheet</h1>
+<p>I have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY recommend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.</p>
+<div id="listing-helpsheets" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1699362000000" data-listing-file-modified-sort="1700032661224" data-listing-reading-time-sort="24.64">
-<div class="thumbnail">
-<p><a href="../talks/rladies/index.html"> <img src="../talks/rladies/figures/drawconvex.png" class="thumnail-image"> </a></p>
-</div>
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1709092029653" data-listing-reading-time-sort="0.035">
 <div class="body">
-<a href="../talks/rladies/index.html">
-<h3 class="no-anchor listing-title">
-R-Ladies Meet-up
+<a href="../teaching/helpsheets/etc3250tutorial1.html">
+<h3 class="no-anchor listing-title" data-anchor-id="etc3250-tutorial-help-sheet">
+ETC3250: Tutorial 1 Help Sheet
 </h3>
 <div class="listing-subtitle">
-Teaching Computers to See Scatterplots with Scagnostics
-</div>
-<div class="listing-description">
 
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="../talks/rladies/index.html">
-<div class="listing-date">
-Nov 8, 2023
-</div>
-<div class="listing-author">
-Harriet Mason
-</div>
-</a>
+<a href="../teaching/helpsheets/etc3250tutorial1.html"> </a>
 </div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

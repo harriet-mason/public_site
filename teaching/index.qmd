@@ -1,0 +1,13 @@
+---
+title: "Tutorial Help Sheets"
+listing:
+  - id: helpsheets
+    contents: helpsheets
+    fields: [title]
+---
+
+# ETC3250 Tutorial Help Sheet
+I have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY recommend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.
+
+::: {#helpsheets}
+:::

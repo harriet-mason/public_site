@@ -13,9 +13,11 @@ website:
       - index.qmd
       - href: posts/index.qmd
         text: Blog Posts
+      - href: teaching/index.qmd
+        text: Tutorial Help Sheets
       - href: talks/index.qmd
         text: Talks
-
+  
         
 
 format:

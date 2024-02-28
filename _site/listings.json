@@ -22,5 +22,11 @@
     "items": [
       "/talks/rladies/index.html"
     ]
+  },
+  {
+    "listing": "/teaching/index.html",
+    "items": [
+      "/teaching/helpsheets/etc3250tutorial1.html"
+    ]
   }
 ]
