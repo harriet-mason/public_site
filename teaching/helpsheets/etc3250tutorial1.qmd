@@ -1,8 +1,10 @@
 ---
 title: "ETC3250: Tutorial 1 Help Sheet"
 ---
+## Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
 
-### Exercise 1
+## Exercise 1
 #### Part A
 The following code generates an error, can you work out why?
 ```{r}
@@ -44,7 +46,7 @@ Make sure you have the `reprex` package installed. If you are not familiar with 
 Run the code `?reprex` to get the help sheet on this function. The examples at the bottom usually help.
 :::
 
-### Exercise 2
+## Exercise 2
 Your turn to write some code that generates an error. Create a reprex, and share with your tutor or neighbour, to see if they can fix the error.
 
 ::: {.callout-note}
@@ -53,7 +55,7 @@ Not every question will have hints. For this question it is because this is a cr
 :::
 
 
-### Exercise 3
+## Exercise 3
 Follow the guidelines [here](https://tensorflow.rstudio.com/install/) to setup python and tensorflow on your computer. Then test your installation by following the beginner tutorial.
 
 ::: {.callout-note}
@@ -68,7 +70,7 @@ Additionally, the labs section of the ED discussions might also already have you
 :::
 
 
-### Exercise 4
+## Exercise 4
 
 #### Part A
 Download the slides.qmd file for week 1 lecture. Use knitr::purl() to extract the R code for the class.
