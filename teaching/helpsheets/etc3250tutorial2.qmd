@@ -1,0 +1,76 @@
+---
+title: "ETC3250: Tutorial 2 Help Sheet"
+---
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Question 1
+### Part A to E
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+If you are rusty with matricies, just look at the notation section of the [wiki page](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Notation) which should also have a definition of the [transpose](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Basic_operations). If you are so unfarmiliar with matricies that this does not help you answer these questions, please call me over.
+:::
+
+### Part F & G
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+I would reccomend checking [this](https://dicook.github.io/mulgar_book/2-notation.html) page of the Cook and Laa textbook for the requirements of a projection matrix.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+**Specifically for question 1 part f**:
+I would suggest writing the matrix that combines the variables correctly and *then* make sure it follows the gneeral requirements for a projection matrix. The projected data ($Y$) should have dimension 1 equally variable 1 and variable 4, that is to say $Y_1 = \frac1 2 X_1 + \frac1 2 X_4$ and dimension 2 should be a third variable 2 and two thirds variable 5, that is $Y_2 = \frac1 3 X_2 + \frac 2 3 X_5$. Write these equations in matrix form to get a starting point for your answer.
+
+**For question 1 part f and g**:
+The requirements for any projection matrix are:
+1) The projected data should be a 2D matrix with n observations. Therefore the projection matrix has a specific dimensionality according to the rules of matrix multiplication which can be found [on the wiki page](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Basic_operations).  
+2) The projection matrix should be orthonormal which means each column should be [orthonomal](https://en.wikipedia.org/wiki/Orthonormality) with the other columns in the matrix. Remember, a vector cannot be orthogonal to itself.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 3
+
+**Specifically for question 1 part f:**
+The matrix equation that represents that linear system above is:
+
+\begin{align*}
+{\mathbf A} = \left[\begin{array}{rr} 
+-1/\sqrt{2} & 1/\sqrt{3} \\ 
+0 & 0  \\
+1/\sqrt{2} & 0 \\
+0 & \sqrt{2}/\sqrt{3} \\
+\end{array}\right] = \left[\begin{array}{rr} 
+-1/\sqrt{2} & 1/\sqrt{3} \\ 
+0 & 0  \\
+1/\sqrt{2} & 0 \\
+0 & \sqrt{2}/\sqrt{3} \\
+\end{array}\right]
+\end{align*}
+
+(keep in mind, this has not been adjusted to fulfill the requirements of a projection matrix)
+
+*For question 1 part f and g*
+The requirements for any projection matrix are:
+1) Since the data is $n \times p$  and the projected data needs to be needs to be $n \times p$ the projection matrix should have the dimension $p \times d$. In this case, $d=2$
+2) Since $d=2$ you only need to check each column is normalised (this will be two calculations) and the two columns are orthogonal to each other (this is just one calculation). A vector is nor alised if it has a length of 1, i.e. $\sqrt{x_{11}^2 + x_{12}^2 + ... + x_{1n}^2}=1$. Two vectors are orthogonal to each other if their dot product is 0. That is, for columns i and j (where $i \neq j$) they need to satisfy: 
+$$x_i \cdot x_j = \sum_k^n(x_{ik} \times x_{jk}) = 0 $$
+If you are unfamiliar with summation notation, this is just:
+$$(x_{i1} \times x_{j1}) + (x_{i2} \times x_{j2}) + ... + (x_{in} \times x_{jn}) = 0$$
+:::
+
+## Question 2
+## Question 3
+## Question 4
+## Question 5
+### Part A
+### Part B
+### Part C
+### Part D
+## Question 6
+### Part A
+### Part B
+## Question 7
