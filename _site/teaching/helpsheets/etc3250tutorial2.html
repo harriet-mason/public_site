@@ -216,8 +216,8 @@ Hint 2
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><em>Specifically for question 1 part f</em>: I would suggest writing the matrix that combines the variables correctly and <em>then</em> make sure it follows the gneeral requirements for a projection matrix. The projected data (<span class="math inline">\(Y\)</span>) should have dimension 1 equally variable 1 and variable 4, that is to say <span class="math inline">\(Y_1 = \frac1 2 X_1 + \frac1 2 X_4\)</span> and dimension 2 should be a third variable 2 and two thirds variable 5, that is <span class="math inline">\(Y_2 = \frac1 3 X_2 + \frac 2 3 X_5\)</span>. Write these equations in matrix form to get a starting point for your answer.</p>
-<p><em>For question 1 part f and g</em>: The requirements for any projection matrix are: 1) The projected data should be a 2D matrix with n observations. Therefore the projection matrix has a specific dimensionality according to the rules of matrix multiplication which can be found <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)#Basic_operations">on the wiki page</a>.<br>
+<p><strong>Specifically for question 1 part f</strong>: I would suggest writing the matrix that combines the variables correctly and <em>then</em> make sure it follows the gneeral requirements for a projection matrix. The projected data (<span class="math inline">\(Y\)</span>) should have dimension 1 equally variable 1 and variable 4, that is to say <span class="math inline">\(Y_1 = \frac1 2 X_1 + \frac1 2 X_4\)</span> and dimension 2 should be a third variable 2 and two thirds variable 5, that is <span class="math inline">\(Y_2 = \frac1 3 X_2 + \frac 2 3 X_5\)</span>. Write these equations in matrix form to get a starting point for your answer.</p>
+<p><strong>For question 1 part f and g</strong>: The requirements for any projection matrix are: 1) The projected data should be a 2D matrix with n observations. Therefore the projection matrix has a specific dimensionality according to the rules of matrix multiplication which can be found <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)#Basic_operations">on the wiki page</a>.<br>
 2) The projection matrix should be orthonormal which means each column should be <a href="https://en.wikipedia.org/wiki/Orthonormality">orthonomal</a> with the other columns in the matrix. Remember, a vector cannot be orthogonal to itself.</p>
 </div>
 </div>
@@ -234,14 +234,19 @@ Hint 3
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><em>Specifically for question 1 part f</em>: The matrix equation that represents that linear system above is:</p>
+<p><strong>Specifically for question 1 part f:</strong> The matrix equation that represents that linear system above is:</p>
 <p><span class="math display">\[\begin{align*}
 {\mathbf A} = \left[\begin{array}{rr}
 -1/\sqrt{2} &amp; 1/\sqrt{3} \\
 0 &amp; 0  \\
 1/\sqrt{2} &amp; 0 \\
 0 &amp; \sqrt{2}/\sqrt{3} \\
-\end{array}\right] = B
+\end{array}\right] = \left[\begin{array}{rr}
+-1/\sqrt{2} &amp; 1/\sqrt{3} \\
+0 &amp; 0  \\
+1/\sqrt{2} &amp; 0 \\
+0 &amp; \sqrt{2}/\sqrt{3} \\
+\end{array}\right]
 \end{align*}\]</span></p>
 <p>(keep in mind, this has not been adjusted to fulfill the requirements of a projection matrix)</p>
 <p><em>For question 1 part f and g</em> The requirements for any projection matrix are: 1) Since the data is <span class="math inline">\(n \times p\)</span> and the projected data needs to be needs to be <span class="math inline">\(n \times p\)</span> the projection matrix should have the dimension <span class="math inline">\(p \times d\)</span>. In this case, <span class="math inline">\(d=2\)</span> 2) Since <span class="math inline">\(d=2\)</span> you only need to check each column is normalised (this will be two calculations) and the two columns are orthogonal to each other (this is just one calculation). A vector is nor alised if it has a length of 1, i.e.&nbsp;<span class="math inline">\(\sqrt{x_{11}^2 + x_{12}^2 + ... + x_{1n}^2}=1\)</span>. Two vectors are orthogonal to each other if their dot product is 0. That is, for columns i and j (where <span class="math inline">\(i \neq j\)</span>) they need to satisfy: <span class="math display">\[x_i \cdot x_j = \sum_k^n(x_{ik} \times x_{jk}) = 0 \]</span> If you are unfamiliar with summation notation, this is just: <span class="math display">\[(x_{i1} \times x_{j1}) + (x_{i2} \times x_{j2}) + ... + (x_{in} \times x_{jn}) = 0\]</span></p>
