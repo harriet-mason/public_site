@@ -314,12 +314,52 @@ ggplot(olive, aes(x=linoleic,
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Start by drawing a straight line that does a good job of separating the variables. Consider how you should make a new variable that will allow you to perfectly separate the data. Consider how you made a projection matrix in question 1.
+Start by drawing a straight line that does a good job of separating the variables. Consider how you should make a new variable that will allow you to perfectly separate the data. Consider how you made a projection matrix in question 1. 
+
+Look at the [theory section of this blog post](https://harrietmason.netlify.app/posts/LDA/#theory-1), you *do not* need to understand LDA for this question (that will be covered in later weeks) so the body of the text might be almost unreadable to you, but the drawing of the two group projection and the animation following it might help you conceptualise what you are trying to do in this question.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Hint 1
-Your new variable should be perpendicular to the line that separated the variables. Once you have a function that represents that line, you can use it to make a new variable. .
+## Hint 2
+Follow the steps below to get the new variable (it is a little involved). We will start by drawing a line that perfectly separates the groups, and then find a line that is perpendicular to that line.
+
+1) First find the slope ($m$) of the line using $m = \frac {y_2-y_1}{x_2-x_1}$ where arachidic is $y$ and linoleic is $x$. This function uses any two points on the line it does not have to be the intercept (which I don't suggest using since linoleic starts at 500 on the plot, not at 0). 
+
+2) Once you have the slope, write your line in the point slope form ($y-y_{1}= m(x-x_{1})$) using any point on the line, but it will probably be easiest using one of the points you used to calculate your slope. Again, we are avoiding the intercept because it is not visible. 
+
+3) Using a bit of algebra you can then rearrenge the point slope form to find the the slope intercept form ($y=mx+c$). Try plotting the line you found with `geom_abline()` from `ggplot2` to make sure you have correctly found the function. Don't feel like you need to use your original function, feel free to adjust the line drawn with `geom_abline()` to get a better projection.
+
+4) The line you project your data onto should be perpendicular to the line that separated the variables. The slope of a perpendicular line is the opposite reciprocal (i.e. $m_{new} = \frac{-1}{m_{old}} $). 
+
+
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 3
+Try calculating the average of each group on arachidic and linoleic. The code below will show you how to get the slope and the intercept of that line using the methods above.
+
+```{r}
+means <- olive |>
+  group_by(region) |>
+  summarise(marach = mean(arachidic), 
+            mlinol = mean(linoleic))
+
+slope = (means$marach[1] - means$marach[2])/(means$mlinol[1] - means$mlinol[2])
+
+intercept = -slope* means$mlinol[2] + means$marach[2] 
+
+#geom_abline(slope=0.075, intercept=-17) + 
+# this line arachidic=0.075*linoleic
+#sep line arachidic=-2.5*linoleic + c
+# inverse of sep arachidic = 
+```
+
+Exactly *why* this line is a good projection is something that will be covered in later weeks, but this function can be used as the perpendicular line you needed to make in part 4 of the above hint.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 3
+Reread the previous hint with arachidic as $y$ in the previous hint, and linoleic as $x$. 
 :::
 
 Plot your new variable to see if it does a good job of separating the values
