@@ -278,9 +278,7 @@ Hint 2
 </section>
 <section id="part-f" class="level3">
 <h3 class="anchored" data-anchor-id="part-f">Part F</h3>
-<ol start="6" type="a">
-<li>Write a projection matrix which would generate a 2D projection where the first data projection has variables 1 and 4 combined equally, and the second data projection has one third of variable 2 and two thirds of 5.</li>
-</ol>
+<p>Write a projection matrix which would generate a 2D projection where the first data projection has variables 1 and 4 combined equally, and the second data projection has one third of variable 2 and two thirds of 5.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -365,9 +363,7 @@ Hint 4
 </section>
 <section id="part-g" class="level3">
 <h3 class="anchored" data-anchor-id="part-g">Part G</h3>
-<ol start="7" type="a">
-<li>Why can’t the following matrix considered a projection matrix?</li>
-</ol>
+<p>Why can’t the following matrix considered a projection matrix?</p>
 <p><span class="math display">\[\begin{align*}
 {\mathbf A} = \left[\begin{array}{rr}
 -1/\sqrt{2} &amp; 1/\sqrt{3} \\
@@ -376,20 +372,17 @@ Hint 4
 0 &amp; \sqrt{2}/\sqrt{3} \\
 \end{array}\right]
 \end{align*}\]</span></p>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 1
+Harriet’s Comment
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>(same as Hint 1 Part F)</strong> Check <a href="https://iml.numbat.space/week1/slides.html#/linear-algebra">week 1 lecture slides 19 to 24</a></p>
-</div>
+<p>This is not specifically a projection matrix for <span class="math inline">\(\mathbf X\)</span>, so the dimensionality does not have to line up. I included the dimensionality comments in the hints below to help with f and make sure you know what is typically needed for these matricies, but the dimensionality is not the problem with this matrix.</p>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -398,13 +391,13 @@ Hint 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 2
+Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><strong>(same as Hint 2 Part F)</strong> I would recommend checking <a href="https://dicook.github.io/mulgar_book/2-notation.html">this</a> page of the Cook and Laa textbook for the requirements of a projection matrix. Remember, matricies are just a simple way to describe a system of linear equations.</p>
+<p><strong>(same as Hint 1 Part F)</strong> Check <a href="https://iml.numbat.space/week1/slides.html#/linear-algebra">week 1 lecture slides 19 to 24</a></p>
 </div>
 </div>
 </div>
@@ -414,14 +407,13 @@ Hint 2
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 3
+Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The requirements for any projection matrix are: 1) The projected data should be a 2D matrix with n observations. Therefore the projection matrix has a specific dimensionality according to the rules of matrix multiplication which can be found <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)#Basic_operations">on the wiki page</a>.<br>
-2) The projection matrix should be orthonormal which means each column should be <a href="https://en.wikipedia.org/wiki/Orthonormality">orthonomal</a> with the other columns in the matrix. Remember, a vector cannot be orthogonal to itself.</p>
+<p><strong>(same as Hint 2 Part F)</strong> I would recommend checking <a href="https://dicook.github.io/mulgar_book/2-notation.html">this</a> page of the Cook and Laa textbook for the requirements of a projection matrix. Remember, matricies are just a simple way to describe a system of linear equations.</p>
 </div>
 </div>
 </div>
@@ -431,13 +423,37 @@ Hint 3
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 4
+Hint 3
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The requirements for any projection matrix are (more specifically): 1) Since the data is <span class="math inline">\(n \times p\)</span> and the projected data needs to be needs to be <span class="math inline">\(n \times p\)</span> the projection matrix should have the dimension <span class="math inline">\(p \times d\)</span>. In this case, <span class="math inline">\(d=2\)</span> 2) Since <span class="math inline">\(d=2\)</span> you only need to check each column is normalised (this will be two calculations) and the two columns are orthogonal to each other (this is just one calculation). A vector is normalised if it has a length of 1, i.e.&nbsp;<span class="math inline">\(\sqrt{a_{11}^2 + a_{12}^2 + ... + a_{1n}^2}=1\)</span>. Two vectors are orthogonal to each other if their dot product is 0. That is, for columns i and j (where <span class="math inline">\(i \neq j\)</span>) they need to satisfy: <span class="math display">\[a_i \cdot a_j = \sum_k^n(a_{ik} \times a_{jk}) = 0 \]</span> If you are unfamiliar with summation notation, this is just: <span class="math display">\[(a_{i1} \times a_{j1}) + (a_{i2} \times a_{j2}) + ... + (a_{in} \times a_{jn}) = 0\]</span></p>
+<p>The requirements for any projection matrix are:</p>
+<ol type="1">
+<li><p>The projected data should be a 2D matrix with n observations. Therefore the projection matrix has a specific dimensionality according to the rules of matrix multiplication which can be found <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)#Basic_operations">on the wiki page</a>.</p></li>
+<li><p>The projection matrix should be orthonormal which means each column should be <a href="https://en.wikipedia.org/wiki/Orthonormality">orthonomal</a> with the other columns in the matrix. Remember, a vector cannot be orthogonal to itself.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 4
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The requirements for any projection matrix are (more specifically):</p>
+<ol type="1">
+<li><p>Since the data is <span class="math inline">\(n \times p\)</span> and the projected data needs to be needs to be <span class="math inline">\(n \times p\)</span> the projection matrix should have the dimension <span class="math inline">\(p \times d\)</span>. In this case, <span class="math inline">\(d=2\)</span></p></li>
+<li><p>Since <span class="math inline">\(d=2\)</span> you only need to check each column is normalised (this will be two calculations) and the two columns are orthogonal to each other (this is just one calculation). A vector is normalised if it has a length of 1, i.e.&nbsp;<span class="math inline">\(\sqrt{a_{11}^2 + a_{12}^2 + ... + a_{1n}^2}=1\)</span>. Two vectors are orthogonal to each other if their dot product is 0. That is, for columns i and j (where <span class="math inline">\(i \neq j\)</span>) they need to satisfy: <span class="math display">\[a_i \cdot a_j = \sum_k^n(a_{ik} \times a_{jk}) = 0 \]</span> If you are unfamiliar with summation notation, this is just: <span class="math display">\[(a_{i1} \times a_{j1}) + (a_{i2} \times a_{j2}) + ... + (a_{in} \times a_{jn}) = 0\]</span></p></li>
+</ol>
 </div>
 </div>
 </div>
@@ -449,7 +465,7 @@ Hint 4
 <p><em>A. It is almost certain to rain in the next week.</em></p>
 <p><em>B. It is 90% likely to get at least 10mm of rain tomorrow.</em></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -458,14 +474,14 @@ Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Check <a href="https://iml.numbat.space/week1/slides.html#/accuracy-vs-interpretability">week 1 lecture slide 26</a> to see a diagram that depicts the difference between accuracy and precision</p>
 </div>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -474,7 +490,7 @@ Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Accuracy tells you how likely a statement is to be true, and precision tells you how specific a statement is. For example, if I guess your weight to be somewhere between 0 and 1000kg, my statement is highly accurate (true with 100% certainty) but imprecise to the point of being meaningless. Typically a more accurate statement will be less precise, and a more precise statement will be less accurate.</p>
 </div>
@@ -515,7 +531,7 @@ Harriet’s Comment
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -524,25 +540,9 @@ Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Check <a href="https://iml.numbat.space/week1/slides.html#/training-vs-test-splits">week 1 lecture slides 27 and 28</a>.</p>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Hint 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check the function <code>initial_split</code> with <code>?initial_split</code>. Also look at the functions <code>training</code> and <code>count</code> to check your split and see how many are in each group.</p>
+<p>Check <a href="https://iml.numbat.space/week1/slides.html#/training-vs-test-splits">week 1 lecture slides 27 and 28</a>.</p>
 </div>
 </div>
 </div>
@@ -552,11 +552,27 @@ Hint 2
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 3
+Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check the function <code>initial_split</code> with <code>?initial_split</code>. Also look at the functions <code>training</code> and <code>count</code> to check your split and see how many are in each group.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Your function should use the options <code>initial_split(data, prop=??, strata=??)</code> to set an initial split. Then using <code>testing(split) |&gt; count(same variable you used for strata)</code> to check the correct amount is in each group.</p>
 </div>
@@ -583,7 +599,7 @@ Harriet’s Comment
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -592,26 +608,9 @@ Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Check <a href="https://iml.numbat.space/week1/slides.html#/parametric-vs-non-parametric">week 1 lecture slides 33 to 42</a></p>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Hint 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The black line is the true boundary (that generates the data), the colored dots show what the model has predicted. There is no noise so the wave function should <em>perfectly</em> categorise the observations.</p>
-<p>Look for areas where there is error in the model (i.e.&nbsp;the coloured dots diverge from the from the true model) and try to work out what is causing them. Is the error bias, variance or irreducible? Try to explain if there is any common themes in the errors in the images.</p>
+<p>Check <a href="https://iml.numbat.space/week1/slides.html#/parametric-vs-non-parametric">week 1 lecture slides 33 to 42</a></p>
 </div>
 </div>
 </div>
@@ -621,11 +620,28 @@ Hint 2
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 3
+Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The black line is the true boundary (that generates the data), the colored dots show what the model has predicted. There is no noise so the wave function should <em>perfectly</em> categorise the observations.</p>
+<p>Look for areas where there is error in the model (i.e.&nbsp;the coloured dots diverge from the from the true model) and try to work out what is causing them. Is the error bias, variance or irreducible? Try to explain if there is any common themes in the errors in the images.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The black Bias is caused by an inflexible model, variance is caused by a model that is <em>too</em> flexible. Error from bias will be predictable and consistent sources of error, error from variance will be inconsistent and hard to differentiate from irreduciable error. Error from bias is always visible in the images, error from variance only exists in repeated samples, however you should still mention it if you have used a highly flexible model.</p>
 </div>
@@ -643,26 +659,6 @@ Hint 3
 <h3 class="anchored" data-anchor-id="part-a">Part A</h3>
 <p>How many classes?</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Hint 1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Try using <code>count()</code> or <code>table()</code> or a similar function you are familiar with.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="part-b" class="level3">
-<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
-<p>Compute the confusion table, using the maximum predictive probability to label the observation.</p>
-<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -674,12 +670,32 @@ Hint 1
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Try using <code>count()</code> or <code>table()</code> or a similar function you are familiar with.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-b" class="level3">
+<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
+<p>Compute the confusion table, using the maximum predictive probability to label the observation.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>You have been given data that contains the true class, the probability an observation is class Adelie and the probability an observation is class Chinstrap. You need to make a new variable that represents the predicted class and add it to your data set. Then you need to use the predicted class and the true class to make a confusion matrix.</p>
 </div>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -688,7 +704,7 @@ Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>First use <code>mutate()</code> to add the predicted class to your data frame</p>
 <p>The theory and code used to make a confusion matrix from a data set with the true and predicted values is shown on <a href="https://iml.numbat.space/week1/slides.html#/confusion-misclassification-matrix">lecture 1 slides 30 to 31</a>.</p>
@@ -700,7 +716,7 @@ Hint 2
 <h3 class="anchored" data-anchor-id="part-c">Part C</h3>
 <p>Compute the accuracy, and accuracy if all observations were classified as Adelie. Why is the accuracy almost as good when all observations are predicted to be the majority class?</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -709,14 +725,14 @@ Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Check <a href="https://iml.numbat.space/week1/slides.html#/confusion-misclassification-matrix">lecture 1 slides 30 to 31</a>. It shows you how to calculate accuracy by hand and with code.</p>
 </div>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -725,7 +741,7 @@ Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To calculate the accuracy if if all observations were classified as Adelie, you can either use the formula on slide 30, or add a new variable where all the predictions are Adelie and calculate it with the code on slide 31.</p>
 </div>
@@ -736,7 +752,7 @@ Hint 2
 <h3 class="anchored" data-anchor-id="part-d">Part D</h3>
 <p>Compute the balanced accuracy when all observations were classified as Adelie, by averaging the class errors. Why is it lower than the overall accuracy? Which is the better accuracy to use to reflect the ability to classify this data?</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -745,7 +761,7 @@ Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Again, check <a href="https://iml.numbat.space/week1/slides.html#/confusion-misclassification-matrix">lecture 1 slides 30 to 31</a>. It shows you how to calculate the balaced accuracy by hand and with code.</p>
 </div>
@@ -777,7 +793,7 @@ Hint 1
 <h3 class="anchored" data-anchor-id="part-a-1">Part A</h3>
 <p>The following spam data has a heavily skewed distribution for the size of the email message. How would you transform this variable to better see differences between spam and ham emails?</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -786,14 +802,14 @@ Hint 1
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Check <a href="https://iml.numbat.space/week1/slides.html#/feature-engineering">lecture 1 slides 43</a>. You can replace the skewed variable with its transformed version, however it is better practice to leave your data as is and only transform it in the model (or in this case, in the visualisation).</p>
 </div>
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -802,7 +818,7 @@ Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Try adding <code>scale_y_log10()</code> to the <code>ggplot</code> that generated the visual.</p>
 </div>
@@ -833,22 +849,6 @@ Hint 2
 </div>
 </div>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Hint 1
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Start by drawing a straight line that does a good job of separating the variables. Consider how you should make a new variable that will allow you to perfectly separate the data. Consider how you made a projection matrix in question 1.</p>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -859,6 +859,22 @@ Hint 1
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Start by drawing a straight line that does a good job of separating the variables. Consider how you should make a new variable that will allow you to perfectly separate the data. Consider how you made a projection matrix in question 1.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Your new variable should be perpendicular to the line that separated the variables. Once you have a function that represents that line, you can use it to make a new variable. .</p>
 </div>
