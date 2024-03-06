@@ -860,7 +860,8 @@ Hint 1
 </div>
 <div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Start by drawing a straight line that does a good job of separating the variables. Consider how you should make a new variable that will allow you to perfectly separate the data. Consider how you made a projection matrix in question 1.</p>
+<p>To get an idea of what we are trying to do, look at the example in <a href="https://iml.numbat.space/week2/slides.html#/remember">lecture 2 slides 18 to 20</a>. Simply guessing and checking your results is a fair way to attempt this question. The remaining hints are going to explain how to find a solution without using guess and check.</p>
+<p>You can also look at the <a href="https://harrietmason.netlify.app/posts/LDA/#theory-1">theory section of this blog post</a>, to get different visuals for what we are going to do. You <em>do not</em> need to understand LDA for this question (that will be covered in later weeks) so the body of the blog can be ignored, but the drawing of the two group projection and the animation following it might help you understand what we are doing here.</p>
 </div>
 </div>
 </div>
@@ -870,17 +871,37 @@ Hint 1
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 1
+Hint 2
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Your new variable should be perpendicular to the line that separated the variables. Once you have a function that represents that line, you can use it to make a new variable. .</p>
+<p>There are two ways to approach this problem. You can either find a line that separates the groups into two mounds (similar to what was done in lecture 2), or you can find a line that can be used as a decision boundary to separate the two groups (so each group is entirely contained on one side of the line). The line that is <em>perpendicular</em> to that decision boundary will be a good projection to separate the groups. The line that separates the two groups is what you want to project your data onto.</p>
+<p>You can either manually calculate this line by looking at the plot and finding the slope with the visualisation. You may need to make a small change to the visualisation before hand to make this a tad easier.</p>
+<p>When creating a new variable we only care about the <em>proportions</em> of the two variables, so the intercept of the line can be ignored. I would suggest using a plot that shows <span class="math inline">\(y = arachidic-50\)</span> and <span class="math inline">\(x = linoleic-1000\)</span> so you don’t have to constantly be adjusting the intercept of your line when you want to change the slope.</p>
+<p>Using the plot of your data, there are two methods that can be used to find the slope (<span class="math inline">\(m\)</span>) a line (this can be used reguardless of whether or not you are calculating the line that separates the two groups or the decision boundary). You can eyeball two points that should be on the line and use them to calculate <span class="math inline">\(m = \frac {y_2-y_1}{x_2-x_1}\)</span>. Since the decision boundary and the separating projection are perpendicular, you can swap between the two slops using the relationship <span class="math inline">\(m_2=\frac{-1}{m_1}\)</span>.</p>
+<p>Alternatively you can use <code>geom_abline()</code> from <code>ggplot2</code> to plot the line with a slope of <span class="math inline">\(m\)</span> and an intercept of <span class="math inline">\(0\)</span> (assuming you shifted your data). Note, <code>geom_abline()</code> should only be used to check the decision boundary. Since the axis in the plot are scaled 10x:1y, the angle is severely warped and a right angle on the plane will <em>not</em> be a right angle in the data visualisation. Thereofre, the correct separating line will look <em>very</em> wrong when you draw it on the plot. By this same token, if you plot the decision boundary its associated 1D projection, they will <em>not</em> appear perpendicular.</p>
 </div>
 </div>
 </div>
-<p>Plot your new variable to see if it does a good job of separating the values</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Once you have a nice separating line to project your data onto, you need to convert that to a projection vector. This is easy if you have your line in the form of <span class="math inline">\(y=mx\)</span> (still assuming <span class="math inline">\(intercept=0\)</span>). Projection vectors only require us to know the proportion of each variable we want in the projection. Our equation tells us the ratio <span class="math inline">\(y:x\)</span> is just <span class="math inline">\(1:m\)</span>. If we normalise this to get a projection matrix, it will be <span class="math inline">\(A=\frac1{1+m}(1, m)\)</span>. Then our new data can be expressed using the projection <span class="math inline">\(\mathbf Y= \mathbf {XA} = (Linoleic, Arachidic) \cdot (\frac1{1+ m}, \frac m{1+ m})\)</span>.</p>
+<p>You can add new variable in your data frame using the <code>mutate</code> function. To check if your projection is correct, you should plot it on a <code>ggplot</code> using <code>geom_jitter()</code> where <code>x=new_variable</code> and <code>y=region</code>. If you have a good projection, you should be able to mark draw a line on the x-axis that perfectly separates the data.</p>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="question-7" class="level2">

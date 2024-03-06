@@ -314,55 +314,31 @@ ggplot(olive, aes(x=linoleic,
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Start by drawing a straight line that does a good job of separating the variables. Consider how you should make a new variable that will allow you to perfectly separate the data. Consider how you made a projection matrix in question 1. 
+To get an idea of what we are trying to do, look at the example in [lecture 2 slides 18 to 20](https://iml.numbat.space/week2/slides.html#/remember). Simply guessing and checking your results is a fair way to attempt this question. The remaining hints are going to explain how to find a solution without using guess and check.
 
-Look at the [theory section of this blog post](https://harrietmason.netlify.app/posts/LDA/#theory-1), you *do not* need to understand LDA for this question (that will be covered in later weeks) so the body of the text might be almost unreadable to you, but the drawing of the two group projection and the animation following it might help you conceptualise what you are trying to do in this question.
+You can also look at the [theory section of this blog post](https://harrietmason.netlify.app/posts/LDA/#theory-1), to get different visuals for what we are going to do. You *do not* need to understand LDA for this question (that will be covered in later weeks) so the body of the blog can be ignored, but the drawing of the two group projection and the animation following it might help you understand what we are doing here.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Hint 2
-Follow the steps below to get the new variable (it is a little involved). We will start by drawing a line that perfectly separates the groups, and then find a line that is perpendicular to that line.
+There are two ways to approach this problem. You can either find a line that separates the groups into two mounds (similar to what was done in lecture 2), or you can find a line that can be used as a decision boundary to separate the two groups (so each group is entirely contained on one side of the line). The line that is *perpendicular* to that decision boundary will be a good projection to separate the groups. The line that separates the two groups is what you want to project your data onto. 
 
-1) First find the slope ($m$) of the line using $m = \frac {y_2-y_1}{x_2-x_1}$ where arachidic is $y$ and linoleic is $x$. This function uses any two points on the line it does not have to be the intercept (which I don't suggest using since linoleic starts at 500 on the plot, not at 0). 
+You can either manually calculate this line by looking at the plot and finding the slope with the visualisation. You may need to make a small change to the visualisation before hand to make this a tad easier.
 
-2) Once you have the slope, write your line in the point slope form ($y-y_{1}= m(x-x_{1})$) using any point on the line, but it will probably be easiest using one of the points you used to calculate your slope. Again, we are avoiding the intercept because it is not visible. 
+When creating a new variable we only care about the *proportions* of the two variables, so the intercept of the line can be ignored. I would suggest using a plot that shows $y = arachidic-50$ and $x = linoleic-1000$ so you don't have to constantly be adjusting the intercept of your line when you want to change the slope. 
 
-3) Using a bit of algebra you can then rearrenge the point slope form to find the the slope intercept form ($y=mx+c$). Try plotting the line you found with `geom_abline()` from `ggplot2` to make sure you have correctly found the function. Don't feel like you need to use your original function, feel free to adjust the line drawn with `geom_abline()` to get a better projection.
+Using the plot of your data, there are two methods that can be used to find the slope ($m$) a line (this can be used reguardless of whether or not you are calculating the line that separates the two groups or the decision boundary). You can eyeball two points that should be on the line and use them to calculate $m = \frac {y_2-y_1}{x_2-x_1}$. Since the decision boundary and the separating projection are perpendicular, you can swap between the two slops using the relationship $m_2=\frac{-1}{m_1}$. 
 
-4) The line you project your data onto should be perpendicular to the line that separated the variables. The slope of a perpendicular line is the opposite reciprocal (i.e. $m_{new} = \frac{-1}{m_{old}} $). 
-
-
+Alternatively you can use `geom_abline()` from `ggplot2` to plot the line with a slope of $m$ and an intercept of $0$ (assuming you shifted your data). Note, `geom_abline()` should only be used to check the decision boundary. Since the axis in the plot are scaled 10x:1y, the angle is severely warped and a right angle on the plane will *not* be a right angle in the data visualisation. Thereofre, the correct separating line will look *very* wrong when you draw it on the plot. By this same token, if you plot the decision boundary its associated 1D projection, they will *not* appear perpendicular. 
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Hint 3
-Try calculating the average of each group on arachidic and linoleic. The code below will show you how to get the slope and the intercept of that line using the methods above.
+Once you have a nice separating line to project your data onto, you need to convert that to a projection vector. This is easy if you have your line in the form of $y=mx$ (still assuming $intercept=0$). Projection vectors only require us to know the proportion of each variable we want in the projection. Our equation tells us the ratio $y:x$ is just  $1:m$. If we normalise this to get a projection matrix, it will be $A=\frac1{1+m}(1, m)$. Then our new data can be expressed using the projection $\mathbf Y= \mathbf {XA} = (Linoleic, Arachidic) \cdot (\frac1{1+ m}, \frac m{1+ m})$. 
 
-```{r}
-means <- olive |>
-  group_by(region) |>
-  summarise(marach = mean(arachidic), 
-            mlinol = mean(linoleic))
-
-slope = (means$marach[1] - means$marach[2])/(means$mlinol[1] - means$mlinol[2])
-
-intercept = -slope* means$mlinol[2] + means$marach[2] 
-
-#geom_abline(slope=0.075, intercept=-17) + 
-# this line arachidic=0.075*linoleic
-#sep line arachidic=-2.5*linoleic + c
-# inverse of sep arachidic = 
-```
-
-Exactly *why* this line is a good projection is something that will be covered in later weeks, but this function can be used as the perpendicular line you needed to make in part 4 of the above hint.
+You can add new variable in your data frame using the `mutate` function. To check if your projection is correct, you should plot it on a `ggplot` using `geom_jitter()` where `x=new_variable` and `y=region`. If you have a good projection, you should be able to mark draw a line on the x-axis that perfectly separates the data.
 :::
 
-::: {.callout-tip collapse="true"}
-## Hint 3
-Reread the previous hint with arachidic as $y$ in the previous hint, and linoleic as $x$. 
-:::
-
-Plot your new variable to see if it does a good job of separating the values
 
 ## Question 7
 Discuss with your neighbour, what you found the most difficult part of last week’s content. Find some material (from resources or googling) together that gives alternative explanations that make it clearer.
