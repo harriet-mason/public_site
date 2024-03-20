@@ -1,0 +1,402 @@
+---
+title: "ETC3250: Tutorial 3 Help Sheet"
+---
+
+```{r}
+#| echo: false
+# Set up chunk for all slides
+knitr::opts_chunk$set(
+  fig.width = 4,
+  fig.height = 4,
+  fig.align = "center",
+  out.width = "60%",
+  code.line.numbers = FALSE,
+  fig.retina = 3,
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  dev.args = list(pointsize = 11)
+)
+```
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+```{r}
+#| echo: false
+# Load libraries used everywhere
+library(tidyverse)
+library(tidymodels)
+library(conflicted)
+library(colorspace)
+library(patchwork)
+library(MASS)
+library(randomForest)
+library(gridExtra)
+library(GGally)
+library(geozoo)
+library(mulgar)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::slice)
+conflicts_prefer(palmerpenguins::penguins)
+conflicts_prefer(tourr::flea)
+```
+
+## Question 1
+Randomly generate data points that are uniformly distributed in a hyper-cube of 3, 5 and 10 dimensions, with 500 points in each sample, using the cube.solid.random function of the geozoo package. What differences do we expect to see? 
+
+::: {.callout-note collapse="true"}
+## Code to Generate Data
+```{r}
+#| eval: false
+library(tourr)
+library(geozoo)
+set.seed(1234)
+cube3 <- cube.solid.random(3, 500)$points
+cube5 <- cube.solid.random(5, 500)$points
+cube10 <- cube.solid.random(10, 500)$points
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 2 slide 18](https://iml.numbat.space/week2/slides.html#/high-dimensions-in-statistics) for a visual of hypercubes in 2D space.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Questions to consider
+- How "cube like" do you expect the data to be when projected into 2D space? 
+- Do you expect the increasing dimensionality to affect that? 
+- The number of observations remains constant as we increase the sample size, what impact will that have?
+:::
+
+Now visualise each set in a grand tour and describe how they differ, and whether this matched your expectations?
+
+::: {.callout-note collapse="true"}
+## Code to Generate Animation
+If you are running this code inside a QMD file, please make sure you have the chunk output option set to "in console".
+```{r}
+#| eval: false
+animate_xy(cube3, axes="bottomleft")
+animate_xy(cube5, axes="bottomleft")
+animate_xy(cube10, axes="bottomleft")
+```
+:::
+
+## Question 2
+For the data sets, `c1`, `c3` from the `mulgar` package, use the grand tour to view and try to identify structure (outliers, clusters, non-linear relationships). 
+
+::: {.callout-note collapse="true"}
+## Code to Generate Animation
+```{r}
+#| eval: false
+animate_xy(c1)
+animate_xy(c3)
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 2 slide 21 and 22](https://iml.numbat.space/week2/slides.html#/tours-of-linear-projections-2) to get an idea of how to comment on the structures you see in tours.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Questions to consider
+- How many clusters are there?
+- How big are the clusters?
+- How would you describe the shape of the clusters?
+- How would you describe the overall shape of the data?
+- How does the shape change as you move through different projections?
+- Is there any statistical importance to some of the shapes you notice? (e.g. if the data can be projected into a straight line, what does that mean?)
+:::
+
+## Question 3
+Examine 5D multivariate normal samples drawn from populations with a range of variance-covariance matrices.  (You can use the `mvtnorm` package to do the sampling, for example.) Examine the data using a grand tour. What changes when you change the correlation from close to zero to close to 1?  Can you see a difference between strong positive correlation and strong negative correlation?
+
+::: {.callout-note collapse="true"}
+## Code to Generate Animation
+```{r}
+#| eval: false
+library(mvtnorm)
+set.seed(501)
+
+s1 <- diag(5)
+s2 <- diag(5)
+s2[3,4] <- 0.7
+s2[4,3] <- 0.7
+s3 <- s2
+s3[1,2] <- -0.7
+s3[2,1] <- -0.7
+
+s1
+s2
+s3
+
+set.seed(1234)
+d1 <- as.data.frame(rmvnorm(500, sigma = s1))
+d2 <- as.data.frame(rmvnorm(500, sigma = s2))
+d3 <- as.data.frame(rmvnorm(500, sigma = s3))
+
+animate_xy(d1)
+animate_xy(d2)
+animate_xy(d3)
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 2 slide 21 and 22](https://iml.numbat.space/week2/slides.html#/tours-of-linear-projections-2) to get an idea of how to comment on the structures you see in tours.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Questions to consider
+- How does the shape of the data change as the correlation between the variables changes?
+- How does this shape relate to the variance-covariance matrix?
+- Look at the three variance-covariance matrices. Which variables have correlation in `s2` and `s3`? What would you expect to happen when these variables are contributing to the projection?
+:::
+
+## Question 4
+For data sets `d2` and `d3` what would you expect would be the number of PCs suggested by PCA?
+
+::: {.callout-note}
+## Harriet's Comment
+The `d2` and `d3` data for this question is the same data used in the previous question (q3)
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 2 slide 29 to 34](https://iml.numbat.space/week2/slides.html#/pca) to get an idea of how PCA works.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Compare to d1
+Answering these questions might be easier if we think about what will happen with d1, then compare d2 to d1, and then compare d3 to d2. 
+
+What would the PCA on a dataset with 5 uncorrelated variables look like? How many dimensions are needed to capture the variance of these 5 variables? Does capturing the variance get easier or harder when you correlate the variables?
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Number of PCs
+We know that the PCA for d1, d2, and d3 will have 5 PCs simply because that is how many variables, but the question is moreso asking how many PCs will have "useful" information.
+
+For d1, because there is no correlation, each variable needs to be captured separataly. You need one PC dimension to capture the variance in each of the 5 dimensions. 
+
+When you correlate two variables, you establish that those variables contain a lot of the same information and can be summarised together. That is, correlation should *reduce* the number of PCs requires to summarise the information in the data set.
+:::
+
+Conduct the PCA. Report the variances (eigenvalues), and cumulative proportions of total variance, make a scree plot, and the PC coefficients.
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+To conduct the PCA, check [lecture 2 slide 45](https://iml.numbat.space/week2/slides.html#/compute-pca) which calculates the PCA for an example.
+**REMEMBER**: All the columns in d2 and d3 are numeric with a mean of 0.
+
+To report the variances, calculate how much of the variance is in the # of PCs you suggested in the previous part of this question. [Lecture 2 slide 39](https://iml.numbat.space/week2/slides.html#/how-to-choose-k-1) will give you the formula for proportion of total variance and cumulative variance.
+
+[Lecture 2 slide 47](https://iml.numbat.space/week2/slides.html#/decide) has a scree plot but the code is not shown. Try downloading the lecture qmd file to find the code that made the scree plot.
+
+The PC coeffieicnets are shown in [lecture 2 slide 45](https://iml.numbat.space/week2/slides.html#/compute-pca). They are what is provided when you calculate the PCA.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Suggestions for the code you need
+Compute the PCA with `prcomp(data)`
+
+If you name your prcomp, `pca`, you can get the proportion of variance explained for each PC using `pca$sdev`. Remember you total variance should be 5 due to standardisation.
+
+Use `mulgar::ggscree(pca, q=#variables)` to make your scree plot
+:::
+
+Often, the selected number of PCs are used in future work. For both `d3` and `d4`, think about the pros and cons of using 4 PCs and 3 PCs, respectively. 
+
+::: {.callout-tip collapse="true"}
+## Hint: An ideal solution
+Based on the response you gave at the begining of this question, what do you think an ideal PC for d1, d2 and d3 would look like? How do the actual PCs differ from that solution? How does this impact the number of PCs you should use in your work?
+:::
+
+## Question 5
+The `rates.csv` data has 152 currencies relative to the USD for the period of Nov 1, 2019 through to Mar 31, 2020. Treating the dates as variables, conduct a PCA to examine how the cross-currencies vary, focusing on this subset: ARS, AUD, BRL, CAD, CHF, CNY, EUR, FJD, GBP, IDR, INR, ISK, JPY, KRW, KZT, MXN, MYR, NZD, QAR, RUB, SEK, SGD, UYU, ZAR. 
+
+### Part A
+Standardise the currency columns to each have mean 0 and variance 1. Explain why this is necessary prior to doing the PCA or is it? Use this data to make a time series plot overlaying all of the cross-currencies. 
+
+::: {.callout-note}
+## Code to get data
+```{r}
+rates <- read_csv("https://raw.githubusercontent.com/numbats/iml/master/data/rates_Nov19_Mar20.csv") |>
+  select(date, ARS, AUD, BRL, CAD, CHF, CNY, EUR, FJD, GBP, IDR, INR, ISK, JPY, KRW, KZT, MXN, MYR, NZD, QAR, RUB, SEK, SGD, UYU, ZAR)
+```
+:::
+
+::: {.callout-note collapse="true"}
+## Code to standardise currency
+```{r}
+library(plotly)
+rates_std <- rates |>
+  mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
+rownames(rates_std) <- rates_std$date
+p <- rates_std |>
+  pivot_longer(cols=ARS:ZAR, 
+               names_to = "currency", 
+               values_to = "rate") |>
+  ggplot(aes(x=date, y=rate, 
+             group=currency, label=currency)) +
+    geom_line() 
+ggplotly(p, width=400, height=300)
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information (about whether we need to standardise).
+Check [lecture 2 slide 45](https://iml.numbat.space/week2/slides.html#/compute-pca). Were the variables in that data set standardised before the PCA was calculated?
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: A little extra push
+Setting `scale=TRUE` means we don't need to standarise the variables for the computation of the PCA, however you should consider what will happen to the time series plot if we don't standardise the variables beforehand.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Making the time series plot
+A time series plot would require a `ggplot()` with `x=date`, `y=rate`, and `group=currency`. Consider using `pivot_longer()` to get your data in a form where it is easy to plot.
+:::
+
+### Part B
+Conduct a PCA. Make a scree plot, and summarise proportion of the total variance. Summarise these values and the coefficients for the first five PCs, nicely.
+
+::: {.callout-note}
+## Note
+The following hints are identical to those in question 4 that are for the computation. 
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+To conduct the PCA, check [lecture 2 slide 45](https://iml.numbat.space/week2/slides.html#/compute-pca) which calculates the PCA for an example.
+**REMEMBER**: All the columns in d2 and d3 are numeric with a mean of 0.
+
+To report the variances, calculate how much of the variance is in the # of PCs you suggested in the previous part of this question. [Lecture 2 slide 39](https://iml.numbat.space/week2/slides.html#/how-to-choose-k-1) will give you the formula for proportion of total variance and cumulative variance.
+
+[Lecture 2 slide 47](https://iml.numbat.space/week2/slides.html#/decide) has a scree plot but the code is not shown. Try downloading the lecture qmd file to find the code that made the scree plot.
+
+The PC coeffieicnets are shown in [lecture 2 slide 45](https://iml.numbat.space/week2/slides.html#/compute-pca). They are what is provided when you calculate the PCA.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Suggested functions to use
+Compute the PCA with `prcomp(data)`
+
+If you name your prcomp, `pca`, you can get the proportion of variance explained for each PC using `pca$sdev`. Remember you total variance should be 5 due to standardisation.
+
+Use `mulgar::ggscree(pca, q=#variables)` to make your scree plot
+:::
+
+::: {.callout-note collapse="true"}
+## Code: Explicit code to do PCA and scree plot
+```{r}
+rates_pca <- prcomp(rates_std[,-1], scale=FALSE)
+mulgar::ggscree(rates_pca, q=24)
+options(digits=2)
+summary(rates_pca)
+```
+:::
+
+::: {.callout-note collapse="true"}
+## Code: Explicit code to do the Summary
+```{r}
+# Summarise the coefficients nicely
+rates_pca_smry <- tibble(evl=rates_pca$sdev^2) |>
+  mutate(p = evl/sum(evl), 
+         cum_p = cumsum(evl/sum(evl))) |> 
+  t() |>
+  as.data.frame()
+colnames(rates_pca_smry) <- colnames(rates_pca$rotation)
+rates_pca_smry <- bind_rows(as.data.frame(rates_pca$rotation),
+                            rates_pca_smry)
+rownames(rates_pca_smry) <- c(rownames(rates_pca$rotation),
+                              "Variance", "Proportion", 
+                              "Cum. prop")
+rates_pca_smry[,1:5]
+```
+:::
+
+
+### Part C
+Make a biplot of the first two PCs. Explain what you learn.
+
+::: {.callout-tip collapse="true"}
+## Hint: coding suggestions
+[Lecture 2 slide 48](https://iml.numbat.space/week2/slides.html#/assess-data-in-the-model-space) has a biplot but the code is not shown. Try downloading the lecture qmd file to find the code that made the scree plot.
+:::
+
+::: {.callout-note collapse="true"}
+## Code: Explicit code to do the biplot
+```{r}
+library(ggfortify)
+autoplot(rates_pca, loadings = TRUE, 
+         loadings.label = TRUE) 
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Questions to consider
+- Is there any noticeable shape? Does that shape make sense given what you know about biplots?
+- Which variables contribute to PC1? What about PC2?
+- Given which countries contribute to each PC, is there any real world effect that you think the data is picking up on?
+:::
+
+### Part D
+Make a time series plot of PC1 and PC2. Explain why this is useful to do for this data.
+
+::: {.callout-note collapse="true"}
+## Code: Explicit code to do the two time series plots
+```{r}
+rates_pca$x |>
+  as.data.frame() |>
+  mutate(date = rates_std$date) |>
+  ggplot(aes(x=date, y=PC1)) + geom_line()
+
+rates_pca$x |>
+  as.data.frame() |>
+  mutate(date = rates_std$date) |>
+  ggplot(aes(x=date, y=PC2)) + geom_line()
+```
+:::
+
+
+::: {.callout-tip collapse="true"}
+## Hint: Considerations for why you might use this plot
+- Is there any inherent structure in the observation in this case? How might that structure impact your interpretation of the PCs?
+- Do you notice any patterns in the data when you plot them according to your PCs? 
+- These values are relative to the USD, are the patterns in the data expected given the currencies that contributed to each PC?
+:::
+
+### Part E
+You’ll want to drill down deeper to understand what the PCA tells us about the movement of the various currencies, relative to the USD, over the volatile period of the COVID pandemic. Plot the first two PCs again, but connect the dots in order of time. Make it interactive with plotly, where the dates are the labels. What does following the dates tell us about the variation captured in the first two principal components?
+
+::: {.callout-note collapse="true"}
+## Code: Explicit code to do the interactive biplot
+```{r}
+library(plotly)
+p2 <- rates_pca$x |>
+  as.data.frame() |>
+  mutate(date = rates_std$date) |>
+  ggplot(aes(x=PC1, y=PC2, label=date)) +
+    geom_point() +
+    geom_path()
+ggplotly(p2, width=400, height=400)
+```
+:::
+
+
+::: {.callout-tip collapse="true"}
+## Hint: Considerations for why you might use this plot
+- Are the PCs related to time? What time periods cause changes in the pattern? 
+- Try to think about real world events that correlate with the dates that you have in your pattern.
+:::
+
+
+## Question 6
+Write a simple question about the week's material.

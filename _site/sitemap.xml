@@ -2,82 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://harrietmason.netlify.app/posts/FlexiblevsInflexible/index.html</loc>
-    <lastmod>2024-03-06T14:29:15.724Z</lastmod>
+    <lastmod>2024-03-20T04:34:20.329Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/pca/index.html</loc>
-    <lastmod>2024-03-06T14:29:16.383Z</lastmod>
+    <lastmod>2024-03-20T04:34:20.901Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/bootstrapCI/index.html</loc>
-    <lastmod>2024-03-06T14:29:16.914Z</lastmod>
+    <lastmod>2024-03-20T04:34:21.336Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/PopulationvsSample/index.html</loc>
-    <lastmod>2024-03-06T14:29:17.485Z</lastmod>
+    <lastmod>2024-03-20T04:34:21.781Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/bias_variance_flexibility/index.html</loc>
-    <lastmod>2024-03-06T14:29:18.054Z</lastmod>
+    <lastmod>2024-03-20T04:34:22.231Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/LDA/index.html</loc>
-    <lastmod>2024-03-06T14:29:18.784Z</lastmod>
+    <lastmod>2024-03-20T04:34:22.826Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/why_visualise_uncertainty/index.html</loc>
-    <lastmod>2024-03-06T14:29:19.701Z</lastmod>
+    <lastmod>2024-03-20T04:34:23.548Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/permutation_variable_importance/index.html</loc>
-    <lastmod>2024-03-06T14:29:20.181Z</lastmod>
+    <lastmod>2024-03-20T04:34:23.915Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/index.html</loc>
-    <lastmod>2024-03-06T14:29:20.712Z</lastmod>
+    <lastmod>2024-03-20T04:34:24.331Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/LIME/index.html</loc>
-    <lastmod>2024-03-06T14:29:21.264Z</lastmod>
+    <lastmod>2024-03-20T04:34:24.773Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/ConvolutionalNeuralNetwork/index.html</loc>
-    <lastmod>2024-03-06T14:29:21.816Z</lastmod>
+    <lastmod>2024-03-20T04:34:25.215Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/boosting/index.html</loc>
-    <lastmod>2024-03-06T14:29:22.357Z</lastmod>
+    <lastmod>2024-03-20T04:34:25.645Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/MLE/index.html</loc>
-    <lastmod>2024-03-06T14:29:22.957Z</lastmod>
+    <lastmod>2024-03-20T04:34:26.128Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/posts/regularisation/index.html</loc>
-    <lastmod>2024-03-06T14:29:23.667Z</lastmod>
+    <lastmod>2024-03-20T04:34:26.739Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/talks/rladies/index.html</loc>
-    <lastmod>2024-03-06T14:29:25.057Z</lastmod>
+    <lastmod>2024-03-20T04:34:27.865Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/talks/index.html</loc>
-    <lastmod>2024-03-06T14:29:25.487Z</lastmod>
+    <lastmod>2024-03-20T04:34:28.214Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/index.html</loc>
-    <lastmod>2024-03-06T14:29:25.856Z</lastmod>
+    <lastmod>2024-03-20T04:34:28.514Z</lastmod>
+  </url>
+  <url>
+    <loc>https://harrietmason.netlify.app/Untitled.html</loc>
+    <lastmod>2024-03-20T04:34:28.810Z</lastmod>
+  </url>
+  <url>
+    <loc>https://harrietmason.netlify.app/teaching/helpsheets/etc3250tutorial4.html</loc>
+    <lastmod>2024-03-20T04:34:29.394Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/teaching/helpsheets/etc3250tutorial1.html</loc>
-    <lastmod>2024-03-06T14:29:26.505Z</lastmod>
+    <lastmod>2024-03-20T04:34:29.923Z</lastmod>
+  </url>
+  <url>
+    <loc>https://harrietmason.netlify.app/teaching/helpsheets/etc3250tutorial3.html</loc>
+    <lastmod>2024-03-20T04:34:30.694Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/teaching/helpsheets/etc3250tutorial2.html</loc>
-    <lastmod>2024-03-06T14:29:35.274Z</lastmod>
+    <lastmod>2024-03-20T04:34:31.404Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/teaching/index.html</loc>
-    <lastmod>2024-03-06T14:29:35.675Z</lastmod>
+    <lastmod>2024-03-20T04:34:31.729Z</lastmod>
   </url>
 </urlset>

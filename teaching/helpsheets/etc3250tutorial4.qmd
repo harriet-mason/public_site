@@ -1,0 +1,217 @@
+---
+title: "ETC3250: Tutorial 4 Help Sheet"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| code-fold: true
+#| code-summary: "Load the libraries and avoid conflicts"
+# Load libraries used everywhere
+library(tidyverse)
+library(tidymodels)
+library(conflicted)
+library(patchwork)
+library(mulgar)
+library(mvtnorm)
+library(boot)
+library(nullabor)
+library(palmerpenguins)
+library(GGally)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::slice)
+conflicts_prefer(palmerpenguins::penguins)
+
+options(digits=2)
+p_tidy <- penguins |>
+  select(species, bill_length_mm:body_mass_g) |>
+  rename(bl=bill_length_mm,
+         bd=bill_depth_mm,
+         fl=flipper_length_mm,
+         bm=body_mass_g) |>
+  filter(!is.na(bl)) |>
+  arrange(species)
+```
+
+```{r}
+#| echo: false
+# Set plot theme
+theme_set(theme_bw(base_size = 14) +
+   theme(
+     aspect.ratio = 1,
+     plot.background = element_rect(fill = 'transparent', colour = NA),
+     plot.title.position = "plot",
+     plot.title = element_text(size = 24),
+     panel.background = element_rect(fill = 'transparent', colour = NA),
+     legend.background = element_rect(fill = 'transparent', colour = NA),
+     legend.key = element_rect(fill = 'transparent', colour = NA)
+   )
+)
+```
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Question 1
+In the lecture, we used bootstrap to examine the significance of the coefficients for the second principal component from the womens' track PCA. Do this computation for PC1. The question for you to answer is: *Can we consider all of the coefficients to be equal?*
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 3 slides 20 to 24](https://iml.numbat.space/week3/slides.html#/bootstrap-15). The code for this question is *very* similar to the code on slide 24.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Interpreting the plot
+What does the red dashed line on the plot mean? 
+:::
+
+## Question 2
+The `ggscree` function in the `mulgar` package computes PCA on multivariate standard normal samples, to learn what the largest eigenvalue might be when there the covariance between variables is 0.
+
+### Part A
+What is the mean and covariance matrix of a multivariate standard normal distribution?
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+This is a pretty basic question about a multivariate normal distribution, I can only suggest checking the wiki page for the [standard normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Standard_normal_distribution) and the [multivariate normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Standard_normal_distribution)
+:::
+
+### Part B
+Simulate a sample of 55 observations from a 7D standard multivariate normal distribution. Compute the sample mean and covariance. (Question: Why 55 observations? Why 7D?)
+
+::: {.callout-tip collapse="true"}
+## Hint: Functions for simulation
+To simulate the data you will need to use `set.seed` and `rmvnorm`. The variables should be independent so you might find the function `diag` useful in generating the variance-covariance matrix.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Functions for computation
+There are many ways to calcualte the mean and covariance, I suggest using `apply` to calculate the mean, where `x` is your data, `MARGIN` indicates the calculation will be done over columns, and `FUN` can just be `mean` (you dont need the brackets on the function `mean`). You can use the `cov` for the variance-covariance matrix.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Nudge for 55 observations and 7D
+We are going to compare this simulation to our results from the `track` data. Consider the dimensionality of the data (for *numeric* variables).
+:::
+
+
+### Part C
+Compute PCA on your sample, and note the variance of the first PC. How does this compare with variance of the first PC of the women's track data?
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 2 slide 45](https://iml.numbat.space/week2/slides.html#/compute-pca) for code that computed a PCA.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: The function options
+Remember, your data is *simulated* from a standard normal distribution, so you shouldn't scale or center the data.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Comparison considerations
+Look at how much of the total variance of the track data is covered by PC1 and then look at how much of the total variance of your simulated data is covered by PC1. Is it a valid check to just compare these two numbers? What would be required to make sure PC1 of the track data does not just *happen* to be different to the PC1 of our simulated data for this particular draw?
+:::
+
+## Question 3
+Permutation samples is used to significance assess relationships and importance of variables. Here we will use it to assess the strength of a non-linear relationship. 
+
+### Part A
+Generate a sample of data that has a strong non-linear relationship but no correlation, as follows:
+
+```{r}
+#| echo: true
+#| eval: false
+set.seed(908)
+n <- 205
+df <- tibble(x1 = runif(n)-0.5, x2 = x1^2 + rnorm(n)*0.01)
+```
+
+and then use permutation to generate another 19 plots where `x1` is permuted. You can do this with the `nullabor` package as follows:
+
+```{r}
+#| echo: true
+#| eval: false
+set.seed(912)
+df_l <- lineup(null_permute('x1'), df)
+```
+
+and make all 20 plots as follows:
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(df_l, aes(x=x1, y=x2)) + 
+  geom_point() + 
+  facet_wrap(~.sample)
+```
+
+Is the data plot recognisably different from the plots of permuted data?
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 3 slide 26](https://iml.numbat.space/week3/slides.html#/permutation-13) for information on permutation.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Things to consider
+Consider how permutation works and how the other 19 plots were generated. What kind of relationship should become invisible when variables are permuted. How does that translate to being able to identify your data in this lineup plot? What does that mean about your data?
+:::
+
+### Part B
+Repeat this with a sample simulated with no relationship between the two variables. Can the data be distinguished from the permuted data?
+
+::: {.callout-tip collapse="true"}
+## Hint: Functions for simulation
+To simulate the data you can basically use the code above except instead of setting `x2 = x1^2 + rnorm(n)*0.01` you can remove the dependence by setting `x2 = rnorm(n)*0.1`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Things to consider
+Considerations are identical to those provided in the hint for Part A.
+:::
+
+## Question 4
+For the penguins data, compute 5-fold cross-validation sets, stratified by species. 
+
+### Part A
+List the observations in each sample, so that you can see there is no overlap. 
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check [lecture 3 slide 13 to 16](https://iml.numbat.space/week3/slides.html#/k-fold-cross-validation-14) for information about k-fold cross validation (in this case, k=5). You can find *very* similar code for this section on slide 14
+:::
+
+### Part B
+Make a scatterplot matrix for each fold, coloured by species. Do the samples look similar?
+
+::: {.callout-tip collapse="true"}
+## Hint: Consideration for making data
+Each of the lines in Part A should line up with the *index* of one segmentation of the data. Look at the code and work out what it is doing. 
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: More consideration for making data
+What is the code required for `p_tidy[row_index,]` to work? Remember, the training set is the remaining data after the test set is removed, and you can remove data through an index by using `p_tidy[-test_index,]`
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Functions and code for scatterplot matrix
+Look at `ggscatmat` for the scatterplot matrix , you can use `columns` to specify the numeric variables and `color` (American spelling) for the colouring of the points.
+
+You can just copy and paste this for each scatterplot matrix you need to make.
+:::
+
+
+::: {.callout-tip collapse="true"}
+## Hint: More consideration for answering questions
+Does your data vary between subsets? Is this variation natural?
+:::
+
+## Question 5
+What was the easiest part of this tutorial to understand, and what was the hardest? 
