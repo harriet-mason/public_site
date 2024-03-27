@@ -1,0 +1,133 @@
+---
+title: "ETC3250: Tutorial 5 Help Sheet"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(tidyverse)
+library(tidymodels)
+library(patchwork)
+library(mulgar)
+library(palmerpenguins)
+library(GGally)
+library(tourr)
+library(MASS)
+library(discrim)
+library(classifly)
+library(detourr)
+library(crosstalk)
+library(plotly)
+library(viridis)
+library(colorspace)
+library(conflicted)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::slice)
+conflicts_prefer(palmerpenguins::penguins)
+conflicts_prefer(viridis::viridis_pal)
+
+options(digits=2)
+p_tidy <- penguins |>
+  select(species, bill_length_mm:body_mass_g) |>
+  rename(bl=bill_length_mm,
+         bd=bill_depth_mm,
+         fl=flipper_length_mm,
+         bm=body_mass_g) |>
+  filter(!is.na(bl)) |>
+  arrange(species) |>
+  na.omit()
+p_tidy_std <- p_tidy |>
+    mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
+```
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Question 1: LDA
+### Part A
+Is the assumption of equal variance-covariance reasonable to make for this data? 
+
+::: {.callout-tip collapse="true"}
+#### Hint: Where to go for information
+Check lecture 4 [slide 18](https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis) and [slides 40 to 43 ](https://iml.numbat.space/week4/slides.html#/checking-the-assumptions-for-lda-and-qda-12). 
+:::
+
+
+### Part B
+Fit the LDA model to the training data
+
+(No hint, the code is provided)
+
+### Part C
+Compute the confusion matrices for training and test sets, and thus the error for the test set. 
+
+::: {.callout-tip collapse="true"}
+#### Hint: Where to go for information
+You have computed a confusion matrix multiple times before. Check lecture 4 [slide 15](https://iml.numbat.space/week4/slides.html#/check-the-model-performance) for an example of using a model to get the confusion matrix for the logistic model. Think about how to get the predicted class for a LDA model.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint: Extra code hint
+You should use the `predict(lda_fit$fit, p_tr)$class` should give you the predicted class for an LDA model. You will need to do this twice, once on your training and once on your test set.
+:::
+
+### Part D
+Plot the training and test data in the discriminant space, using symbols to indicate which set. See if you can mark the misclassified cases, too.
+
+::: {.callout-tip collapse="true"}
+#### Hint: Where to go for information
+Check lecture 4 [slide 42 ](https://iml.numbat.space/week4/slides.html#/plotting-the-model). The code that generated the plot is not there, *but* you can download the lecture QMD file, find the code that made those plots, and adjust them for this data.
+:::
+
+### Part E
+Re-do the plot of the discriminant space, to examine the boundary between groups. You'll need to generate a set of random points in the domain of the data, predict their class, and projection into the discriminant space. The `explore()` in the `classifly` package can help you generate the box of random points.
+
+#### Hint: Extra code hint
+You should use the `explore(lda_fit$fit, p_tidy_std)` to generate the data and get predictions for those values. Once you have the predictions you should plot them.
+:::
+
+### Part F
+What happens to the boundary, if you change the prior probabilities? And why does this happen? Change the prior probabilities to be 1.999/3, 0.001/3, 1/3 for Adelie, Chinstrap, Gentoo, respectively. Re-do the plot of the boundaries in the discriminant space. 
+
+::: {.callout-tip collapse="true"}
+#### Hint: Where to go for information
+Check lecture 4 slide [27](https://iml.numbat.space/week4/slides.html#/example-penguins-13) for a hint on how to change the prior for probability for the code. Describe what happens think about why.
+:::
+
+
+## Question 2: Logistic Regression
+### Part A
+Fit a logistic discriminant model to the training set. 
+(No hint, the code is in the tutorial)
+
+### Part B
+Compute the confusion matrices for training and test sets, and thus the error for the test set. 
+
+::: {.callout-tip collapse="true"}
+#### Hint: Where to go for information
+You have computed a confusion matrix multiple times before. Check lecture 4 [slide 15](https://iml.numbat.space/week4/slides.html#/check-the-model-performance) for an example of using a model to get the confusion matrix for the logistic model. 
+:::
+
+### Part C
+Check the boundaries produced by logistic regression, and how they differ from those of LDA. Using the 2D projection produced by the LDA rule (using equal priors) predict the your set of random points using the logistic model. 
+
+::: {.callout-tip collapse="true"}
+#### Hint: Where to go for information
+Check lecture 4 [slides 6 to 9 ](https://iml.numbat.space/week4/slides.html#/the-logistic-function) for an understanding on how logistic regression works, check lecture 4 [slides 18 to 22](https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis) to understand how LDA works. The answer is in the theoretical working of these two models.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint: Extra hint
+Think about the dimensional of this problem. You are looking at the data in 2D space. What dimension is the model rule drawn in?
+:::
+
+## Question 3: Misclassifications
+This question is an exploratory question so there isnt really a right or wrong question.
+
+## Question 4: Math
+We will go through this question in the last 20 mins of class
