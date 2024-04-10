@@ -1,0 +1,219 @@
+---
+title: "ETC3250: Tutorial 6 Help Sheet"
+---
+
+```{r}
+#| echo: false
+#| code-fold: true
+#| code-summary: "Load the libraries and avoid conflicts"
+#| warning: false
+#| message: false
+# Load libraries used everywhere
+library(tidyverse)
+library(tidymodels)
+library(patchwork)
+library(mulgar)
+library(palmerpenguins)
+library(GGally)
+library(tourr)
+library(MASS)
+library(discrim)
+library(classifly)
+library(detourr)
+library(crosstalk)
+library(plotly)
+library(viridis)
+library(colorspace)
+library(randomForest)
+library(geozoo)
+library(ggbeeswarm)
+library(conflicted)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::slice)
+conflicts_prefer(palmerpenguins::penguins)
+conflicts_prefer(viridis::viridis_pal)
+
+options(digits=2)
+p_tidy <- penguins |>
+  select(species, bill_length_mm:body_mass_g) |>
+  rename(bl=bill_length_mm,
+         bd=bill_depth_mm,
+         fl=flipper_length_mm,
+         bm=body_mass_g) |>
+  filter(!is.na(bl)) |>
+  arrange(species) |>
+  na.omit()
+p_tidy_std <- p_tidy |>
+    mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
+```
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Question 1
+### Part A
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 5 [slide 5 to 7](https://iml.numbat.space/week5/slides.html#/common-split-criteria) for the formula for the Gini index and an example where it is used. That formula is for $K$ groups and $m$ buckets (i.e. areas after the split). Each bucket (one of m) has $\hat{p_{mk}}$ of the total observations in group $k$. To answer this question you need to write a function that expresses the Gini index in terms of a single parameter, $p$, for a single bucket (ignore the concept of a split)
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Ignoring m in the formula
+Since we are only working in one bucket, we can ignore $m$ so our Gini index for two groups in a single bucket is:
+$$G = \hat{p_{1}}(1-\hat{p_{1}}) + \hat{p_{2}}(1-\hat{p_{2}})$$
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 3: Ignoring K in the formula
+Since we only have two groups we can have a single parameter for $p$ which we set as:
+$$p= \hat{p_{1}} = 1-\hat{p_{2}}$$
+Which gives us the Gini index
+$$G = p(1-p) + (1-p)p$$
+$$G = 2p(1-p)$$
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 4: The domain of the function
+$p$ is a proporition or a probability, which means it is bound by the same maximum and minimum of a probability.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 5: How to find the maximium or minimum
+There are two ways you can find the maximum and minimum
+1. Algebraically using the first order condition ($\frac{dG}{dp}=0$)
+2. Draw it as a function in R (generate x as a set of values over the domain and y as $G$) and look at it.
+You can use whichever method you feel most comfortable with.
+:::
+
+
+### Part B
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+The example in lecture 5 [slide 7](https://iml.numbat.space/week5/slides.html#/illustration-22) goes through an example with a split. The main difference is that we can no longer ignore $m$ and you need to combine the weighted sum of the Gini index for each bucket.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Adding M back into the formula
+A Gini index can only be computed for each bucket, so for buckets $m=L$ and $m=R$ you will have $G_L$ and $G_R$ that have $p_{L}$ and $p_{R}$ of the total data in each bucket respectively. We end up with 
+$$G=p_L*G_L + p_R*G_R$$
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 3: Part A in terms of M
+A single bucket in the previous formula from part A would look like:
+$$G_L = 2p_{L1}(1-p_{L1})$$
+Where we have only included the group index to differentiate $p_L$ from $p_{L1}$ (they are differnt variables).
+:::
+
+### Part C
+::: {.callout-note}
+#### Harriet Note
+I would really suggest taking the time to work through this code line by line and work out what it does. A good way to test if you know what is happening is to guess the output of each line before running it and see if you are right or wrong. You have already made this as a function yourself so it should be straight forward to understand what it is doing.
+:::
+
+#### Hint 1: Where to go for information
+Check lecture 5 [slide 10](https://iml.numbat.space/week5/slides.html#/stopping-rules) to see what minsplit usually does.
+:::
+
+### Part D
+::: {.callout-tip collapse="true"}
+#### Hint 1: Breakdown the function
+The `mysplit` function takes inputs `x` (your x variable you are splitting on), `spl` (a series of values in the domain of x that you will perform a split on) and `cl` (the class associated with that particular x value). You will set `minsplit=1` so it is not of particular importance. You need to be able to write this question in terms of those inputs.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Psudo code for the function
+The question broken down into psudo code essentially asks you to:
+
+1) Let s=c() be a vector of all possible splits. 
+2) For each i in s, calculate `mysplit(x, spl=i, cl, minsplit)`
+
+We know that `x`, `cl` and `minsplit` will be exactly the same every time we calculate this function. The only thing that changes is the split.
+
+Remember, if you use a for loop, you need to keep the values you calculate.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 3: How to get the split
+You dont actually need to split halfway between any two values on the x variable, you can just split *at* each unique value to get the same outcome. Try using the function `unique()`.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 4: Plot
+You can use a simple `ggplot` with `x=split_values` and `y=mysplit_output`.
+:::
+
+### Part E
+::: {.callout-note}
+#### Harriet Note
+Quite frankly, this question is very complicated. You are welcome to use the hints and attempt this yourself, however I will not blame you if you just want to look at the code in the solution. PLEASE try and rewrite the solution code in pseudo-code (i.e. plain English) to make sure you understand what it is doing.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 5 [slide 9 to 13](https://iml.numbat.space/week5/slides.html#/example-penguins-13) to see how a random forest works with more than one split.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Explaining what to do in English
+Basically, you are going to need to manually do what a random forest does, which is:
+
+1. To find the first split you need to:
+  a. For each variable (individually) calculate the Gini index for every unique split of the data. 
+  b. The best split is the one that minimises the gini index. This is the first split.
+2. Your data is now split into two bins (based off the first split), to get your second split you need to:
+  a. *Within each bin*, for each variable calculate the Gini index for every unique split of the data. 
+  b. The best split is the one that minimises the gini index. This is the second split.
+:::
+
+
+## Question 2
+### Part A
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 5 [slide 16 to 19 ](https://iml.numbat.space/week5/slides.html#/overview-1) to see how the model works with an example of how to fit it on slide 19.
+
+DO NOT forget to do a training and test split, and example can be found on [slide 9 ](https://iml.numbat.space/week5/slides.html#/example-penguins-13)
+:::
+
+### Part B
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 5 [slide 19](https://iml.numbat.space/week5/slides.html#/random-forest-fit-and-predicted-values) for an example that displays the confusion matrix.
+:::
+
+## Question 3
+### Part A
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 5 [slides 20 to 22 ](https://iml.numbat.space/week5/slides.html#/diagnostics) to understand what a vote matrix is.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Hints on what to Consider
+Whenever you look at a tour you should describe the shape of the data. For this particular question you should discuss:
+- the overall shape
+- if there is clustering and where it is
+- How this shape translates to meaning in terms of your variables and model
+- Why this shape might have occured
+:::
+
+### Part B
+::: {.callout-tip collapse="true"}
+#### Hint 2: Where to go for information
+Check lecture 5 [slides 23 to 24 ](https://iml.numbat.space/week5/slides.html#/variable-importance-12) to understand what variable importance is (and see an example where it is used).
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Explaining the results
+Try and find meaning in what you find by explaining the data in terms of real world phenomena
+:::
+
+## Question 4
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 5 [slide 29 to 31](https://iml.numbat.space/week5/slides.html#/boosted-trees-13) to see an example that uses boosted trees.
+:::
