@@ -209,7 +209,7 @@ Check lecture 5 [slides 23 to 24 ](https://iml.numbat.space/week5/slides.html#/v
 
 ::: {.callout-tip collapse="true"}
 #### Hint 2: Explaining the results
-Try and find meaning in what you find by explaining the data in terms of real world phenomena
+Try and find meaning in what you find by explaining the data in terms of real world phenomena. You want to make a plot `x=important variable` and `y=cause` and look to see if you can see why that variable is important. What would the plot look like for a variable you think would be important?
 :::
 
 ## Question 4
