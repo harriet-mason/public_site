@@ -1,0 +1,79 @@
+---
+title: "ETC3250: Tutorial 8 Help Sheet"
+---
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Challenge Question
+In the penguins data, find an  observation where you think various models might differ in their prediction. Try to base your choice on the structure of the various models, not from that observation being in an overlap area between class clusters. (The code like that below will help to identify observations by their row number.)
+
+::: {.callout-tip collapse="true"}
+### Hint 1: How to think about this question
+Questions like this want you to think about what kind of structures a model can easily capture and how that structure conflicts with the structure of your data. Different models capture some structures and miss others.
+
+For this question you should consider the structure of the models we have covered, i.e. tree/forest, LDA, Logistic, and Neural networks. There are many images in the lecture notes that show what the boundaries look like, e.g. [this lecture slide](https://iml.numbat.space/week5/slides.html#/comparison-with-a-single-tree-and-lda). Think about what creates these boundaries and what quirks in your data can cause them to fail.
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Assumption vs Data driven
+If your model is built upon assumptions (i.e. LDA or Logistic model) you want to think about when these assumptions will fail and what it will do to your data. You can simulate some toy data to see how failled assumptions can influence your model.
+
+If your model is data driven, the types of failures it might experience are a little more complicated. Here you often need to consider the algorithm that made the model. For example, trees (and to a lesser extent forests and boosted trees depending on the tuning parameters) make recursive splits on individual variables, so it can sometimes struggle with boundaries that are combinations of variables. 
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 3: Extra considerations
+The typical things we look for when we do exploratory data analysis are also the kind of data features that can mess with your model. When trying to understand how a model might fail you should consider things like outliers, influential observations, non-linearity, etc.
+:::
+
+
+## Question 1
+Fit a random forest model to a subset of the penguins data containing only Adelie and Chinstrap. Report the summaries, and which variable(s) are globally important.
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Where to go for information (random forest model)
+For a reminder on how to fit a random forest model, check [lecture 5 slide 19](https://iml.numbat.space/week5/slides.html#/random-forest-fit-and-predicted-values). 
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Where to go for information (Random forest variable importance)
+Variable specifically for random forests are discussed in [lecture 5 slide 23-24](https://iml.numbat.space/week5/slides.html#/variable-importance-12) while general variable importance is discussed in [lecture 7 slide 4-8](https://iml.numbat.space/week7/slides.html#/variable-importance-13).
+
+If you are confused about the theory behind random forest variables importance, [this blog post](https://harrietmason.netlify.app/posts/permutation_variable_importance/) has a quick explanation.
+:::
+
+## Question 2
+Compute LIME, counterfactuals and SHAP for these cases: 19, 28, 37, 111, 122, 129, 281, 292, 295, 305. Report these values. 
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Where to go for information
+Check [lecture 7 slides 11 to 21 ](https://iml.numbat.space/week7/slides.html#/local-explainability) for an explanation and example of LIME, counterfactuals, and SHAP. 
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Local vs global interpretability
+If you are confused about local vs global interpretability (and by extension variable importance), [this blog post section](https://harrietmason.netlify.app/posts/LIME/) has a short explanation for why a model becomes less interpretable as it becomes more flexible. The post as a whole is an explanation of how LIME works.
+:::
+
+Once you have run the code blocks in the tutorial, make sure you can read the code and output well enough to be able to identify which variables are the most important in classifying each observation.
+
+## Question 3
+Explain what you learn about the fitted model by studying the local explainers for the selected cases. (You will want to compare the suggested variable importance of the local explainers, for an observation, and then make plots of those variables with the observation of interest marked.)
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Where to go for information
+It might be helpful to start by making a summary table similar to the one in [lecture 7 slide 19](https://iml.numbat.space/week7/slides.html#/summary). This will help you identify trends in 
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Helpful questions for interpreting these results
+When interpreting these local importances, you should consider things like:
+  - Which of these observations misclassified? Can you work out why?
+  - Which variables are typically the most important? Is this the same for all observations?
+  - Are there differences between the results from LIME, Counterfactuals, and SHAP? What do you think caused this?
+  - Where does this point appear if we visualise the model in the data space?
+  - Is this observation in the training or test set? If it is in the text set, Where is the nearest observation from the training set?
+
+:::

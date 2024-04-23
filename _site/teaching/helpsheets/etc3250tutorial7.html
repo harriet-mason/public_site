@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Harriet Mason - Tutorial Help Sheets</title>
+<title>Harriet Mason - ETC3250: Tutorial 7 (Neural Networks) Help Sheet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,37 +58,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-helpsheets .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-helpsheets'] = new List('listing-helpsheets', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -102,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Harriet Mason</span>
     </a>
   </div>
@@ -112,19 +80,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html">
+    <a class="nav-link" href="../../index.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts/index.html">
+    <a class="nav-link" href="../../posts/index.html">
  <span class="menu-text">Blog Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../teaching/index.html" aria-current="page">
+    <a class="nav-link" href="../../teaching/index.html">
  <span class="menu-text">Tutorial Help Sheets</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../talks/index.html">
+    <a class="nav-link" href="../../talks/index.html">
  <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
@@ -142,7 +110,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#etc3250-tutorial-help-sheet" id="toc-etc3250-tutorial-help-sheet" class="nav-link active" data-scroll-target="#etc3250-tutorial-help-sheet">ETC3250 Tutorial Help Sheet</a></li>
+  <li><a href="#flux" id="toc-flux" class="nav-link active" data-scroll-target="#flux">Flux</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  </ul></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">## Question 3</a>
+  <ul class="collapse">
+  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
+  <li><a href="#question-8" id="toc-question-8" class="nav-link" data-scroll-target="#question-8">Question 8</a></li>
+  <li><a href="#question-9" id="toc-question-9" class="nav-link" data-scroll-target="#question-9">Question 9</a></li>
+  <li><a href="#question-10" id="toc-question-10" class="nav-link" data-scroll-target="#question-10">Question 10</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -151,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tutorial Help Sheets</h1>
+<h1 class="title">ETC3250: Tutorial 7 (Neural Networks) Help Sheet</h1>
 </div>
 
 
@@ -166,139 +149,92 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="etc3250-tutorial-help-sheet" class="level1">
-<h1>ETC3250 Tutorial Help Sheet</h1>
-<p>I have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY recommend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.</p>
-<div id="listing-helpsheets" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1709172730974" data-listing-reading-time-sort="3.745">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial1.html">
-<h3 class="no-anchor listing-title" data-anchor-id="etc3250-tutorial-help-sheet">
-ETC3250: Tutorial 1 Help Sheet
-</h3>
-<div class="listing-subtitle">
-
+<section id="flux" class="level1">
+<h1>Flux</h1>
+<p>No flux this week!</p>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</a>
+<div class="callout-caption-container flex-fill">
+Hint 1: Where to go for details on the data
 </div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial1.html"> </a>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1709735336146" data-listing-reading-time-sort="13.13">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial2.html">
-<h3 class="no-anchor listing-title">
-ETC3250: Tutorial 2 Help Sheet
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial2.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1710246504318" data-listing-reading-time-sort="11.01">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial3.html">
-<h3 class="no-anchor listing-title">
-ETC3250: Tutorial 3 Help Sheet
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial3.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1710909189897" data-listing-reading-time-sort="5.645">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial4.html">
-<h3 class="no-anchor listing-title">
-ETC3250: Tutorial 4 Help Sheet
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial4.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-file-modified-sort="1711523105901" data-listing-reading-time-sort="3.36">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial5.html">
-<h3 class="no-anchor listing-title">
-ETC3250: Tutorial 5 Help Sheet
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial5.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-file-modified-sort="1712744591301" data-listing-reading-time-sort="6.39">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial6.html">
-<h3 class="no-anchor listing-title">
-ETC3250: Tutorial 6 Help Sheet
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial6.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-file-modified-sort="1713851633473" data-listing-reading-time-sort="0.88">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial7.html">
-<h3 class="no-anchor listing-title">
-ETC3250: Tutorial 7 (Neural Networks) Help Sheet
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial7.html"> </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-listing-file-modified-sort="1713866940457" data-listing-reading-time-sort="3.85">
-<div class="body">
-<a href="../teaching/helpsheets/etc3250tutorial8.html">
-<h3 class="no-anchor listing-title">
-ETC3250: Tutorial 8 (XAI) Help Sheet
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="../teaching/helpsheets/etc3250tutorial8.html"> </a>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Before doing an analysis you should always get a good idea of the data you are working with. There are some details on the data set <a href="https://tensorflow.rstudio.com/tutorials/keras/classification">here</a> and you can also call <code>?dataset_fashion_mnist</code> to get some details.</p>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">
-No matching items
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Where to go for information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are several functions for checking the details of a data set, they include <code>dim</code>, <code>glimpse</code>, <code>head</code>, <code>summarise</code>, etc. To plot the images, you can just use <code>ggplot</code>. The images are 28x28 pixel</p>
 </div>
 </div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 2: Why this is important
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>It is important to know what your data looks like after every transformation too. That way you understand the input and output of every function. After running those code <code>fashion_mnist$train</code> is a list that contrains two datasets, <code>x</code> and <code>y</code>. <code>fashion_mnist$train$x</code> is an 60000 x 28 x 28 dimension array. That means</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="question-3" class="level1">
+<h1>## Question 3</h1>
+<section id="question-4" class="level2">
+<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+</section>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+</section>
+<section id="question-7" class="level2">
+<h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
+</section>
+<section id="question-8" class="level2">
+<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+</section>
+<section id="question-9" class="level2">
+<h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
+</section>
+<section id="question-10" class="level2">
+<h2 class="anchored" data-anchor-id="question-10">Question 10</h2>
 
 
-
+</section>
 </section>
 
 </main> <!-- /main -->

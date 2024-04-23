@@ -1,0 +1,59 @@
+---
+title: "ETC3250: Tutorial 7 Help Sheet"
+---
+# Flux
+
+No flux this week!
+
+# Exercises
+## Question 1
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for details on the data
+Before doing an analysis you should always get a good idea of the data you are working with. There are some details on the data set [here](https://tensorflow.rstudio.com/tutorials/keras/classification) and you can also call `?dataset_fashion_mnist` to get some details. 
+:::
+
+
+## Question 2
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+There are several functions for checking the details of a data set, they include `dim`, `glimpse`, `head`, `summarise`, etc. To plot the images, you can just use `ggplot`. The images are 28x28 pixel  
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Why this is important
+It is important to know what your data looks like after every transformation too. That way you understand the input and output of every function. After running those code `fashion_mnist$train` is a list that contrains two datasets, `x` and `y`. `fashion_mnist$train$x` is an 60000 x 28 x 28 dimension array. That means
+:::
+
+
+## Question 3
+=
+
+## Question 4
+
+
+
+## Question 5
+
+
+
+## Question 6
+
+
+
+## Question 7
+
+
+
+## Question 8
+
+
+
+## Question 9
+
+
+
+## Question 10
+
+
