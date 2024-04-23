@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Harriet Mason - ETC3250: Tutorial 7 (Neural Networks) Help Sheet</title>
+<title>Harriet Mason - ETC3250: Tutorial 7 Help Sheet</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,16 +115,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
   <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  </ul></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">## Question 3</a>
-  <ul class="collapse">
   <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
   <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
   <li><a href="#question-7" id="toc-question-7" class="nav-link" data-scroll-target="#question-7">Question 7</a></li>
-  <li><a href="#question-8" id="toc-question-8" class="nav-link" data-scroll-target="#question-8">Question 8</a></li>
   <li><a href="#question-9" id="toc-question-9" class="nav-link" data-scroll-target="#question-9">Question 9</a></li>
-  <li><a href="#question-10" id="toc-question-10" class="nav-link" data-scroll-target="#question-10">Question 10</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -134,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ETC3250: Tutorial 7 (Neural Networks) Help Sheet</h1>
+<h1 class="title">ETC3250: Tutorial 7 Help Sheet</h1>
 </div>
 
 
@@ -151,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="flux" class="level1">
 <h1>Flux</h1>
-<p>No flux this week!</p>
+<p>No flux this week! Some questions below are missing, this is because there isn’t really anything to work out for those questions.</p>
 </section>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
@@ -209,29 +203,130 @@ Hint 2: Why this is important
 </div>
 </div>
 </section>
-</section>
-<section id="question-3" class="level1">
-<h1>## Question 3</h1>
 <section id="question-4" class="level2">
 <h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
-</section>
-<section id="question-5" class="level2">
-<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Where to go for layer information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check <a href="https://iml.numbat.space/week6/slides.html#/linear-regression-as-a-network">lecture 6 slide 5-6</a> for a simple neural network structure, and check <a href="https://iml.numbat.space/week6/slides.html#/steps-12">lecture 6 slide 11-12</a> for a look at how this structure fits into the model process</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 2: Extra hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Your final layer is related to what you are trying to predict, and your hidden layers are related to model flexibility.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3: Where to go for loss and optimiser information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Read the help sheet for the compile function to understand these parameters. <code>?keras::compile.keras.engine.training.Model</code> should take you there (there are a lot of functions called compile so using the full name is easier). <a href="https://iml.numbat.space/week6/slides.html#/steps-12">Lecture 6 slide 11-12</a> also have some information related to this question. You can also</p>
+</div>
+</div>
+</div>
 </section>
 <section id="question-6" class="level2">
 <h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Why you might get a different result
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Typically if you get a different result to someone else despite running identical code on an identical data set, it means the function uses randomness somewhere in the function. Think about where a neural network might use randomness and think about what function could be used to prevent this from happening.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="question-7" class="level2">
 <h2 class="anchored" data-anchor-id="question-7">Question 7</h2>
-</section>
-<section id="question-8" class="level2">
-<h2 class="anchored" data-anchor-id="question-8">Question 8</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: How to read
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This code will provide you with a confusion matrix. If a particular class if frequently predicted as another class, this will appear in the confusion matrix as a large number off the diagonal.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="question-9" class="level2">
 <h2 class="anchored" data-anchor-id="question-9">Question 9</h2>
-</section>
-<section id="question-10" class="level2">
-<h2 class="anchored" data-anchor-id="question-10">Question 10</h2>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Re-explain question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By “Explain how the class structure matches any clustering” Di means you should explain if the classes are visibly separated in the PCA and UMAP plots.</p>
+<p>If one of these methods can separate the classes and another cannot, what does that say about our method and/or input?</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 2: Interpreting the 9D Simplex
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="https://iml.numbat.space/week6/slides.html#/example-penguins-55">Lecture 6 slide 55</a> has an example of a simple case where you need to interpret a 3D simplex (three classes). This question requires</p>
+</div>
+</div>
+</div>
 
 
 </section>

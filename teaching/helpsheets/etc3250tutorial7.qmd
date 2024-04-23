@@ -3,7 +3,7 @@ title: "ETC3250: Tutorial 7 Help Sheet"
 ---
 # Flux
 
-No flux this week!
+No flux this week! Some questions below are missing, this is because there isn't really anything to work out for those questions.
 
 # Exercises
 ## Question 1
@@ -27,33 +27,48 @@ It is important to know what your data looks like after every transformation too
 :::
 
 
-## Question 3
-=
-
 ## Question 4
 
+::: {.callout-tip collapse="true"}
+### Hint 1: Where to go for layer information
+Check [lecture 6 slide 5-6 ](https://iml.numbat.space/week6/slides.html#/linear-regression-as-a-network) for a simple neural network structure, and check [lecture 6 slide 11-12 ](https://iml.numbat.space/week6/slides.html#/steps-12) for a look at how this structure fits into the model process
+:::
 
+::: {.callout-tip collapse="true"}
+### Hint 2: Extra hint
+Your final layer is related to what you are trying to predict, and your hidden layers are related to model flexibility.
+:::
 
-## Question 5
-
-
+::: {.callout-tip collapse="true"}
+### Hint 3: Where to go for loss and optimiser information
+Read the help sheet for the compile function to understand these parameters. `?keras::compile.keras.engine.training.Model` should take you there (there are a lot of functions called compile so using the full name is easier). [Lecture 6 slide 11-12 ](https://iml.numbat.space/week6/slides.html#/steps-12) also have some information related to this question. You can also 
+:::
 
 ## Question 6
 
-
+::: {.callout-tip collapse="true"}
+### Hint 1: Why you might get a different result
+Typically if you get a different result to someone else despite running identical code on an identical data set, it means the function uses randomness somewhere in the function. Think about where a neural network might use randomness and think about what function could be used to prevent this from happening. 
+:::
 
 ## Question 7
 
-
-
-## Question 8
-
+::: {.callout-tip collapse="true"}
+### Hint 1: How to read
+This code will provide you with a confusion matrix. If a particular class if frequently predicted as another class, this will appear in the confusion matrix as a large number off the diagonal. 
+:::
 
 
 ## Question 9
 
+::: {.callout-tip collapse="true"}
+### Hint 1: Re-explain question
+By "Explain how the class structure matches any clustering" Di means you should explain if the classes are visibly separated in the PCA and UMAP plots.
 
+If one of these methods can separate the classes and another cannot, what does that say about our method and/or input?
+:::
 
-## Question 10
-
-
+::: {.callout-tip collapse="true"}
+### Hint 2: Interpreting the 9D Simplex
+[Lecture 6 slide 55](https://iml.numbat.space/week6/slides.html#/example-penguins-55) has an example of a simple case where you need to interpret a 3D simplex (three classes). This question requires 
+:::
