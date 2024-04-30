@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Harriet Mason - ETC3250: Tutorial 9 Help Sheet</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Harriet Mason</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html">
+ <span class="menu-text">Blog Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html">
+ <span class="menu-text">Tutorial Help Sheets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#flux" id="toc-flux" class="nav-link active" data-scroll-target="#flux">Flux</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a>
+  <ul class="collapse">
+  <li><a href="#part-a" id="toc-part-a" class="nav-link" data-scroll-target="#part-a">Part A</a></li>
+  <li><a href="#part-b" id="toc-part-b" class="nav-link" data-scroll-target="#part-b">Part B</a></li>
+  <li><a href="#part-c" id="toc-part-c" class="nav-link" data-scroll-target="#part-c">Part C</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part D</a></li>
+  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part E</a></li>
+  <li><a href="#part-f" id="toc-part-f" class="nav-link" data-scroll-target="#part-f">Part F</a></li>
+  <li><a href="#part-g" id="toc-part-g" class="nav-link" data-scroll-target="#part-g">Part G</a></li>
+  <li><a href="#part-h" id="toc-part-h" class="nav-link" data-scroll-target="#part-h">Part H</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ETC3250: Tutorial 9 Help Sheet</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="flux" class="level1">
+<h1>Flux</h1>
+<p>Join this weeks flux using <a href="https://flux.qa/V3UHTY">this link</a></p>
+</section>
+<section id="exercises" class="level1">
+<h1>Exercises</h1>
+<section id="question-1" class="level2">
+<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
+<p>Show that <span class="math inline">\(\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2\)</span> is equivalent to an inner product of transformations of the original variables defined as <span class="math inline">\(\mathbf{y} \in \mathbb{R}^6\)</span>. That is, prove:</p>
+<p><span class="math display">\[ \mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = \langle \psi(\mathbf{x_1}), \psi(\mathbf{x_2}) \rangle\]</span> ::: {.callout-tip collapse=“true”} #### Hint 1: Where to go for information Check <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a> for all the equalities you will need to answer this question.</p>
+<p>Remember, you are trying to show that the kernel applied to <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span> should be the dot product of <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> where <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> are transformations of <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span>. e.g.&nbsp;<span class="math inline">\(\mathbf{x_1}^2 = \mathbf{y_1}\)</span>.</p>
+<p>:::</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 2: How to start
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Starting from <span class="math inline">\(\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2\)</span> you should expand the inner product using the definition on <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3: A little more help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You want to expand the inner product of <span class="math inline">\((1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2\)</span> and then expand the square.</p>
+<p>You want to rearrange the expression above until you get it in terms of <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span>. To do this, you need to recognize the pattern of the inner product applied to a function of <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span>. The end of your solution should look something like this: <span class="math display">\[
+\begin{align*}
+\sum_{j=1}^p \psi(\mathbf{x_1})_{1j} \psi(\mathbf{x_2})_{2j} &amp; = \langle \psi(\mathbf{x_1}), \psi(\mathbf{x_2}) \rangle\\
+                                     &amp; =  \langle\mathbf{y_1}, \mathbf{y_2} \rangle
+\end{align*}
+\]</span> Where you finish by defining what <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> are. Remember, <span class="math inline">\(\mathbf{y} \in \mathbb{R}^6\)</span> means <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> will each be a vector with six elements.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
+<section id="part-a" class="level3">
+<h3 class="anchored" data-anchor-id="part-a">Part A</h3>
+<p>Make plots of each data set.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Plot to make
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A scatter plot is typically what you use when you want to display data, only have two variables, and no other information about the structure. Use <code>geom_point</code> and make sure to colour by the class variable.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-b" class="level3">
+<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
+<p>What type of kernel would be appropriate for each? How many support vectors would you expect are needed to define the boundary in each case?</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Where to go for information (type of kernal)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check <a href="https://iml.numbat.space/week8/slides.html#/linear-support-vector-machine-classifier-12">lecture 8 slide 7</a> has an example of a linear SVM, and <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a> has an example of a non-linear classier. Make sure to to differentiate between polynomial and radial kernels for this type of question (i.e.&nbsp;don’t just answer linear or non-linear).</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 2: Number of support vectors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There isn’t an obvious section of the lecture slides I can direct you to for this question, although the answer is really in the fact that we are using a separating hyperplane, so you should use <a href="https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-13">lecture 8 slide 4</a>. Instead of thinking about an exact number of support vectors to start, think about the number of support vectors each data set would need relative to each other. To answer <em>this</em> question, I would advise you to think about your results from Question 1. How many dimensions in the original data are you splitting on in the non-linear kernal vs in the linear kernal? Is it different? How does the dimensionality of the separating hyper plane in the non-linear kernal impact the number of support vectors needed?</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3: Getting to an exact number of points
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To draw a line you only need at least two points. To draw a surface you need at least three points. Otherwise do not have a well defined line or surface. What is the minimum number of points needed to draw a separating hyper plane in the space defined by the non-linear kernal? How about the linear kernal? Of course, this does not mean you would need 2 points for a linear deicison boundary, but the logic is similar.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-c" class="level3">
+<h3 class="anchored" data-anchor-id="part-c">Part C</h3>
+<p>Break the data into training and test.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Code tip
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We have done this many times. Check any previous tutorial. You need to use the <code>initial_split</code> function and remember to use the <code>strata</code> option because this is a classification task.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
+<p>Fit the svm model. Try changing the cost parameter to explore the number of support vectors used. Choose the value that gives you the smallest number.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Where to go for information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The code to make the model is provided, so you only need to get information on the impact of the cost function. Check <a href="https://iml.numbat.space/week8/slides.html#/soft-threshold-when-no-separation">lecture 8 slide 10</a> for information on the cost parameter. Using your results from Part B, you should know the theoretical minimum for each kernel. You can try and fiddle around with <code>cost</code> until you get close to that threshold (you might not be able to hit it).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-e" class="level3">
+<h3 class="anchored" data-anchor-id="part-e">Part E</h3>
+<p>Can you use the parameter estimates to write out the equation of the separating hyperplane for the linear SVM model?</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Extra help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Di told you to use <code>svm_fit1$fit@coef</code> and <code>svm_fit1$fit@SVindex</code> in the formula on <a href="https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-33">lecture 8 slide 6</a>. Remember that you are trying to compute all the <span class="math inline">\(\beta\)</span> values for the SVM model (which will give you the equation for the hyperplane) and keep in mind your data was scaled.</p>
+<p>Consider using the <code>apply</code> function if you need to do a calculation multiple times.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-f" class="level3">
+<h3 class="anchored" data-anchor-id="part-f">Part F</h3>
+<p>Compute the confusion table, and the test error for each model.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Harriet Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have done this many times. Check any previous tutorial or your assignments</p>
+</div>
+</div>
+</section>
+<section id="part-g" class="level3">
+<h3 class="anchored" data-anchor-id="part-g">Part G</h3>
+<p>Which observations would you expect to be the support vectors? Overlay indications of the support vectors from each model to check whether the model thinks the same as you.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Where to go for information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check <a href="https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-23">lectrue 8 slide 5</a> has a visualisation of the typical support vectors. This question only requires you to compare this to what you expected.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-h" class="level3">
+<h3 class="anchored" data-anchor-id="part-h">Part H</h3>
+<p>Would a neural network might be able to fit the second data set? Think about what would need to be done to make a neural network architecture.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 1: Tip on thinking about this question.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>One possible answer to this question can be given without knowing much about neural networks. After all, the simplest boundary you can give is linear. Is there anything you can do to your data that would make the modelling problem simple enough that <em>any</em> model could do the classification?</p>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

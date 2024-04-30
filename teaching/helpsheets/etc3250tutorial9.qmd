@@ -1,0 +1,121 @@
+---
+title: "ETC3250: Tutorial 9 Help Sheet"
+---
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Question 1
+Show that $\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2$ is equivalent to an inner product of transformations of the original variables defined as $\mathbf{y} \in \mathbb{R}^6$. That is, prove:
+
+$$ \mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = \langle \psi(\mathbf{x_1}), \psi(\mathbf{x_2}) \rangle$$
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lecture 8 slide 9](https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification) for all the equalities you will need to answer this question.
+
+Remember, you are trying to show that the kernel applied to $\mathbf{x_1}$ and $\mathbf{x_2}$ should be the dot product of $\mathbf{y_1}$ and $\mathbf{y_2}$ where $\mathbf{y_1}$ and $\mathbf{y_2}$ are transformations of $\mathbf{x_1}$ and $\mathbf{x_2}$. e.g. $\mathbf{x_1}^2 = \mathbf{y_1}$.
+
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: How to start
+Starting from $\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2$ you should expand the inner product using the definition on [lecture 8 slide 9](https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification). 
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 3: A little more help
+You want to expand the inner product of  $(1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2$ and then expand the square. 
+
+You want to rearrange the expression above until you get it in terms of  $\mathbf{y_1}$ and $\mathbf{y_2}$. To do this, you need to recognize the pattern of the inner product applied to a function of  $\mathbf{x_1}$ and $\mathbf{x_2}$. The end of your solution should look something like this:
+$$
+\begin{align*}
+\sum_{j=1}^p \psi(\mathbf{x_1})_{1j} \psi(\mathbf{x_2})_{2j} & = \langle \psi(\mathbf{x_1}), \psi(\mathbf{x_2}) \rangle\\
+                                     & =  \langle\mathbf{y_1}, \mathbf{y_2} \rangle
+\end{align*}
+$$
+Where you finish by defining what $\mathbf{y_1}$ and $\mathbf{y_2}$ are. Remember, $\mathbf{y} \in \mathbb{R}^6$ means $\mathbf{y_1}$ and $\mathbf{y_2}$ will each be a vector with six elements. 
+:::
+
+## Question 2
+### Part A
+Make plots of each data set.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Plot to make
+A scatter plot is typically what you use when you want to display data, only have two variables, and no other information about the structure. Use `geom_point` and make sure to colour by the class variable. 
+:::
+
+### Part B
+What type of kernel would be appropriate for each? How many support vectors would you expect are needed to define the boundary in each case?
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information (type of kernal)
+Check [lecture 8 slide 7](https://iml.numbat.space/week8/slides.html#/linear-support-vector-machine-classifier-12) has an example of a linear SVM, and [lecture 8 slide 9](https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification) has an example of a non-linear classier. Make sure to to differentiate between polynomial and radial kernels for this type of question (i.e. don't just answer linear or non-linear).
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Number of support vectors
+There isn't an obvious section of the lecture slides I can direct you to for this question, although the answer is really in the fact that we are using a separating hyperplane, so you should use [lecture 8 slide 4](https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-13). Instead of thinking about an exact number of support vectors to start, think about the number of support vectors each data set would need relative to each other. To answer *this* question, I would advise you to think about your results from Question 1. How many dimensions in the original data are you splitting on in the non-linear kernal vs in the linear kernal? Is it different? How does the dimensionality of the separating hyper plane in the non-linear kernal impact the number of support vectors needed?
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 3: Getting to an exact number of points
+To draw a line you only need at least two points. To draw a surface you need at least three points. Otherwise do not have a well defined line or surface. What is the minimum number of points needed to draw a separating hyper plane in the space defined by the non-linear kernal? How about the linear kernal? Of course, this does not mean you would need 2 points for a linear deicison boundary, but the logic is similar.
+:::
+
+
+### Part C
+Break the data into training and test.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Code tip
+We have done this many times. Check any previous tutorial. You need to use the `initial_split` function and remember to use the `strata` option because this is a classification task. 
+:::
+
+### Part D
+Fit the svm model. Try changing the cost parameter to explore the number of support vectors used. Choose the value that gives you the smallest number.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+The code to make the model is provided, so you only need to get information on the impact of the cost function. Check [lecture 8 slide 10 ](https://iml.numbat.space/week8/slides.html#/soft-threshold-when-no-separation) for information on the cost parameter. Using your results from Part B, you should know the theoretical minimum for each kernel. You can try and fiddle around with `cost` until you get close to that threshold (you might not be able to hit it).
+:::
+
+
+### Part E
+Can you use the parameter estimates to write out the equation of the separating hyperplane for the linear SVM model?
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Extra help
+Di told you to use `svm_fit1$fit@coef` and `svm_fit1$fit@SVindex` in the formula on [lecture 8 slide 6](https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-33). Remember that you are trying to compute all the $\beta$ values for the SVM model (which will give you the equation for the hyperplane) and keep in mind your data was scaled.
+
+Consider using the `apply` function if you need to do a calculation multiple times.
+:::
+
+### Part F
+Compute the confusion table, and the test error for each model.
+
+::: {.callout-tip}
+#### Harriet Note
+We have done this many times. Check any previous tutorial or your assignments 
+:::
+
+### Part G
+Which observations would you expect to be the support vectors? Overlay indications of the support vectors from each model to check whether the model thinks the same as you.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lectrue 8 slide 5](https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-23) has a visualisation of the typical support vectors. This question only requires you to compare this to what you expected.
+:::
+
+### Part H
+Would a neural network might be able to fit the second data set? Think about what would need to be done to make a neural network architecture.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Tip on thinking about this question.
+One possible answer to this question can be given without knowing much about neural networks. After all, the simplest boundary you can give is linear. Is there anything you can do to your data that would make the modelling problem simple enough that *any* model could do the classification?
+:::
+
+
+
+
