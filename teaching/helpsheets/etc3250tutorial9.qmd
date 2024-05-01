@@ -10,12 +10,12 @@ Join this weeks flux using [this link](https://flux.qa/V3UHTY)
 Show that $\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2$ is equivalent to an inner product of transformations of the original variables defined as $\mathbf{y} \in \mathbb{R}^6$. That is, prove:
 
 $$ \mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = \langle \psi(\mathbf{x_1}), \psi(\mathbf{x_2}) \rangle$$
+
 ::: {.callout-tip collapse="true"}
 #### Hint 1: Where to go for information
 Check [lecture 8 slide 9](https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification) for all the equalities you will need to answer this question.
 
 Remember, you are trying to show that the kernel applied to $\mathbf{x_1}$ and $\mathbf{x_2}$ should be the dot product of $\mathbf{y_1}$ and $\mathbf{y_2}$ where $\mathbf{y_1}$ and $\mathbf{y_2}$ are transformations of $\mathbf{x_1}$ and $\mathbf{x_2}$. e.g. $\mathbf{x_1}^2 = \mathbf{y_1}$.
-
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -86,6 +86,7 @@ The code to make the model is provided, so you only need to get information on t
 Can you use the parameter estimates to write out the equation of the separating hyperplane for the linear SVM model?
 
 ::: {.callout-tip collapse="true"}
+
 #### Hint 1: Extra help
 Di told you to use `svm_fit1$fit@coef` and `svm_fit1$fit@SVindex` in the formula on [lecture 8 slide 6](https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-33). Remember that you are trying to compute all the $\beta$ values for the SVM model (which will give you the equation for the hyperplane) and keep in mind your data was scaled.
 

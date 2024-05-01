@@ -159,22 +159,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="question-1" class="level2">
 <h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
 <p>Show that <span class="math inline">\(\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2\)</span> is equivalent to an inner product of transformations of the original variables defined as <span class="math inline">\(\mathbf{y} \in \mathbb{R}^6\)</span>. That is, prove:</p>
-<p><span class="math display">\[ \mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = \langle \psi(\mathbf{x_1}), \psi(\mathbf{x_2}) \rangle\]</span> ::: {.callout-tip collapse=“true”} #### Hint 1: Where to go for information Check <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a> for all the equalities you will need to answer this question.</p>
-<p>Remember, you are trying to show that the kernel applied to <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span> should be the dot product of <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> where <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> are transformations of <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span>. e.g.&nbsp;<span class="math inline">\(\mathbf{x_1}^2 = \mathbf{y_1}\)</span>.</p>
-<p>:::</p>
+<p><span class="math display">\[ \mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = \langle \psi(\mathbf{x_1}), \psi(\mathbf{x_2}) \rangle\]</span></p>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 2: How to start
+Hint 1: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Starting from <span class="math inline">\(\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2\)</span> you should expand the inner product using the definition on <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a>.</p>
+<p>Check <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a> for all the equalities you will need to answer this question.</p>
+<p>Remember, you are trying to show that the kernel applied to <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span> should be the dot product of <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> where <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span> are transformations of <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span>. e.g.&nbsp;<span class="math inline">\(\mathbf{x_1}^2 = \mathbf{y_1}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -184,11 +183,27 @@ Hint 2: How to start
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 3: A little more help
+Hint 2: How to start
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Starting from <span class="math inline">\(\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2\)</span> you should expand the inner product using the definition on <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a>.</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3: A little more help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>You want to expand the inner product of <span class="math inline">\((1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2\)</span> and then expand the square.</p>
 <p>You want to rearrange the expression above until you get it in terms of <span class="math inline">\(\mathbf{y_1}\)</span> and <span class="math inline">\(\mathbf{y_2}\)</span>. To do this, you need to recognize the pattern of the inner product applied to a function of <span class="math inline">\(\mathbf{x_1}\)</span> and <span class="math inline">\(\mathbf{x_2}\)</span>. The end of your solution should look something like this: <span class="math display">\[
@@ -207,7 +222,7 @@ Hint 3: A little more help
 <h3 class="anchored" data-anchor-id="part-a">Part A</h3>
 <p>Make plots of each data set.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -216,7 +231,7 @@ Hint 1: Plot to make
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A scatter plot is typically what you use when you want to display data, only have two variables, and no other information about the structure. Use <code>geom_point</code> and make sure to colour by the class variable.</p>
 </div>
@@ -227,7 +242,7 @@ Hint 1: Plot to make
 <h3 class="anchored" data-anchor-id="part-b">Part B</h3>
 <p>What type of kernel would be appropriate for each? How many support vectors would you expect are needed to define the boundary in each case?</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -236,25 +251,9 @@ Hint 1: Where to go for information (type of kernal)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Check <a href="https://iml.numbat.space/week8/slides.html#/linear-support-vector-machine-classifier-12">lecture 8 slide 7</a> has an example of a linear SVM, and <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a> has an example of a non-linear classier. Make sure to to differentiate between polynomial and radial kernels for this type of question (i.e.&nbsp;don’t just answer linear or non-linear).</p>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Hint 2: Number of support vectors
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>There isn’t an obvious section of the lecture slides I can direct you to for this question, although the answer is really in the fact that we are using a separating hyperplane, so you should use <a href="https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-13">lecture 8 slide 4</a>. Instead of thinking about an exact number of support vectors to start, think about the number of support vectors each data set would need relative to each other. To answer <em>this</em> question, I would advise you to think about your results from Question 1. How many dimensions in the original data are you splitting on in the non-linear kernal vs in the linear kernal? Is it different? How does the dimensionality of the separating hyper plane in the non-linear kernal impact the number of support vectors needed?</p>
+<p>Check <a href="https://iml.numbat.space/week8/slides.html#/linear-support-vector-machine-classifier-12">lecture 8 slide 7</a> has an example of a linear SVM, and <a href="https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification">lecture 8 slide 9</a> has an example of a non-linear classier. Make sure to to differentiate between polynomial and radial kernels for this type of question (i.e.&nbsp;don’t just answer linear or non-linear).</p>
 </div>
 </div>
 </div>
@@ -264,11 +263,27 @@ Hint 2: Number of support vectors
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hint 3: Getting to an exact number of points
+Hint 2: Number of support vectors
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There isn’t an obvious section of the lecture slides I can direct you to for this question, although the answer is really in the fact that we are using a separating hyperplane, so you should use <a href="https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-13">lecture 8 slide 4</a>. Instead of thinking about an exact number of support vectors to start, think about the number of support vectors each data set would need relative to each other. To answer <em>this</em> question, I would advise you to think about your results from Question 1. How many dimensions in the original data are you splitting on in the non-linear kernal vs in the linear kernal? Is it different? How does the dimensionality of the separating hyper plane in the non-linear kernal impact the number of support vectors needed?</p>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hint 3: Getting to an exact number of points
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To draw a line you only need at least two points. To draw a surface you need at least three points. Otherwise do not have a well defined line or surface. What is the minimum number of points needed to draw a separating hyper plane in the space defined by the non-linear kernal? How about the linear kernal? Of course, this does not mean you would need 2 points for a linear deicison boundary, but the logic is similar.</p>
 </div>
@@ -279,7 +294,7 @@ Hint 3: Getting to an exact number of points
 <h3 class="anchored" data-anchor-id="part-c">Part C</h3>
 <p>Break the data into training and test.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -288,7 +303,7 @@ Hint 1: Code tip
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We have done this many times. Check any previous tutorial. You need to use the <code>initial_split</code> function and remember to use the <code>strata</code> option because this is a classification task.</p>
 </div>
@@ -299,7 +314,7 @@ Hint 1: Code tip
 <h3 class="anchored" data-anchor-id="part-d">Part D</h3>
 <p>Fit the svm model. Try changing the cost parameter to explore the number of support vectors used. Choose the value that gives you the smallest number.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -308,7 +323,7 @@ Hint 1: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The code to make the model is provided, so you only need to get information on the impact of the cost function. Check <a href="https://iml.numbat.space/week8/slides.html#/soft-threshold-when-no-separation">lecture 8 slide 10</a> for information on the cost parameter. Using your results from Part B, you should know the theoretical minimum for each kernel. You can try and fiddle around with <code>cost</code> until you get close to that threshold (you might not be able to hit it).</p>
 </div>
@@ -319,7 +334,7 @@ Hint 1: Where to go for information
 <h3 class="anchored" data-anchor-id="part-e">Part E</h3>
 <p>Can you use the parameter estimates to write out the equation of the separating hyperplane for the linear SVM model?</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -328,7 +343,7 @@ Hint 1: Extra help
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Di told you to use <code>svm_fit1$fit@coef</code> and <code>svm_fit1$fit@SVindex</code> in the formula on <a href="https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-33">lecture 8 slide 6</a>. Remember that you are trying to compute all the <span class="math inline">\(\beta\)</span> values for the SVM model (which will give you the equation for the hyperplane) and keep in mind your data was scaled.</p>
 <p>Consider using the <code>apply</code> function if you need to do a calculation multiple times.</p>
@@ -357,7 +372,7 @@ Harriet Note
 <h3 class="anchored" data-anchor-id="part-g">Part G</h3>
 <p>Which observations would you expect to be the support vectors? Overlay indications of the support vectors from each model to check whether the model thinks the same as you.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -366,7 +381,7 @@ Hint 1: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Check <a href="https://iml.numbat.space/week8/slides.html#/separating-hyperplanes-23">lectrue 8 slide 5</a> has a visualisation of the typical support vectors. This question only requires you to compare this to what you expected.</p>
 </div>
@@ -377,7 +392,7 @@ Hint 1: Where to go for information
 <h3 class="anchored" data-anchor-id="part-h">Part H</h3>
 <p>Would a neural network might be able to fit the second data set? Think about what would need to be done to make a neural network architecture.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -386,7 +401,7 @@ Hint 1: Tip on thinking about this question.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>One possible answer to this question can be given without knowing much about neural networks. After all, the simplest boundary you can give is linear. Is there anything you can do to your data that would make the modelling problem simple enough that <em>any</em> model could do the classification?</p>
 </div>
