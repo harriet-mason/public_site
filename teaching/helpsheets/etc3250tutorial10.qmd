@@ -1,0 +1,130 @@
+---
+title: "ETC5250: Tutorial 10 Help Sheet"
+---
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Question 1
+### Part A
+How would you cluster this data?
+
+::: {.callout-note}
+#### Harriet Note
+While there is technically no right or wrong answer for this question, there is a very obvious grouping that you should do. You are just being asked to identify this grouping.
+:::
+
+### Part B
+Derive a distance metric that will capture your clusters. Provide some evidence that it satisfies the four distance rules.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lecture 9 slides 6 to 10 9](https://iml.numbat.space/week9/slides.html#/how-do-you-measure-close) for details on distance metrics, [slide 9](https://iml.numbat.space/week9/slides.html#/basic-rules-of-a-distance-metric) has the four requirements of a distance metric. Slide 7 will also be useful, because it has a large number of distance metrics. This [link](https://towardsdatascience.com/9-distance-measures-in-data-science-918109d069fa)  has a nice visualisation of some of the distance metrics shown on the slide, so you can get an intuitive understanding of what they are doing. 
+
+You can (and should) consider metrics that are not in the slides on this list though. 
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: What distance to consider
+You can (and should) consider metrics that are not in the distance metric slides. For example, in last weeks tutorial, as well as in [lecture 8 slide 9](https://iml.numbat.space/week8/slides.html#/using-kernels-for-non-linear-classification) we saw an example of a kernal that could capture this type of model. Do you think there is a way to translate this to a distance metric?
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 3: Another way to think about distances
+You can also think of alternative distance metrics as euclidean distance *on a transformed space*. Think about how the first questions of last week highlighted how applying the radial kernal was the same as applying a linear separator on a transformed space. This concept is very similar. Think about how you could transform your space so that you could draw a straight line between the groups. I would suggest Googling "polar coordinates".
+
+Additionally, remember that a distance metric does not need to be between two points. In the lecture, Di gave the example of having to go across a bridge, which can be considered another point in the space. Maybe you should define your distance relative to another point in the space...
+:::
+
+### Part C
+Compute your rule on the data, and establish that it does indeed capture your clusters.
+
+::: {.callout-note}
+#### Harriet Note
+This question is easiest to do by coding. Grab the solution file to get the data points, but don't look at the solution!
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+You want to make an nxn distance metric, such as the one in [lecture 9 slide 24 ](https://iml.numbat.space/week9/slides.html#/hierarchical-clustering-24). 
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: How to know if it worked
+If you plot all these distances as a single variable "distance" you should notice two modes (or humps). These two groups would form your two clusters.
+:::
+
+
+## Question 2
+### Part A
+Make a plot of all of the variables. This could be a density or a jittered dotplot (`beeswarm::quasirandom`). 
+Many of the variables have skewed distributions. For cluster analysis, why might this be a problem? From the blog post, are any of the anomalies reported ones that can be seen as outliers in a single skewed variable?
+
+::: {.callout-note}
+#### Harriet Note
+Di wants you to plot the distribution of each individual variable on a single plot. You need to make a figure that is like those in the [geom_jitter examples](https://ggplot2.tidyverse.org/reference/geom_jitter.html#ref-examples) but using the `quasirandom` function (which is basically just another geom that replaces `geom_jitter`).
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Coding Tips
+To prepare the data, you will need to ignore the use `pivot_longer` on all the numeric variables, and plot the variable against the common value (which is also why it was important to scale the variables).
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Theory Tips
+Skew usually means something is growing as a percentage, not as a . For example, wealth is typically skewed because the more money you have, the easier it is to get more money. Typically we will do a log transformation so we are capturing this "compounding" quality of the variable, rather than just refering to its raw numbers. Acidity and Richter scales also are log scales. You need to think about if the skew reflects something interesting about the data or if it is because our data has been measured on an improper scale for our analysis.
+:::
+
+### Part B
+Transform the skewed variables to be as symmetric as possible, and then fit a $k=3$-means clustering. Extract and report these metrics: `totss`, `tot.withinss`, `betweenss`. What is the ratio of within to between SS?
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+The transformation is the same one we always do with skewed variables. It is important to think about why we do this though.
+
+Check [lecture 9 slide 20](https://iml.numbat.space/week9/slides.html#/example-penguins) for an example fitting k-means clusters. Di discusses the cluster metrics in [lecture 9 slide 20-21](https://iml.numbat.space/week9/slides.html#/choosing-k-with-cluster-statistics-12). The statistics are usually inside the model object.
+:::
+
+### Part C
+Now the algorithm $k=1, ..., 20$. Extract the metrics, and plot the ratio of within SS to between SS against $k$. What would be suggested as the best model?
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Coding tips
+You basically need to apply the k-means function 20 times and get those statistics from each model. Consider making using the `purrr::map` function to avoid copy and pasting or doing a for loop (although you can do a for loop if you can't figure out the `map` function).
+:::
+
+
+### Part D
+Divide the data into 11 clusters, and examine the number of songs in each. Using plotly, mouse over the resulting plot and explore songs belonging to a cluster. (I don't know much about these songs, but if you are a music fan maybe discussing with other class members and your tutor about the groupings, like which ones are grouped in clusters with high `liveness`, high `tempo` or `danceability` could be fun.)
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: General tip on approach for this question
+You need to pull out the 11-mean cluster model from your previous question and use it to assign clusters to all your observations. Once you have the clusters, check how they differ in number of observations and on the variables discussed at the begining of this question. Can you identify how the observations are being clustered?
+:::
+
+
+## Question 3
+### Part A
+In tutorial of week 3 you used the tour to visualise the data sets `c1` and `c3` provided with the `mulgar` package. Review what you said about the structure in these data sets, and write down your expectations for how a cluster analysis would divide the data.
+
+### Part B
+Compute $k$-means and hierarchical clustering on these two data sets, without standardising them. Use a variety of $k$, linkage methods and check the resulting clusters using the cluster metrics. What method produces the best result, relative to what you said in a. (NOTE: Although we said that we should always standardise variables before doing clustering, you should not do this for `c3`. Why?)
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+You have already covered K-means in this tututorial, but [Lecture 9 slide 23-34](https://iml.numbat.space/week9/slides.html#/hierarchical-clustering) discuss hierarchical clustering and linkage methods. You will find the code on slide 34 useful for making your hierarchical clusters. 
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Standardising Hint
+Whether we do or don't standardise has a lot to do with the scale of the data. If the scale is important (i.e. it is a common scale) then differences in the scale have *meaning* we want to capture, if the scale is unimportant (i.e. not a common scale) then . For example, Australian vs US 100m dash times *should not* be separately standardised, but 100m dash vs 10000m dash times *should* be standardised because otherwise the "importance" we are capturing is just that 1000m is further than 100m which we already know. Why should we consider this data to have (or not have) a common scale?
+:::
+
+### Part C
+There are five other data sets in the `mulgar` package. Choose one or two or more to examine how they would be clustered. (I particularly would like to see how `c4` is clustered.)
+
+
+
+
+
