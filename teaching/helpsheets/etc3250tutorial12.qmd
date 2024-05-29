@@ -1,0 +1,69 @@
+---
+title: "ETC5250: Tutorial 12 Help Sheet"
+---
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Part A
+Using the tour, examine the data, and explain where there are separated clusters, linear or non-linear dependencies. 
+
+::: {.callout-note}
+### Harriet's Note
+You have looked at tours and used them the describe data multiple times, so feel free to check previous tutorials.
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Basics of what to do
+Use the function `animate_xy()`. Look for strange shapes and then describe what thsoe shapes mean for your data. Also consider using some summary statistics.
+:::
+
+## Part B
+How do you think $k$-means would partition this data? What about Wards linkage or single linkage? Why wouldn't model-based be recommended?
+
+::: {.callout-tip collapse="true"}
+### Hint 1: How to approach this question
+Questions like this want you to consider what the "model sees". [This lecture sldie](https://iml.numbat.space/week9/slides.html#/cluster-these) highlights that what the model sees and what you see might be different. You need to consider what the "model sees" from the perspective of each of these models
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Where to go for information
+Working out what the model "sees" usually involves looking at the algorithm and working out the features in your data that would be captured or missed. The k-means algorithm is [in lecture 9 slide 12](https://iml.numbat.space/week9/slides.html#/k-means-clustering---algorithm-18), the hierarchical clustering algorithm is in [lecture 9 slide 24](https://iml.numbat.space/week9/slides.html#/hierarchical-clustering-14), the model based clustering estimates parameters based on the assumptions given in [lecture 10 slides 4-5](https://iml.numbat.space/week10/slides.html#/overview-1).
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 3: An additional way of thinking about it
+How would these models react is there *were* no visible clusters
+:::
+
+## Part C
+Using $k=7$ fit the model, and examine the results with a tour.  Describe the clusters.
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Where to go for information
+There are many examples in the lecture slides where we look at a clustering using the tour. For example, [lecture 9 slide 20](https://iml.numbat.space/week9/slides.html#/example-penguins) has an example where kmeans clustering is animated using the tour (something that is very relevant to this question). Remember, you can always find the code for the lecture slides in the lecture QMD file.
+:::
+
+## Part D
+Use Euclidean distance with Wards linkage to cluster the data and plot the dendrogram. How many clusters are suggested by the dendrogram?
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Where to go for information
+Check [lecture 9 slide 32](https://iml.numbat.space/week9/slides.html#/dendrogram) for information on dendrograms. [Lecture 11 slide 6](https://iml.numbat.space/week11/slides.html#/confusion-tables-comparing-results-33) (and some of the following slides) also has some useful information on dendrograms.
+:::
+
+Compute the cluster metrics for the range of cluster numbers between 2 and 7. Which $k$ would be considered the best, according to `within.cluster.ss`? Why not be concerned about the other metrics?
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Where to go for information
+Check [lecture 11 slides 7-9](https://iml.numbat.space/week11/slides.html#/cluster-metrics-12) and [lecture 9 slide 21](https://iml.numbat.space/week9/slides.html#/choosing-k-with-cluster-statistics-12) for some details on cluster metrics you might want to consider. 
+:::
+
+## Part E
+
+
+::: {.callout-note}
+### Harriet Note
+Use all the information you have collected in this tutorial to answer this question!
+:::

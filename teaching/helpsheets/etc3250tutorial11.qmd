@@ -1,0 +1,122 @@
+---
+title: "ETC5250: Tutorial 11 Help Sheet"
+---
+
+# Flux
+Join this weeks flux using [this link](https://flux.qa/V3UHTY)
+
+# Exercises
+## Question 1
+### Part A
+Fit model-based clustering with number of clusters ranging from 1-15, to the transformed data, and all possible parametrisations. Summarise the best models, and plot the BIC values for the models. You can also simplify the plot, and show just the 10 best models.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lecture 10 slides 3 to 15](https://iml.numbat.space/week10/slides.html#/model-based-clustering) for the details on model based clustering. Slide 13 has an example where the penguins data is fit on 2-8 clusters with all possible parameterisations and a plot of all the BIC values for all the models is shown. 
+:::
+
+### Part B
+Why are some variance-covariance parametrisations fitted to less than 15 clusters?
+
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lecture 10 slides 4 and 5](https://iml.numbat.space/week10/slides.html#/overview-1) to see the models that are being fit to make the clustering. Can you work out how many parameters are being fit in each model?
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Additional tip
+If the number of parameters is greater than the number of observations, a model cannot be fit. How many observations do you have? 
+:::
+
+### Part C
+Make a 2D sketch that would illustrate what the best variance-covariance parametrisation looks like conceptually for cluster shapes. 
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lecture 10 slides 6](https://iml.numbat.space/week10/slides.html#/parametrisation-of-the-var-cov-matrices-22) for some examples of these kinds of sketches
+:::
+
+### Part D
+How many parameters need to be estimated for the VVE model with 7 and 8 clusters? Compare this to the number of observations, and explain why the model is not estimated for 8 clusters.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Important variables
+In order to work out the number of parameters in each model, you need to know: the number of observations ($n$), the number of predictors ($p$), and the total number of clusters ($G$). In this case, $n=507$, $p=11$, and  $G=7, 8$
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Parameters in the Model
+The model you are estimating is:
+$$f(x_i)=\sum_{k=1}^G\pi_kf_k(x_i;\mu_k,\Sigma_k)$$
+Therefore, **for each cluster** you need to estimate $\pi_k$, a scalar that represents the proportion of total observations that belong to that cluster,  $\mu_k$, a $p$ dimensional vector for each cluster and $\Sigma_k$, a $p\times p$ dimensional matrix. Since $\pi_k$ is the number of observations it does not need to be estimated, and $f(x)$ is an assumed functional form. Depending on the model form, $\Sigma_k$ may not need to be completely re-estimated for each model. This is where most of the variation in the number of parameters will come from.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 3: Variance Form
+We need to work out the form of the variance-covariance matrix to know how many parameters we need to estimate. The variance-covariance matrix for each cluster is:
+$$\Sigma_k = \lambda_kD_kA_kD_k^T$$
+Where $\lambda_k$ is a scalar that captures the number of observations in each cluster, $A_k$ is a diagonal matrix that captures the variance of each parameter (i.e. its shape), and $D_k$ is a lower triangular matrix that captures the orientation of the model. 
+
+The model with the most parameters would be VVV as none of the parameters could be shared between clusters (i.e. they change for each cluster). In this case the number of parameters each component would contribute is: $\lambda_k=1$, $A_k=p$ (since all the off diagonals of the $p\times p$ matrix would be 0) and $D_k={p+1\choose 2}= \frac12(p+1)p$ (which is the triangle number of p since the upper triangle of the $p\times p$ matrix would be 0).
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 4: The form of our model
+We are looking at the VVE model, which has variable volume ($\lambda_k$), variable shape ($A_k$), and equal orientation ($D$).Therefore each cluster has its own $\pi_k$ and $\mu_k$, $\lambda_k$, and $A_k$ that needs to be estimated, but all the clusters share the same $D$ (so it only needs to be estimated once for all the clusters. 
+:::
+
+### Part E
+Fit just the best model, and extract the parameter estimates. Write a few sentences describing what can be learned about the way the clusters subset the data.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Quick comment on how to answer
+Since the variables have been standardised you can directly compare the differences in means and variances across clusters.
+:::
+
+## Question 2
+### Part A
+In tutorial of week 10 you clustered `c1` from the `mulgar` package, after also examining this data using the tour in week 3. We know that there are 6 clusters, but with different sizes. For a model-based clustering, what would you expect is the best variance-covariance parametrisation, based on what you know about the data thus far?
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Quick comment on how to answer
+You might have to look back at the SPLOM and tour you investigated the data with. Look at the size, shape and orientation of each cluster and decide which model is best suited.
+:::
+
+
+### Part B
+Fit a range of models for a choice of clusters that you believe will cover the range needed to select the best model for this data. Make your plot of the BIC values, and summarise what you learn. Be sure to explain whether this matches what you expected or not. 
+
+::: {.callout-note}
+#### Harriet Comment
+By "range" Di means check several different values of $G$ that are suitable for this quesiton. You don't have to worry about checking different model types since the function will do it for you. This question is the same as Q1(a), an example of which can be found at [Lecture 10 slide 13](https://iml.numbat.space/week10/slides.html#/example-penguins-12).
+:::
+
+### Part C
+Fit the best model, and examine the model in the data space using a tour. How well does it fit? Does it capture the clusters that we know about?
+
+
+## Question 3
+### Part A
+How many observations in the data? Explain how this should determine the maximum grid size for an SOM.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lecture 10 slides 16 to 21](https://iml.numbat.space/week10/slides.html#/self-organising-maps) for information on self organising maps.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Extra note
+ To answer this question, think about grid size relative to the number of observations.
+:::
+
+### Part B
+Fit a SOM model to the data using a 4x4 grid, using a large `rlen` value. Be sure to standardise your data prior to fitting the model. Make a map of the results, and show the map in both 2D and 5D (using a tour).
+ 
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check [lecture 10 slide 18](https://iml.numbat.space/week10/slides.html#/example-penguins-12-1) for an example of fitting a SOM.
+:::
+
+### Part C
+Let's take a look at how it has divided the data into clusters. Set up linked brushing between detourr and map view using the code provided.

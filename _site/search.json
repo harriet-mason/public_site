@@ -875,6 +875,34 @@
     "text": "Question 3\n\nPart A\nIn tutorial of week 3 you used the tour to visualise the data sets c1 and c3 provided with the mulgar package. Review what you said about the structure in these data sets, and write down your expectations for how a cluster analysis would divide the data.\n\n\nPart B\nCompute \\(k\\)-means and hierarchical clustering on these two data sets, without standardising them. Use a variety of \\(k\\), linkage methods and check the resulting clusters using the cluster metrics. What method produces the best result, relative to what you said in a. (NOTE: Although we said that we should always standardise variables before doing clustering, you should not do this for c3. Why?)\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nYou have already covered K-means in this tututorial, but Lecture 9 slide 23-34 discuss hierarchical clustering and linkage methods. You will find the code on slide 34 useful for making your hierarchical clusters.\n\n\n\n\n\n\n\n\n\nHint 2: Standardising Hint\n\n\n\n\n\nWhether we do or don’t standardise has a lot to do with the scale of the data. If the scale is important (i.e. it is a common scale) then differences in the scale have meaning we want to capture, if the scale is unimportant (i.e. not a common scale) then . For example, Australian vs US 100m dash times should not be separately standardised, but 100m dash vs 10000m dash times should be standardised because otherwise the “importance” we are capturing is just that 1000m is further than 100m which we already know. Why should we consider this data to have (or not have) a common scale?\n\n\n\n\n\nPart C\nThere are five other data sets in the mulgar package. Choose one or two or more to examine how they would be clustered. (I particularly would like to see how c4 is clustered.)"
   },
   {
+    "objectID": "teaching/helpsheets/etc3250tutorial11.html",
+    "href": "teaching/helpsheets/etc3250tutorial11.html",
+    "title": "ETC5250: Tutorial 11 Help Sheet",
+    "section": "",
+    "text": "Join this weeks flux using this link"
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial11.html#question-1",
+    "href": "teaching/helpsheets/etc3250tutorial11.html#question-1",
+    "title": "ETC5250: Tutorial 11 Help Sheet",
+    "section": "Question 1",
+    "text": "Question 1\n\nPart A\nFit model-based clustering with number of clusters ranging from 1-15, to the transformed data, and all possible parametrisations. Summarise the best models, and plot the BIC values for the models. You can also simplify the plot, and show just the 10 best models.\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nCheck lecture 10 slides 3 to 15 for the details on model based clustering. Slide 13 has an example where the penguins data is fit on 2-8 clusters with all possible parameterisations and a plot of all the BIC values for all the models is shown.\n\n\n\n\n\nPart B\nWhy are some variance-covariance parametrisations fitted to less than 15 clusters?\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nCheck lecture 10 slides 4 and 5 to see the models that are being fit to make the clustering. Can you work out how many parameters are being fit in each model?\n\n\n\n\n\n\n\n\n\nHint 2: Additional tip\n\n\n\n\n\nIf the number of parameters is greater than the number of observations, a model cannot be fit. How many observations do you have?\n\n\n\n\n\nPart C\nMake a 2D sketch that would illustrate what the best variance-covariance parametrisation looks like conceptually for cluster shapes.\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nCheck lecture 10 slides 6 for some examples of these kinds of sketches\n\n\n\n\n\nPart D\nHow many parameters need to be estimated for the VVE model with 7 and 8 clusters? Compare this to the number of observations, and explain why the model is not estimated for 8 clusters.\n\n\n\n\n\n\nHint 1: Important variables\n\n\n\n\n\nIn order to work out the number of parameters in each model, you need to know: the number of observations (\\(n\\)), the number of predictors (\\(p\\)), and the total number of clusters (\\(G\\)). In this case, \\(n=507\\), \\(p=11\\), and \\(G=7, 8\\)\n\n\n\n\n\n\n\n\n\nHint 2: Parameters in the Model\n\n\n\n\n\nThe model you are estimating is: \\[f(x_i)=\\sum_{k=1}^G\\pi_kf_k(x_i;\\mu_k,\\Sigma_k)\\] Therefore, for each cluster you need to estimate \\(\\pi_k\\), a scalar that represents the proportion of total observations that belong to that cluster, \\(\\mu_k\\), a \\(p\\) dimensional vector for each cluster and \\(\\Sigma_k\\), a \\(p\\times p\\) dimensional matrix. Since \\(\\pi_k\\) is the number of observations it does not need to be estimated, and \\(f(x)\\) is an assumed functional form. Depending on the model form, \\(\\Sigma_k\\) may not need to be completely re-estimated for each model. This is where most of the variation in the number of parameters will come from.\n\n\n\n\n\n\n\n\n\nHint 3: Variance Form\n\n\n\n\n\nWe need to work out the form of the variance-covariance matrix to know how many parameters we need to estimate. The variance-covariance matrix for each cluster is: \\[\\Sigma_k = \\lambda_kD_kA_kD_k^T\\] Where \\(\\lambda_k\\) is a scalar that captures the number of observations in each cluster, \\(A_k\\) is a diagonal matrix that captures the variance of each parameter (i.e. its shape), and \\(D_k\\) is a lower triangular matrix that captures the orientation of the model.\nThe model with the most parameters would be VVV as none of the parameters could be shared between clusters (i.e. they change for each cluster). In this case the number of parameters each component would contribute is: \\(\\lambda_k=1\\), \\(A_k=p\\) (since all the off diagonals of the \\(p\\times p\\) matrix would be 0) and \\(D_k={p+1\\choose 2}= \\frac12(p+1)p\\) (which is the triangle number of p since the upper triangle of the \\(p\\times p\\) matrix would be 0).\n\n\n\n\n\n\n\n\n\nHint 4: The form of our model\n\n\n\n\n\nWe are looking at the VVE model, which has variable volume (\\(\\lambda_k\\)), variable shape (\\(A_k\\)), and equal orientation (\\(D\\)).Therefore each cluster has its own \\(\\pi_k\\) and \\(\\mu_k\\), \\(\\lambda_k\\), and \\(A_k\\) that needs to be estimated, but all the clusters share the same \\(D\\) (so it only needs to be estimated once for all the clusters.\n\n\n\n\n\nPart E\nFit just the best model, and extract the parameter estimates. Write a few sentences describing what can be learned about the way the clusters subset the data.\n\n\n\n\n\n\nHint 1: Quick comment on how to answer\n\n\n\n\n\nSince the variables have been standardised you can directly compare the differences in means and variances across clusters."
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial11.html#question-2",
+    "href": "teaching/helpsheets/etc3250tutorial11.html#question-2",
+    "title": "ETC5250: Tutorial 11 Help Sheet",
+    "section": "Question 2",
+    "text": "Question 2\n\nPart A\nIn tutorial of week 10 you clustered c1 from the mulgar package, after also examining this data using the tour in week 3. We know that there are 6 clusters, but with different sizes. For a model-based clustering, what would you expect is the best variance-covariance parametrisation, based on what you know about the data thus far?\n\n\n\n\n\n\nHint 1: Quick comment on how to answer\n\n\n\n\n\nYou might have to look back at the SPLOM and tour you investigated the data with. Look at the size, shape and orientation of each cluster and decide which model is best suited.\n\n\n\n\n\nPart B\nFit a range of models for a choice of clusters that you believe will cover the range needed to select the best model for this data. Make your plot of the BIC values, and summarise what you learn. Be sure to explain whether this matches what you expected or not.\n\n\n\n\n\n\nHarriet Comment\n\n\n\nBy “range” Di means check several different values of \\(G\\) that are suitable for this quesiton. You don’t have to worry about checking different model types since the function will do it for you. This question is the same as Q1(a), an example of which can be found at Lecture 10 slide 13.\n\n\n\n\nPart C\nFit the best model, and examine the model in the data space using a tour. How well does it fit? Does it capture the clusters that we know about?"
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial11.html#question-3",
+    "href": "teaching/helpsheets/etc3250tutorial11.html#question-3",
+    "title": "ETC5250: Tutorial 11 Help Sheet",
+    "section": "Question 3",
+    "text": "Question 3\n\nPart A\nHow many observations in the data? Explain how this should determine the maximum grid size for an SOM.\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nCheck lecture 10 slides 16 to 21 for information on self organising maps.\n\n\n\n\n\n\n\n\n\nHint 2: Extra note\n\n\n\n\n\nTo answer this question, think about grid size relative to the number of observations.\n\n\n\n\n\nPart B\nFit a SOM model to the data using a 4x4 grid, using a large rlen value. Be sure to standardise your data prior to fitting the model. Make a map of the results, and show the map in both 2D and 5D (using a tour).\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nCheck lecture 10 slide 18 for an example of fitting a SOM.\n\n\n\n\n\nPart C\nLet’s take a look at how it has divided the data into clusters. Set up linked brushing between detourr and map view using the code provided."
+  },
+  {
     "objectID": "teaching/helpsheets/etc3250tutorial1.html",
     "href": "teaching/helpsheets/etc3250tutorial1.html",
     "title": "ETC3250: Tutorial 1 Help Sheet",
@@ -952,6 +980,48 @@
     "text": "Question 6\nWrite a simple question about the week’s material."
   },
   {
+    "objectID": "teaching/helpsheets/etc3250tutorial12.html",
+    "href": "teaching/helpsheets/etc3250tutorial12.html",
+    "title": "ETC5250: Tutorial 12 Help Sheet",
+    "section": "",
+    "text": "Join this weeks flux using this link"
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial12.html#part-a",
+    "href": "teaching/helpsheets/etc3250tutorial12.html#part-a",
+    "title": "ETC5250: Tutorial 12 Help Sheet",
+    "section": "Part A",
+    "text": "Part A\nUsing the tour, examine the data, and explain where there are separated clusters, linear or non-linear dependencies.\n\n\n\n\n\n\nHarriet’s Note\n\n\n\nYou have looked at tours and used them the describe data multiple times, so feel free to check previous tutorials.\n\n\n\n\n\n\n\n\nHint 1: Basics of what to do\n\n\n\n\n\nUse the function animate_xy(). Look for strange shapes and then describe what thsoe shapes mean for your data. Also consider using some summary statistics."
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial12.html#part-b",
+    "href": "teaching/helpsheets/etc3250tutorial12.html#part-b",
+    "title": "ETC5250: Tutorial 12 Help Sheet",
+    "section": "Part B",
+    "text": "Part B\nHow do you think \\(k\\)-means would partition this data? What about Wards linkage or single linkage? Why wouldn’t model-based be recommended?\n\n\n\n\n\n\nHint 1: How to approach this question\n\n\n\n\n\nQuestions like this want you to consider what the “model sees”. This lecture sldie highlights that what the model sees and what you see might be different. You need to consider what the “model sees” from the perspective of each of these models\n\n\n\n\n\n\n\n\n\nHint 2: Where to go for information\n\n\n\n\n\nWorking out what the model “sees” usually involves looking at the algorithm and working out the features in your data that would be captured or missed. The k-means algorithm is in lecture 9 slide 12, the hierarchical clustering algorithm is in lecture 9 slide 24, the model based clustering estimates parameters based on the assumptions given in lecture 10 slides 4-5.\n\n\n\n\n\n\n\n\n\nHint 3: An additional way of thinking about it\n\n\n\n\n\nHow would these models react is there were no visible clusters"
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial12.html#part-c",
+    "href": "teaching/helpsheets/etc3250tutorial12.html#part-c",
+    "title": "ETC5250: Tutorial 12 Help Sheet",
+    "section": "Part C",
+    "text": "Part C\nUsing \\(k=7\\) fit the model, and examine the results with a tour. Describe the clusters.\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nThere are many examples in the lecture slides where we look at a clustering using the tour. For example, lecture 9 slide 20 has an example where kmeans clustering is animated using the tour (something that is very relevant to this question). Remember, you can always find the code for the lecture slides in the lecture QMD file."
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial12.html#part-d",
+    "href": "teaching/helpsheets/etc3250tutorial12.html#part-d",
+    "title": "ETC5250: Tutorial 12 Help Sheet",
+    "section": "Part D",
+    "text": "Part D\nUse Euclidean distance with Wards linkage to cluster the data and plot the dendrogram. How many clusters are suggested by the dendrogram?\n\n\n\n\n\n\nHint 1: Where to go for information\n\n\n\n\n\nCheck lecture 9 slide 32 for information on dendrograms. Lecture 11 slide 6 (and some of the following slides) also has some useful information on dendrograms.\n\n\n\nCompute the cluster metrics for the range of cluster numbers between 2 and 7. Which \\(k\\) would be considered the best, according to within.cluster.ss? Why not be concerned about the other metrics?\n\n\n\n\n\n\nHint 2: Where to go for information\n\n\n\n\n\nCheck lecture 11 slides 7-9 and lecture 9 slide 21 for some details on cluster metrics you might want to consider."
+  },
+  {
+    "objectID": "teaching/helpsheets/etc3250tutorial12.html#part-e",
+    "href": "teaching/helpsheets/etc3250tutorial12.html#part-e",
+    "title": "ETC5250: Tutorial 12 Help Sheet",
+    "section": "Part E",
+    "text": "Part E\n\n\n\n\n\n\nHarriet Note\n\n\n\nUse all the information you have collected in this tutorial to answer this question!"
+  },
+  {
     "objectID": "teaching/helpsheets/etc3250tutorial2.html#question-1",
     "href": "teaching/helpsheets/etc3250tutorial2.html#question-1",
     "title": "ETC3250: Tutorial 2 Help Sheet",
@@ -1005,6 +1075,6 @@
     "href": "teaching/index.html",
     "title": "Tutorial Help Sheets",
     "section": "",
-    "text": "ETC3250 Tutorial Help Sheet\nI have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY recommend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.\n\n\n\n\n\n\nETC3250: Tutorial 1 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 2 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 3 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 4 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 5 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 6 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 7 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 8 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 9 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC5250: Tutorial 10 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
+    "text": "ETC3250 Tutorial Help Sheet\nI have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY recommend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.\n\n\n\n\n\n\nETC3250: Tutorial 1 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 2 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 3 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 4 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 5 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 6 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 7 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 8 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC3250: Tutorial 9 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC5250: Tutorial 10 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC5250: Tutorial 11 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nETC5250: Tutorial 12 Help Sheet\n\n\n\n\n\n\n\n \n\n\n\n\nNo matching items"
   }
 ]
