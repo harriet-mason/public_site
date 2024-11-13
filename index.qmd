@@ -1,15 +1,12 @@
 ---
-title: "About"
+title: "Harriet Mason"
+image: avatar1.jpg
 callout-icon: false
 callout-appearance: "simple"
-resources:
-    - ThesisAnimation.mp4
 ---
 
-Hello, I'm Harriet, and if you are here it is likely because I have directed you here to look at some of my work.
+Hello, I'm Harriet, a PhD student at Monash University where I am currently supervised by Di Cook, Sarah Goodwin, and Susan Vanderplus. My main research interest is visual statistics, but I often end up drifting towards whatever interests me. 
 
-This is Public website that I use to share stuff that is for public consumption. You should find the thing you are looking for, but feel free to look at other stuff while you are here.
+This is public website that I use to share some of my work (and opinions). If you are looking for my [Github](https://github.com/harriet-mason) so that you can complain to me about my software, you are in the wrong place. If you want to hear *me* complain about my software, you are in the right place.
 
-This video is layperson summary of the work I do:
 
-{{< video ThesisAnimation.mp4 >}}
