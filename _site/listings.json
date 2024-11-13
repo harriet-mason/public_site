@@ -1,5 +1,22 @@
 [
   {
+    "listing": "/teaching/index.html",
+    "items": [
+      "/teaching/helpsheets/etc3250tutorial1.html",
+      "/teaching/helpsheets/etc3250tutorial2.html",
+      "/teaching/helpsheets/etc3250tutorial3.html",
+      "/teaching/helpsheets/etc3250tutorial4.html",
+      "/teaching/helpsheets/etc3250tutorial5.html",
+      "/teaching/helpsheets/etc3250tutorial6.html",
+      "/teaching/helpsheets/etc3250tutorial7.html",
+      "/teaching/helpsheets/etc3250tutorial8.html",
+      "/teaching/helpsheets/etc3250tutorial9.html",
+      "/teaching/helpsheets/etc3250tutorial10.html",
+      "/teaching/helpsheets/etc3250tutorial11.html",
+      "/teaching/helpsheets/etc3250tutorial12.html"
+    ]
+  },
+  {
     "listing": "/posts/index.html",
     "items": [
       "/posts/specialconsideration/index.html",
@@ -22,23 +39,6 @@
     "listing": "/talks/index.html",
     "items": [
       "/talks/rladies/index.html"
-    ]
-  },
-  {
-    "listing": "/teaching/index.html",
-    "items": [
-      "/teaching/helpsheets/etc3250tutorial1.html",
-      "/teaching/helpsheets/etc3250tutorial2.html",
-      "/teaching/helpsheets/etc3250tutorial3.html",
-      "/teaching/helpsheets/etc3250tutorial4.html",
-      "/teaching/helpsheets/etc3250tutorial5.html",
-      "/teaching/helpsheets/etc3250tutorial6.html",
-      "/teaching/helpsheets/etc3250tutorial7.html",
-      "/teaching/helpsheets/etc3250tutorial8.html",
-      "/teaching/helpsheets/etc3250tutorial9.html",
-      "/teaching/helpsheets/etc3250tutorial10.html",
-      "/teaching/helpsheets/etc3250tutorial11.html",
-      "/teaching/helpsheets/etc3250tutorial12.html"
     ]
   }
 ]

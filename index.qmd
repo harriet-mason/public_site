@@ -1,6 +1,8 @@
 ---
-title: "Harriet Mason"
-image: avatar1.jpg
+title: "About"
+image: avatar2.jpg
+about: 
+  template: jolla
 callout-icon: false
 callout-appearance: "simple"
 ---
