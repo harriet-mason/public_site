@@ -53,9 +53,6 @@ theme_set(theme_bw(base_size = 14) +
 )
 ```
 
-# Flux
-Join this weeks flux using [this link](https://flux.qa/V3UHTY)
-
 # Exercises
 ## Question 1
 In the lecture, we used bootstrap to examine the significance of the coefficients for the second principal component from the womens' track PCA. Do this computation for PC1. The question for you to answer is: *Can we consider all of the coefficients to be equal?*

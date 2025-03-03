@@ -2,9 +2,6 @@
 title: "ETC5250: Tutorial 12 Help Sheet"
 ---
 
-# Flux
-Join this weeks flux using [this link](https://flux.qa/V3UHTY)
-
 # Exercises
 ## Part A
 Using the tour, examine the data, and explain where there are separated clusters, linear or non-linear dependencies. 

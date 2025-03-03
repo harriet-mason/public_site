@@ -1,8 +1,6 @@
 ---
 title: "ETC3250: Tutorial 1 Help Sheet"
 ---
-## Flux
-Join this weeks flux using [this link](https://flux.qa/V3UHTY)
 
 ## Exercise 1
 #### Part A

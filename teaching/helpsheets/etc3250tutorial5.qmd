@@ -44,9 +44,6 @@ p_tidy_std <- p_tidy |>
     mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
 ```
 
-# Flux
-Join this weeks flux using [this link](https://flux.qa/V3UHTY)
-
 # Exercises
 ## Question 1: LDA
 ### Part A

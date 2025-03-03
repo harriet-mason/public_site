@@ -2,9 +2,6 @@
 title: "ETC3250: Tutorial 8 Help Sheet"
 ---
 
-# Flux
-Join this weeks flux using [this link](https://flux.qa/V3UHTY)
-
 # Exercises
 ## Challenge Question
 In the penguins data, find an  observation where you think various models might differ in their prediction. Try to base your choice on the structure of the various models, not from that observation being in an overlap area between class clusters. (The code like that below will help to identify observations by their row number.)

@@ -1,9 +1,6 @@
 ---
 title: "ETC3250: Tutorial 7 Help Sheet"
 ---
-# Flux
-
-No flux this week! Some questions below are missing, this is because there isn't really anything to work out for those questions.
 
 # Exercises
 ## Question 1

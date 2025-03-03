@@ -2,9 +2,6 @@
 title: "ETC3250: Tutorial 9 Help Sheet"
 ---
 
-# Flux
-Join this weeks flux using [this link](https://flux.qa/V3UHTY)
-
 # Exercises
 ## Question 1
 Show that $\mathcal{K}(\mathbf{x_1}, \mathbf{x_2}) = (1 + \langle \mathbf{x_1}, \mathbf{x_2}\rangle) ^2$ is equivalent to an inner product of transformations of the original variables defined as $\mathbf{y} \in \mathbb{R}^6$. That is, prove:

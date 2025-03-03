@@ -19,8 +19,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Flux
-Join this weeks flux using [this link](https://flux.qa/V3UHTY)
 
 # Exercises
 ## Question 1
