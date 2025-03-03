@@ -218,8 +218,8 @@ The black Bias is caused by an inflexible model, variance is caused by a model t
 The following data contains true class and predictive probabilities for a model fit. Answer the questions below for this data.
 
 ```{r}
-pred_data <- read_csv("https://raw.githubusercontent.com/numbats/iml/master/data/pred_data.csv") |>
-  mutate(true = factor(true))
+#pred_data <- read_csv("https://raw.githubusercontent.com/numbats/iml/master/data/pred_data.csv") |>
+#  mutate(true = factor(true))
 ```
 
 ### Part A
