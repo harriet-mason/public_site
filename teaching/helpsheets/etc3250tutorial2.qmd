@@ -31,7 +31,10 @@ e. What is $X^\top$?
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
+Check week 1 lecture slides 19 to 25.
+<!-- 
 Check [week 1 lecture slides 13 to 18](https://iml.numbat.space/week1/slides.html#/data-math) 
+-->
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -44,7 +47,10 @@ Write a projection matrix which would generate a 2D projection where the first d
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
+Check week 1 lecture slides 26 to 31.
+<!-- 
 Check [week 1 lecture slides 19 to 24](https://iml.numbat.space/week1/slides.html#/linear-algebra) 
+-->
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -96,13 +102,16 @@ Why can't the following matrix considered a projection matrix?
 
 ::: {.callout-note}
 ## Harriet's Comment
-This is not specifically a projection matrix for $\mathbf X$, so the dimensionality does not have to line up. I included the dimensionality comments in the hints below to help with f and make sure you know what is typically needed for these matricies, but the dimensionality is not the problem with this matrix.
+The way this question is set up implies that we are asking why $\mathbf A$ can't be a projection matrix for $\mathbf X$, however that was not the intended question. Because of this implication, students often think the problem with this matrix is the dimensionality, (becuse the dimensions of $\mathbf A$ and $\mathbf X$ do not line up. This question is actually supposed to be asking about the validity of $\mathbf A$ as a projection matrix in general, not specifically for $\mathbf X$. 
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-**(same as Hint 1 Part F)**
+**(same as Hint 1 Part F)** 
+Check week 1 lecture slides 26 to 31.
+<!-- 
 Check [week 1 lecture slides 19 to 24](https://iml.numbat.space/week1/slides.html#/linear-algebra) 
+-->
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -141,7 +150,7 @@ Which of these statements is the most accurate? And which is the most precise?
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Check [week 1 lecture slide 26](https://iml.numbat.space/week1/slides.html#/accuracy-vs-interpretability) to see a diagram that depicts the difference between accuracy and precision
+Check week 1 lecture slide 33 to see a diagram that depicts the difference between accuracy and precision
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -163,12 +172,12 @@ bushfires |> count(cause)
 
 ::: {.callout-note}
 ## Harriet's Comment
-If you want to get the same results as the solution (and the flux quiz) use `set.seed(1156)`
+If you want to get the same results as the solution (that will eventually be posted) use `set.seed(1156)`
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Check [week 1 lecture slides 27 and 28](https://iml.numbat.space/week1/slides.html#/training-vs-test-splits). 
+Check [week 1 lecture slides 34 to 36
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -199,7 +208,7 @@ Chapter 2 of the ISLR textbook is of *particular* use for questions that require
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Check [week 1 lecture slides 33 to 42](https://iml.numbat.space/week1/slides.html#/parametric-vs-non-parametric)
+Check week 1 lecture slides 44 to 54.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -242,7 +251,7 @@ You have been given data that contains the true class, the probability an observ
 ## Hint 2
 First use `mutate()` to add the predicted class to your data frame
 
-The theory and code used to make a confusion matrix from a data set with the true and predicted values is shown on [lecture 1 slides 30 to 31](https://iml.numbat.space/week1/slides.html#/confusion-misclassification-matrix). 
+The theory and code used to make a confusion matrix from a data set with the true and predicted values is shown on lecture 1 slides 37 to 39.
 :::
 
 ### Part C
@@ -250,7 +259,7 @@ Compute the accuracy, and accuracy if all observations were classified as Adelie
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Check [lecture 1 slides 30 to 31](https://iml.numbat.space/week1/slides.html#/confusion-misclassification-matrix). It shows you how to calculate accuracy by hand and with code. 
+Check lecture 1 slides 37 to 39. It shows you how to calculate accuracy by hand and with code. 
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -263,7 +272,7 @@ Compute the balanced accuracy when all observations were classified as Adelie, b
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Again, check [lecture 1 slides 30 to 31](https://iml.numbat.space/week1/slides.html#/confusion-misclassification-matrix). It shows you how to calculate the balaced accuracy by hand and with code. 
+Again, check lecture 37 to 39. It shows you how to calculate the balaced accuracy by hand and with code. 
 :::
 
 ## Question 6
@@ -285,7 +294,7 @@ The following spam data has a heavily skewed distribution for the size of the em
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-Check [lecture 1 slides 43](https://iml.numbat.space/week1/slides.html#/feature-engineering). You can replace the skewed variable with its transformed version, however it is better practice to leave your data as is and only transform it in the model (or in this case, in the visualisation).
+Check lecture 1 slides 56. You can replace the skewed variable with its transformed version, however it is better practice to leave your data as is and only transform it in the model (or in this case, in the visualisation).
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -312,7 +321,7 @@ ggplot(olive, aes(x=linoleic,
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-To get an idea of what we are trying to do, look at the example in [lecture 2 slides 18 to 20](https://iml.numbat.space/week2/slides.html#/remember). Simply guessing and checking your results is a fair way to attempt this question. The remaining hints are going to explain how to find a solution without using guess and check.
+To get an idea of what we are trying to do, look at the example in lecture 2 (not covered yet). [Here is last years relevant slides, keel in mind they might be different to this year's](https://iml.numbat.space/week2/slides.html#/remember). Simply guessing and checking your results is a fair way to attempt this question. The remaining hints are going to explain how to find a solution without using guess and check.
 
 You can also look at the [theory section of this blog post](https://harrietmason.netlify.app/posts/LDA/#theory-1), to get different visuals for what we are going to do. You *do not* need to understand LDA for this question (that will be covered in later weeks) so the body of the blog can be ignored, but the drawing of the two group projection and the animation following it might help you understand what we are doing here.
 :::
