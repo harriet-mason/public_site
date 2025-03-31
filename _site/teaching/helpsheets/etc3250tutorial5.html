@@ -120,26 +120,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link active" data-scroll-target="#exercises">Exercises</a>
-  <ul class="collapse">
-  <li><a href="#question-1-lda" id="toc-question-1-lda" class="nav-link" data-scroll-target="#question-1-lda">Question 1: LDA</a>
+  <li><a href="#question-1-logistic-regression" id="toc-question-1-logistic-regression" class="nav-link active" data-scroll-target="#question-1-logistic-regression">Question 1: Logistic Regression</a>
   <ul class="collapse">
   <li><a href="#part-a" id="toc-part-a" class="nav-link" data-scroll-target="#part-a">Part A</a></li>
   <li><a href="#part-b" id="toc-part-b" class="nav-link" data-scroll-target="#part-b">Part B</a></li>
   <li><a href="#part-c" id="toc-part-c" class="nav-link" data-scroll-target="#part-c">Part C</a></li>
-  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part D</a></li>
-  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part E</a></li>
-  <li><a href="#part-f" id="toc-part-f" class="nav-link" data-scroll-target="#part-f">Part F</a></li>
   </ul></li>
-  <li><a href="#question-2-logistic-regression" id="toc-question-2-logistic-regression" class="nav-link" data-scroll-target="#question-2-logistic-regression">Question 2: Logistic Regression</a>
+  <li><a href="#question-2-lda" id="toc-question-2-lda" class="nav-link" data-scroll-target="#question-2-lda">Question 2: LDA</a>
   <ul class="collapse">
   <li><a href="#part-a-1" id="toc-part-a-1" class="nav-link" data-scroll-target="#part-a-1">Part A</a></li>
   <li><a href="#part-b-1" id="toc-part-b-1" class="nav-link" data-scroll-target="#part-b-1">Part B</a></li>
   <li><a href="#part-c-1" id="toc-part-c-1" class="nav-link" data-scroll-target="#part-c-1">Part C</a></li>
+  <li><a href="#part-d" id="toc-part-d" class="nav-link" data-scroll-target="#part-d">Part D</a></li>
+  <li><a href="#part-e" id="toc-part-e" class="nav-link" data-scroll-target="#part-e">Part E</a></li>
+  <li><a href="#part-f" id="toc-part-f" class="nav-link" data-scroll-target="#part-f">Part F</a></li>
   </ul></li>
   <li><a href="#question-3-misclassifications" id="toc-question-3-misclassifications" class="nav-link" data-scroll-target="#question-3-misclassifications">Question 3: Misclassifications</a></li>
   <li><a href="#question-4-math" id="toc-question-4-math" class="nav-link" data-scroll-target="#question-4-math">Question 4: Math</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -165,13 +162,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="exercises" class="level1">
-<h1>Exercises</h1>
-<section id="question-1-lda" class="level2">
-<h2 class="anchored" data-anchor-id="question-1-lda">Question 1: LDA</h2>
+<section id="question-1-logistic-regression" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-logistic-regression">Question 1: Logistic Regression</h2>
 <section id="part-a" class="level3">
 <h3 class="anchored" data-anchor-id="part-a">Part A</h3>
-<p>Is the assumption of equal variance-covariance reasonable to make for this data?</p>
+<p>Fit a logistic regression model to the training set.</p>
+<p>(No hint, the code is in the tutorial)</p>
+</section>
+<section id="part-b" class="level3">
+<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
+<p>Compute the confusion matrices for training and test sets, and thus the error for the test set. You can use this code to make the predictions.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -184,19 +184,21 @@ Hint: Where to go for information
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis">slide 18</a> and <a href="https://iml.numbat.space/week4/slides.html#/checking-the-assumptions-for-lda-and-qda-12">slides 40 to 43</a>.</p>
+<p>You have computed a confusion matrix multiple times before. Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/check-the-model-performance">slide 15</a> for an example of using a model to get the confusion matrix for the logistic model.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="part-b" class="level3">
-<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
-<p>Fit the LDA model to the training data</p>
-<p>(No hint, the code is provided)</p>
 </section>
 <section id="part-c" class="level3">
 <h3 class="anchored" data-anchor-id="part-c">Part C</h3>
-<p>Compute the confusion matrices for training and test sets, and thus the error for the test set.</p>
+<p>This question is an exploratory question so there isnt really a right or wrong question. Do think about it though.</p>
+</section>
+</section>
+<section id="question-2-lda" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-lda">Question 2: LDA</h2>
+<section id="part-a-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-1">Part A</h3>
+<p>Is the assumption of equal variance-covariance reasonable to make for this data?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -209,32 +211,21 @@ Hint: Where to go for information
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You have computed a confusion matrix multiple times before. Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/check-the-model-performance">slide 15</a> for an example of using a model to get the confusion matrix for the logistic model. Think about how to get the predicted class for a LDA model.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Extra code hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>You should use the <code>predict(lda_fit$fit, p_tr)$class</code> should give you the predicted class for an LDA model. You will need to do this twice, once on your training and once on your test set.</p>
+<p>Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis">slide 18</a> and <a href="https://iml.numbat.space/week4/slides.html#/checking-the-assumptions-for-lda-and-qda-12">slides 40 to 43</a>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="part-d" class="level3">
-<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
-<p>Plot the training and test data in the discriminant space, using symbols to indicate which set. See if you can mark the misclassified cases, too.</p>
+<section id="part-b-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-1">Part B</h3>
+<p>Fit the LDA model to the training data</p>
+<p>(No hint, the code is provided)</p>
+</section>
+<section id="part-c-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-1">Part C</h3>
+<p>Compute the confusion matrices for training and test sets, and thus the error for the test set.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -243,9 +234,61 @@ Hint: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You have computed a confusion matrix multiple times before. Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/check-the-model-performance">slide 15</a> for an example of using a model to get the confusion matrix for the logistic model. Think about how to get the predicted class for a LDA model.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Extra code hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/plotting-the-model">slide 42</a>. The code that generated the plot is not there, <em>but</em> you can download the lecture QMD file, find the code that made those plots, and adjust them for this data.</p>
+<p>You should use the <code>predict(lda_fit$fit, p_tr)$class</code> should give you the predicted class for an LDA model. You will need to do this twice, once on your training and once on your test set.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
+<p>Use boxplots and a tour to examine your fitted LDA model and see how it differs from your Logistic regression model. You can use this code to make the predictions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/the-logistic-function">slides 6 to 9</a> for an understanding on how logistic regression works, check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis">slides 18 to 22</a> to understand how LDA works. The answer is in the theoretical working of these two models.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Extra hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Think about the dimensional of this problem. You are looking at the data in 2D space. What dimension is the model rule drawn in?</p>
 </div>
 </div>
 </div>
@@ -262,53 +305,6 @@ Hint: Where to go for information
 <h3 class="anchored" data-anchor-id="part-f">Part F</h3>
 <p>What happens to the boundary, if you change the prior probabilities? And why does this happen? Change the prior probabilities to be 1.999/3, 0.001/3, 1/3 for Adelie, Chinstrap, Gentoo, respectively. Re-do the plot of the boundaries in the discriminant space.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Where to go for information
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Check lecture 4 slide <a href="https://iml.numbat.space/week4/slides.html#/example-penguins-13">27</a> for a hint on how to change the prior for probability for the code. Describe what happens think about why.</p>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="question-2-logistic-regression" class="level2">
-<h2 class="anchored" data-anchor-id="question-2-logistic-regression">Question 2: Logistic Regression</h2>
-<section id="part-a-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-a-1">Part A</h3>
-<p>Fit a logistic discriminant model to the training set. (No hint, the code is in the tutorial)</p>
-</section>
-<section id="part-b-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-b-1">Part B</h3>
-<p>Compute the confusion matrices for training and test sets, and thus the error for the test set.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Where to go for information
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>You have computed a confusion matrix multiple times before. Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/check-the-model-performance">slide 15</a> for an example of using a model to get the confusion matrix for the logistic model.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="part-c-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-c-1">Part C</h3>
-<p>Check the boundaries produced by logistic regression, and how they differ from those of LDA. Using the 2D projection produced by the LDA rule (using equal priors) predict the your set of random points using the logistic model.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -320,23 +316,7 @@ Hint: Where to go for information
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/the-logistic-function">slides 6 to 9</a> for an understanding on how logistic regression works, check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis">slides 18 to 22</a> to understand how LDA works. The answer is in the theoretical working of these two models.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Extra hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Think about the dimensional of this problem. You are looking at the data in 2D space. What dimension is the model rule drawn in?</p>
+<p>Check lecture 4 slide <a href="https://iml.numbat.space/week4/slides.html#/example-penguins-13">27</a> for a hint on how to change the prior for probability for the code. Describe what happens think about why.</p>
 </div>
 </div>
 </div>
@@ -348,10 +328,9 @@ Hint: Extra hint
 </section>
 <section id="question-4-math" class="level2">
 <h2 class="anchored" data-anchor-id="question-4-math">Question 4: Math</h2>
-<p>We will go through this question in the last 20 mins of class</p>
+<p>It is hard to explain what is happening without giving away the logic to solve the question. If you want me to go through this question, please let me know and we can go through it as a class in the last 20 mins.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

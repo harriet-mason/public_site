@@ -44,8 +44,26 @@ p_tidy_std <- p_tidy |>
     mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
 ```
 
-# Exercises
-## Question 1: LDA
+## Question 1: Logistic Regression
+### Part A
+Fit a logistic regression model to the training set. 
+
+(No hint, the code is in the tutorial)
+
+### Part B
+Compute the confusion matrices for training and test sets, and thus the error for the test set. You can use this code to make the predictions.
+
+::: {.callout-tip collapse="true"}
+#### Hint: Where to go for information
+You have computed a confusion matrix multiple times before. Check lecture 4 [slide 15](https://iml.numbat.space/week4/slides.html#/check-the-model-performance) for an example of using a model to get the confusion matrix for the logistic model. 
+:::
+
+### Part C
+This question is an exploratory question so there isnt really a right or wrong question. Do think about it though.
+
+
+
+## Question 2: LDA
 ### Part A
 Is the assumption of equal variance-covariance reasonable to make for this data? 
 
@@ -74,12 +92,18 @@ You should use the `predict(lda_fit$fit, p_tr)$class` should give you the predic
 :::
 
 ### Part D
-Plot the training and test data in the discriminant space, using symbols to indicate which set. See if you can mark the misclassified cases, too.
+Use boxplots and a tour to examine your fitted LDA model and see how it differs from your Logistic regression model. You can use this code to make the predictions.
 
 ::: {.callout-tip collapse="true"}
 #### Hint: Where to go for information
-Check lecture 4 [slide 42 ](https://iml.numbat.space/week4/slides.html#/plotting-the-model). The code that generated the plot is not there, *but* you can download the lecture QMD file, find the code that made those plots, and adjust them for this data.
+Check lecture 4 [slides 6 to 9 ](https://iml.numbat.space/week4/slides.html#/the-logistic-function) for an understanding on how logistic regression works, check lecture 4 [slides 18 to 22](https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis) to understand how LDA works. The answer is in the theoretical working of these two models.
 :::
+
+::: {.callout-tip collapse="true"}
+#### Hint: Extra hint
+Think about the dimensional of this problem. You are looking at the data in 2D space. What dimension is the model rule drawn in?
+:::
+
 
 ### Part E
 Re-do the plot of the discriminant space, to examine the boundary between groups. You'll need to generate a set of random points in the domain of the data, predict their class, and projection into the discriminant space. The `explore()` in the `classifly` package can help you generate the box of random points.
@@ -97,34 +121,8 @@ Check lecture 4 slide [27](https://iml.numbat.space/week4/slides.html#/example-p
 :::
 
 
-## Question 2: Logistic Regression
-### Part A
-Fit a logistic discriminant model to the training set. 
-(No hint, the code is in the tutorial)
-
-### Part B
-Compute the confusion matrices for training and test sets, and thus the error for the test set. 
-
-::: {.callout-tip collapse="true"}
-#### Hint: Where to go for information
-You have computed a confusion matrix multiple times before. Check lecture 4 [slide 15](https://iml.numbat.space/week4/slides.html#/check-the-model-performance) for an example of using a model to get the confusion matrix for the logistic model. 
-:::
-
-### Part C
-Check the boundaries produced by logistic regression, and how they differ from those of LDA. Using the 2D projection produced by the LDA rule (using equal priors) predict the your set of random points using the logistic model. 
-
-::: {.callout-tip collapse="true"}
-#### Hint: Where to go for information
-Check lecture 4 [slides 6 to 9 ](https://iml.numbat.space/week4/slides.html#/the-logistic-function) for an understanding on how logistic regression works, check lecture 4 [slides 18 to 22](https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis) to understand how LDA works. The answer is in the theoretical working of these two models.
-:::
-
-::: {.callout-tip collapse="true"}
-#### Hint: Extra hint
-Think about the dimensional of this problem. You are looking at the data in 2D space. What dimension is the model rule drawn in?
-:::
-
 ## Question 3: Misclassifications
 This question is an exploratory question so there isnt really a right or wrong question.
 
 ## Question 4: Math
-We will go through this question in the last 20 mins of class
+It is hard to explain what is happening without giving away the logic to solve the question. If you want me to go through this question, please let me know and we can go through it as a class in the last 20 mins.
