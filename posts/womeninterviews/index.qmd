@@ -1,0 +1,100 @@
+---
+title: "Don't ask me about \"women in STEM\" if you don't want to hear about sexism"
+author: "Harriet Mason"
+editor: visual
+---
+
+Heads up, this blog post contains some rather uncomfortable anecdotes. No, I will not remove them. **The discomfort is the point.**
+
+# If you have been directed here by me it's because I'm not answering your women in STEM question
+## Please stop interviewing me, nobody enjoys it, and it wastes everyone's time
+I get a more emails than I would like from people asking to interview me for something related to my research. It's not a huge amount (probably about 5 in the past year) but more than my ideal numer (which is 0). I thought this was normal until I spoke to a fellow PhD student who was shocked I had even gotten one. I suspect my popularity with PR teams is largely to do with the fact that my research is in a topical and accessible field (science communication that is adjacent to climate change) and I have a fancy scholarship they are trying to advertise. This would all be well and good if interviewing the person with the fancy scholarship and hot research field wasn't a complete nightmare because that person will give you about zero of the answers you wanted to hear.
+
+Having had a back and forth with about 5 of these people in the past year, I suspect their *ideal* interviewee is ChatGPT wearing the skin suit of a marginalised person who is researching the cure to cancer. I wonder if setting that up as a Linkedin profile will reduce the number of emails I need to filter through. Any answer that has sharp edges, even if they are honest, usually removed (or *heavily* edited) from the final article. Since human vulnerability and honesty is usually the exact thing you *want* to read in an interview, this leads to the obvious conclusion that these interviews primary purpose is marketing. You may say this is obvious, but this leads me to another question. 
+
+## If these interviews are just marketing, why do you keep asking me about gender discrimination?
+Look, I understand branding wanting to be fun and shiny, but if your goal is branding, there is always one thing about these interviews that throws me. Why do they always have a women in STEM question? If I was interviewing Anh Do as a presense to sell Nike sneakers, I would hardly ask him about his thoughts on the Vietnam war. So why am I constantly being asked about discrimination against women in STEM? Especially because it never goes how they were hoping.
+
+A recent interview question on the topic was something like this:
+
+> Question: The proportion of female highschool students in higher mathematics has been dropping for the past 6 years, this is despite female students making up over half of enrolments. What are some words of advice you would give female high school students to encourage them to continue mathematics study?
+
+Now, I originally intended to give a generic response to this question and move on, but then I remembered that *I* was actually one of these female students who dropped out of higher math in senior school. When I thought about why, I actually decided I did have advice that might would have been helpful for a high school version of myself. While I think there were a LOT of reasons unrelated to gender that caused me to drop out (such as neurodivergence that made me wildly unpopular with the staff) *they* are the ones who prodided the gender framing.
+
+Even though I knew I was probably about to enter one of those painful loop where the interviewer kept rephrasing the question to try and get something more generic, only for me to play oblivious and give another genuine but jaded response, I wrote out a long explanation as to why I dropped maths in senior school.
+
+> Answer:  I actually might have a unique perspective on this, because I quit Math C when I was in year 11.  I dropped out of higher mathematics in high school for three reasons:
+
+> (1) Instead of engaging problem-solving questions, most of the classes and problem sets were repetitive and formulaic, with a strong focus on rote learning. It made the classes far more draining than they needed to be. 
+(2) The teaching staff struggled with the more advanced content—Math B was manageable, but Math C was often mishandled. Half of every class was spent working through a proof, only for the teacher to realise at the end that it was wrong and tell us to “finish it at home.”
+(3) I was persistently told I was not as smart or as capable as my peers. Despite having the highest physics marks in the year level, I was told I wasn’t smart enough to represent the school at a physics tournament. When I asked if I could join the advanced Math C class, I was told the concepts were too advanced for me. I was persistently shot down whenever I tried to engage with higher-level STEM in school.
+
+> At the time, I didn’t recognise the gender divide, but in hindsight it was definitely there.  The home environment where we were expected to finish the half-done proofs was the same home environment where I had to cook, while my male peers still had their mothers pack their lunch. Almost all of the physics tournament group, as well as the advanced math group, were boys.
+
+> Given this experience, I can’t in good conscience encourage girls to stay in a maths environment that damages their self-esteem or love of learning. For me, high school maths left me believing I was bad at the subject and that it was boring, so I avoided it altogether after graduation and initially pursued behavioural economics. I only ended up back in mathematics through econometrics.
+
+> My advice to female students who feel they “used to be good at maths” but are now struggling is this: it’s okay to quit. Protecting your self-esteem and enjoyment of the subject is more important than forcing yourself to push through a harmful environment. You can always return to maths at university, where the culture is usually far more supportive. At that level, lecturers are deeply knowledgeable, genuinely enthusiastic about their field, and less likely to carry personal biases into their teaching. The content is more engaging, less repetitive, and the focus shifts back to problem-solving. While catching up may take some work—as it did for me—it’s far easier than undoing years of lost confidence.
+
+Now, when I went to send that, even I knew there was no way they were going to publish it. This was actually the third draft where I cut out some of the more egregious and blatant misconduct. For example, I cut out the fact that I suspect the reason the physics teacher hated me and kept calling me stupid was because I called him out every time he made inappropriate, sexualising comments about my female classmates (e.g. telling a specific student, by name, that they "looked beautiful"). The other students in my class often believed this was just a byproduct of my usual "making a mountain out of a molehill" personality, until he was arrested for having an under-age girlfriend and child porn on his computer. Obviously this teacher calling me stupid and blocking my academic pursuits is not the biggest issue in that story, but I suspect my male peers were not running into these kinds road blocks when engaging in their own STEM related pursuits.
+
+Predatory physics teachers aside, the response was too jaded for the interviewer, so they tried to get something less... uncomfortable out of me.
+
+> Question: Are you able to expand on what things at university made it a more supportive and enjoyable environment for you? We would love to showcase the full picture so that young females understand the breath of where they could end up even if it is not exactly working out in high school. 
+
+In for a penny, in for a pound. I decided to keep playing oblivious and give another long winded and uncomfortable response.
+
+> Answer: One change was simply the shift in the student cohort.  Studying STEM is often associated with being “smart”, so some people study math for appearance reasons or ego. I have found these students are often the most hostile to women. By the time you reach second-year classes, these students tend to have moved on, and the remaining cohort is largely there because of a genuine interest in mathematics. This makes group work more collaborative and supportive.
+Another big change was having female lecturers and TAs. It might have just been a bias at my particular school, but we had close to zero female math teachers. The one female math teachers we did have was only allowed to teach Math A (general mathematics). This fed into the idea that math “wasn’t for women”, so seeing women teaching maths at uni helped break that bias for me.  I also think female staff often keep an eye out for female students who are engaged in the coursework, and try to encourage them. It didn’t mean special treatment, but those small comments helped counterbalanced the discouragement I’d had for years. For example, my first-year math class had two tutors, a male and a female TA. After the first test (where I was rusty due to not having done math for several years) the male TA told me I should drop out of the class, while the female TA recognised I was out of practice and, after talking with me about my specific gaps, encouraged me to take the advanced version of the unit that followed. There was no way I was going to take the advanced version of the following class, but the suggestion that I could was likely what kept me in the program.
+
+Obviously, again, they were not happy with this. So they replied:
+
+> I was just chatting to the exec team and I think it’s best to frame your challenges with how you triumphed through them to provide readers with different approaches to overcoming setbacks. I will pop this together and send it over to you for review early next week.
+
+Whoops. A week later they sent me this as the final version:
+
+> Question: What made the university environment more supportive for you as a female struggling with maths in high school?
+
+> Answer: I think the difference between high school and university came down to a lot of small things. By the time you reach second-year classes, these students tend to have moved on, and the remaining cohort is largely there because of a genuine interest in mathematics. This makes group work more collaborative and supportive. Another big change was having female lecturers.
+
+At this point, I actually think I should work on that PhD thesis I'm supposed to be submitting in 3 months instead of torturing this interviewer, so I just say
+
+> Looks good, I'm happy for you to publish that!
+
+And then I wonder why I was so annoyed about the question in the first place.
+
+## I think its probably sexism
+There is an unspoken undertone whenever I am asked to edit one of these answers I give for these interviews, and it sounds something like *"Even if we do agree, or find your comments interesting, we CANNOT publish your weird rant about discrimination as a woman in highschool, Harriet! It's agressive, jaded, uncomfortably accusatory, and might land us in a lawsuit if we put it on our website. Do you think you could phase it better? Write something encouraging for the girls! Anything that is less depressing than this. You should try smiling more!"*
+
+This is all well and good, but I really need to make my point very clear. If you don't want women to talk about the realities of sexism, then don't ask real women to talk about gendered issues. While this seems obvious, interviewers seem surprised every single time I reply to one of these questions with descriptions of blatant sexism. In this case, I specifically tailored my response to be positive *specifically to highschool girls who might drop out of math for the same reasons I did*. Think of it this way. If you are a random person and you read my interview answer, it is depressing. Previously you didn't know about this sexism annecdote, and now you do, and your day is made worse by it. *However*, if you are a teenage girl who is told is discouraged by their teachers, and you read an interview where someone else who by all accounts is (alledgedly) competent at maths describe your exact same experience, you would find the story uplifting. A comment about having confidence in your ability and learning from mistakes is designed to help a student that is not quitting due to gender issues, i.e. it is not the reason that less girls take higher maths, relative to boys. How are you supposed to fix a gender divide in STEM if you treat the causes as gender neutral and expect me to comment on it as such? The entire thing is completely absurd. 
+
+I think I would find the entire situation less frustrating if it didn't speak to a wider problem in sexism. My deeper belief is that my response comes accross as unhinged relative to the question is because sexism is normal and pointing it out is not. Sexism is so built into our culture, it is difficult to find environments where there isn't at least a little of it. I'm lucky that the sexism that I encounter is more of the "you are a bit dumb" variety rather than of the "acid thrown in my face" variety, but that dichotemy is typically used to imply sexism isn't that bad, or has gone away. Like a stain, the more you reduce sexism, the more stubborn are the parts that remain. These remaining blotches are almost imperceptiable to the naked eye and scattered more sporadically through the population. This some people the notion that sexism is small or has gone away completely.
+
+I have never experienced any kind of sexual harassment myself (thank god) however, literally every single other woman I know has. Like... I mean every single one. However, this kind of harassment usually goes unseen, and the only visible part is the backlash against it. This is why I suspect one of my friends told me engineering firms "hiring exclusively women for some STEM roles is discrimination". When I explained that they probably need to hire entire cohorts of women in order to create a more gender balanced environment, and improve the diversity of options (which has prove time and time again to lead to better problem solving within a company). This is likely an attempt at correcting for the swaths that leave, largely due to hostile work environments. This friend rolls his eyes at the sexual harassment claim and tell's me "it's not the 80s anymore". I respond by giving them a detailed and uncomfortable account of the constant sexual harassment faced by our main mutual friend at *her* engineering firm. Sexual harassment that included an instance at an office party where two of her male co-workers were having a conversation about a "problem that was hard to solve" and she tried to join in by asking "what's hard", only to have a third male co-worker come up behind her, wrap his arms around her body, push his crotch into her, and say "I'll show you something hard". It will surprise nobody to learn her company has problems retaining female employees.
+
+The reality is, the reason Anh Do isn't getting asked questions about the Vietnam war when he is trying to answer questions about painting is because the interviewer *knows* it will lead to an uncomfortable answer. The Vietnam war is serious. The implication behind the surprise that I would give a serious answer to questions about women in STEM is that sexism and gender issues are unserious. Even though these questions themselves usually point out the seriousness of the issue. All of this is overwhelmed by the belief that sexism as a "nothing" problem so you expect a nothing response.
+
+
+
+# Extra bits? IDK
+I am not surfering 24/7 under sexism. Actually most of the time I don't think about it, but I suspect that is true for most marginalised status'. An Aboriginal Australian is probably not thinking about racism while having dinner with their family. Someone in a wheelchair isn't thinking about their disability while at coffee with their friends. You ADHD won't ruin your life while you are in the middle of a soccer game. These things *can* penetrate into these moments of your life, but largely they don't. I suspect that the belief that sexism is cured while other sources of bias go is due to the fact that everyone knows a woman who is not suffering 24/7. Very few of us know someone who is permanently bound to a wheelchair. So it is easier to imagine the wheelchair user as someone who exists in a permanent state of "lesser" reguardless as to whether or not it is relevant to thier environment. Sexism is dismissed largely through the dehumanisation of other groups, and it's own pervasivness.
+
+
+I actually don't think about women in STEM that much. Largely because I haven't really experienced any sexism during my honours and PhD. You could chalk this up to the fact that I have a very supportive set of female supervisors (something my supervisors themselves might not have been able to have due to female representation in STEM), but the culture in our department more boradly is actually very good. At least from my perspective, I am only looking up from the bottom of the totem poll. Sometimes you hear horror stories about staff dating young students at universities, and I genuinely cannot imagine the culture in those departments where that occurs. I cannot *imagine* a single male professor even *wanting* to date a female undergrad, let alone getting away with it without outrage from the rest of the department. 
+
+
+Sevice point?
+- have to do service in academia
+- el constantly filtering questions about how to be aware to queer people in department
+- Unable to do any research because she is constantly doing this
+- I think of some of this stuff as service work for academia
+- we all understand, on some level, this is required for the field to function
+- nobody else can do it for you
+- Unfortunately, it is women who need to do the work to make STEM a more hospitiable place for women. 
+
+
+Queer advisor
+- The interview questions are a good example of what happens when someone else tries to do the work, or when the work isn't done by someone who genuinely wants to make the space more habitiable for women.
+- This is "time wasting" service. I am happy to 
+
+The reality is, if I was being asked about 
+
