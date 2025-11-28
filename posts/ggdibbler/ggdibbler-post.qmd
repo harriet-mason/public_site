@@ -1,0 +1,173 @@
+---
+title: "This new ggplot extension is so good you are going to shit your pants"
+author: "Harriet Mason"
+editor: visual
+---
+
+
+# TLDR
+You can pass random variables to ggplot now. Any geom, any aesthetic (except groups and facets), they all accept random variables. I make no judgements on your plot, I am not your king. Whatever your plot is, `ggdibbler` will allow you to pass a random variable to it. You can read the documentation [here](https://harriet-mason.github.io/ggdibbler/). I know, you are amazed and impressed, and for that you are all WELCOME. And I will answer the one question you are dying to hear the answer to, I DO accept cash gifts sent directly to my bank account, thanks.
+
+
+### What this blog post is (and is not)
+You know how online recipies always put a long personal story before before the instructions and ingredients? Thats what this blog post is. As someone who has gone into `ggplot2` and made a package that does just about every single thing the documentation tells you *not* to do, I think I am in a unique position to start throwing stones. Even though I am probably going to post this blog post with the second CRAN release of `ggdibbler`, this is *not* an introduction to the package. The vignettes are very detailed, available [on the package website](https://harriet-mason.github.io/ggdibbler/) and it details the philosophy of the package, gives several examples, and even explains how to make extensions. I would acutally argue that the vignettes are assumed reading for this blog post since I refer to the philosophy of the `ggdibbler` package several times without explaining it. 
+
+This blog post is not an explanation of ggdibbler, it is a long winded explanation on how it was made, the difficulties faced and several months of my life that I gave away because the ggplot2 team didn't want to export the layer object.
+
+You can skip this blog post and just read the package vignettes if you *want*, but if `ggdibbler` is something you want to use, I think I earned the **right** to write a droll long winded complainet about the process of making it. The only reason I do research is to validate my complaints. I won't be mad if you don't read it, I will just think you are a bad person who hates me and wishes I was dead. Do with that information what you will.
+
+### Make a ggplot2 extension they said, it will be easy they said
+
+As powerful as the `ggdibbler` package is, the actual implementation is shockingly simple. The entire package could be a single R file if I could have implemented it the way I wanted. The size of the package is entirely because of ONE very anoying choice made by the `ggplot2` team (*trust me*, I will get to this complaint in due time). The main brunt of the package is so trivial it almost feels embarassing to explain it. It literally just does three very simple operations.
+
+1. It takes your distribution variables and does n (`times` in the package) resamples
+2. It then group by the interaction of the usual `ggplot2` groups and the `drawID` 
+3. It feeds this altered data through the ggplot pipeline (i.e. scale, stat, position, geom, coord, and theme) of the graphic you are trying to signal supress
+
+I, a fool, thought this process would be relatively simple to implement. The adjustments to the existing pipeline are relatively simple, and don't involve any complicated statistical concepts (it is literally just resampling and variable interactions). So, given that R is literally a coding language built for statistics, and ggplot is the flagship visualisation package in said coding language, I (again, a FOOL) though this would be so easy it would barely count as a chapter in my PhD.
+
+To avoid learning the `ggproto` system (a point I will get to), I opted to make one plot as a proof of concept and just say "this concept trivially extends to all plots and aesthetics" while refusing to write the code that did it. I am really trying to embody that "old professor who simply doesn't care anymore" energy. Unfortunately, it turns out the generality of signal supression was about as trivial to other people as the "trivial" proofs in my undergraduate math textbooks were to me.  Despite *saying* the approach was a generalisable solutions every time I mentioned the package, it quickly became clear to me that this fact was getting across about 0% of the time. Dragging the concept out of the "spatial uncertainty" category, simply because I chose to use choropleth maps as a motivating example, turned out to be nearly impossible. I found myself trapped in some kind of purgatory where I kept saying the same things over and over again:
+- "No, it's not just maps, it would work for any type of visualisation" 
+- "No, it is not for colour, no it is not a pattern, it is just resampling. It would work for any type of data mapped to any aesthetic."
+- "No, the example I need from you does not need to be spatio-temporal uncertainty, quite frankly I'm even sure what spatio-temporal uncertainty is at this point. I'm not sure it exists. Literally any uncertainty case study will be fine".
+
+I understand that people were interpreting my work through the lens of "isolated solution for a specic plot" because that has been the entire field of uncertainty visualisation has been for as long as it has been around. I also understand that this was a hell entirely of my own making because I refused to actually implement the generalised solution. It is not other people's fault that they can't reach into my brain and pull out the plots I *imagined* you could make. I just want to complain about it, as unreasonable as it is.
+
+At the end of September I gave a talk on the signal suppression approach to uncertainty visualisation, and the `ggdibbler` package and I think after the 10th person came up to me and said "Hey, nice spatial mapping package" something inside of me snapped. My brain went up in flames and said "SPATIAL UNCERTAINTY? I'LL SHOW YOU SPATIAL UNCERTAINTY" (a completely neutral and reasonable response to a nice compliment) and the implementation of the current version of `ggdibbler` was under way. However, much in the same way that
+
+## The ggplot2 book hates ME specifically
+I have spoken to a few people who have made ggplot extensions, and I have learnt that my experience was not standard. I constantly found myself in situations where it felt like ggplot2 was specifically designed to *prevent* the exact thing that `ggdibbler` was trying to implement.
+
+For anyone who hasn't made a ggplot extension before, you might not know how the system works. Let me explain. `ggplot2` was not built using a universal object orientated language such as S3, instead it was built using the `ggproto` system. If you are sitting here going "what on earth is `ggproto`", I wish I had your naievety. `ggproto`, my young friend, is a *bespoke object orientated system that is designed exclusively for making `ggplot2` extensions*. I understand that the system is used because there was a lot of legacy code the team was working with, but it does set the barrier to making a ggplot extension unusually high. 
+
+Due to the absurdity of learning an entire object orientated language to implement (WHAT I THOUGHT WOULD BE) 10 lines of code, I avoided properly learning the system. Eventually I caved and tried to make a ggplot version of the pixel map from `Vizumap`, which turned out to be a huge pain in the ass. I decided the best place to put the `ggdibbler` transformation was as a statistic but I struggled to get the function to work. Every time your data enters a `ggplot2` statistic, it goes on a little journey through a few functions, first it goes through `setup_data` which, obviously, sets up your data for the statistic; then it goes through `compute_layer` which splits the data up into it's facets; then `compute_panel` splits the data by it's groups; and finally `compute_group` computes the statistic you want, and then your data goes back through `compute_panel` and `compute_layer` to unsplit the data and move on to the next stage of the ggplot pipeline. Now, I, like an aparent idiot, read the ggplot2 textbook and saw this quote in the stat section:
+
+> Because of this, the only method you usually need to specify as a developer is the compute_group() function, whose job is to take the data for a single group and transform it appropriately.
+
+After reading this I thought "oh taking a sample, this is a very simple case" so I tried to make the stat work in `compute_group` and literally nothing happened. Since Hadley was visiting the department, Di suggested I ask him to help. This kind of felt like the acadmic equivalent to washing a bit of dirt on your hands with a pressure washer, but if the pressure washer is sitting around 5 doors down from your office, might as well. Anyway, after showing Hadley the code, he fixed it by putting the statistic in `compute_panel` and the conversation went kind of like this:
+
+Hadley: Ok you need to implement this stat in `compute_panel`
+Me: But the `ggplot2` book says that I would only need to specify `compute_group` for simple cases
+Hadley: This isn't a simple case
+Me: ... but its literally taking a sample from a distribution... and the ggplot2 book says...
+
+This leads me to the question: What the hell are the rest of you implementing ggplot2 extensions for? Eventually I figured out, for my specific case, I should actually ignore almost all of the general advice given in the ggplot2 book and documentation. I actually think following the advice of the ggplot2 book doubled the amount of time . Don't get me wrong, it is a *very* good resource and I probably would have abandoned the project from the begining without it, but I often got the impression that the ggplot2 textbook thinks I am just like... calculating a centroid or something? An assumptions I find incredibly facinating because of that previously mentioned "huge barrier to learning how to make a ggplot2 extension because of the bespoke object orientated system". The ggplot2 textbook seems to assume I am doing a simple task, but if I was doing something that could be made literally *any* other way, I wouldn't be here, making a ggplot2 extension, would I? Ultimately, this resulted in me spending a LOT of time following the steps to implement ggdibbler, running into a huge "WRONG WAY, GO BACK" sign, saying "oh I guess this is the wrong way" only to find out several weeks later it was actually the right way and ggplot just hates me and my extension. Now, because nobody asked for it, I am going to detail this process.
+
+## How we got here, and why `ggdibbler` works the way it does
+So, what was the goal of `ggdibbler`? Well, it is simply an implementation of the signal suppression philosophy. Basically, an uncertainty visualisation is the plot you get when you feed random variables into graphics system, instead of data. This means that the "graphics" part of an uncertainty visualisation is the same
+
+f If uncertainty visualisations are a function of a plot, then how do you take the "uncertainty" route instead of the normal route? By passing a distribution. Since the "plot" part is identical in every aspect the code you wri
+
+
+Ok so for anyone who doesn't know, when you call a ggplot function, your data goes through a pipeline. The pipeline (or at least the parts we care about) looks something like this:
+
+Data -> Layer -> Scale -> Stat -> Position -> Geom
+
+Now, as I already said, I started off trying to implement the distribution transformation in the stat. This worked sometimes, but would occasionally return something weird due to the class of the object being hard to pin down, and
+
+lets go through a timeline of how `ggdibbler` was implemented. As I already said, I started off trying to implement the distribution transformation in the stat, which worked, but only sometimes. Sometimes the defaults were weird, and sometimes I got an error from the scale
+
+
+
+
+>  It is important that no matter what modifications happen in setup_data() the PANEL and group columns remain intact.
+
+I actually go HAM with editing the group columns in `ggdibbler`. Hadley Wickham isn't my god.  The package would neverNobody can stop me. I am the king
+
+> It is possible to develop further primary scales, by following the example of ScaleBinned. It requires subclassing Scale or one of the provided primary scales, and create new train() and map() methods, among others.
+
+Not only did ggdibbler require a new subclass for scale, it required a nested scale.
+
+From the layer function documentation
+> The Layer class is an internal class that is not exported because the class is not intended for extension. The `layer()` function instantiates the LayerInstance class, which inherits from Layer, but has relevant fields populated.
+
+
+Hadley was visiting our department for a week so Di suggested I speak to him about it. 
+
+I kept bumping up against the scale. Since the scale was not used to dealing with distribution objects, it kept flipping out at me. I, as someone who had no idea how `ggproto` worked, was incredibly annoyed that the scale
+
+
+
+
+
+
+## The ggdibbler team has made an enemy out of me
+
+
+
+cept and say that the concept "", a ggplot version of the pixel map in gg. I had 
+
+
+
+When I decided to try and make the software, I immediately ran into a problem. There was nowhere in the `ggproto` system 
+
+in ggplot, a visualisation package built in a statistics so
+
+
+
+
+
+
+
+
+
+
+
+I actually spent about 9 months saying "technically this concept *could* be implemented with any plot" while refusing to write the code that did it, because learning an entire bespoke object orientated system for a small resamling job felt completely absurd. The departments
+
+I didn't imagine it would be particularly difficult. The system couldn't be implemented as a data pre-processing step as ggplot needs to adjust the `group` aesthetic and 
+
+
+The resampling couldn't be done needed to be done inside the ggplot2 object (so that)
+
+it was immediately clear that the data transformation from distribution to sample should occur in the layer setup. Before the scales, before the stats, before everything. 
+
+Now, I could spend a lot of time talking about how much of a nightmare implementing this extension has been. Lord knows all my friends, family, and coworkers have been hearing about it for months. This package could have been about 1000 lines of code if it wasn't for one line in the ggplot2 documentation.
+
+## An overview of my uncertainty visualisation philosophy
+Gather around children, let me tell you the view of uncertainty visualisation that led to my excellent package. The long version of the approach (I actually think it is a good read) is written up in the paper that was the first chapter of my PhD thesis, you can read it [here](https://arxiv.org/abs/2411.10482). A shorter version of it was given as a talk at UseR!. A slightly longer but less professional version is given here.
+
+Exactly "what" uncertainty visualisation is, seems to be hard to pin down. There are two competing philosophies of uncertainty visualisation. They are:
+(1) Uncertainty visualisation is any visualisation of an uncertainty statistic. This can be a variance, error, density function, probability, standard error, etc.
+(2) Uncertainty visualisations are a function of an existing graphic, where uncertainty is integrated into the plot in such a way that it prevents us from taking away false or misleading signals.
+Now, given the history of statistical graphics, (1) feels obviously wrong to me. Nowhere else do we define a plot by its underlying statistics. Otherwise, we should have central value plots or exteme value plots. We do not do this, because it doesn't really make sense to define visualisations by the statistics they visualise.  This leaves (2) which I think is a far more interesting question. 
+
+This philosophy means that uncertainty visualisation are functions of plots, rather than an innate quality a plot can have in a vaccume. Plots can only be "uncertainty" visualisations in relation to a plot that was somehow absent uncertainty. I ended up calling this goal (and the function that creates an uncertainty visualisation) "signal supression" in reference to one of the few papers that seemed to consistently apply the "uncertainty visualisation as a function" philosophy, [Value Supressing Uncertainty Palettes](https://dl.acm.org/doi/10.1145/3173574.3174216). The only reason we didn't call it value supression, is because we are not specifically supressing individual values, we are trying to supress the "plot level" take away.
+
+This "uncertainty visualisation as a function" approach also means there should be an uncertainty version of data. The obvious answer is that the uncertainty version of data is just random variables. But, you cant store random variables in a tibble, which you would need to do to be able to feed them to ggplot. So I'm thinking, oh god do I have to make some kind of random variable vector object thing? And thankfully, the answer was no.
+
+Praise be unto the gods of open source software, someone else already did it. From what I can gather, it seems that Mitch and Rob wanted distribution vectors for forecast outputs (and Mitch's graph, distribution, time, space magnum opus he is working on that I think is related to Cynthia's work as well? but do not understand and I am not going to pretend I do, I am just over here making plots please don't make me think about data types) and Matthew Kay and Alex Hayes also wanted a distribution object for THEIR uncertainty visualisation work (the distribution objects are also utilised by `ggdist`). So, Mitch, Rob, Matt and Alex have my utmost appreciation for making an object I desperately needed, about 5 years before I needed it.
+
+As an aside, what I think is the most interesting thing about Matt's work is that the data type suggests the signal suppression approach, but then the graphics made by `ggdist` suggest the "uncertainty is a function of a distribution" approach. His papers jump between the two philosophies. I actually think he does both of them well ([This paper with a title too long to type out](https://osf.io/preprints/osf/6xcnw_v1) is genuinely one of my favourites) but obviously I am partial to the signal-suppression papers. I genuinely cannot work out his internal definition of an uncertainty visualisation. Based on a conversation with him, it seems to be a kind of holistic decision making thing that is depends largely on the task the plot is used for (which is quite a typical belief in computer science). Similarly to Mitch's mega-datastructure-magnum-opus, I do not understand and I am choosing to not think about it that much.
+
+
+So before I was going to make a package that allows you to have a random variable object type, I am going to check it doesn't already exist. Thank god for open source software, because my version of `distributional` would have been dogshit. I didn't have to do this part. 
+
+
+Graphics relativity or soemthing, I don't know.
+
+every visualisation has an uncertaintyHow do you integrate uncertainty into a 
+
+For an uncertainty visualisation to successfully perform signal supression, visual patterns should be easily recognised when the uncertainty is low, and hard to see when the uncertainty is high. The statistical validity should translate to perceptual ease. 
+
+
+
+## Don't give your plot a name, I am not using it and I have already forgotten it.
+For the love of god, Leeland Wilkinson wrote the grammar of graphics 25 years ago, and was all "STOP GIVING ALL YOUR PLOTS BESPOKE NAMES". So what does everyone do? Continue to give all their plots bespoke names and then demand I use it. I feel like I live in a crazy town where there are thousands of visualisation researchers who write ggplot extensions and not a single one has ever cracked open the Grammar of Graphics textbook. Leeland is out here on the first page begging you to stop using graph names. Not only do named graphs go against the grammar of graphics philosophy, but they also lead to peacemeal solutions and do not encourage any deeper search for uncerstanding of what we are trying to visualise.
+
+I find piecemeal solutions incredibly annoying. Solutions should be *elegant* and give me a new-found appreciation for the theory of a field. I should get a shiver down my spine as I think "wow I never would have thought of this in a million years". Like how every Maths student hears the story about Guass coming up with the formula for a sum of an arthmetic series and immediately has a deep sensation that they doomed to spend eternity as a dumb little guy who is just rolling in the mud by comparison. 
+
+Piecemeal solutions make me feel as though I am just memorising a bunch of facts rather than learning how they work, and I simply don't care about anything enough to suffer through that. I don't like them for the same reason I cannot spell and I don't read the news (why is it different all the time? just have like 5 axioms of human behaviour or something and call it a day). The main way you interact with news and spelling is just learning every individual piece and then you just... what? Memorise all this random garbage?? Absolutely not. Just kill me. I would rather die. 
+
+
+Me standing in the PhD room, saying (angrily yelling is more accurate) to Jayani "Oh can I just make this in ggplot, if I make this in ggplot and give it a name, is it my plot now?? I own this plot??? BRB everyone I'm going to go copyright the NUMBER 64345" was a frequent enough occurence that I may have acutally caused a bit of detrimental impact on her PhD (sorry Jayani).
+
+Like, lets look at one particular case. Visualisation distributions, especially when done with a sample, requires you to fix overplotting. 
+- Pixel map
+- Hops plot
+
+Integration over a different variable
+- ggdibbler vs ggdist
+- 
+
+This is a side note that will make sense to nobody but a group of about 10 people, but @Hadley part of the reason I got coffee at that JSM lunch (obvously despite the fact that Deb, Heike and Susan were really a delight to talk to) was because I knew it would keep us there an extra 30 mins, and it was pretty obvious you wanted to break off and get coffee with them alone. I *will* claw back the time I spent on this ggplot2 extension, chump.

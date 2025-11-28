@@ -1,0 +1,43 @@
+---
+title: "Let your subconscious do the work"
+author: "Harriet Mason"
+editor: source
+---
+
+
+# The long version that makes you regret clicking on this blog post
+## Gotta obey the tiny demon
+I'm not really the kind of person who has "dicipline" or "tenacity". I only really stick to something if it is a source of spite for me. I have many many many enemies that do not even know I exist. My most common advice to everyone I know is "quit". Which may sound depressing, but I think it is just deeply related to my life philosophy of "you win no awards for suffering for the sake of suffering". I spend basically all my time doing exactly what I feel like. Which can sound relaxing, but unfortunately for me, "exactly what I feel like" is actually decided by a tiny DEMON who lives in my subconscious and is desperately trying to ruin my life.
+
+Like, right now it is 6am and I really should be asleep, but instead I am writing this blog post and I have been doing some combination of that and working on my package for the past 6 hours. This isnt even urgent or necessary, I am still several weeks out from the completion of the package (and therefore the release of this blog post). But if I stop writing this blog post, I will be filled with immense discomfort as the tiny demon *always* punishes those that do not obey. There is no anxiety or stress or external validation or an angle and devil on my shoulder, there is only the tiny demon who compels me to do whatever it wants (this sounds like I am in the throws of a mental episode, but I promise you, I am not).
+
+The tiny demon does not always want to work though, actually, often they do not. I am largely unbothered by this, but the people who sign my paychecks usually are not big fans of the whims of the tiny demon. I actually track all the hours I spend doing almost everything (this sounds neurotic and I promise, it is), so I have acutally made a chart of the number of hours I work each week. 
+
+```{r}
+
+```
+
+I also sent this plot to my supervisors (we were discussing if TA work has a negative impact on the number of hours I spend doing research work). You might think it is a bad idea to send a chart that says I work 14 hours a week to my supervisors, but Di was far more concerned about my plot choice.
+
+
+
+After finishing the first chapter of my thesis, the tiny demon lost interest in research and instead wanted to take up stained glass. I am not joking, here is the window I made of my dogs face.
+
+
+Anyways, this is all to say, my work rate for most of the life of this package was pretty low. I was chipping away at bits here and there, but I wasn't completely statisfied with the solution to uncertainty visualisation I had.
+
+
+
+
+
+
+
+
+In the same way I don't
+
+I don't consciously come to them, its more like they attack me in the middle of the night and I just have to go
+
+One of the most important components of the ggdibbler solution to uncertainty visualisation genuinely occured this way. I didn't originally plan to apply to package to *every* plot (only the plots that used `stat_identity`) because some plots are run through a statistic (e.g. geom_density) and I had no idea if it was even meaningful to HAVE an uncertainty visualisation of a density plot. This was something I said during my *UseR! 2025* talk, and basically had that opinion until about six weeks ago. Six weeks ago I woke up at 5am (very unusual for me, I'm more of a 10am riser), and at the TOP of my mind was the thought "You could apply signal supression to any plot if you group by the draw number". So I immediately opened my laptop and implemented it, and it worked. 
+
+I could hardly call this solution "something I arrived at by conscious thought". Do I know where that came from? No. Did I consciously think of it? No. Like most things in my life, it was a gift (or a curse) given to me by a tiny demon that 
+
