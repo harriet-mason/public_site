@@ -53,7 +53,7 @@ Me: ... but its literally taking a sample from a distribution... and the ggplot2
 
 This leads me to the question: What the hell are the rest of you implementing ggplot2 extensions for? Eventually I figured out, for my specific case, I should actually ignore almost all of the general advice given in the ggplot2 book and documentation. I actually think following the advice of the ggplot2 book doubled the amount of time . Don't get me wrong, it is a *very* good resource and I probably would have abandoned the project from the begining without it, but I often got the impression that the ggplot2 textbook thinks I am just like... calculating a centroid or something? An assumptions I find incredibly facinating because of that previously mentioned "huge barrier to learning how to make a ggplot2 extension because of the bespoke object orientated system". The ggplot2 textbook seems to assume I am doing a simple task, but if I was doing something that could be made literally *any* other way, I wouldn't be here, making a ggplot2 extension, would I? Ultimately, this resulted in me spending a LOT of time following the steps to implement ggdibbler, running into a huge "WRONG WAY, GO BACK" sign, saying "oh I guess this is the wrong way" only to find out several weeks later it was actually the right way and ggplot just hates me and my extension. Now, because nobody asked for it, I am going to detail this process.
 
-## How we got here, and why `ggdibbler` works the way it does
+## **I** don't recall electing `ggplot2` as king
 So, what was the goal of `ggdibbler`? Well, it is simply an implementation of the signal suppression philosophy. Basically, an uncertainty visualisation is the plot you get when you feed random variables into graphics system, instead of data. This means that the "graphics" part of an uncertainty visualisation is the same
 
 f If uncertainty visualisations are a function of a plot, then how do you take the "uncertainty" route instead of the normal route? By passing a distribution. Since the "plot" part is identical in every aspect the code you wri
@@ -124,50 +124,4 @@ it was immediately clear that the data transformation from distribution to sampl
 
 Now, I could spend a lot of time talking about how much of a nightmare implementing this extension has been. Lord knows all my friends, family, and coworkers have been hearing about it for months. This package could have been about 1000 lines of code if it wasn't for one line in the ggplot2 documentation.
 
-## An overview of my uncertainty visualisation philosophy
-Gather around children, let me tell you the view of uncertainty visualisation that led to my excellent package. The long version of the approach (I actually think it is a good read) is written up in the paper that was the first chapter of my PhD thesis, you can read it [here](https://arxiv.org/abs/2411.10482). A shorter version of it was given as a talk at UseR!. A slightly longer but less professional version is given here.
 
-Exactly "what" uncertainty visualisation is, seems to be hard to pin down. There are two competing philosophies of uncertainty visualisation. They are:
-(1) Uncertainty visualisation is any visualisation of an uncertainty statistic. This can be a variance, error, density function, probability, standard error, etc.
-(2) Uncertainty visualisations are a function of an existing graphic, where uncertainty is integrated into the plot in such a way that it prevents us from taking away false or misleading signals.
-Now, given the history of statistical graphics, (1) feels obviously wrong to me. Nowhere else do we define a plot by its underlying statistics. Otherwise, we should have central value plots or exteme value plots. We do not do this, because it doesn't really make sense to define visualisations by the statistics they visualise.  This leaves (2) which I think is a far more interesting question. 
-
-This philosophy means that uncertainty visualisation are functions of plots, rather than an innate quality a plot can have in a vaccume. Plots can only be "uncertainty" visualisations in relation to a plot that was somehow absent uncertainty. I ended up calling this goal (and the function that creates an uncertainty visualisation) "signal supression" in reference to one of the few papers that seemed to consistently apply the "uncertainty visualisation as a function" philosophy, [Value Supressing Uncertainty Palettes](https://dl.acm.org/doi/10.1145/3173574.3174216). The only reason we didn't call it value supression, is because we are not specifically supressing individual values, we are trying to supress the "plot level" take away.
-
-This "uncertainty visualisation as a function" approach also means there should be an uncertainty version of data. The obvious answer is that the uncertainty version of data is just random variables. But, you cant store random variables in a tibble, which you would need to do to be able to feed them to ggplot. So I'm thinking, oh god do I have to make some kind of random variable vector object thing? And thankfully, the answer was no.
-
-Praise be unto the gods of open source software, someone else already did it. From what I can gather, it seems that Mitch and Rob wanted distribution vectors for forecast outputs (and Mitch's graph, distribution, time, space magnum opus he is working on that I think is related to Cynthia's work as well? but do not understand and I am not going to pretend I do, I am just over here making plots please don't make me think about data types) and Matthew Kay and Alex Hayes also wanted a distribution object for THEIR uncertainty visualisation work (the distribution objects are also utilised by `ggdist`). So, Mitch, Rob, Matt and Alex have my utmost appreciation for making an object I desperately needed, about 5 years before I needed it.
-
-As an aside, what I think is the most interesting thing about Matt's work is that the data type suggests the signal suppression approach, but then the graphics made by `ggdist` suggest the "uncertainty is a function of a distribution" approach. His papers jump between the two philosophies. I actually think he does both of them well ([This paper with a title too long to type out](https://osf.io/preprints/osf/6xcnw_v1) is genuinely one of my favourites) but obviously I am partial to the signal-suppression papers. I genuinely cannot work out his internal definition of an uncertainty visualisation. Based on a conversation with him, it seems to be a kind of holistic decision making thing that is depends largely on the task the plot is used for (which is quite a typical belief in computer science). Similarly to Mitch's mega-datastructure-magnum-opus, I do not understand and I am choosing to not think about it that much.
-
-
-So before I was going to make a package that allows you to have a random variable object type, I am going to check it doesn't already exist. Thank god for open source software, because my version of `distributional` would have been dogshit. I didn't have to do this part. 
-
-
-Graphics relativity or soemthing, I don't know.
-
-every visualisation has an uncertaintyHow do you integrate uncertainty into a 
-
-For an uncertainty visualisation to successfully perform signal supression, visual patterns should be easily recognised when the uncertainty is low, and hard to see when the uncertainty is high. The statistical validity should translate to perceptual ease. 
-
-
-
-## Don't give your plot a name, I am not using it and I have already forgotten it.
-For the love of god, Leeland Wilkinson wrote the grammar of graphics 25 years ago, and was all "STOP GIVING ALL YOUR PLOTS BESPOKE NAMES". So what does everyone do? Continue to give all their plots bespoke names and then demand I use it. I feel like I live in a crazy town where there are thousands of visualisation researchers who write ggplot extensions and not a single one has ever cracked open the Grammar of Graphics textbook. Leeland is out here on the first page begging you to stop using graph names. Not only do named graphs go against the grammar of graphics philosophy, but they also lead to peacemeal solutions and do not encourage any deeper search for uncerstanding of what we are trying to visualise.
-
-I find piecemeal solutions incredibly annoying. Solutions should be *elegant* and give me a new-found appreciation for the theory of a field. I should get a shiver down my spine as I think "wow I never would have thought of this in a million years". Like how every Maths student hears the story about Guass coming up with the formula for a sum of an arthmetic series and immediately has a deep sensation that they doomed to spend eternity as a dumb little guy who is just rolling in the mud by comparison. 
-
-Piecemeal solutions make me feel as though I am just memorising a bunch of facts rather than learning how they work, and I simply don't care about anything enough to suffer through that. I don't like them for the same reason I cannot spell and I don't read the news (why is it different all the time? just have like 5 axioms of human behaviour or something and call it a day). The main way you interact with news and spelling is just learning every individual piece and then you just... what? Memorise all this random garbage?? Absolutely not. Just kill me. I would rather die. 
-
-
-Me standing in the PhD room, saying (angrily yelling is more accurate) to Jayani "Oh can I just make this in ggplot, if I make this in ggplot and give it a name, is it my plot now?? I own this plot??? BRB everyone I'm going to go copyright the NUMBER 64345" was a frequent enough occurence that I may have acutally caused a bit of detrimental impact on her PhD (sorry Jayani).
-
-Like, lets look at one particular case. Visualisation distributions, especially when done with a sample, requires you to fix overplotting. 
-- Pixel map
-- Hops plot
-
-Integration over a different variable
-- ggdibbler vs ggdist
-- 
-
-This is a side note that will make sense to nobody but a group of about 10 people, but @Hadley part of the reason I got coffee at that JSM lunch (obvously despite the fact that Deb, Heike and Susan were really a delight to talk to) was because I knew it would keep us there an extra 30 mins, and it was pretty obvious you wanted to break off and get coffee with them alone. I *will* claw back the time I spent on this ggplot2 extension, chump.
