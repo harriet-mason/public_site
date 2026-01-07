@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.55">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harriet Mason">
+
+<title>This new ggplot extension is so good you are going to shit your pants – Harriet Mason</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Harriet Mason</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts/index.html"> 
+<span class="menu-text">Blog Posts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching/index.html"> 
+<span class="menu-text">Tutorial Help Sheets</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks/index.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TLDR</a>
+  <ul class="collapse">
+  <li><a href="#what-this-blog-post-is-and-is-not" id="toc-what-this-blog-post-is-and-is-not" class="nav-link" data-scroll-target="#what-this-blog-post-is-and-is-not">What this blog post is (and is not)</a></li>
+  <li><a href="#make-a-ggplot2-extension-they-said-it-will-be-easy-they-said" id="toc-make-a-ggplot2-extension-they-said-it-will-be-easy-they-said" class="nav-link" data-scroll-target="#make-a-ggplot2-extension-they-said-it-will-be-easy-they-said">Make a ggplot2 extension they said, it will be easy they said</a></li>
+  <li><a href="#the-ggplot2-book-hates-me-specifically" id="toc-the-ggplot2-book-hates-me-specifically" class="nav-link" data-scroll-target="#the-ggplot2-book-hates-me-specifically">The ggplot2 book hates ME specifically</a></li>
+  <li><a href="#i-dont-recall-electing-ggplot2-as-king" id="toc-i-dont-recall-electing-ggplot2-as-king" class="nav-link" data-scroll-target="#i-dont-recall-electing-ggplot2-as-king"><strong>I</strong> don’t recall electing <code>ggplot2</code> as king</a></li>
+  <li><a href="#the-ggdibbler-team-has-made-an-enemy-out-of-me" id="toc-the-ggdibbler-team-has-made-an-enemy-out-of-me" class="nav-link" data-scroll-target="#the-ggdibbler-team-has-made-an-enemy-out-of-me">The ggdibbler team has made an enemy out of me</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">This new ggplot extension is so good you are going to shit your pants</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harriet Mason </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="tldr" class="level1">
+<h1>TLDR</h1>
+<p>You can pass random variables to ggplot now. Any geom, any aesthetic (except groups and facets), they all accept random variables. I make no judgements on your plot, I am not your king. Whatever your plot is, <code>ggdibbler</code> will allow you to pass a random variable to it. You can read the documentation <a href="https://harriet-mason.github.io/ggdibbler/">here</a>. I know, you are amazed and impressed, and for that you are all WELCOME. And I will answer the one question you are dying to hear the answer to, I DO accept cash gifts sent directly to my bank account, thanks.</p>
+<section id="what-this-blog-post-is-and-is-not" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-blog-post-is-and-is-not">What this blog post is (and is not)</h3>
+<p>You know how online recipies always put a long personal story before before the instructions and ingredients? Thats what this blog post is. As someone who has gone into <code>ggplot2</code> and made a package that does just about every single thing the documentation tells you <em>not</em> to do, I think I am in a unique position to start throwing stones. Even though I am probably going to post this blog post with the second CRAN release of <code>ggdibbler</code>, this is <em>not</em> an introduction to the package. The vignettes are very detailed, available <a href="https://harriet-mason.github.io/ggdibbler/">on the package website</a> and it details the philosophy of the package, gives several examples, and even explains how to make extensions. I would acutally argue that the vignettes are assumed reading for this blog post since I refer to the philosophy of the <code>ggdibbler</code> package several times without explaining it.</p>
+<p>This blog post is not an explanation of ggdibbler, it is a long winded explanation on how it was made, the difficulties faced and several months of my life that I gave away because the ggplot2 team didn’t want to export the layer object.</p>
+<p>You can skip this blog post and just read the package vignettes if you <em>want</em>, but if <code>ggdibbler</code> is something you want to use, I think I earned the <strong>right</strong> to write a droll long winded complainet about the process of making it. The only reason I do research is to validate my complaints. I won’t be mad if you don’t read it, I will just think you are a bad person who hates me and wishes I was dead. Do with that information what you will.</p>
+</section>
+<section id="make-a-ggplot2-extension-they-said-it-will-be-easy-they-said" class="level3">
+<h3 class="anchored" data-anchor-id="make-a-ggplot2-extension-they-said-it-will-be-easy-they-said">Make a ggplot2 extension they said, it will be easy they said</h3>
+<p>As powerful as the <code>ggdibbler</code> package is, the actual implementation is shockingly simple. The entire package could be a single R file if I could have implemented it the way I wanted. The size of the package is entirely because of ONE very anoying choice made by the <code>ggplot2</code> team (<em>trust me</em>, I will get to this complaint in due time). The main brunt of the package is so trivial it almost feels embarassing to explain it. It literally just does three very simple operations.</p>
+<ol type="1">
+<li>It takes your distribution variables and does n (<code>times</code> in the package) resamples</li>
+<li>It then group by the interaction of the usual <code>ggplot2</code> groups and the <code>drawID</code></li>
+<li>It feeds this altered data through the ggplot pipeline (i.e.&nbsp;scale, stat, position, geom, coord, and theme) of the graphic you are trying to signal supress</li>
+</ol>
+<p>I, a fool, thought this process would be relatively simple to implement. The adjustments to the existing pipeline are relatively simple, and don’t involve any complicated statistical concepts (it is literally just resampling and variable interactions). So, given that R is literally a coding language built for statistics, and ggplot is the flagship visualisation package in said coding language, I (again, a FOOL) though this would be so easy it would barely count as a chapter in my PhD.</p>
+<p>To avoid learning the <code>ggproto</code> system (a point I will get to), I opted to make one plot as a proof of concept and just say “this concept trivially extends to all plots and aesthetics” while refusing to write the code that did it. I am really trying to embody that “old professor who simply doesn’t care anymore” energy. Unfortunately, it turns out the generality of signal supression was about as trivial to other people as the “trivial” proofs in my undergraduate math textbooks were to me. Despite <em>saying</em> the approach was a generalisable solutions every time I mentioned the package, it quickly became clear to me that this fact was getting across about 0% of the time. Dragging the concept out of the “spatial uncertainty” category, simply because I chose to use choropleth maps as a motivating example, turned out to be nearly impossible. I found myself trapped in some kind of purgatory where I kept saying the same things over and over again: - “No, it’s not just maps, it would work for any type of visualisation” - “No, it is not for colour, no it is not a pattern, it is just resampling. It would work for any type of data mapped to any aesthetic.” - “No, the example I need from you does not need to be spatio-temporal uncertainty, quite frankly I’m even sure what spatio-temporal uncertainty is at this point. I’m not sure it exists. Literally any uncertainty case study will be fine”.</p>
+<p>I understand that people were interpreting my work through the lens of “isolated solution for a specic plot” because that has been the entire field of uncertainty visualisation has been for as long as it has been around. I also understand that this was a hell entirely of my own making because I refused to actually implement the generalised solution. It is not other people’s fault that they can’t reach into my brain and pull out the plots I <em>imagined</em> you could make. I just want to complain about it, as unreasonable as it is.</p>
+<p>At the end of September I gave a talk on the signal suppression approach to uncertainty visualisation, and the <code>ggdibbler</code> package and I think after the 10th person came up to me and said “Hey, nice spatial mapping package” something inside of me snapped. My brain went up in flames and said “SPATIAL UNCERTAINTY? I’LL SHOW YOU SPATIAL UNCERTAINTY” (a completely neutral and reasonable response to a nice compliment) and the implementation of the current version of <code>ggdibbler</code> was under way. However, much in the same way that</p>
+</section>
+<section id="the-ggplot2-book-hates-me-specifically" class="level2">
+<h2 class="anchored" data-anchor-id="the-ggplot2-book-hates-me-specifically">The ggplot2 book hates ME specifically</h2>
+<p>I have spoken to a few people who have made ggplot extensions, and I have learnt that my experience was not standard. I constantly found myself in situations where it felt like ggplot2 was specifically designed to <em>prevent</em> the exact thing that <code>ggdibbler</code> was trying to implement.</p>
+<p>For anyone who hasn’t made a ggplot extension before, you might not know how the system works. Let me explain. <code>ggplot2</code> was not built using a universal object orientated language such as S3, instead it was built using the <code>ggproto</code> system. If you are sitting here going “what on earth is <code>ggproto</code>”, I wish I had your naievety. <code>ggproto</code>, my young friend, is a <em>bespoke object orientated system that is designed exclusively for making <code>ggplot2</code> extensions</em>. I understand that the system is used because there was a lot of legacy code the team was working with, but it does set the barrier to making a ggplot extension unusually high.</p>
+<p>Due to the absurdity of learning an entire object orientated language to implement (WHAT I THOUGHT WOULD BE) 10 lines of code, I avoided properly learning the system. Eventually I caved and tried to make a ggplot version of the pixel map from <code>Vizumap</code>, which turned out to be a huge pain in the ass. I decided the best place to put the <code>ggdibbler</code> transformation was as a statistic but I struggled to get the function to work. Every time your data enters a <code>ggplot2</code> statistic, it goes on a little journey through a few functions, first it goes through <code>setup_data</code> which, obviously, sets up your data for the statistic; then it goes through <code>compute_layer</code> which splits the data up into it’s facets; then <code>compute_panel</code> splits the data by it’s groups; and finally <code>compute_group</code> computes the statistic you want, and then your data goes back through <code>compute_panel</code> and <code>compute_layer</code> to unsplit the data and move on to the next stage of the ggplot pipeline. Now, I, like an aparent idiot, read the ggplot2 textbook and saw this quote in the stat section:</p>
+<blockquote class="blockquote">
+<p>Because of this, the only method you usually need to specify as a developer is the compute_group() function, whose job is to take the data for a single group and transform it appropriately.</p>
+</blockquote>
+<p>After reading this I thought “oh taking a sample, this is a very simple case” so I tried to make the stat work in <code>compute_group</code> and literally nothing happened. Since Hadley was visiting the department, Di suggested I ask him to help. This kind of felt like the acadmic equivalent to washing a bit of dirt on your hands with a pressure washer, but if the pressure washer is sitting around 5 doors down from your office, might as well. Anyway, after showing Hadley the code, he fixed it by putting the statistic in <code>compute_panel</code> and the conversation went kind of like this:</p>
+<p>Hadley: Ok you need to implement this stat in <code>compute_panel</code> Me: But the <code>ggplot2</code> book says that I would only need to specify <code>compute_group</code> for simple cases Hadley: This isn’t a simple case Me: … but its literally taking a sample from a distribution… and the ggplot2 book says…</p>
+<p>This leads me to the question: What the hell are the rest of you implementing ggplot2 extensions for? Eventually I figured out, for my specific case, I should actually ignore almost all of the general advice given in the ggplot2 book and documentation. I actually think following the advice of the ggplot2 book doubled the amount of time . Don’t get me wrong, it is a <em>very</em> good resource and I probably would have abandoned the project from the begining without it, but I often got the impression that the ggplot2 textbook thinks I am just like… calculating a centroid or something? An assumptions I find incredibly facinating because of that previously mentioned “huge barrier to learning how to make a ggplot2 extension because of the bespoke object orientated system”. The ggplot2 textbook seems to assume I am doing a simple task, but if I was doing something that could be made literally <em>any</em> other way, I wouldn’t be here, making a ggplot2 extension, would I? Ultimately, this resulted in me spending a LOT of time following the steps to implement ggdibbler, running into a huge “WRONG WAY, GO BACK” sign, saying “oh I guess this is the wrong way” only to find out several weeks later it was actually the right way and ggplot just hates me and my extension. Now, because nobody asked for it, I am going to detail this process.</p>
+</section>
+<section id="i-dont-recall-electing-ggplot2-as-king" class="level2">
+<h2 class="anchored" data-anchor-id="i-dont-recall-electing-ggplot2-as-king"><strong>I</strong> don’t recall electing <code>ggplot2</code> as king</h2>
+<p>So, what was the goal of <code>ggdibbler</code>? Well, it is simply an implementation of the signal suppression philosophy. Basically, an uncertainty visualisation is the plot you get when you feed random variables into graphics system, instead of data. This means that the “graphics” part of an uncertainty visualisation is the same</p>
+<p>f If uncertainty visualisations are a function of a plot, then how do you take the “uncertainty” route instead of the normal route? By passing a distribution. Since the “plot” part is identical in every aspect the code you wri</p>
+<p>Ok so for anyone who doesn’t know, when you call a ggplot function, your data goes through a pipeline. The pipeline (or at least the parts we care about) looks something like this:</p>
+<p>Data -&gt; Layer -&gt; Scale -&gt; Stat -&gt; Position -&gt; Geom</p>
+<p>Now, as I already said, I started off trying to implement the distribution transformation in the stat. This worked sometimes, but would occasionally return something weird due to the class of the object being hard to pin down, and</p>
+<p>lets go through a timeline of how <code>ggdibbler</code> was implemented. As I already said, I started off trying to implement the distribution transformation in the stat, which worked, but only sometimes. Sometimes the defaults were weird, and sometimes I got an error from the scale</p>
+<blockquote class="blockquote">
+<p>It is important that no matter what modifications happen in setup_data() the PANEL and group columns remain intact.</p>
+</blockquote>
+<p>I actually go HAM with editing the group columns in <code>ggdibbler</code>. Hadley Wickham isn’t my god. The package would neverNobody can stop me. I am the king</p>
+<blockquote class="blockquote">
+<p>It is possible to develop further primary scales, by following the example of ScaleBinned. It requires subclassing Scale or one of the provided primary scales, and create new train() and map() methods, among others.</p>
+</blockquote>
+<p>Not only did ggdibbler require a new subclass for scale, it required a nested scale.</p>
+<p>From the layer function documentation &gt; The Layer class is an internal class that is not exported because the class is not intended for extension. The <code>layer()</code> function instantiates the LayerInstance class, which inherits from Layer, but has relevant fields populated.</p>
+<p>Hadley was visiting our department for a week so Di suggested I speak to him about it.</p>
+<p>I kept bumping up against the scale. Since the scale was not used to dealing with distribution objects, it kept flipping out at me. I, as someone who had no idea how <code>ggproto</code> worked, was incredibly annoyed that the scale</p>
+</section>
+<section id="the-ggdibbler-team-has-made-an-enemy-out-of-me" class="level2">
+<h2 class="anchored" data-anchor-id="the-ggdibbler-team-has-made-an-enemy-out-of-me">The ggdibbler team has made an enemy out of me</h2>
+<p>cept and say that the concept ““, a ggplot version of the pixel map in gg. I had</p>
+<p>When I decided to try and make the software, I immediately ran into a problem. There was nowhere in the <code>ggproto</code> system</p>
+<p>in ggplot, a visualisation package built in a statistics so</p>
+<p>I actually spent about 9 months saying “technically this concept <em>could</em> be implemented with any plot” while refusing to write the code that did it, because learning an entire bespoke object orientated system for a small resamling job felt completely absurd. The departments</p>
+<p>I didn’t imagine it would be particularly difficult. The system couldn’t be implemented as a data pre-processing step as ggplot needs to adjust the <code>group</code> aesthetic and</p>
+<p>The resampling couldn’t be done needed to be done inside the ggplot2 object (so that)</p>
+<p>it was immediately clear that the data transformation from distribution to sample should occur in the layer setup. Before the scales, before the stats, before everything.</p>
+<p>Now, I could spend a lot of time talking about how much of a nightmare implementing this extension has been. Lord knows all my friends, family, and coworkers have been hearing about it for months. This package could have been about 1000 lines of code if it wasn’t for one line in the ggplot2 documentation.</p>
+<p>This is a side note that will make sense to nobody but a group of about 10 people, but <span class="citation" data-cites="Hadley">@Hadley</span> part of the reason I got coffee at that JSM lunch (obvously despite the fact that Deb, Heike and Susan were really a delight to talk to) was because I knew it would keep us there an extra 30 mins, and it was pretty obvious you wanted to break off and get coffee with them alone. I <em>will</em> claw back the time I spent on this ggplot2 extension, chump.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -125,3 +125,4 @@ it was immediately clear that the data transformation from distribution to sampl
 Now, I could spend a lot of time talking about how much of a nightmare implementing this extension has been. Lord knows all my friends, family, and coworkers have been hearing about it for months. This package could have been about 1000 lines of code if it wasn't for one line in the ggplot2 documentation.
 
 
+This is a side note that will make sense to nobody but a group of about 10 people, but @Hadley part of the reason I got coffee at that JSM lunch (obvously despite the fact that Deb, Heike and Susan were really a delight to talk to) was because I knew it would keep us there an extra 30 mins, and it was pretty obvious you wanted to break off and get coffee with them alone. I *will* claw back the time I spent on this ggplot2 extension, chump.
