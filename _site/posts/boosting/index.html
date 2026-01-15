@@ -70,10 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -102,16 +101,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -123,34 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#my-employment-history" id="toc-my-employment-history" class="nav-link active" data-scroll-target="#my-employment-history">My Employment History</a>
-  <ul class="collapse">
-  <li><a href="#why-boosting-reminds-me-of-tutoring" id="toc-why-boosting-reminds-me-of-tutoring" class="nav-link" data-scroll-target="#why-boosting-reminds-me-of-tutoring">Why Boosting Reminds Me of Tutoring</a></li>
-  </ul></li>
-  <li><a href="#part-1-focusing-on-mistakes" id="toc-part-1-focusing-on-mistakes" class="nav-link" data-scroll-target="#part-1-focusing-on-mistakes">Part 1: Focusing on Mistakes</a>
-  <ul class="collapse">
-  <li><a href="#if-you-get-100-you-dont-need-tutoring." id="toc-if-you-get-100-you-dont-need-tutoring." class="nav-link" data-scroll-target="#if-you-get-100-you-dont-need-tutoring.">If you get 100%, You don’t need tutoring.</a></li>
-  <li><a href="#building-models-in-the-residual-space" id="toc-building-models-in-the-residual-space" class="nav-link" data-scroll-target="#building-models-in-the-residual-space">Building Models in the Residual Space</a></li>
-  </ul></li>
-  <li><a href="#part-2-the-learning-rate-the-number-of-models-and-the-model-complexity" id="toc-part-2-the-learning-rate-the-number-of-models-and-the-model-complexity" class="nav-link" data-scroll-target="#part-2-the-learning-rate-the-number-of-models-and-the-model-complexity">Part 2: The Learning Rate, The Number of Models, and The Model Complexity</a>
-  <ul class="collapse">
-  <li><a href="#rash-decisions-in-tutoring-is-a-dangerously-simple-method" id="toc-rash-decisions-in-tutoring-is-a-dangerously-simple-method" class="nav-link" data-scroll-target="#rash-decisions-in-tutoring-is-a-dangerously-simple-method">Rash Decisions in Tutoring Is a Dangerously Simple Method</a></li>
-  <li><a href="#tinkering-the-complexity-of-the-boosting-model" id="toc-tinkering-the-complexity-of-the-boosting-model" class="nav-link" data-scroll-target="#tinkering-the-complexity-of-the-boosting-model">Tinkering the Complexity of the Boosting Model</a></li>
-  </ul></li>
-  <li><a href="#part-3-need-to-know-when-to-quit" id="toc-part-3-need-to-know-when-to-quit" class="nav-link" data-scroll-target="#part-3-need-to-know-when-to-quit">Part 3: Need to Know When to Quit</a>
-  <ul class="collapse">
-  <li><a href="#overfitting-in-learning" id="toc-overfitting-in-learning" class="nav-link" data-scroll-target="#overfitting-in-learning">Overfitting in Learning</a></li>
-  <li><a href="#boosting-can-overfit" id="toc-boosting-can-overfit" class="nav-link" data-scroll-target="#boosting-can-overfit">Boosting can Overfit</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -353,7 +315,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

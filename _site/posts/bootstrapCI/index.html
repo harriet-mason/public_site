@@ -70,10 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -102,16 +101,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -123,20 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#what-is-bootstrapping" id="toc-what-is-bootstrapping" class="nav-link active" data-scroll-target="#what-is-bootstrapping">What is Bootstrapping?</a></li>
-  <li><a href="#simulation-and-bootstrapping" id="toc-simulation-and-bootstrapping" class="nav-link" data-scroll-target="#simulation-and-bootstrapping">Simulation and Bootstrapping</a></li>
-  <li><a href="#the-limitations-of-bootstrapping" id="toc-the-limitations-of-bootstrapping" class="nav-link" data-scroll-target="#the-limitations-of-bootstrapping">The Limitations of Bootstrapping</a></li>
-  <li><a href="#estimating-confidence-intervals" id="toc-estimating-confidence-intervals" class="nav-link" data-scroll-target="#estimating-confidence-intervals">Estimating Confidence Intervals</a></li>
-  <li><a href="#using-my-poor-english-grades-for-an-example" id="toc-using-my-poor-english-grades-for-an-example" class="nav-link" data-scroll-target="#using-my-poor-english-grades-for-an-example">Using my Poor English Grades For an Example</a></li>
-  <li><a href="#a-final-note" id="toc-a-final-note" class="nav-link" data-scroll-target="#a-final-note">A Final Note</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -335,7 +311,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

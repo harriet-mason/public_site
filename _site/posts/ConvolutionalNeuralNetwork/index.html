@@ -70,10 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -102,16 +101,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -123,22 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#this-is-the-blog-of-a-mario-party-master" id="toc-this-is-the-blog-of-a-mario-party-master" class="nav-link active" data-scroll-target="#this-is-the-blog-of-a-mario-party-master">This is The Blog of a Mario Party Master</a></li>
-  <li><a href="#how-does-the-picture-look-to-a-computer" id="toc-how-does-the-picture-look-to-a-computer" class="nav-link" data-scroll-target="#how-does-the-picture-look-to-a-computer">How Does The Picture Look to a Computer</a></li>
-  <li><a href="#part-one-the-jumbled-picture-level" id="toc-part-one-the-jumbled-picture-level" class="nav-link" data-scroll-target="#part-one-the-jumbled-picture-level">Part One: The Jumbled Picture Level</a></li>
-  <li><a href="#part-2-the-blurry-image-level" id="toc-part-2-the-blurry-image-level" class="nav-link" data-scroll-target="#part-2-the-blurry-image-level">Part 2: The Blurry Image Level</a></li>
-  <li><a href="#theory-how-does-a-convolutional-neural-network-work" id="toc-theory-how-does-a-convolutional-neural-network-work" class="nav-link" data-scroll-target="#theory-how-does-a-convolutional-neural-network-work">Theory: How does a Convolutional Neural Network Work?</a></li>
-  <li><a href="#analogy-the-blurry-image-level" id="toc-analogy-the-blurry-image-level" class="nav-link" data-scroll-target="#analogy-the-blurry-image-level">Analogy: The Blurry Image Level</a></li>
-  <li><a href="#putting-it-together" id="toc-putting-it-together" class="nav-link" data-scroll-target="#putting-it-together">Putting It Together</a></li>
-  <li><a href="#mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun" id="toc-mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun" class="nav-link" data-scroll-target="#mario-party-and-convolutional-neural-networks-a-neat-analogy-or-desperate-stretch-to-make-statistics-seem-fun">Mario Party and Convolutional Neural Networks: A Neat Analogy or Desperate Stretch to Make Statistics Seem Fun?</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -370,7 +344,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

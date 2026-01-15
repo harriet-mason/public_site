@@ -69,10 +69,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -101,16 +100,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -122,22 +111,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#tldr" id="toc-tldr" class="nav-link active" data-scroll-target="#tldr">TLDR</a>
-  <ul class="collapse">
-  <li><a href="#what-this-blog-post-is-and-is-not" id="toc-what-this-blog-post-is-and-is-not" class="nav-link" data-scroll-target="#what-this-blog-post-is-and-is-not">What this blog post is (and is not)</a></li>
-  <li><a href="#make-a-ggplot2-extension-they-said-it-will-be-easy-they-said" id="toc-make-a-ggplot2-extension-they-said-it-will-be-easy-they-said" class="nav-link" data-scroll-target="#make-a-ggplot2-extension-they-said-it-will-be-easy-they-said">Make a ggplot2 extension they said, it will be easy they said</a></li>
-  <li><a href="#the-ggplot2-book-hates-me-specifically" id="toc-the-ggplot2-book-hates-me-specifically" class="nav-link" data-scroll-target="#the-ggplot2-book-hates-me-specifically">The ggplot2 book hates ME specifically</a></li>
-  <li><a href="#i-dont-recall-electing-ggplot2-as-king" id="toc-i-dont-recall-electing-ggplot2-as-king" class="nav-link" data-scroll-target="#i-dont-recall-electing-ggplot2-as-king"><strong>I</strong> don’t recall electing <code>ggplot2</code> as king</a></li>
-  <li><a href="#the-ggdibbler-team-has-made-an-enemy-out-of-me" id="toc-the-ggdibbler-team-has-made-an-enemy-out-of-me" class="nav-link" data-scroll-target="#the-ggdibbler-team-has-made-an-enemy-out-of-me">The ggdibbler team has made an enemy out of me</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -329,7 +303,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

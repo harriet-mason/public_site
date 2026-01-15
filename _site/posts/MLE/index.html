@@ -99,10 +99,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -131,16 +130,6 @@ window.Quarto = {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -152,33 +141,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#is-the-problem-the-parents-or-the-kid" id="toc-is-the-problem-the-parents-or-the-kid" class="nav-link active" data-scroll-target="#is-the-problem-the-parents-or-the-kid">Is The Problem The Parents or the Kid?</a></li>
-  <li><a href="#probability-and-likelihood" id="toc-probability-and-likelihood" class="nav-link" data-scroll-target="#probability-and-likelihood">Probability and Likelihood</a></li>
-  <li><a href="#a-mercenary-childs-birthday-party" id="toc-a-mercenary-childs-birthday-party" class="nav-link" data-scroll-target="#a-mercenary-childs-birthday-party">A Mercenary Child’s Birthday Party</a>
-  <ul class="collapse">
-  <li><a href="#step-1-identify-joint-density-function" id="toc-step-1-identify-joint-density-function" class="nav-link" data-scroll-target="#step-1-identify-joint-density-function">Step 1: Identify Joint Density Function</a>
-  <ul class="collapse">
-  <li><a href="#assumption-1-independence" id="toc-assumption-1-independence" class="nav-link" data-scroll-target="#assumption-1-independence">Assumption 1: Independence</a></li>
-  <li><a href="#assumption-2-identical" id="toc-assumption-2-identical" class="nav-link" data-scroll-target="#assumption-2-identical">Assumption 2: Identical</a></li>
-  <li><a href="#assumption-3-identify-the-distribution-for-individual-parameters" id="toc-assumption-3-identify-the-distribution-for-individual-parameters" class="nav-link" data-scroll-target="#assumption-3-identify-the-distribution-for-individual-parameters">Assumption 3: Identify The Distribution For Individual Parameters</a></li>
-  </ul></li>
-  <li><a href="#step-2-make-your-likelihood-function" id="toc-step-2-make-your-likelihood-function" class="nav-link" data-scroll-target="#step-2-make-your-likelihood-function">Step 2: Make Your Likelihood Function</a></li>
-  <li><a href="#step-3-math-time-logs-and-derivatives-and-more-derivatives" id="toc-step-3-math-time-logs-and-derivatives-and-more-derivatives" class="nav-link" data-scroll-target="#step-3-math-time-logs-and-derivatives-and-more-derivatives">Step 3: Math Time : Logs and Derivatives and More Derivatives</a>
-  <ul class="collapse">
-  <li><a href="#why-take-the-log" id="toc-why-take-the-log" class="nav-link" data-scroll-target="#why-take-the-log">Why take the log?</a></li>
-  <li><a href="#the-first-derivative" id="toc-the-first-derivative" class="nav-link" data-scroll-target="#the-first-derivative">The first derivative</a></li>
-  <li><a href="#the-second-derivative" id="toc-the-second-derivative" class="nav-link" data-scroll-target="#the-second-derivative">The second derivative</a></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -404,7 +367,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

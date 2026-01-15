@@ -70,10 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -102,16 +101,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -123,35 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#a-conspiracy-theory-is-like-a-bad-model" id="toc-a-conspiracy-theory-is-like-a-bad-model" class="nav-link active" data-scroll-target="#a-conspiracy-theory-is-like-a-bad-model">A Conspiracy Theory is Like a Bad Model</a>
-  <ul class="collapse">
-  <li><a href="#what-is-flexibility." id="toc-what-is-flexibility." class="nav-link" data-scroll-target="#what-is-flexibility.">What Is Flexibility.</a></li>
-  </ul></li>
-  <li><a href="#outrageous-claims-need-outrageous-evidence" id="toc-outrageous-claims-need-outrageous-evidence" class="nav-link" data-scroll-target="#outrageous-claims-need-outrageous-evidence">1: Outrageous Claims Need Outrageous Evidence</a>
-  <ul class="collapse">
-  <li><a href="#why-flexible-models-need-a-bigger-sample" id="toc-why-flexible-models-need-a-bigger-sample" class="nav-link" data-scroll-target="#why-flexible-models-need-a-bigger-sample">Why Flexible Models Need a Bigger Sample</a></li>
-  </ul></li>
-  <li><a href="#the-internet---deliverer-of-facts-and-local-cult-meet-ups" id="toc-the-internet---deliverer-of-facts-and-local-cult-meet-ups" class="nav-link" data-scroll-target="#the-internet---deliverer-of-facts-and-local-cult-meet-ups">2: The Internet - Deliverer of Facts and Local Cult Meet Ups</a>
-  <ul class="collapse">
-  <li><a href="#flexible-models-are-hurt-more-by-additional-parameters" id="toc-flexible-models-are-hurt-more-by-additional-parameters" class="nav-link" data-scroll-target="#flexible-models-are-hurt-more-by-additional-parameters">Flexible Models Are Hurt More By Additional Parameters</a></li>
-  </ul></li>
-  <li><a href="#capitalism---the-gateway-conspiracy-to-lizard-people" id="toc-capitalism---the-gateway-conspiracy-to-lizard-people" class="nav-link" data-scroll-target="#capitalism---the-gateway-conspiracy-to-lizard-people">3: Capitalism - The Gateway Conspiracy to Lizard People</a>
-  <ul class="collapse">
-  <li><a href="#non-parametric-models-are-usually-more-flexible-but-not-always" id="toc-non-parametric-models-are-usually-more-flexible-but-not-always" class="nav-link" data-scroll-target="#non-parametric-models-are-usually-more-flexible-but-not-always">Non-Parametric Models Are Usually More Flexible, But Not Always</a></li>
-  </ul></li>
-  <li><a href="#there-are-always-going-to-be-loonies-on-the-internet" id="toc-there-are-always-going-to-be-loonies-on-the-internet" class="nav-link" data-scroll-target="#there-are-always-going-to-be-loonies-on-the-internet">4: There are Always Going to Be Loonies on the Internet</a>
-  <ul class="collapse">
-  <li><a href="#you-will-always-have-irreducible-error-and-its-size-matters" id="toc-you-will-always-have-irreducible-error-and-its-size-matters" class="nav-link" data-scroll-target="#you-will-always-have-irreducible-error-and-its-size-matters">You Will Always Have Irreducible Error and It’s Size Matters</a></li>
-  </ul></li>
-  <li><a href="#to-conclude" id="toc-to-conclude" class="nav-link" data-scroll-target="#to-conclude">To Conclude</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -338,7 +299,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

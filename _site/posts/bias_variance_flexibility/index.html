@@ -70,10 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -102,16 +101,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -123,30 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#flexibilitys-influence-on-test-error" id="toc-flexibilitys-influence-on-test-error" class="nav-link active" data-scroll-target="#flexibilitys-influence-on-test-error">Flexibility’s Influence on Test Error</a>
-  <ul class="collapse">
-  <li><a href="#phase-1-decreasing-bias-in-model" id="toc-phase-1-decreasing-bias-in-model" class="nav-link" data-scroll-target="#phase-1-decreasing-bias-in-model">Phase 1: Decreasing Bias in Model</a></li>
-  <li><a href="#phase-2-optimal-fit" id="toc-phase-2-optimal-fit" class="nav-link" data-scroll-target="#phase-2-optimal-fit">Phase 2: Optimal Fit</a></li>
-  <li><a href="#phase-3-increasing-variance-in-model" id="toc-phase-3-increasing-variance-in-model" class="nav-link" data-scroll-target="#phase-3-increasing-variance-in-model">Phase 3: Increasing Variance in Model</a></li>
-  <li><a href="#understanding-with-an-example" id="toc-understanding-with-an-example" class="nav-link" data-scroll-target="#understanding-with-an-example">Understanding with an Example</a></li>
-  </ul></li>
-  <li><a href="#sample-to-sample-changes" id="toc-sample-to-sample-changes" class="nav-link" data-scroll-target="#sample-to-sample-changes">Sample to Sample Changes</a>
-  <ul class="collapse">
-  <li><a href="#an-example-of-sample-influence-on-error" id="toc-an-example-of-sample-influence-on-error" class="nav-link" data-scroll-target="#an-example-of-sample-influence-on-error">An Example of Sample Influence on Error</a></li>
-  </ul></li>
-  <li><a href="#how-our-estimation-method-influences-our-test-error-distribution" id="toc-how-our-estimation-method-influences-our-test-error-distribution" class="nav-link" data-scroll-target="#how-our-estimation-method-influences-our-test-error-distribution">How Our Estimation Method Influences Our Test Error Distribution</a>
-  <ul class="collapse">
-  <li><a href="#the-phases-example-using-cross-validation" id="toc-the-phases-example-using-cross-validation" class="nav-link" data-scroll-target="#the-phases-example-using-cross-validation">The Phases Example Using Cross Validation</a></li>
-  </ul></li>
-  <li><a href="#to-summarise" id="toc-to-summarise" class="nav-link" data-scroll-target="#to-summarise">To Summarise…</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -398,7 +364,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

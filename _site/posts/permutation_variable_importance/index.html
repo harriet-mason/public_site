@@ -70,10 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -102,16 +101,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -123,19 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#what-matters-most-when-choosing-a-partner" id="toc-what-matters-most-when-choosing-a-partner" class="nav-link active" data-scroll-target="#what-matters-most-when-choosing-a-partner">What Matters Most When Choosing A Partner</a></li>
-  <li><a href="#introducing-our-bachelorettes" id="toc-introducing-our-bachelorettes" class="nav-link" data-scroll-target="#introducing-our-bachelorettes">Introducing Our Bachelorettes</a></li>
-  <li><a href="#a-normal-random-forest-model" id="toc-a-normal-random-forest-model" class="nav-link" data-scroll-target="#a-normal-random-forest-model">A Normal Random Forest Model</a></li>
-  <li><a href="#permutation-variable-importance" id="toc-permutation-variable-importance" class="nav-link" data-scroll-target="#permutation-variable-importance">Permutation Variable Importance</a></li>
-  <li><a href="#final-comments-before-we-leave-the-mansion" id="toc-final-comments-before-we-leave-the-mansion" class="nav-link" data-scroll-target="#final-comments-before-we-leave-the-mansion">Final Comments Before we Leave the Mansion</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -325,7 +302,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

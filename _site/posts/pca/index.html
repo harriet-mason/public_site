@@ -99,10 +99,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -131,16 +130,6 @@ window.Quarto = {
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">Research</span>
-    </span>
-  </li>  
-  <li class="nav-item">
-    <span class="nav-link">
-<span class="menu-text">CV</span>
-    </span>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -152,32 +141,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#surrounded-by-incompetence" id="toc-surrounded-by-incompetence" class="nav-link active" data-scroll-target="#surrounded-by-incompetence">Surrounded by Incompetence</a></li>
-  <li><a href="#what-is-pca" id="toc-what-is-pca" class="nav-link" data-scroll-target="#what-is-pca">What Is PCA?</a>
-  <ul class="collapse">
-  <li><a href="#the-theory" id="toc-the-theory" class="nav-link" data-scroll-target="#the-theory">The Theory</a></li>
-  <li><a href="#sharehouse-chat-data" id="toc-sharehouse-chat-data" class="nav-link" data-scroll-target="#sharehouse-chat-data">Sharehouse Chat Data</a></li>
-  </ul></li>
-  <li><a href="#the-loadings" id="toc-the-loadings" class="nav-link" data-scroll-target="#the-loadings">The Loadings</a>
-  <ul class="collapse">
-  <li><a href="#the-theory-1" id="toc-the-theory-1" class="nav-link" data-scroll-target="#the-theory-1">The Theory</a></li>
-  <li><a href="#sharehouse-chat-loadings" id="toc-sharehouse-chat-loadings" class="nav-link" data-scroll-target="#sharehouse-chat-loadings">Sharehouse Chat Loadings</a></li>
-  </ul></li>
-  <li><a href="#understanding-observations" id="toc-understanding-observations" class="nav-link" data-scroll-target="#understanding-observations">Understanding Observations</a>
-  <ul class="collapse">
-  <li><a href="#the-theory-2" id="toc-the-theory-2" class="nav-link" data-scroll-target="#the-theory-2">The Theory</a></li>
-  <li><a href="#sharehouse-chat-observations" id="toc-sharehouse-chat-observations" class="nav-link" data-scroll-target="#sharehouse-chat-observations">Sharehouse Chat Observations</a></li>
-  </ul></li>
-  <li><a href="#biplot-putting-it-all-together" id="toc-biplot-putting-it-all-together" class="nav-link" data-scroll-target="#biplot-putting-it-all-together">Biplot: Putting It All Together</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -474,7 +438,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
