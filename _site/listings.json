@@ -19,8 +19,6 @@
   {
     "listing": "/posts/index.html",
     "items": [
-      "/posts/specialconsideration/index.html",
-      "/posts/why_visualise_uncertainty/index.html",
       "/posts/regularisation/index.html",
       "/posts/LDA/index.html",
       "/posts/pca/index.html",

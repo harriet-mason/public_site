@@ -1,14 +1,23 @@
 ---
-title: "About"
-image: avatar2.jpg
+title: "Harriet Mason"
+description: PhD student
+image: avatar1.jpeg
 about: 
   template: jolla
-callout-icon: false
-callout-appearance: "simple"
+  image-shape: round
+  links: 
+    - text: "{{< ai google-scholar size=xl >}} Google Scholar"
+      href: https://scholar.google.com.au/citations?user=va7mo4cAAAAJ&hl=en&oi=ao
+    - text: "{{< fa brands github >}} Github"
+      href: https://github.com/harriet-mason
+    - text: "{{< fa brands bluesky >}} Bluesky"
+      href: https://bsky.app/profile/harriet-mason.com
+    - text: "{{< fa envelope >}} Email"
+      href: "mailto:harriet.mason1@monash.edu"
 ---
 
-Hello, I'm Harriet, a PhD student at Monash University where I am currently supervised by Di Cook, Sarah Goodwin, and Susan Vanderplus. My main research interest is visual statistics, but I often end up drifting towards whatever interests me. 
+I'm Harriet, a PhD student at Monash University where I am currently supervised by [Di Cook](https://www.dicook.org/), [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin/), and [Susan Vanderplas](https://statistics.unl.edu/person/susan-vanderplas/). I am also part of the [NUMBATs](https://numbat.space/) research group. My main research interests are in visual statistics, statistical philosophy, and computational statistics. 
 
-This is public website that I use to share some of my work (and opinions). If you are looking for my [Github](https://github.com/harriet-mason) so that you can complain to me about my software, you are in the wrong place. If you want to hear *me* complain about my software, you are in the right place.
+This is public website that I use to share some of my work (and opinions). If you want to hear *me* complain about my software, you are in the right place. If you are looking for my [Github](https://github.com/harriet-mason) so that you can complain to me about my software, you are in the wrong place. 
 
 

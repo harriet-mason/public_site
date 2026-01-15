@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="PhD student">
 
-<title>About – Harriet Mason</title>
+<title>Harriet Mason</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -38,6 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/academicons-1.9.4/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/academicons-1.9.4/size.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-6.7.2/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,7 +72,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -88,16 +92,12 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./posts/index.html"> 
-<span class="menu-text">Blog Posts</span></a>
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./teaching/index.html"> 
-<span class="menu-text">Tutorial Help Sheets</span></a>
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./talks/index.html"> 
@@ -117,20 +117,40 @@ ul.task-list li input[type="checkbox"] {
     
 <!-- main -->
 <div class="quarto-about-jolla">
-  <img src="avatar2.jpg" class="about-image
+  <img src="avatar1.jpeg" class="about-image
   round " style="height: 15em; width: 15em;">
  <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Harriet Mason</h1>
+</div>
+<div>
+  <div class="description">
+    PhD student
+  </div>
 </div>
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<p>Hello, I’m Harriet, a PhD student at Monash University where I am currently supervised by Di Cook, Sarah Goodwin, and Susan Vanderplus. My main research interest is visual statistics, but I often end up drifting towards whatever interests me.</p>
-<p>This is public website that I use to share some of my work (and opinions). If you are looking for my <a href="https://github.com/harriet-mason">Github</a> so that you can complain to me about my software, you are in the wrong place. If you want to hear <em>me</em> complain about my software, you are in the right place.</p>
+<p>I’m Harriet, a PhD student at Monash University where I am currently supervised by <a href="https://www.dicook.org/">Di Cook</a>, <a href="https://research.monash.edu/en/persons/sarah-goodwin/">Sarah Goodwin</a>, and <a href="https://statistics.unl.edu/person/susan-vanderplas/">Susan Vanderplas</a>. I am also part of the <a href="https://numbat.space/">NUMBATs</a> research group. My main research interests are in visual statistics, statistical philosophy, and computational statistics.</p>
+<p>This is public website that I use to share some of my work (and opinions). If you want to hear <em>me</em> complain about my software, you are in the right place. If you are looking for my <a href="https://github.com/harriet-mason">Github</a> so that you can complain to me about my software, you are in the wrong place.</p>
 
 
-</main>  
+</main> 
+  <hr class="about-sep">
+   <div class="about-links">
+  <a href="https://scholar.google.com.au/citations?user=va7mo4cAAAAJ&amp;hl=en&amp;oi=ao" class="about-link" rel="" target="">
+     <span class="about-link-text"><i class="ai  ai-google-scholar ai-xl" aria-label="google-scholar"></i> Google Scholar</span>
+  </a>
+  <a href="https://github.com/harriet-mason" class="about-link" rel="" target="">
+     <span class="about-link-text"><i class="fa-brands fa-github" aria-label="github"></i> Github</span>
+  </a>
+  <a href="https://bsky.app/profile/harriet-mason.com" class="about-link" rel="" target="">
+     <span class="about-link-text"><i class="fa-brands fa-bluesky" aria-label="bluesky"></i> Bluesky</span>
+  </a>
+  <a href="mailto:harriet.mason1@monash.edu" class="about-link" rel="" target="">
+     <span class="about-link-text"><i class="fa-solid fa-envelope" aria-label="envelope"></i> Email</span>
+  </a>
+</div>
 </div>
  <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -218,7 +238,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

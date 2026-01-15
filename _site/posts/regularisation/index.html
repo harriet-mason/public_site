@@ -99,10 +99,9 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -120,20 +119,26 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../posts/index.html"> 
-<span class="menu-text">Blog Posts</span></a>
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../teaching/index.html"> 
-<span class="menu-text">Tutorial Help Sheets</span></a>
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">Research</span>
+    </span>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">CV</span>
+    </span>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -146,20 +151,7 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#the-drinking-game-that-killed-tom" id="toc-the-drinking-game-that-killed-tom" class="nav-link active" data-scroll-target="#the-drinking-game-that-killed-tom">The drinking game that killed Tom</a></li>
-  <li><a href="#what-is-regularisation" id="toc-what-is-regularisation" class="nav-link" data-scroll-target="#what-is-regularisation">What is regularisation?</a></li>
-  <li><a href="#example-do-the-grades-need-a-regularised-model" id="toc-example-do-the-grades-need-a-regularised-model" class="nav-link" data-scroll-target="#example-do-the-grades-need-a-regularised-model">Example: Do the grades need a regularised model?</a></li>
-  <li><a href="#shrinkage-methods" id="toc-shrinkage-methods" class="nav-link" data-scroll-target="#shrinkage-methods">Shrinkage Methods</a></li>
-  <li><a href="#predicting-the-grade" id="toc-predicting-the-grade" class="nav-link" data-scroll-target="#predicting-the-grade">Predicting the Grade</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -422,7 +414,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

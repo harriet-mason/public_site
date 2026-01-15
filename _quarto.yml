@@ -10,21 +10,15 @@ website:
     background: primary
     search: true
     left:
-      - index.qmd
       - href: posts/index.qmd
-        text: Blog Posts
+        text: Blog
       - href: teaching/index.qmd
-        text: Tutorial Help Sheets
+        text: Teaching
       - href: talks/index.qmd
         text: Talks
-  
         
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
-    toc: true
+    theme: journal 
     from: markdown+emoji
- #   reference-location: margin
-  #  citation-location: margin

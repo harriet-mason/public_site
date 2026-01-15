@@ -90,10 +90,9 @@ div.csl-indent {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -111,20 +110,26 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../posts/index.html"> 
-<span class="menu-text">Blog Posts</span></a>
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../teaching/index.html"> 
-<span class="menu-text">Tutorial Help Sheets</span></a>
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">Research</span>
+    </span>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">CV</span>
+    </span>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -137,40 +142,7 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#the-wombat-conference" id="toc-the-wombat-conference" class="nav-link active" data-scroll-target="#the-wombat-conference">The Wombat Conference</a></li>
-  <li><a href="#when-to-not-visualise-uncertainty" id="toc-when-to-not-visualise-uncertainty" class="nav-link" data-scroll-target="#when-to-not-visualise-uncertainty">When to NOT Visualise Uncertainty</a></li>
-  <li><a href="#the-excuses-and-the-rebuttals" id="toc-the-excuses-and-the-rebuttals" class="nav-link" data-scroll-target="#the-excuses-and-the-rebuttals">The Excuses (and The Rebuttals)</a>
-  <ul class="collapse">
-  <li><a href="#authors-dont-want-to-overwhelm-the-audience" id="toc-authors-dont-want-to-overwhelm-the-audience" class="nav-link" data-scroll-target="#authors-dont-want-to-overwhelm-the-audience">Authors Don’t Want to Overwhelm the Audience</a>
-  <ul class="collapse">
-  <li><a href="#clutter" id="toc-clutter" class="nav-link" data-scroll-target="#clutter">Clutter</a></li>
-  <li><a href="#audience-understanding" id="toc-audience-understanding" class="nav-link" data-scroll-target="#audience-understanding">Audience Understanding</a></li>
-  <li><a href="#complicates-decision-making" id="toc-complicates-decision-making" class="nav-link" data-scroll-target="#complicates-decision-making">Complicates Decision Making</a></li>
-  <li><a href="#common-knowledge" id="toc-common-knowledge" class="nav-link" data-scroll-target="#common-knowledge">Common Knowledge</a></li>
-  <li><a href="#people-dont-like-it" id="toc-people-dont-like-it" class="nav-link" data-scroll-target="#people-dont-like-it">People Don’t like it</a></li>
-  </ul></li>
-  <li><a href="#authors-dont-know-how-to-calculate-uncertainty-or-dont-have-access-to-the-information-to-do-so." id="toc-authors-dont-know-how-to-calculate-uncertainty-or-dont-have-access-to-the-information-to-do-so." class="nav-link" data-scroll-target="#authors-dont-know-how-to-calculate-uncertainty-or-dont-have-access-to-the-information-to-do-so.">Authors Don’t Know How to Calculate Uncertainty or Don’t have Access to the Information to do so.</a>
-  <ul class="collapse">
-  <li><a href="#multiple-sources-of-uncertainty" id="toc-multiple-sources-of-uncertainty" class="nav-link" data-scroll-target="#multiple-sources-of-uncertainty">Multiple Sources of Uncertainty</a></li>
-  <li><a href="#precision" id="toc-precision" class="nav-link" data-scroll-target="#precision">Precision</a></li>
-  </ul></li>
-  <li><a href="#authors-dont-want-their-work-to-seem-questionable" id="toc-authors-dont-want-their-work-to-seem-questionable" class="nav-link" data-scroll-target="#authors-dont-want-their-work-to-seem-questionable">Authors Don’t Want Their Work to Seem Questionable</a>
-  <ul class="collapse">
-  <li><a href="#expertise" id="toc-expertise" class="nav-link" data-scroll-target="#expertise">Expertise</a></li>
-  <li><a href="#trust-with-the-audience" id="toc-trust-with-the-audience" class="nav-link" data-scroll-target="#trust-with-the-audience">Trust with the Audience</a></li>
-  <li><a href="#fraud" id="toc-fraud" class="nav-link" data-scroll-target="#fraud">Fraud</a></li>
-  </ul></li>
-  <li><a href="#why-do-i-think-people-dont-visualise-uncertainty" id="toc-why-do-i-think-people-dont-visualise-uncertainty" class="nav-link" data-scroll-target="#why-do-i-think-people-dont-visualise-uncertainty">Why do I think People Don’t Visualise Uncertainty?</a></li>
-  </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -536,7 +508,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

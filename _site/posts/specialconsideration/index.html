@@ -70,10 +70,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,20 +90,26 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../../posts/index.html"> 
-<span class="menu-text">Blog Posts</span></a>
+<span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../teaching/index.html"> 
-<span class="menu-text">Tutorial Help Sheets</span></a>
+<span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../talks/index.html"> 
 <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">Research</span>
+    </span>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">CV</span>
+    </span>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -117,27 +122,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#adventures-with-the-special-consideration-team" id="toc-adventures-with-the-special-consideration-team" class="nav-link active" data-scroll-target="#adventures-with-the-special-consideration-team">Adventures with the Special Consideration Team</a>
-  <ul class="collapse">
-  <li><a href="#i-dont-care-if-your-dad-is-in-the-icu" id="toc-i-dont-care-if-your-dad-is-in-the-icu" class="nav-link" data-scroll-target="#i-dont-care-if-your-dad-is-in-the-icu">I don’t care if your dad is in the ICU</a></li>
-  <li><a href="#how-do-we-know-you-arent-lying-to-your-doctor" id="toc-how-do-we-know-you-arent-lying-to-your-doctor" class="nav-link" data-scroll-target="#how-do-we-know-you-arent-lying-to-your-doctor">“How do we know you aren’t lying to your doctor”</a></li>
-  </ul></li>
-  <li><a href="#abelism-in-academia" id="toc-abelism-in-academia" class="nav-link" data-scroll-target="#abelism-in-academia">Abelism in Academia</a>
-  <ul class="collapse">
-  <li><a href="#my-experiences-with-university-and-disability" id="toc-my-experiences-with-university-and-disability" class="nav-link" data-scroll-target="#my-experiences-with-university-and-disability">My experiences with University and Disability</a></li>
-  <li><a href="#abeslism-more-broadly-in-academia" id="toc-abeslism-more-broadly-in-academia" class="nav-link" data-scroll-target="#abeslism-more-broadly-in-academia">Abeslism more broadly in academia</a></li>
-  </ul></li>
-  <li><a href="#how-academic-staff-impose-this-mentality-with-their-own-students" id="toc-how-academic-staff-impose-this-mentality-with-their-own-students" class="nav-link" data-scroll-target="#how-academic-staff-impose-this-mentality-with-their-own-students">How academic staff impose this mentality with their own students</a></li>
-  <li><a href="#what-should-be-done" id="toc-what-should-be-done" class="nav-link" data-scroll-target="#what-should-be-done">What should be done</a></li>
-  <li><a href="#concluding-comments" id="toc-concluding-comments" class="nav-link" data-scroll-target="#concluding-comments">Concluding comments</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -355,7 +340,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/harrietmason\.netlify\.app");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
