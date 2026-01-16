@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://harrietmason.netlify.app/teaching/index.html</loc>
-    <lastmod>2024-02-28T03:47:11.685Z</lastmod>
+    <lastmod>2026-01-16T10:31:17.740Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/teaching/helpsheets/etc3250tutorial12.html</loc>
@@ -30,11 +30,7 @@
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/index.html</loc>
-    <lastmod>2026-01-15T04:25:21.335Z</lastmod>
-  </url>
-  <url>
-    <loc>https://harrietmason.netlify.app/talks/rladies/index.html</loc>
-    <lastmod>2023-11-15T07:17:41.224Z</lastmod>
+    <lastmod>2026-01-16T10:30:50.467Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/unpublished/specialconsideration/index.html</loc>
@@ -73,6 +69,10 @@
     <lastmod>2023-02-23T11:46:26.884Z</lastmod>
   </url>
   <url>
+    <loc>https://harrietmason.netlify.app/research/index.html</loc>
+    <lastmod>2026-01-16T11:34:13.853Z</lastmod>
+  </url>
+  <url>
     <loc>https://harrietmason.netlify.app/posts/pca/index.html</loc>
     <lastmod>2023-02-23T11:46:27.416Z</lastmod>
   </url>
@@ -107,10 +107,6 @@
   <url>
     <loc>https://harrietmason.netlify.app/unpublished/ggdibbler/ggdibbler-post.html</loc>
     <lastmod>2026-01-07T07:01:01.696Z</lastmod>
-  </url>
-  <url>
-    <loc>https://harrietmason.netlify.app/talks/index.html</loc>
-    <lastmod>2023-11-08T02:20:49.320Z</lastmod>
   </url>
   <url>
     <loc>https://harrietmason.netlify.app/Untitled.html</loc>

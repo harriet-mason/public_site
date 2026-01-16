@@ -6,8 +6,11 @@ listing:
     fields: [title]
 ---
 
-# ETC3250 Tutorial Help Sheet
-I have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY recommend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.
+# Why have help sheets?
+I have found that students struggle to know where to start with tutorial questions. A lot of the time, they are just overwhelmed and don't know where to start. The purpose of the help sheets is to give hints that are designed to just nudge the students in the right direction. 
 
+In general, I recommend doing the tutorial questions without this help sheet if possible. Knowing where to start is also part of knowing, and getting into the habit of *always* using the help sheet will be as bad for your learning as always chcking the solutions. This is a step between doing the question entirely by yourself and just watching me do the question.
+
+## ETC3250/5250
 ::: {#helpsheets}
 :::

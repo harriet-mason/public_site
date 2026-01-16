@@ -32,11 +32,5 @@
       "/posts/permutation_variable_importance/index.html",
       "/posts/bias_variance_flexibility/index.html"
     ]
-  },
-  {
-    "listing": "/talks/index.html",
-    "items": [
-      "/talks/rladies/index.html"
-    ]
   }
 ]

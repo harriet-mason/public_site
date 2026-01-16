@@ -1,0 +1,145 @@
+---
+title: "Research"
+---
+
+My main research focuses are in visual statistics, statistics philosophy, and computational statistics. This means I spend a lot of time thinking about what an observation/statistic is, and how we can best represent it visually. Accurate visual representations of our data are crucial for communicating complicated statistical concepts (both with ourselves and others), so good visualisation tools are a necessity for the future of statistics. 
+
+Visualisations of random variables are, in of themselves, random variables, with their own statistical properties. Ensuring that these visualisations have *good* statistical properties is the key focus of my work. 
+
+
+# Software
+Usually any work I do will also have a software output to make implementing the theories easier. This is that software. 
+
+```{r}
+#| echo: false
+#| message: false
+#| eval: false
+
+# This code is basically fully copied from Di's website repo. Thank you Di
+
+library(tidyverse)
+library(tsibble)
+library(lubridate)
+library(pkgsearch)
+# remotes::install_github("robjhyndman/pkgmeta")
+library(pkgmeta)
+
+# Functions for getting downloads
+find_cran_packages <- function(name) {
+  pkgsearch::ps(name, size = 100) %>%
+    filter(purrr::map_lgl(
+      package_data, ~ grepl(name, .x$Author, fixed = TRUE)
+    )) %>%
+    select(package) %>%
+    pull(package)
+}
+
+# Monthly download counts from packages in <x>
+cran_downloads <- function(x) {
+  # Compute monthly download counts
+  down <- cranlogs::cran_downloads(x, from = "2000-01-01") %>%
+    as_tibble() %>%
+    mutate(month = tsibble::yearmonth(date)) %>%
+    group_by(month) %>%
+    summarise(count = sum(count), package = x)
+  # Strip out initial zeros
+  first_nonzero <- down %>%
+    filter(count > 0) %>%
+    head(1)
+  if (NROW(first_nonzero) > 0) {
+    filter(down, month >= first_nonzero$month)
+  } else {
+    first_nonzero
+  }
+}
+
+packages <- find_cran_packages("Harriet Mason")
+
+pkg_data <- pkgmeta:::get_meta_cran(packages,
+    include_downloads=TRUE) |>
+    rename(released = first_download, last_update = date)
+
+# add hex file
+hex <- c("hex/cassowaryr.png", "hex/ggdibbler.png")
+pkg_data <- cbind(pkg_data, hex)
+
+# Save data
+save(pkg_data, file = "software.rda")
+```
+
+
+
+
+```{r}
+#| echo: false
+#| message: false
+library(readr)
+library(dplyr)
+library(glue)
+library(stringr)
+library(flextable)
+library(magick)
+
+load("software.rda")
+
+pkg_tbl <- pkg_data |>
+   arrange(desc(last_update)) |>
+  select(package, last_update, released, version, title, downloads, url, hex) |>
+  flextable() |>
+    colformat_num(big.mark = ",", decimal.mark = ".") |>
+    colformat_date(fmt_date = "%d/%m/%Y")
+pkg_tbl <- compose(
+  x = pkg_tbl,
+  j = "package",
+  value = as_paragraph(hyperlink_text(x=package, url=url,
+     props = officer::fp_text(color = "#a96469")))) |>
+  delete_columns(j = "url")
+
+pkg_tbl <- colformat_image(x = pkg_tbl,
+                           i=1:nrow(pkg_data),
+                           j = "hex", width = 1, height = 1.156,
+                           na_str = "")
+pkg_tbl
+```
+
+
+# Talks
+
+These are the links to the slides for (almost) all the presentations I have given on my research.
+
+```{r talks}
+#| echo: false
+#| message: false
+
+library(readr)
+library(dplyr)
+library(gt)
+library(glue)
+library(lubridate)
+
+# data from cv
+talks  <- tribble(
+  ~ date, ~ title, ~ venue, ~ link,
+  2025, "Visualising Uncertainty for Holistic Insights", "ASC", "https://harriet-mason.github.io/talk-asc2025/",
+  2025, "Visualising Uncertainty with ggdibbler", "WOMBAT", "https://harriet-mason.github.io/talk-wombat-2025/",
+  2025, "Visualising Uncertainty with ggdibbler", "useR!", "https://harriet-mason.github.io/talk_useR-2025/",
+  2024, "The Noisy Work of Uncertainty Visualisation Research", "AMSI Winter School", NA,
+  2023, "Teaching Computers to See Patterns in Scatterplots", "R Ladies, Melbourne", NA,
+  2022, "Teaching Computers to See Patterns in Scatterplots", "useR!", "https://github.com/harriet-mason/UserTalk_2022",
+  )
+
+talks <- talks |>
+  mutate(titlelink = ifelse(is.na(link), title, glue("[{title}]({link})")))
+talks |>
+  arrange(desc(date)) |>
+  select(date, titlelink, venue) |>
+  gt() |>
+    gt::fmt_markdown(columns = titlelink) |>
+    cols_label(titlelink = "title") |>
+    gt::cols_width(
+      date ~ px(100),
+      titlelink ~ px(400),
+      venue ~ px(250)) |>
+  cols_align("left")
+```
+

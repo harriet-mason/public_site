@@ -4,7 +4,14 @@
     "href": "teaching/index.html",
     "title": "Tutorial Help Sheets",
     "section": "",
-    "text": "ETC3250 Tutorial Help Sheet\nI have found that students struggle to know where to start with tutorial questions. These files provide simple hints that should help to get started on questions without providing answers. I STRONGLY recommend doing the tutorial questions without this help sheet if possible to simulate an exam situation. This is a step between doing the question entirely by yourself and just watching me do the question.\n\n\n\n\n\nETC3250: Tutorial 1 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 2 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 3 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 4 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 5 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 6 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 7 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 8 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC3250: Tutorial 9 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC5250: Tutorial 10 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC5250: Tutorial 11 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\n\nETC5250: Tutorial 12 Help Sheet\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "I have found that students struggle to know where to start with tutorial questions. A lot of the time, they are just overwhelmed and don’t know where to start. The purpose of the help sheets is to give hints that are designed to just nudge the students in the right direction.\nIn general, I recommend doing the tutorial questions without this help sheet if possible. Knowing where to start is also part of knowing, and getting into the habit of always using the help sheet will be as bad for your learning as always chcking the solutions. This is a step between doing the question entirely by yourself and just watching me do the question.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "teaching/index.html#etc32505250",
+    "href": "teaching/index.html#etc32505250",
+    "title": "Tutorial Help Sheets",
+    "section": "",
+    "text": "No matching items"
   },
   {
     "objectID": "teaching/helpsheets/etc3250tutorial12.html",
@@ -208,188 +215,6 @@
     "title": "Harriet Mason",
     "section": "",
     "text": "I’m Harriet, a PhD student at Monash University where I am currently supervised by Di Cook, Sarah Goodwin, and Susan Vanderplas. I am also part of the NUMBATs research group. My main research interests are in visual statistics, statistical philosophy, and computational statistics.\nThis is public website that I use to share some of my work (and opinions). If you want to hear me complain about my software, you are in the right place. If you are looking for my Github so that you can complain to me about my software, you are in the wrong place."
-  },
-  {
-    "objectID": "talks/rladies/index.html#how-do-scagnostics-work",
-    "href": "talks/rladies/index.html#how-do-scagnostics-work",
-    "title": "R-Ladies Meet-up",
-    "section": "How Do Scagnostics Work?",
-    "text": "How Do Scagnostics Work?\nTake this “Ring” scatter plot…\n\n\n\nSo, lets see how the scagnostics are caulculated by looking at this “ring” shaped scatter plot."
-  },
-  {
-    "objectID": "talks/rladies/index.html#how-do-scagnostics-work-1",
-    "href": "talks/rladies/index.html#how-do-scagnostics-work-1",
-    "title": "R-Ladies Meet-up",
-    "section": "How Do Scagnostics Work?",
-    "text": "How Do Scagnostics Work?\n… and strip away everything but it’s shape\n\n\n\nThe first thing we do is remove the numbers and just look at the points in relation to each other\nfrom here we want to make several objects that represent the scatter plot’s shape,"
-  },
-  {
-    "objectID": "talks/rladies/index.html#how-do-scagnostics-work-2",
-    "href": "talks/rladies/index.html#how-do-scagnostics-work-2",
-    "title": "R-Ladies Meet-up",
-    "section": "How Do Scagnostics Work?",
-    "text": "How Do Scagnostics Work?\n… then build the graph based objects\n\n\n\nthe convex hull which is the shape we would get if we stretched a rubber band around the outside of the ring\nthe alpha hull which is made by outlining the shape\nand the MST which is made by connecting every point up using as little edges as possible\nwith these three objects we can define our scagnostics"
-  },
-  {
-    "objectID": "talks/rladies/index.html#the-scagnostics",
-    "href": "talks/rladies/index.html#the-scagnostics",
-    "title": "R-Ladies Meet-up",
-    "section": "The Scagnostics",
-    "text": "The Scagnostics\n\n\n\nConvex and Alpha Hull Measures\n\nConvex\nSkinny\n\nAssociation Measures\n\nMonotonic\nSplines\nDcor\n\n\n\n\nMST Measures\n\nOutlying\nClumpy*\nStriated*\nSparse\nSkewed\nStringy\n\n\n\n\n\nThese are the scagnostics that are in the cassowaryR package, all of which have previously been defined in scagnostic liteature\nThey are sorted into their three groups depending on which graph based object they use\nThose with an astrix have two versions, a calculation that was defined in “Scagnostic Distributions”, a paper by Leland Wilkson and Graham Wills, as well as a new adjusted version that was created by us to solve some issues with binning that I will get to later.\nTo understand how we convert those graph based objects to scagnostics are calculated it helps to break it down\nso I will go through three of the scagnostics in a bit more detail"
-  },
-  {
-    "objectID": "talks/rladies/index.html#the-scagnostics-1",
-    "href": "talks/rladies/index.html#the-scagnostics-1",
-    "title": "R-Ladies Meet-up",
-    "section": "The Scagnostics",
-    "text": "The Scagnostics\nConvex uses the alpha hull and convex hull\n\n\n\nFirst up we have the scagnostic convex. This is a hull based measure, that is the ratio between the alpha hull and the convex hull"
-  },
-  {
-    "objectID": "talks/rladies/index.html#the-scagnostics-2",
-    "href": "talks/rladies/index.html#the-scagnostics-2",
-    "title": "R-Ladies Meet-up",
-    "section": "The Scagnostics",
-    "text": "The Scagnostics\nOutlying uses the MST\n\n\n\nSecond is outlying. This is an example of a measure that uses the minimum spanning tree\nFirst it identifies the outlying points and the length of their edges, then it calculates how much of the total MST length is due to these outling edges"
-  },
-  {
-    "objectID": "talks/rladies/index.html#the-scagnostics-3",
-    "href": "talks/rladies/index.html#the-scagnostics-3",
-    "title": "R-Ladies Meet-up",
-    "section": "The Scagnostics",
-    "text": "The Scagnostics\nSplines using the original data\n\n\n\nFinally we have splines. This is an example of an association measure, so it take in the raw data\nit calculates two splines models, one with x as a dependent variable and one with y as the dependent variable\nif either of these splines models have very low variance in their residuals, the splines scagnostic will be high"
-  },
-  {
-    "objectID": "talks/rladies/index.html#assessing-the-scagnostics",
-    "href": "talks/rladies/index.html#assessing-the-scagnostics",
-    "title": "R-Ladies Meet-up",
-    "section": "Assessing the Scagnostics",
-    "text": "Assessing the Scagnostics\n\nAll are on a uniform scale: 0-1, where 0 is low and 1 is high\nThe ordering by scagnostic value hopefully matches how we perceive the structure, but it doesn’t always\nScagnostics hopefully identify different features but some are correlated with each other\n\n\n\nThere are a couple rules for the scagnostics, they aren’t just a free for all\nso, as well as defining several scagnostics, the scagnostic distributions paper I mentioned earlier also specifies three main rules these measures must follow.\nFirst they should all be on a uniform scale so they are directly comparable\nSecond, each scagnostic should order a set of scatter plots in a way that lines up with human intuition\nFinally the scagnostics should be mostly uncorrelated. If two measures are highly correlated they are probably identifying a similar visual structure and we could do without one of the scagnostics.\nOf course these are not all 100% achievable, but these assessments should be kept in mind when adjusting and creating scagnostics."
-  },
-  {
-    "objectID": "talks/rladies/index.html#structure",
-    "href": "talks/rladies/index.html#structure",
-    "title": "R-Ladies Meet-up",
-    "section": "Structure",
-    "text": "Structure\n\nUnder the Hood Scagnostic Functions\n\nScree object\nScagnostic calculations\n\nSummary Functions\n\nWide and long data scagnostic summary\nTop Summary\n\nDraw Functions\n\nMST, Convex Hull and Alpha hull\n\nData\n\nDatasaurus dozen/ Anscombe Quartet\nFeatures\n\n\n\n\nThe packages has been written so you can easily incorperate calculating scagnostics into a tidy data workflow\nThe functions that calculate the scagnostics themselves are accessible and can be used in isolation, but\nThe summary functions are how most people will use the cassowaryr package.\nThere are the two main scagnostic summary functions, one for long data and one for wide data.\nand also two further summary functions of that summary\none that finds the highest value scatter plot for each scagnostic and another that finds the highest scoring scagnostic for each scatter plot.\nThe use of these will all be shown in the example.\nThe draw functions are mostly a debugging tool, they are designed to help you see the graph based objects so you can better understand the outputs of the package.\ncassowaryr also comes with some data that you can use to test the scagnostics, the most important of which is the features data."
-  },
-  {
-    "objectID": "talks/rladies/index.html#the-features-dataset",
-    "href": "talks/rladies/index.html#the-features-dataset",
-    "title": "R-Ladies Meet-up",
-    "section": "The Features Dataset",
-    "text": "The Features Dataset\n\n\n\nThe features dataset is a set of scatter plots, each with a distinct feature that we want to identify.\nIt is not only important that the scagnostics can identify the features of the scatter plots but also differentiate between them\nFor example, the Ring is a hollow version of the disk scatter plot, and we want the scagnostics to be able to see that"
-  },
-  {
-    "objectID": "talks/rladies/index.html#features-scagnostics",
-    "href": "talks/rladies/index.html#features-scagnostics",
-    "title": "R-Ladies Meet-up",
-    "section": "Features Scagnostics",
-    "text": "Features Scagnostics\n\nfeatures_scagnostics_wide &lt;- features %&gt;%\n  group_by(feature) %&gt;%\n  summarise(calc_scags(x,y))\n\n# Look at the output\nfeatures_scagnostics_wide[1:5, 1:6]\n\n# A tibble: 5 × 6\n  feature  outlying stringy striated striated2 clumpy\n  &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;\n1 barrier    0        0.756    0.231    0.0588  0.810\n2 clusters   0.0551   0.703    0.272    0.0828  0.802\n3 discrete   0        0.796    0.326    0.108   0.949\n4 disk       0        0.711    0.26     0.108   0.913\n5 gaps       0        0.714    0.287    0.075   0.908\n\n\n\n\nBecause the features data set is a long data set, we use group by with the calc_scags() function to get a scagnostic summary of the data set\nthe scagnostic summary can be quite large so this is a glimpse of what you would usually get."
-  },
-  {
-    "objectID": "talks/rladies/index.html#a-scagnostic-visual-table",
-    "href": "talks/rladies/index.html#a-scagnostic-visual-table",
-    "title": "R-Ladies Meet-up",
-    "section": "A Scagnostic Visual Table",
-    "text": "A Scagnostic Visual Table\n\n\n\nTaking the full scagnostic summary we can make a visual table and have a look at what each scagnostic sees\nOn the x axis is the scagnostic value\nOn the y axis are the scagnostics\nThe points are scatter plots from the features data, each scagnostic has an example of a low value, a high value, and a moderate value, if it fits.\nif you are paying close attention you may have noticed that the scagnostics based on the MST are the ones that most freuently only have two plots, this is because distributions are very condensed\nthis occurs because all previous work in scagnostics had binning as a pre processing step, we want binning to be optional in the cassowaryr package\nwhen we removed binning and allowed for infinitely small edges in the MST, it warped a few of the scagnostics\nand so to try and fix this, we have designed some adjusted scagnostics"
-  },
-  {
-    "objectID": "talks/rladies/index.html#clumpy-adjusted",
-    "href": "talks/rladies/index.html#clumpy-adjusted",
-    "title": "R-Ladies Meet-up",
-    "section": "Clumpy Adjusted",
-    "text": "Clumpy Adjusted\n\n\n\nHere is the same visual table but we are only plotting clumpy with clumpy2 where clumpy2, an adjusted measure that does not require binning.\nyou can see clumpy2 both a better job of identifying the clusters plot as it appears relatively higher on the measure and also is more uniform from 0 to 1.\nThis measure is still being adjusted as it is quite slow, but even in its current state it performs better than the original measure without binning."
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-the-data",
-    "href": "talks/rladies/index.html#aflw-example-the-data",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: The Data",
-    "text": "AFLW Example: The Data\n\nAustralian Football League Women’s\nData from the 2020 Season\n68 variables, 33 of which are numeric\n528 Scatter Plots\nWhat are we expecting the scagnostics to find?\n\n\n\nWhile it is nice to know that the scagnostics work, correctly ordering scatter plots is not what they are used for, the measures need to be able to pick out interesting scatter plots from a large selection of scatter plots\nIn order to do show that they do, in fact do this, I’m going to give an example using data from the AFLW 2020 season\nThis data set is large, and has more pairs of variables than we could plot ourselves\nHopefully the scagnostics will pick out some interesting pairs of variables"
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-the-data-1",
-    "href": "talks/rladies/index.html#aflw-example-the-data-1",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: The Data",
-    "text": "AFLW Example: The Data\n\n# Get AFLW data\naflw &lt;- fitzroy::fetch_player_stats(2020, comp = \"AFLW\")\n\n# Scagnostics only work on numeric measures\naflw_num &lt;- aflw %&gt;%\n  select_if(is.numeric)\n\n# Calculate average all games in the season\naflw_num &lt;- aggregate(aflw_num[,5:37], \n  list(aflw$player.player.player.surname),\n  mean)\n\n# Calculate scagnostics\nAFLW_scags &lt;- calc_scags_wide(aflw_num[,c(2:34)])\n\n\n\nSo we fetch the data using the fitzroy package, and we have to make sure we are only using numeric variables since scagnostics only work on numeric variable\nThen we use the calc_scags_wide function to calculate every scagnostic on every possible pair of variables. This one can be a bit computationally heavy so you do have to leave it for a bit.\nOnce you have this data the best way to analyse it is to look at a SPLOM of the scagnostics."
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-splom",
-    "href": "talks/rladies/index.html#aflw-example-splom",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: SPLOM",
-    "text": "AFLW Example: SPLOM\n\n\n\n\n\n\n\n\nUnfortunately a SPLOM of all the scagnostics won’t fit on the slides so for this example I’ve made one with only a subset\nThe best way to find interesting scatter plots is to find plots that are away from the main mass of scatter plots in this splom."
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-quiz",
-    "href": "talks/rladies/index.html#aflw-example-quiz",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: Quiz!",
-    "text": "AFLW Example: Quiz!\n\nWhich of these scatter plots was not identified (have a high value) by scagnostics?\n\n\nOk time for a bit of fun\nSo, we run the scagnostics on this data and it tells us how interesting each scatter plot is\n5 of these scatter plots had a high value, or a strange combination on one or more of the 11 scagnostics\none of them were just two variables I plotted against each other not really knowing what they looked like\nIll give you 10 seconds to try and guess which plot number you think was the one I picked at random before I change the slide"
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-plot-6",
-    "href": "talks/rladies/index.html#aflw-example-plot-6",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: Plot 6!",
-    "text": "AFLW Example: Plot 6!\n\nPlot 6!\n\n\n\n\nIt was plot 6! I picked the two variables that were the easiest to spell.\nHere is plot 6 alongside two other randomly chosen plots\nThese plots don’t have structure that is as interesting as the plots chosen with scagnostics\nI’ll show you how a couple of them were selected."
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-plot-1",
-    "href": "talks/rladies/index.html#aflw-example-plot-1",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: Plot 1",
-    "text": "AFLW Example: Plot 1\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlot 1 was high on outlying and skewed\nThis means that even after removing outliers, the data was still really spread out\nThis structure is clearly visible in the scatter plot"
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-plot-2",
-    "href": "talks/rladies/index.html#aflw-example-plot-2",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: Plot 2",
-    "text": "AFLW Example: Plot 2\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis plot is really high on the association measures\nusually a plot that deviates from this big mass, in the middle has a non-linear relationship in the scatter plot\nwe dont have that here, so total posessions and disposals just have a strong linear relationships"
-  },
-  {
-    "objectID": "talks/rladies/index.html#aflw-example-plot-5",
-    "href": "talks/rladies/index.html#aflw-example-plot-5",
-    "title": "R-Ladies Meet-up",
-    "section": "AFLW Example: Plot 5",
-    "text": "AFLW Example: Plot 5\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis plot is the last we will look at, and its my favourite\nit was identifiable because it was high on striated adjsuted and low on outlying\nThis plot clearly shows that almost no players do both bounces and hitouts\nhitouts are when you punch the ball when the ref throws it back in and they are done by your tall players, bounces have to be done while running so they are done by your fast players\nIn AFL these two categories seem to have no overlap, tall and fast are mutually exclusive\nThis is a fun example of what we can learn from our data"
-  },
-  {
-    "objectID": "talks/rladies/index.html#top-summaries",
-    "href": "talks/rladies/index.html#top-summaries",
-    "title": "R-Ladies Meet-up",
-    "section": "Top Summaries",
-    "text": "Top Summaries\n\ntop_pairs()\n\n\nAFLW_pairs &lt;- top_pairs(AFLW_scags)\nhead(AFLW_pairs)\n\n# A tibble: 6 × 4\n  Var1      Var2    scag    value\n  &lt;fct&gt;     &lt;fct&gt;   &lt;chr&gt;   &lt;dbl&gt;\n1 behinds   goals   clumpy  0.833\n2 kicks     goals   stringy 0.861\n3 kicks     behinds stringy 0.888\n4 handballs goals   stringy 0.836\n5 handballs behinds stringy 0.842\n6 handballs kicks   clumpy  0.922\n\n\n\n\nThe cassowaryr package also has two functions that summarise the scagnostic information, they are top_scags() and top_pairs().\nthe top_pairs() function gives the top scagnostic for each scatter plot,"
-  },
-  {
-    "objectID": "talks/rladies/index.html#top-summaries-1",
-    "href": "talks/rladies/index.html#top-summaries-1",
-    "title": "R-Ladies Meet-up",
-    "section": "Top Summaries",
-    "text": "Top Summaries\n\ntop_pairs()\n\n\ntable(AFLW_pairs$scag)\n\n\n   clumpy    convex      dcor monotonic    skewed    skinny   stringy \n      330         5         2         7        12        50       122 \n\n\n\n\nsince the scagnostics are supposed to be directly comparable on a 0 to 1 scale, if one scagnostic appears a lot, it is likely identifying an underlying structure through the whole data set"
-  },
-  {
-    "objectID": "talks/rladies/index.html#top-summaries-2",
-    "href": "talks/rladies/index.html#top-summaries-2",
-    "title": "R-Ladies Meet-up",
-    "section": "Top Summaries",
-    "text": "Top Summaries\n\ntop_scags() and top_pairs()\n\n\nAFLW_tscag &lt;- top_scags(AFLW_scags)\nhead(AFLW_tscag)\n\n# A tibble: 6 × 4\n  Var1                       Var2                          scag       value\n  &lt;fct&gt;                      &lt;fct&gt;                         &lt;chr&gt;      &lt;dbl&gt;\n1 goalAccuracy               bounces                       clumpy     0.999\n2 metresGained               totalPossessions              clumpy2    0.767\n3 intercepts                 rebound50s                    convex    36.5  \n4 clearances.totalClearances clearances.stoppageClearances dcor       0.979\n5 clearances.totalClearances clearances.stoppageClearances monotonic  0.988\n6 disposalEfficiency         hitouts                       outlying   0.840\n\n\n\n\ntop_scags() gives you the scatter plot that had the highest value on each scagnostic\na reccuring scatter plot that is high on a lot of measures is likely a scatter plot with an interesting structure"
-  },
-  {
-    "objectID": "talks/rladies/index.html#projection-pursuit-index",
-    "href": "talks/rladies/index.html#projection-pursuit-index",
-    "title": "R-Ladies Meet-up",
-    "section": "Projection Pursuit Index",
-    "text": "Projection Pursuit Index\n\n\n\n\n\n\n\n\nAll the methods I have been through so far have been how you will typically use scagnostics as an exploratory data method\nThis is an example of a guided tour using the convex scagnostic as a projection pursuit index.\nThe data has the features L shape on the x1 and x4 biplot, and noise on all other variables\nThe use for scagnostics as a projection pursuit index with the tour package is not in the cassowaryr package and some of the measures are not well suited to be used as projection pursuit indexes, either due to being too slow or noisey, but this is an area of future development for scagnostics."
-  },
-  {
-    "objectID": "talks/rladies/index.html#the-future-of-the-package",
-    "href": "talks/rladies/index.html#the-future-of-the-package",
-    "title": "R-Ladies Meet-up",
-    "section": "The Future of the Package",
-    "text": "The Future of the Package\nNear\n\nGet new version on cran\nPublish paper\n\nFar\n\nHexagonal binning\nProjection pursuit indexes\n\n\n\nWhat is next for for cassowaryR package\nwe currently have a paper in the works, and now that our package is no longer completely broken, the examples work again we might be able to get it published.\nWe also want to make make some changes to the package later down the line, like I want to try and introduce hexagonal binning so the original scagnostics aren’t essentially useless.\nI also want to continue to test the scagnostics as projection pursuit indexes and maybe also have those be easy to implement in another package. I didn’t show the code for implementing that projection pursuit in this presentation, but it is very long and tedious.\neven as the author of the package is took me several weeks to get it working, so something that would be easier to impleent would be nice."
   },
   {
     "objectID": "unpublished/specialconsideration/index.html",
@@ -700,6 +525,13 @@
     "text": "To Conclude\nDon’t let your mum hang out with weirdos, and treat conspiracy theories and overly complicated models with scepticism."
   },
   {
+    "objectID": "research/index.html",
+    "href": "research/index.html",
+    "title": "Research",
+    "section": "",
+    "text": "My main research focuses are in visual statistics, statistics philosophy, and computational statistics. This means I spend a lot of time thinking about what an observation/statistic is, and how we can best represent it visually. Accurate visual representations of our data are crucial for communicating complicated statistical concepts (both with ourselves and others), so good visualisation tools are a necessity for the future of statistics.\nVisualisations of random variables are, in of themselves, random variables, with their own statistical properties. Ensuring that these visualisations have good statistical properties is the key focus of my work.\n\nSoftware\nUsually any work I do will also have a software output to make implementing the theories easier. This is that software.\n\n\npackagelast_updatereleasedversiontitledownloadshexggdibbler06/12/202531/07/20250.6.1Add Uncertainty to Data Visualisations1,057cassowaryr13/09/202409/08/20222.0.2Compute Scagnostics on Pairs of Numeric Variables in a Data Set29,789\n\n\n\n\nTalks\nThese are the links to the slides for (almost) all the presentations I have given on my research.\n\n\n\n\n\n\n\n\ndate\ntitle\nvenue\n\n\n\n\n2025\nVisualising Uncertainty for Holistic Insights\nASC\n\n\n2025\nVisualising Uncertainty with ggdibbler\nWOMBAT\n\n\n2025\nVisualising Uncertainty with ggdibbler\nuseR!\n\n\n2024\nThe Noisy Work of Uncertainty Visualisation Research\nAMSI Winter School\n\n\n2023\nTeaching Computers to See Patterns in Scatterplots\nR Ladies, Melbourne\n\n\n2022\nTeaching Computers to See Patterns in Scatterplots\nuseR!"
+  },
+  {
     "objectID": "posts/pca/index.html",
     "href": "posts/pca/index.html",
     "title": "Using PCA to Bully My Housemates (Specifically Tom)",
@@ -957,13 +789,6 @@
     "title": "This new ggplot extension is so good you are going to shit your pants",
     "section": "",
     "text": "cept and say that the concept ““, a ggplot version of the pixel map in gg. I had\nWhen I decided to try and make the software, I immediately ran into a problem. There was nowhere in the ggproto system\nin ggplot, a visualisation package built in a statistics so\nI actually spent about 9 months saying “technically this concept could be implemented with any plot” while refusing to write the code that did it, because learning an entire bespoke object orientated system for a small resamling job felt completely absurd. The departments\nI didn’t imagine it would be particularly difficult. The system couldn’t be implemented as a data pre-processing step as ggplot needs to adjust the group aesthetic and\nThe resampling couldn’t be done needed to be done inside the ggplot2 object (so that)\nit was immediately clear that the data transformation from distribution to sample should occur in the layer setup. Before the scales, before the stats, before everything.\nNow, I could spend a lot of time talking about how much of a nightmare implementing this extension has been. Lord knows all my friends, family, and coworkers have been hearing about it for months. This package could have been about 1000 lines of code if it wasn’t for one line in the ggplot2 documentation.\nThis is a side note that will make sense to nobody but a group of about 10 people, but @Hadley part of the reason I got coffee at that JSM lunch (obvously despite the fact that Deb, Heike and Susan were really a delight to talk to) was because I knew it would keep us there an extra 30 mins, and it was pretty obvious you wanted to break off and get coffee with them alone. I will claw back the time I spent on this ggplot2 extension, chump."
-  },
-  {
-    "objectID": "talks/index.html",
-    "href": "talks/index.html",
-    "title": "Talks",
-    "section": "",
-    "text": "R-Ladies Meet-up\n\n\nTeaching Computers to See Scatterplots with Scagnostics\n\n\n\n\n\n\n\n\nNov 8, 2023\n\n\nHarriet Mason\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "Untitled.html",

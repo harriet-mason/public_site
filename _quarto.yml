@@ -1,21 +1,23 @@
 project:
-  type: website
+  type: website 
 
 execute: 
   freeze: auto
 
 website:
-  title: "Harriet Mason"
+  title: "Harriet Mason" 
   navbar:
-    background: primary
+    background: primary 
     search: true
     left:
       - href: posts/index.qmd
         text: Blog
+      - href: research/index.qmd
+        text: Research
       - href: teaching/index.qmd
-        text: Teaching
-      - href: talks/index.qmd
-        text: Talks
+        text: Teaching Resources
+      - href: CV/cv.pdf
+        text: CV 
         
 
 format:
