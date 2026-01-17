@@ -84,7 +84,7 @@ load("software.rda")
 
 pkg_tbl <- pkg_data |>
    arrange(desc(last_update)) |>
-  select(package, last_update, released, version, title, downloads, url, hex) |>
+  select(hex, package, title, version, released, last_update, downloads, url) |>
   flextable() |>
     colformat_num(big.mark = ",", decimal.mark = ".") |>
     colformat_date(fmt_date = "%d/%m/%Y")
@@ -98,7 +98,8 @@ pkg_tbl <- compose(
 pkg_tbl <- colformat_image(x = pkg_tbl,
                            i=1:nrow(pkg_data),
                            j = "hex", width = 1, height = 1.156,
-                           na_str = "")
+                           na_str = "")|>
+  autofit()
 pkg_tbl
 ```
 
