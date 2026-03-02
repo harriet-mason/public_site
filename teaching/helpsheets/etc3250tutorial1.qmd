@@ -75,19 +75,13 @@ Download the slides.qmd file for week 1 lecture. Use knitr::purl() to extract th
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-The qmd link from the [week 1](https://iml.numbat.space/week1/) section of the iml website should let you download it
-:::
-
-
-::: {.callout-tip collapse="true"}
-## Hint 2
 Run `?knitr::purl()` and check what you need for the function to run. 
   
 As a rule of thumb, it is generally easier to move a file to your project's working directory than to change your working directory to a specific file location. If you don't know what an R project is, please wave me down.
 :::
 
 ::: {.callout-tip collapse="true"}
-## Hint 3
+## Hint 2
 I would also set the `output` option because otherwise that `slides.R` file will be sent somewhere you might not want.
 :::
 
@@ -99,5 +93,5 @@ Run the rest of the code in small chunks. Does it all work for you? Do you get a
 
 ::: {.callout-note}
 ## Harriet's Comment
-I think this is a genuine question from Di. If you have any suggestions let me know (it could even be something that another one of your units did). If your suggestions is feasible for Di to do time wise she might implement it.
+This is a genuine question from Jack. If you have any suggestions let me know (it could even be something that another one of your units did). If your suggestion is feasible we might implement it.
 :::
