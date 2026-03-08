@@ -1,0 +1,174 @@
+---
+title: "ETC3250: Tutorial 2 Help Sheet"
+---
+```{r}
+#| echo: false
+# Set up chunk for all slides
+knitr::opts_chunk$set(
+  fig.width = 4,
+  fig.height = 4,
+  fig.align = "center",
+  out.width = "60%",
+  code.line.numbers = FALSE,
+  fig.retina = 3,
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  dev.args = list(pointsize = 11)
+)
+```
+
+
+# Exercises
+## Question 1
+a. What is $X_1$ (variable 1)?
+b. What is observation 3?
+c. What is $n$?
+d. What is $p$?
+e. What is $X^\top$?
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check week 1 lecture slide 20 to 32.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+The notation section of the [matricies wiki page](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Notation) might also help. The wiki page should also have a definition of the [transpose](https://en.wikipedia.org/wiki/Matrix_(mathematics)#Basic_operations). 
+:::
+
+## Question 2
+Which of these statements is the most accurate? And which is the most precise?
+
+*A. It is almost certain to rain in the next week.*
+
+*B. It is 90% likely to get at least 10mm of rain tomorrow.*
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check week 1 lecture slide 56.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+Accuracy tells you how likely a statement is to be true, and precision tells you how specific a statement is. For example, if I guess your weight to be somewhere between 0 and 1000kg, my statement is highly accurate (true with 100% certainty) but imprecise to the point of being meaningless. Typically a more accurate statement will be less precise, and a more precise statement will be less accurate.
+:::
+
+## Question 3
+For the following data, make an appropriate training test split of 60:40. The response variable is cause. Demonstrate that you have made an appropriate split.
+
+```{r}
+library(readr)
+library(dplyr)
+library(rsample)
+
+bushfires <- read_csv("https://raw.githubusercontent.com/dicook/mulgar_book/pdf/data/bushfires_2019-2020.csv")
+bushfires |> count(cause)
+```
+
+::: {.callout-note}
+## Harriet's Comment
+If you want to get the same results as the solution (that will eventually be posted) use `set.seed(1156)`
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check week 1 lecture slides 43 to 47
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+Check the function `initial_split` with `?initial_split`. Also look at the functions `training` and `count` to check your split and see how many are in each group.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 3
+Your function should use the options `initial_split(data, prop=??, strata=??)` to set an initial split. Then using `testing(split) |> count(same variable you used for strata)` to check the correct amount is in each group.
+:::
+
+## Question 4
+Consider the following supervised classification data. Answer the questions below for this data.
+
+```{r}
+# This code provides a data set to use for the question
+library(palmerpenguins)
+library(MASS)
+p_sub_std <- penguins |>
+  dplyr::filter(species != "Gentoo") |>
+  rename(
+    bl = bill_length_mm,
+    bm = body_mass_g,
+    fl = flipper_length_mm,
+    bd = bill_depth_mm
+  ) |>
+  dplyr::select(species, bl, bd, fl, bm) |>
+  mutate(species = factor(species)) |>
+  tidyr::drop_na() |>
+  mutate(across(!species, ~ as.numeric(scale(.x))))
+```
+
+### Part A
+How many classes?
+
+::: {.callout-tip collapse="true"}
+## Hint
+Try using `count()`, `table()`, or a similar function you are familiar with.  
+:::
+
+### Part B
+Create a 80:20 train test split stratifying by species
+
+::: {.callout-tip collapse="true"}
+## Hint
+See the hints for Question 3.
+:::
+
+### Part C-E
+Fit a kNN model to the training set and predict the test set. Add your first model’s probabilistic predictions to the test data
+c. K=5
+d. K=10
+e. K=20
+
+::: {.callout-tip collapse="true"}
+## Hint
+Check week 1 slides 32-41 for all the details on KNN. Slides 39-40 provide  an example that builds a KNN model, makes predictions, and adds those prediction to the data set. 
+:::
+
+## Question 5
+We will now analyse the fit of our three kNN models. Answer the questions below relating to these models.
+
+### Part A
+For each model compute the confusion table, using whether the predictive probability was greater than 0.5 as the prediction.
+
+::: {.callout-tip collapse="true"}
+## Hint
+Check week 1 slides 51-52 for details on theory and computation of confusion matrices.  
+:::
+
+### Part B
+Which value for K seems best so far?
+ 
+### Part C & D
+Plot the roc-auc curves for each value of  K. Compute the roc-auc for each value of K.
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check week 1 slides 53-54 for an example of creating the ROC and then plotting it.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+`autoplot()` is used in the slides to plot the ROC curve. You can also look at the object `roc_auc()` spits out, or use the `pull()` function to get the area under the curve (AUC) for your ROC.
+:::
+
+### Part E
+Which value for K seems better now
+
+::: {.callout-tip collapse="true"}
+## Hint 
+Use the information you gained from the ROC analysis and the information on week 1 slides 53-54.
+:::
+
+## Question 6
+Discuss with your neighbour, what you found the most difficult part of last week’s content. Find some material (from resources or googling) together that gives alternative explanations that make it clearer.

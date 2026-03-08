@@ -2,7 +2,7 @@
 title: "Research"
 ---
 
-My main research focuses are in visual statistics, statistics philosophy, and computational statistics. This means I spend a lot of time thinking about what an observation/statistic is, and how we can best represent it visually. Accurate visual representations of our data are crucial for communicating complicated statistical concepts (both with ourselves and others), so good visualisation tools are a necessity for the future of statistics. 
+My main research focuses are in visual statistics, statistics philosophy, and computational statistics. This means I spend a lot of time thinking about what an observation/statistic is, and how we can best represent it visually. Accurate visual representations of our data are crucial for communicating complicated statistical concepts (both with ourselves and others), so good visualisation tools are a necessity for the future of statistics.  
 
 Visualisations of random variables are, in of themselves, random variables, with their own statistical properties. Ensuring that these visualisations have *good* statistical properties is the key focus of my work. 
 
