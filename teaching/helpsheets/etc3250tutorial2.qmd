@@ -120,9 +120,10 @@ Try using `count()`, `table()`, or a similar function you are familiar with.
 Create a 80:20 train test split stratifying by species
 
 ::: {.callout-tip collapse="true"}
-## Hint
+## Hint 1
 See the hints for Question 3.
 :::
+
 
 ### Part C-E
 Fit a kNN model to the training set and predict the test set. Add your first model’s probabilistic predictions to the test data
@@ -131,8 +132,13 @@ d. K=10
 e. K=20
 
 ::: {.callout-tip collapse="true"}
-## Hint
+## Hint 1
 Check week 1 slides 32-41 for all the details on KNN. Slides 39-40 provide  an example that builds a KNN model, makes predictions, and adds those prediction to the data set. 
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+Note, the grid in slide 40 is acting as your test set. You should replace it with `training(split)` to get the predictions for this question.
 :::
 
 ## Question 5
