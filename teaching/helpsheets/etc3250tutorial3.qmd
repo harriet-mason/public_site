@@ -44,7 +44,7 @@ conflicts_prefer(tourr::flea)
 
 ## Question 1: Projection Matrix
 ### Part A
-Write a projection matrix which would generate a 2D projection where the first data projection has variables 1 and 4 combined equally, and the second data projection has one third of variable 2 and two thirds of 5.
+Write a projection matrix which would generate a 2D projection where the first data projection has variables 1 and 4 combined equally, and the second data projection has variables 2 and 5 combined with variable 5 having greater weight.
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
@@ -58,7 +58,7 @@ I would reccomend checking [this](https://dicook.github.io/mulgar_book/2-notatio
 
 ::: {.callout-tip collapse="true"}
 ## Hint 3
-I would suggest writing the matrix that combines the variables correctly and *then* make sure it follows the gneeral requirements for a projection matrix. The projected data ($Y$) should have dimension 1 equally variable 1 and variable 4, that is to say $Y_1 = \frac1 2 X_1 + \frac1 2 X_4$ and dimension 2 should be a third variable 2 and two thirds variable 5, that is $Y_2 = \frac1 3 X_2 + \frac 2 3 X_5$. Write these equations in matrix form to get a starting point for your answer. 
+I would suggest writing the matrix that combines the variables correctly and *then* make sure it follows the gneeral requirements for a projection matrix. The projected data ($Y$) should have dimension 1 equally variable 1 and variable 4, that is to say $Y_1 =  X_1 + X_4$ and dimension 2 should be a third variable 2 and two thirds variable 5, that is $Y_2 = \frac1 2 X_2 + X_5$. Write these equations in matrix form to get a starting point for your answer. 
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -75,15 +75,15 @@ The matrix equation that represents that linear system above is:
 1 & -7 & 6 & 7 & -1
 \end{array}\right]
 \left[\begin{array}{rr} 
-1/2 & 0 \\ 
-0 & 1/3  \\
+1 & 0 \\ 
+0 & 1/2  \\
 0 & 0 \\
-1/2 & 0 \\
-0 & 2/3 \\
+1 & 0 \\
+0 & 1 \\
 \end{array}\right] 
 \end{align*}
 
-This matrix has not been adjusted to fulfill the requirements of a projection matrix. If you are unsure how to convert this into a projection matrix, check the hints for Part G.
+This matrix has not been adjusted to fulfill the requirements of a projection matrix. If you are unsure how to convert this into a projection matrix, check the hints for Part B.
 :::
 
 ### Part B
@@ -105,13 +105,13 @@ The way this question is set up implies that we are asking why $\mathbf A$ can't
 
 ::: {.callout-tip collapse="true"}
 ## Hint 1
-**(same as Hint 1 Part F)** 
+**(same as Part A)** 
 Check week 2 lecture slides 26 to 31.
 :::
 
 ::: {.callout-tip collapse="true"}
 ## Hint 2
-**(same as Hint 2 Part F)**
+**(same as Part A)**
 I would recommend checking [this](https://dicook.github.io/mulgar_book/2-notation.html) page of the Cook and Laa textbook for the requirements of a projection matrix. Remember, matricies are just a simple way to describe a system of linear equations.
 :::
 
