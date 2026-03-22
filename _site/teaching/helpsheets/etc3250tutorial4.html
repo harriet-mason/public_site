@@ -171,13 +171,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reminder
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Download the <code>.qmd</code> file for the lecture slides. If a hint directs you to a slide, and the required code is not explicitly on the slide, it will be in the <code>.qmd</code>. We <em>will</em> give you the code to do every assignment/tutorial question, you just need to repurpose it for the specific question.</p>
+</div>
+</div>
 <section id="exercises" class="level1">
 <h1>Exercises</h1>
-<section id="question-1" class="level2">
-<h2 class="anchored" data-anchor-id="question-1">Question 1</h2>
-<p>In the lecture, we used bootstrap to examine the significance of the coefficients for the second principal component from the womens’ track PCA. Do this computation for PC1. The question for you to answer is: <em>Can we consider all of the coefficients to be equal?</em></p>
+<section id="question-1-assess-the-significance-of-pca-coefficients-using-bootstrap" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-assess-the-significance-of-pca-coefficients-using-bootstrap">Question 1: Assess the significance of PCA coefficients using bootstrap</h2>
+<p>In Moodle, under Learning -&gt; Getting Started you will find a data folder. Download this folder and you will it that contains the <code>womens_track.csv</code> data.</p>
+<p>In the lecture, we used bootstrap to examine the significance of the coefficients for the second principal component from the womens’ track PCA. Do this computation for PC1. The question for you to answer is: <em>Is the loading of any one variable to PC1 greater than the others?</em></p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -186,14 +200,14 @@ Hint: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check <a href="https://iml.numbat.space/week3/slides.html#/bootstrap-15">lecture 3 slides 20 to 24</a>. The code for this question is <em>very</em> similar to the code on slide 24.</p>
+<p>Check slides 28 to 34. You are trying to make a PC1 version of the visualisation on slide 34. The code for this question is <em>very</em> similar to the code on slide 33, except we are computing PC1 instead of PC2.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -202,21 +216,21 @@ Hint: Interpreting the plot
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>What does the red dashed line on the plot mean?</p>
 </div>
 </div>
 </div>
 </section>
-<section id="question-2" class="level2">
-<h2 class="anchored" data-anchor-id="question-2">Question 2</h2>
-<p>The <code>ggscree</code> function in the <code>mulgar</code> package computes PCA on multivariate standard normal samples, to learn what the largest eigenvalue might be when there the covariance between variables is 0.</p>
+<section id="question-2-using-simulation-to-assess-results-when-there-is-no-structure" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-using-simulation-to-assess-results-when-there-is-no-structure">Question 2: Using simulation to assess results when there is no structure</h2>
+<p>The <code>ggscree</code> function in the <code>mulgar</code> package computes PCA on multivariate standard normal samples, to learn what the largest eigenvalue might be when the covariance between variables is 0.</p>
 <section id="part-a" class="level3">
 <h3 class="anchored" data-anchor-id="part-a">Part A</h3>
 <p>What is the mean and covariance matrix of a multivariate standard normal distribution?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -225,7 +239,7 @@ Hint: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This is a pretty basic question about a multivariate normal distribution, I can only suggest checking the wiki page for the <a href="https://en.wikipedia.org/wiki/Normal_distribution#Standard_normal_distribution">standard normal distribution</a> and the <a href="https://en.wikipedia.org/wiki/Normal_distribution#Standard_normal_distribution">multivariate normal distribution</a></p>
 </div>
@@ -236,34 +250,18 @@ Hint: Where to go for information
 <h3 class="anchored" data-anchor-id="part-b">Part B</h3>
 <p>Simulate a sample of 55 observations from a 7D standard multivariate normal distribution. Compute the sample mean and covariance. (Question: Why 55 observations? Why 7D?)</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Functions for simulation
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>To simulate the data you will need to use <code>set.seed</code> and <code>rmvnorm</code>. The variables should be independent so you might find the function <code>diag</code> useful in generating the variance-covariance matrix.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Functions for computation
+Hint: Where to go for a similar example
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>There are many ways to calcualte the mean and covariance, I suggest using <code>apply</code> to calculate the mean, where <code>x</code> is your data, <code>MARGIN</code> indicates the calculation will be done over columns, and <code>FUN</code> can just be <code>mean</code> (you dont need the brackets on the function <code>mean</code>). You can use the <code>cov</code> for the variance-covariance matrix.</p>
+<p>Check slides 42 to 44 for an example of a 2D multivariate normal distribution. The code for this example would be a pain to set up for a 7D example, so I would use <code>Mvnorm::rmvnorm</code>.</p>
 </div>
 </div>
 </div>
@@ -273,11 +271,44 @@ Hint: Functions for computation
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Nudge for 55 observations and 7D
+Hint: Help with rmvnorm
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To simulate the data you will need to use <code>set.seed</code>.</p>
+<p>The variables should be independent so the variance-covariance matrix will be an identity matrix (which you can use the <code>diag</code> function to generate).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Checking the distributions are correct
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You should check your mean and covariance are correct (after setting up the data using <code>rmvnorm</code>). To check the variance-covariance matrix use the <code>cov</code> function. To calculate the mean, use <code>apply</code>. If you are unfarmiliar with this function, check the details using <code>?apply</code>. To explain the documentaion, <code>x</code> is your data, <code>MARGIN</code> indicates the calculation will be done over columns, and <code>FUN</code> can just be <code>mean</code> (you don’t need the brackets on the function <code>mean</code>).</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Help for why we use 55 observations and 7D
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>We are going to compare this simulation to our results from the <code>track</code> data. Consider the dimensionality of the data (for <em>numeric</em> variables).</p>
 </div>
@@ -288,7 +319,7 @@ Hint: Nudge for 55 observations and 7D
 <h3 class="anchored" data-anchor-id="part-c">Part C</h3>
 <p>Compute PCA on your sample, and note the variance of the first PC. How does this compare with variance of the first PC of the women’s track data?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -297,14 +328,14 @@ Hint: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check <a href="https://iml.numbat.space/week2/slides.html#/compute-pca">lecture 2 slide 45</a> for code that computed a PCA.</p>
+<p>Check week 2 lecture slides 55 for an example of computing PCA (or last weeks tutorial) for an example of PCA without bootstrapping.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -313,14 +344,14 @@ Hint: The function options
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Remember, your data is <em>simulated</em> from a standard normal distribution, so you shouldn’t scale or center the data.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -329,7 +360,7 @@ Hint: Comparison considerations
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Look at how much of the total variance of the track data is covered by PC1 and then look at how much of the total variance of your simulated data is covered by PC1. Is it a valid check to just compare these two numbers? What would be required to make sure PC1 of the track data does not just <em>happen</em> to be different to the PC1 of our simulated data for this particular draw?</p>
 </div>
@@ -337,8 +368,8 @@ Hint: Comparison considerations
 </div>
 </section>
 </section>
-<section id="question-3" class="level2">
-<h2 class="anchored" data-anchor-id="question-3">Question 3</h2>
+<section id="question-3-making-a-lineup-plot-to-assess-the-dependence-between-variables" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-making-a-lineup-plot-to-assess-the-dependence-between-variables">Question 3: Making a lineup plot to assess the dependence between variables</h2>
 <p>Permutation samples is used to significance assess relationships and importance of variables. Here we will use it to assess the strength of a non-linear relationship.</p>
 <section id="part-a-1" class="level3">
 <h3 class="anchored" data-anchor-id="part-a-1">Part A</h3>
@@ -361,7 +392,7 @@ Hint: Comparison considerations
 </div>
 <p>Is the data plot recognisably different from the plots of permuted data?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -370,45 +401,9 @@ Hint: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Check <a href="https://iml.numbat.space/week3/slides.html#/permutation-13">lecture 3 slide 26</a> for information on permutation.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Things to consider
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Consider how permutation works and how the other 19 plots were generated. What kind of relationship should become invisible when variables are permuted. How does that translate to being able to identify your data in this lineup plot? What does that mean about your data?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="part-b-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-b-1">Part B</h3>
-<p>Repeat this with a sample simulated with no relationship between the two variables. Can the data be distinguished from the permuted data?</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Functions for simulation
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>To simulate the data you can basically use the code above except instead of setting <code>x2 = x1^2 + rnorm(n)*0.01</code> you can remove the dependence by setting <code>x2 = rnorm(n)*0.1</code>.</p>
+<p>Check lecture 3 slides 36 to 39 for information on permutation.</p>
 </div>
 </div>
 </div>
@@ -424,20 +419,56 @@ Hint: Things to consider
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<p>Consider how permutation works and how the other 19 plots were generated. What kind of relationship should become invisible when variables are permuted. How does that translate to being able to identify your data in this lineup plot? What does that mean about your data?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-b-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-1">Part B</h3>
+<p>Repeat this with a sample simulated with no relationship between the two variables. Can the data be distinguished from the permuted data?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Functions for simulation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To simulate the data you can basically use the code above except instead of setting <code>x2 = x1^2 + rnorm(n)*0.01</code> you can remove the dependence by setting <code>x2 = rnorm(n)*0.1</code>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Things to consider
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Considerations are identical to those provided in the hint for Part A.</p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="question-4" class="level2">
-<h2 class="anchored" data-anchor-id="question-4">Question 4</h2>
+<section id="question-4-computing-k-folds-for-cross-validation" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-computing-k-folds-for-cross-validation">Question 4: Computing K-folds for cross-validation</h2>
 <p>For the penguins data, compute 5-fold cross-validation sets, stratified by species.</p>
 <section id="part-a-2" class="level3">
 <h3 class="anchored" data-anchor-id="part-a-2">Part A</h3>
 <p>List the observations in each sample, so that you can see there is no overlap.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -446,9 +477,9 @@ Hint: Where to go for information
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check <a href="https://iml.numbat.space/week3/slides.html#/k-fold-cross-validation-14">lecture 3 slide 13 to 16</a> for information about k-fold cross validation (in this case, k=5). You can find <em>very</em> similar code for this section on slide 14</p>
+<p>Check lecture 3 slide 15 to 19 for information about k-fold cross validation. You can find <em>very</em> similar code for this section on slide 16.</p>
 </div>
 </div>
 </div>
@@ -457,7 +488,7 @@ Hint: Where to go for information
 <h3 class="anchored" data-anchor-id="part-b-2">Part B</h3>
 <p>Make a scatterplot matrix for each fold, coloured by species. Do the samples look similar?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -466,42 +497,10 @@ Hint: Consideration for making data
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Each of the lines in Part A should line up with the <em>index</em> of one segmentation of the data. Look at the code and work out what it is doing.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: More consideration for making data
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>What is the code required for <code>p_tidy[row_index,]</code> to work? Remember, the training set is the remaining data after the test set is removed, and you can remove data through an index by using <code>p_tidy[-test_index,]</code></p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint: Functions and code for scatterplot matrix
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Look at <code>ggscatmat</code> for the scatterplot matrix , you can use <code>columns</code> to specify the numeric variables and <code>color</code> (American spelling) for the colouring of the points.</p>
-<p>You can just copy and paste this for each scatterplot matrix you need to make.</p>
+<p>Each of the lines in Part A should line up with the <em>index</em> of one segmentation of the data.</p>
+<p>You can then access the data using <code>p_tidy[row_index,]</code>. The code on slide 16 will give you the indexes you need. Remember, the training set is the remaining data after the test set is removed, and you can remove data through an index by using <code>p_tidy[-test_index,]</code></p>
 </div>
 </div>
 </div>
@@ -511,11 +510,28 @@ Hint: Functions and code for scatterplot matrix
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: More consideration for answering questions
+Hint: Functions and code for scatterplot matrix
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Look at <code>ggscatmat</code> for the scatterplot matrix , you can use <code>columns</code> to specify the numeric variables and <code>color</code> (American spelling) for the colouring of the points.</p>
+<p>You can just copy and paste this for each scatterplot matrix you need to make.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Consideration for answering theory component
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Does your data vary between subsets? Is this variation natural?</p>
 </div>
@@ -523,8 +539,114 @@ Hint: More consideration for answering questions
 </div>
 </section>
 </section>
-<section id="question-5" class="level2">
-<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<section id="question-5-tuning-your-knn" class="level2">
+<h2 class="anchored" data-anchor-id="question-5-tuning-your-knn">Question 5: Tuning your kNN</h2>
+<section id="part-a-3" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-3">Part A</h3>
+<p>Create a 80:20 train test split stratifying by species. Remember we only apply cross-validation within the training set!</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 3 slide 7 to 9 for information about training/test split (although we have been doing it all semester).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-b-3" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-3">Part B</h3>
+<p>Consider a wide grid for K and conduct cross-validation. You can specify your own grid by creating a <code>data.frame</code> or <code>tibble</code> such as</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>neighbour_grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">"neighbors"</span> <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">31</span>, <span class="at">by =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for information
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 3 slide 22 to 26 for an example where we use k-fold CV to select a value for K.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-c-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-1">Part C</h3>
+<p>Given the results from part b., zoom in and conduct a more precise search for K</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This basically means to make the search area and increments in your <code>neighbour_grid</code> smaller.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
+<p>Fit the final model with your optimal (remember to use all of the training data!) and assess its performance on the testing set</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>With the model parameters you decided were best, just build the model in lecture 1 slide 39 (or tutorial 2, question 5) and set the data to be all the training data.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-e" class="level3">
+<h3 class="anchored" data-anchor-id="part-e">Part E</h3>
+<p>Briefly think about if there are any other parts of kNN that you could tune with cross-validation.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>There are choices you make when building your model that are not literally “the model”.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
 <p>What was the easiest part of this tutorial to understand, and what was the hardest?</p>
 
 

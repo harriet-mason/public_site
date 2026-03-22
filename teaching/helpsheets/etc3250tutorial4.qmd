@@ -1,0 +1,276 @@
+---
+title: "ETC3250: Tutorial 4 Help Sheet"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| code-fold: true
+#| code-summary: "Load the libraries and avoid conflicts"
+# Load libraries used everywhere
+library(tidyverse)
+library(tidymodels)
+library(conflicted)
+library(patchwork)
+library(mulgar)
+library(mvtnorm)
+library(boot)
+library(nullabor)
+library(palmerpenguins)
+library(GGally)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::slice)
+conflicts_prefer(palmerpenguins::penguins)
+
+options(digits=2)
+p_tidy <- penguins |>
+  select(species, bill_length_mm:body_mass_g) |>
+  rename(bl=bill_length_mm,
+         bd=bill_depth_mm,
+         fl=flipper_length_mm,
+         bm=body_mass_g) |>
+  filter(!is.na(bl)) |>
+  arrange(species)
+```
+
+```{r}
+#| echo: false
+# Set plot theme
+theme_set(theme_bw(base_size = 14) +
+   theme(
+     aspect.ratio = 1,
+     plot.background = element_rect(fill = 'transparent', colour = NA),
+     plot.title.position = "plot",
+     plot.title = element_text(size = 24),
+     panel.background = element_rect(fill = 'transparent', colour = NA),
+     legend.background = element_rect(fill = 'transparent', colour = NA),
+     legend.key = element_rect(fill = 'transparent', colour = NA)
+   )
+)
+```
+
+::: {.callout-note}
+## Reminder
+Download the `.qmd` file for the lecture slides. If a hint directs you to a slide, and the required code is not explicitly on the slide, it will be in the `.qmd`. We *will* give you the code to do every assignment/tutorial question, you just need to repurpose it for the specific question.  
+:::
+
+# Exercises
+
+## Question 1: Assess the significance of PCA coefficients using bootstrap
+In Moodle, under Learning -> Getting Started you will find a data folder. Download this folder and you will it that contains the `womens_track.csv` data.
+
+In the lecture, we used bootstrap to examine the significance of the coefficients for the second principal component from the womens' track PCA. Do this computation for PC1. The question for you to answer is: *Is the loading of any one variable to PC1 greater than the others?*
+
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check slides 28 to 34. You are trying to make a PC1 version of the visualisation on slide 34. The code for this question is *very* similar to the code on slide 33, except we are computing PC1 instead of PC2.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Interpreting the plot
+What does the red dashed line on the plot mean? 
+:::
+
+## Question 2: Using simulation to assess results when there is no structure
+The `ggscree` function in the `mulgar` package computes PCA on multivariate standard normal samples, to learn what the largest eigenvalue might be when the covariance between variables is 0.
+
+### Part A
+What is the mean and covariance matrix of a multivariate standard normal distribution?
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+This is a pretty basic question about a multivariate normal distribution, I can only suggest checking the wiki page for the [standard normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Standard_normal_distribution) and the [multivariate normal distribution](https://en.wikipedia.org/wiki/Normal_distribution#Standard_normal_distribution)
+:::
+
+### Part B
+Simulate a sample of 55 observations from a 7D standard multivariate normal distribution. Compute the sample mean and covariance. (Question: Why 55 observations? Why 7D?)
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for a similar example
+Check slides 42 to 44 for an example of a 2D multivariate normal distribution. The code for this example would be a pain to set up for a 7D example, so I would use `Mvnorm::rmvnorm`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Help with rmvnorm
+To simulate the data you will need to use `set.seed`. 
+
+The variables should be independent so the variance-covariance matrix will be an identity matrix (which you can use the `diag` function to generate). 
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Checking the distributions are correct
+You should check your mean and covariance are correct (after setting up the data using `rmvnorm`).
+To check the variance-covariance matrix use the `cov` function.
+To calculate the mean, use `apply`. If you are unfarmiliar with this function, check the details using `?apply`. To explain the documentaion, `x` is your data, `MARGIN` indicates the calculation will be done over columns, and `FUN` can just be `mean` (you don't need the brackets on the function `mean`).
+
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Help for why we use 55 observations and 7D
+We are going to compare this simulation to our results from the `track` data. Consider the dimensionality of the data (for *numeric* variables).
+:::
+
+
+### Part C
+Compute PCA on your sample, and note the variance of the first PC. How does this compare with variance of the first PC of the women's track data?
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check week 2 lecture slides 55 for an example of computing PCA (or last weeks tutorial) for an example of PCA without bootstrapping.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: The function options
+Remember, your data is *simulated* from a standard normal distribution, so you shouldn't scale or center the data.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Comparison considerations
+Look at how much of the total variance of the track data is covered by PC1 and then look at how much of the total variance of your simulated data is covered by PC1. Is it a valid check to just compare these two numbers? What would be required to make sure PC1 of the track data does not just *happen* to be different to the PC1 of our simulated data for this particular draw?
+:::
+
+## Question 3: Making a lineup plot to assess the dependence between variables
+Permutation samples is used to significance assess relationships and importance of variables. Here we will use it to assess the strength of a non-linear relationship. 
+
+### Part A
+Generate a sample of data that has a strong non-linear relationship but no correlation, as follows:
+
+```{r}
+#| echo: true
+#| eval: false
+set.seed(908)
+n <- 205
+df <- tibble(x1 = runif(n)-0.5, x2 = x1^2 + rnorm(n)*0.01)
+```
+
+and then use permutation to generate another 19 plots where `x1` is permuted. You can do this with the `nullabor` package as follows:
+
+```{r}
+#| echo: true
+#| eval: false
+set.seed(912)
+df_l <- lineup(null_permute('x1'), df)
+```
+
+and make all 20 plots as follows:
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(df_l, aes(x=x1, y=x2)) + 
+  geom_point() + 
+  facet_wrap(~.sample)
+```
+
+Is the data plot recognisably different from the plots of permuted data?
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check lecture 3 slides 36 to 39 for information on permutation.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Things to consider
+Consider how permutation works and how the other 19 plots were generated. What kind of relationship should become invisible when variables are permuted. How does that translate to being able to identify your data in this lineup plot? What does that mean about your data?
+:::
+
+### Part B
+Repeat this with a sample simulated with no relationship between the two variables. Can the data be distinguished from the permuted data?
+
+::: {.callout-tip collapse="true"}
+## Hint: Functions for simulation
+To simulate the data you can basically use the code above except instead of setting `x2 = x1^2 + rnorm(n)*0.01` you can remove the dependence by setting `x2 = rnorm(n)*0.1`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Things to consider
+Considerations are identical to those provided in the hint for Part A.
+:::
+
+## Question 4: Computing K-folds for cross-validation
+For the penguins data, compute 5-fold cross-validation sets, stratified by species. 
+
+### Part A
+List the observations in each sample, so that you can see there is no overlap. 
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check lecture 3 slide 15 to 19 for information about k-fold cross validation. You can find *very* similar code for this section on slide 16.
+:::
+
+### Part B
+Make a scatterplot matrix for each fold, coloured by species. Do the samples look similar?
+
+::: {.callout-tip collapse="true"}
+## Hint: Consideration for making data
+Each of the lines in Part A should line up with the *index* of one segmentation of the data. 
+
+You can then access the data using `p_tidy[row_index,]`. The code on slide 16 will give you the indexes you need. Remember, the training set is the remaining data after the test set is removed, and you can remove data through an index by using `p_tidy[-test_index,]`
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Functions and code for scatterplot matrix
+Look at `ggscatmat` for the scatterplot matrix , you can use `columns` to specify the numeric variables and `color` (American spelling) for the colouring of the points.
+
+You can just copy and paste this for each scatterplot matrix you need to make.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Consideration for answering theory component
+Does your data vary between subsets? Is this variation natural?
+:::
+
+## Question 5: Tuning your kNN
+### Part A
+Create a 80:20 train test split stratifying by species. Remember we only apply cross-validation within the training set!
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check lecture 3 slide 7 to 9 for information about training/test split (although we have been doing it all semester).
+:::
+
+### Part B
+Consider a wide grid for K and conduct cross-validation. You can specify your own grid by creating a `data.frame` or `tibble` such as
+
+```{r}
+neighbour_grid <- tibble("neighbors" = seq(1, 31, by = 3))
+```
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for information
+Check lecture 3 slide 22 to 26 for an example where we use k-fold CV to select a value for K. 
+:::
+ 
+### Part C
+Given the results from part b., zoom in and conduct a more precise search for K
+
+::: {.callout-tip collapse="true"}
+## Hint
+This basically means to make the search area and increments in your `neighbour_grid` smaller.
+:::
+
+
+### Part D
+Fit the final model with your optimal (remember to use all of the training data!) and assess its performance on the testing set
+
+::: {.callout-tip collapse="true"}
+## Hint
+With the model parameters you decided were best, just build the model in lecture 1 slide 39 (or tutorial 2, question 5) and set the data to be all the training data.
+:::
+
+ 
+### Part E
+Briefly think about if there are any other parts of kNN that you could tune with cross-validation.
+
+::: {.callout-tip collapse="true"}
+## Hint
+There are choices you make when building your model that are not literally "the model".
+:::
+
+## Question 6
+What was the easiest part of this tutorial to understand, and what was the hardest? 
