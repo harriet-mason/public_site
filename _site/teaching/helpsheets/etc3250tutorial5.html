@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -67,6 +101,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -137,81 +200,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="question-1-logistic-regression" class="level2">
-<h2 class="anchored" data-anchor-id="question-1-logistic-regression">Question 1: Logistic Regression</h2>
-<section id="part-a" class="level3">
-<h3 class="anchored" data-anchor-id="part-a">Part A</h3>
-<p>Fit a logistic regression model to the training set.</p>
-<p>(No hint, the code is in the tutorial)</p>
-</section>
-<section id="part-b" class="level3">
-<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
-<p>Compute the confusion matrices for training and test sets, and thus the error for the test set. You can use this code to make the predictions.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Where to go for information
+Reminder
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You have computed a confusion matrix multiple times before. Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/check-the-model-performance">slide 15</a> for an example of using a model to get the confusion matrix for the logistic model.</p>
+<p>Download the <code>.qmd</code> file for the lecture slides. If a hint directs you to a slide, and the required code is not explicitly on the slide, it will be in the <code>.qmd</code>. We <em>will</em> give you the code to do every assignment/tutorial question, you just need to repurpose it for the specific question.</p>
 </div>
 </div>
-</div>
-</section>
-<section id="part-c" class="level3">
-<h3 class="anchored" data-anchor-id="part-c">Part C</h3>
-<p>This question is an exploratory question so there isnt really a right or wrong question. Do think about it though.</p>
-</section>
-</section>
-<section id="question-2-lda" class="level2">
-<h2 class="anchored" data-anchor-id="question-2-lda">Question 2: LDA</h2>
-<section id="part-a-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-a-1">Part A</h3>
-<p>Is the assumption of equal variance-covariance reasonable to make for this data?</p>
+<section id="question-1-knn-theory" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-knn-theory">Question 1: kNN theory</h2>
+<section id="part-a" class="level3">
+<h3 class="anchored" data-anchor-id="part-a">Part A</h3>
+<p>Use the image (in the tutorial) to identify what would be the probabilities assigned to each class for the circled point under a kNN model with <code>K = 6</code> and <code>weight_func = "rectangular"</code></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Where to go for information
+Hint: Where to go for help
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis">slide 18</a> and <a href="https://iml.numbat.space/week4/slides.html#/checking-the-assumptions-for-lda-and-qda-12">slides 40 to 43</a>.</p>
+<p>Check lecture 4 slides 5 to 8. To see the weight function options, check the help sheet of the function with <code>?parsnip::nearest_neighbor</code></p>
 </div>
 </div>
 </div>
-</section>
-<section id="part-b-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-b-1">Part B</h3>
-<p>Fit the LDA model to the training data</p>
-<p>(No hint, the code is provided)</p>
-</section>
-<section id="part-c-1" class="level3">
-<h3 class="anchored" data-anchor-id="part-c-1">Part C</h3>
-<p>Compute the confusion matrices for training and test sets, and thus the error for the test set.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Where to go for information
+Hint: rectangular?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You have computed a confusion matrix multiple times before. Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/check-the-model-performance">slide 15</a> for an example of using a model to get the confusion matrix for the logistic model. Think about how to get the predicted class for a LDA model.</p>
+<p>To work out the distance function for “rectangular” you can either infer it from the slides (Jack does not directly say what it is, but you can work it out from the slides), or, go to the helpsheet for <code>parsnip::details_nearest_neighbor_kknn</code>, which you would have been direct to from the help sheet for <code>parsnip::nearest_neighbor</code>.</p>
 </div>
 </div>
 </div>
@@ -221,89 +256,375 @@ Hint: Where to go for information
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Extra code hint
+Hint: rectangular???????
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You should use the <code>predict(lda_fit$fit, p_tr)$class</code> should give you the predicted class for an LDA model. You will need to do this twice, once on your training and once on your test set.</p>
+<p>Finally, in the references of <code>details_nearest_neighbor_kknn</code> there is a link to a paper. This paper has the definitive answer (kind of), but at this point you probably would have been better off guessing from the slides.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="part-d" class="level3">
-<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
-<p>Use boxplots and a tour to examine your fitted LDA model and see how it differs from your Logistic regression model. You can use this code to make the predictions.</p>
+<section id="part-b" class="level3">
+<h3 class="anchored" data-anchor-id="part-b">Part B</h3>
+<p>Use the image above to identify what would be the class prediction for the circled point under a kNN model with <code>K = 6</code> and <code>weight_func = "inv"</code></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Where to go for information
+Hint: Where to go for help
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/the-logistic-function">slides 6 to 9</a> for an understanding on how logistic regression works, check lecture 4 <a href="https://iml.numbat.space/week4/slides.html#/linear-discriminant-analysis">slides 18 to 22</a> to understand how LDA works. The answer is in the theoretical working of these two models.</p>
+<p>Check lecture 4 slides 9 to 11.</p>
 </div>
 </div>
 </div>
+</section>
+<section id="part-c" class="level3">
+<h3 class="anchored" data-anchor-id="part-c">Part C</h3>
+<p>Explain if and why it important to standardise your data when conducting kNN</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Extra hint
+Hint: Where to go for help
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Think about the dimensional of this problem. You are looking at the data in 2D space. What dimension is the model rule drawn in?</p>
+<p>Check lecture 4 slide 7.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="part-e" class="level3">
-<h3 class="anchored" data-anchor-id="part-e">Part E</h3>
-<p>Re-do the plot of the discriminant space, to examine the boundary between groups. You’ll need to generate a set of random points in the domain of the data, predict their class, and projection into the discriminant space. The <code>explore()</code> in the <code>classifly</code> package can help you generate the box of random points.</p>
-<section id="hint-extra-code-hint-1" class="level4">
-<h4 class="anchored" data-anchor-id="hint-extra-code-hint-1">Hint: Extra code hint</h4>
-<p>You should use the <code>explore(lda_fit$fit, p_tidy_std)</code> to generate the data and get predictions for those values. Once you have the predictions you should plot them. :::</p>
-</section>
-</section>
-<section id="part-f" class="level3">
-<h3 class="anchored" data-anchor-id="part-f">Part F</h3>
-<p>What happens to the boundary, if you change the prior probabilities? And why does this happen? Change the prior probabilities to be 1.999/3, 0.001/3, 1/3 for Adelie, Chinstrap, Gentoo, respectively. Re-do the plot of the boundaries in the discriminant space.</p>
+<section id="part-d" class="level3">
+<h3 class="anchored" data-anchor-id="part-d">Part D</h3>
+<p>Identify one limitation of a kNN model for probabilistic classification</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hint: Where to go for information
+Hint: Where to go for help
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Check lecture 4 slide <a href="https://iml.numbat.space/week4/slides.html#/example-penguins-13">27</a> for a hint on how to change the prior for probability for the code. Describe what happens think about why.</p>
+<p>Check lecture 4 slide 18.</p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="question-3-misclassifications" class="level2">
-<h2 class="anchored" data-anchor-id="question-3-misclassifications">Question 3: Misclassifications</h2>
-<p>This question is an exploratory question so there isnt really a right or wrong question.</p>
+<section id="question-2-knn-practice" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-knn-practice">Question 2: kNN practice</h2>
+<section id="part-a-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-1">Part A</h3>
+<p>Use cross-validation on the training data to select the number of neighbours <span class="math inline">\(K\)</span>, , the distance parameter, <span class="math inline">\(p\)</span>, and whether to use inverse distance weighting for the penguins data. Think carefully about what criteria to use for your cross-validation</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 13 to 16.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Criteria
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The ROC-AUC always appropriate? How would you could calculate the sensitivity and specificity for this classification problem?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Extra
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Sometimes it can be helpful to plot your cross validated error to get an idea of how the tuning parameters effect the accuracy.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="question-4-math" class="level2">
-<h2 class="anchored" data-anchor-id="question-4-math">Question 4: Math</h2>
-<p>It is hard to explain what is happening without giving away the logic to solve the question. If you want me to go through this question, please let me know and we can go through it as a class in the last 20 mins.</p>
+<section id="part-b-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-1">Part B</h3>
+<p>Refit the best model that you found in cross-validation and evaluate its test set performance</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 15 (the last line of code).</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="question-3-logistic-theory" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-logistic-theory">Question 3: Logistic Theory</h2>
+<section id="part-a-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-2">Part A</h3>
+<p>Sketch the logistic function</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Reminder
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your drawing will need to be more detailled than just</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 21 to 22.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Consider…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>What is the x axis? What is the y axis? When should f(x) be 0, 0.5, or 1? Your drawing will need to be more detailed.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-b-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-2">Part B</h3>
+<p>Explain the role of the logistic function in logistic regression</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 21 to 27.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-c-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-1">Part C</h3>
+<p>Use the logistic function to derive that fact the logistic regression models the log-odds as being linear in features <span class="math inline">\(x\)</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 21 to 22.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-d-1" class="level3">
+<h3 class="anchored" data-anchor-id="part-d-1">Part D</h3>
+<p>Explain if and why it important to standardise your data when conducting logistic regression</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slide 34.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-e" class="level3">
+<h3 class="anchored" data-anchor-id="part-e">Part E</h3>
+<p>Explain one advantage and one disadvantage of logistic regression when compared to kNN</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 37 to 41 and slide 18.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="question-4-logistic-regression-practice" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-logistic-regression-practice">Question 4: Logistic regression practice</h2>
+<section id="part-a-3" class="level3">
+<h3 class="anchored" data-anchor-id="part-a-3">Part A</h3>
+<p>Fit a multi-class logistic regression model to the training data. You may want to look at the <a href="https://parsnip.tidymodels.org/reference/multinom_reg.html">multinom_reg</a> tidymodels page to get started.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 28 to 30.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-b-3" class="level3">
+<h3 class="anchored" data-anchor-id="part-b-3">Part B</h3>
+<p>Compute the confusion matrices for training and test sets, and thus the error for the test set (classifying based on which class has the highest predicted probability).</p>
+<p><em>Note, that unlike in kNN, logistic regression can actually makes in-sample predictions and it can be useful to compare in and out of sample performance</em></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint: Where to go for help
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Check lecture 4 slides 30 to 32.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="part-c-2" class="level3">
+<h3 class="anchored" data-anchor-id="part-c-2">Part C</h3>
+<p>Check the logistic regression model fit. First plot the data-in-the-model-space. Separate the observations by their true class label and produce box-plots of the model probabilities assigned to being in the correct class. Do this for both the training and testing observations. You can use this code to make the predictions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>p_tr_pred_prob <span class="ot">&lt;-</span> multi_logistic_fit <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>(<span class="at">new_data =</span> p_tr, <span class="at">type.predict=</span><span class="st">"prob"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.pred_correct =</span> <span class="fu">as.numeric</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>)<span class="sc">*</span>.pred_Adelie <span class="sc">+</span> <span class="fu">as.numeric</span>(species <span class="sc">==</span> <span class="st">"Chinstrap"</span>)<span class="sc">*</span>.pred_Chinstrap <span class="sc">+</span> <span class="fu">as.numeric</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>)<span class="sc">*</span>.pred_Gentoo) <span class="sc">|&gt;</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.pred_predicted =</span> <span class="fu">as.numeric</span>(.pred_class <span class="sc">==</span> <span class="st">"Adelie"</span>)<span class="sc">*</span>.pred_Adelie <span class="sc">+</span> <span class="fu">as.numeric</span>(.pred_class <span class="sc">==</span> <span class="st">"Chinstrap"</span>)<span class="sc">*</span>.pred_Chinstrap <span class="sc">+</span> <span class="fu">as.numeric</span>(.pred_class <span class="sc">==</span> <span class="st">"Gentoo"</span>)<span class="sc">*</span>.pred_Gentoo)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>p_ts_pred_prob <span class="ot">&lt;-</span> multi_logistic_fit <span class="sc">|&gt;</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>(<span class="at">new_data =</span> p_ts, <span class="at">type.predict=</span><span class="st">"prob"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.pred_correct =</span> <span class="fu">as.numeric</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>)<span class="sc">*</span>.pred_Adelie <span class="sc">+</span> <span class="fu">as.numeric</span>(species <span class="sc">==</span> <span class="st">"Chinstrap"</span>)<span class="sc">*</span>.pred_Chinstrap <span class="sc">+</span> <span class="fu">as.numeric</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>)<span class="sc">*</span>.pred_Gentoo) <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">.pred_predicted =</span> <span class="fu">as.numeric</span>(.pred_class <span class="sc">==</span> <span class="st">"Adelie"</span>)<span class="sc">*</span>.pred_Adelie <span class="sc">+</span> <span class="fu">as.numeric</span>(.pred_class <span class="sc">==</span> <span class="st">"Chinstrap"</span>)<span class="sc">*</span>.pred_Chinstrap <span class="sc">+</span> <span class="fu">as.numeric</span>(.pred_class <span class="sc">==</span> <span class="st">"Gentoo"</span>)<span class="sc">*</span>.pred_Gentoo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then examine the model-in-the-data-space. Use a tour, colouring the observations according to which class is believed to be most likely and making the shape of the point whether they were correctly or incorrectly classified that way.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This question is an exploratory question so there isn’t really a right or wrong answer. Look at the predictions and ask yourself if it is a good model.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="question-5-misclassifications" class="level2">
+<h2 class="anchored" data-anchor-id="question-5-misclassifications">Question 5: Misclassifications</h2>
+<p>Here you are going to use interactive graphics to explore the misclassification from your kNN (or logistic regression). We’ll need to use <code>detourr</code> to accomplish this. The code below makes a scatterplot of the confusion matrix, where points corresponding to a class have been spread apart by jittering. This plot is linked to a tour plot. Try:</p>
+<p>Selecting penguins that have been misclassified, from the display of the confusion matrix. Observe where they are in the data space. Are they in an area where it is hard to distinguish the groups? Selecting neighbouring points in the tour, and examine where they are in the confusion matrix.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This question is an exploratory question so there isn’t really a right or wrong answer. The idea is to look at the points that have been misclassified, and understand if it is due to a missing feature in your model.</p>
+</div>
+</div>
 
 
 </section>

@@ -1,0 +1,229 @@
+---
+title: "ETC3250: Tutorial 5 Help Sheet"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+library(tidyverse)
+library(tidymodels)
+library(patchwork)
+library(mulgar)
+library(palmerpenguins)
+library(GGally)
+library(tourr)
+library(MASS)
+library(discrim)
+library(classifly)
+library(detourr)
+library(crosstalk)
+library(plotly)
+library(viridis)
+library(colorspace)
+library(conflicted)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::slice)
+conflicts_prefer(palmerpenguins::penguins)
+conflicts_prefer(viridis::viridis_pal)
+
+options(digits=2)
+p_tidy <- penguins |>
+  select(species, bill_length_mm:body_mass_g) |>
+  rename(bl=bill_length_mm,
+         bd=bill_depth_mm,
+         fl=flipper_length_mm,
+         bm=body_mass_g) |>
+  filter(!is.na(bl)) |>
+  arrange(species) |>
+  na.omit()
+p_tidy_std <- p_tidy |>
+    mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
+```
+
+
+::: {.callout-note}
+## Reminder
+Download the `.qmd` file for the lecture slides. If a hint directs you to a slide, and the required code is not explicitly on the slide, it will be in the `.qmd`. We *will* give you the code to do every assignment/tutorial question, you just need to repurpose it for the specific question.  
+:::
+
+## Question 1: kNN theory
+
+### Part A
+Use the image (in the tutorial) to identify what would be the probabilities assigned to each class for the circled point under a kNN model with `K = 6` and `weight_func = "rectangular"`
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 5 to 8. To see the weight function options, check the help sheet of the function with `?parsnip::nearest_neighbor`
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: rectangular?
+To work out the distance function for "rectangular" you can either infer it from the slides (Jack does not directly say what it is, but you can work it out from the slides), or, go to the helpsheet for `parsnip::details_nearest_neighbor_kknn`, which you would have been direct to from the help sheet for `parsnip::nearest_neighbor`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: rectangular???????
+Finally, in the references of `details_nearest_neighbor_kknn` there is a link to a paper. This paper has the definitive answer (kind of), but at this point you probably would have been better off guessing from the slides.
+:::
+
+### Part B
+Use the image above to identify what would be the class prediction for the circled point under a kNN model with `K = 6` and `weight_func = "inv"`
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 9 to 11.
+:::
+
+### Part C
+Explain if and why it important to standardise your data when conducting kNN
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slide 7.
+:::
+
+### Part D
+Identify one limitation of a kNN model for probabilistic classification
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slide 18.
+:::
+
+## Question 2: kNN practice
+### Part A
+Use cross-validation on the training data to select the number of neighbours $K$, , the distance parameter, $p$, and whether to use inverse distance weighting for the penguins data. Think carefully about what criteria to use for your cross-validation
+ 
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 13 to 16.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Criteria
+The ROC-AUC always appropriate? How would you could calculate the sensitivity and specificity for this classification problem?
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Extra
+Sometimes it can be helpful to plot your cross validated error to get an idea of how the tuning parameters effect the accuracy.
+:::
+
+### Part B
+Refit the best model that you found in cross-validation and evaluate its test set performance
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 15 (the last line of code).
+:::
+
+## Question 3: Logistic Theory
+### Part A
+Sketch the logistic function
+
+::: {.callout-note}
+## Reminder
+Your drawing will need to be more detailled than just
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 21 to 22. 
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint: Consider...
+What is the x axis? What is the y axis? When should f(x) be 0, 0.5, or 1? Your drawing will need to be more detailed.
+:::
+
+
+### Part B
+Explain the role of the logistic function in logistic regression
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 21 to 27. 
+:::
+
+### Part C
+Use the logistic function to derive that fact the logistic regression models the log-odds as being linear in features $x$
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 21 to 22. 
+:::
+
+
+### Part D
+Explain if and why it important to standardise your data when conducting logistic regression
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slide 34. 
+:::
+
+### Part E
+Explain one advantage and one disadvantage of logistic regression when compared to kNN
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 37 to 41 and slide 18. 
+:::
+
+## Question 4: Logistic regression practice
+### Part A
+Fit a multi-class logistic regression model to the training data. You may want to look at the [multinom_reg](https://parsnip.tidymodels.org/reference/multinom_reg.html) tidymodels page to get started.
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 28 to 30. 
+:::
+
+### Part B
+Compute the confusion matrices for training and test sets, and thus the error for the test set (classifying based on which class has the highest predicted probability).
+
+*Note, that unlike in kNN, logistic regression can actually makes in-sample predictions and it can be useful to compare in and out of sample performance*
+
+::: {.callout-tip collapse="true"}
+## Hint: Where to go for help
+Check lecture 4 slides 30 to 32. 
+:::
+
+### Part C
+Check the logistic regression model fit. First plot the data-in-the-model-space. Separate the observations by their true class label and produce box-plots of the model probabilities assigned to being in the correct class. Do this for both the training and testing observations. You can use this code to make the predictions.
+
+```{r}
+#| eval: false
+p_tr_pred_prob <- multi_logistic_fit |> 
+  augment(new_data = p_tr, type.predict="prob") |> 
+  mutate(.pred_correct = as.numeric(species == "Adelie")*.pred_Adelie + as.numeric(species == "Chinstrap")*.pred_Chinstrap + as.numeric(species == "Gentoo")*.pred_Gentoo) |> 
+  mutate(.pred_predicted = as.numeric(.pred_class == "Adelie")*.pred_Adelie + as.numeric(.pred_class == "Chinstrap")*.pred_Chinstrap + as.numeric(.pred_class == "Gentoo")*.pred_Gentoo)
+
+p_ts_pred_prob <- multi_logistic_fit |> 
+  augment(new_data = p_ts, type.predict="prob") |> 
+  mutate(.pred_correct = as.numeric(species == "Adelie")*.pred_Adelie + as.numeric(species == "Chinstrap")*.pred_Chinstrap + as.numeric(species == "Gentoo")*.pred_Gentoo) |> 
+  mutate(.pred_predicted = as.numeric(.pred_class == "Adelie")*.pred_Adelie + as.numeric(.pred_class == "Chinstrap")*.pred_Chinstrap + as.numeric(.pred_class == "Gentoo")*.pred_Gentoo)
+```
+
+Then examine the model-in-the-data-space. Use a tour, colouring the observations according to which class is believed to be most likely and making the shape of the point whether they were correctly or incorrectly classified that way.
+
+::: {.callout-note}
+## Note
+This question is an exploratory question so there isn't really a right or wrong answer. Look at the predictions and ask yourself if it is a good model.
+:::
+
+## Question 5: Misclassifications
+Here you are going to use interactive graphics to explore the misclassification from your kNN (or logistic regression). We’ll need to use `detourr` to accomplish this. The code below makes a scatterplot of the confusion matrix, where points corresponding to a class have been spread apart by jittering. This plot is linked to a tour plot. Try:
+
+Selecting penguins that have been misclassified, from the display of the confusion matrix. Observe where they are in the data space. Are they in an area where it is hard to distinguish the groups?
+Selecting neighbouring points in the tour, and examine where they are in the confusion matrix.
+
+::: {.callout-note}
+## Note
+This question is an exploratory question so there isn't really a right or wrong answer. The idea is to look at the points that have been misclassified, and understand if it is due to a missing feature in your model.
+:::
+
