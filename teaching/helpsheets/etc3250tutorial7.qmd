@@ -1,0 +1,349 @@
+---
+title: "ETC3250: Tutorial 7 Help Sheet"
+---
+
+
+```{r echo=FALSE}
+# Set up chunk for all slides
+knitr::opts_chunk$set(
+  fig.width = 4,
+  fig.height = 4,
+  fig.align = "center",
+  out.width = "60%",
+  code.line.numbers = FALSE,
+  fig.retina = 3,
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  dev.args = list(pointsize = 11)
+)
+```
+
+```{r}
+#| echo: true
+#| code-fold: true
+#| code-summary: "Load the libraries and avoid conflicts"
+# Load libraries used everywhere
+library(tidyverse)
+library(tidymodels)
+library(patchwork)
+library(mulgar)
+library(palmerpenguins)
+library(GGally)
+library(tourr)
+library(MASS)
+library(discrim)
+library(classifly)
+library(detourr)
+library(crosstalk)
+library(plotly)
+library(viridis)
+library(colorspace)
+library(randomForest)
+library(geozoo)
+library(ggbeeswarm)
+library(conflicted)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::slice)
+conflicts_prefer(palmerpenguins::penguins)
+conflicts_prefer(viridis::viridis_pal)
+
+options(digits=2)
+p_tidy <- penguins |>
+  select(species, bill_length_mm:body_mass_g) |>
+  rename(bl=bill_length_mm,
+         bd=bill_depth_mm,
+         fl=flipper_length_mm,
+         bm=body_mass_g) |>
+  filter(!is.na(bl)) |>
+  arrange(species) |>
+  na.omit()
+p_tidy_std <- p_tidy |>
+    mutate_if(is.numeric, function(x) (x-mean(x))/sd(x))
+```
+
+```{r}
+#| echo: false
+# Set plot theme
+theme_set(theme_bw(base_size = 14) +
+   theme(
+     aspect.ratio = 1,
+     plot.background = element_rect(fill = 'transparent', colour = NA),
+     plot.title.position = "plot",
+     plot.title = element_text(size = 24),
+     panel.background = element_rect(fill = 'transparent', colour = NA),
+     legend.background = element_rect(fill = 'transparent', colour = NA),
+     legend.key = element_rect(fill = 'transparent', colour = NA)
+   )
+)
+```
+
+# Exercises
+## Question 1: Bias, Variance, Forests and Boosting theory
+
+a) Explain in words what is meant by the bias of a machine learning regression model $f_{\mathcal{D}_n}(x)$ for $y\in\mathbb{R}$
+
+::: {.callout-tip collapse="true"}
+## Hint
+Check lecture 6 slides 7 to 17 for an explanation of bias and variance. Try and summarise the lecture slides in your own words.
+:::
+
+b) Explain in words what is meant by the variance of a machine learning model $f_{\mathcal{D}_n}(x)$
+
+::: {.callout-tip collapse="true"}
+## Hint
+Check lecture 6 slides 7 to 17 for an explanation of bias and variance. Try and summarise the lecture slides in your own words.
+:::
+
+
+c) Evaluate how the bias and variance of a machine learning model change as it gets more and more complex
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check lecture 6 slides 7 to 17 for an explanation of bias and variance. Try and summarise the lecture slides in your own words.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+[This blog post](https://harrietmason.netlify.app/posts/FlexiblevsInflexible/) explains the relationship between elements of our model and flexibility.  [This blog post](https://harrietmason.netlify.app/posts/bias_variance_flexibility/) explains the relationship between flexibiliy and bias and variance.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 3
+The second chapter of the [ISL textook](https://www.statlearning.com/), "What is Statistical Learning" is a *great* resource for understanding bias and variance trade off, and it can be freely downloaded as a PDF. It is a shockingly well written textbook, and it will give you a strong foundational understanding to modelling.
+:::
+
+d) Explain why a kNN model with small $K$ has higher variance than a kNN model with larger $K$
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check lecture 6 slides 12 and 13 for the bias/variance comments that are specific to hyper parameters. 
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+I would suggest working through this slowly. What do you know about bias and variance? What impacts model flexibility? Think about what is happening at a fundamental level when you change $K$ in a KNN model.
+:::
+
+
+e) Determine the key similarities and differences between random forest models and boosting models and relate these to the bias/variance trade-off
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check lecture 6 slides 12 and 13 for the bias/variance comments that are specific to hyper parameters. 
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+In the KNN model, $K$ is a "parameter". Think about how these parameters affect the bias/variance trade off. You can do a similar exercise with the hyper parameters of your tree model.
+:::
+
+
+## Question 2: Bias and Variance In Images
+In the lecture slides from week 6 on bias versus variance, four images are shown (visible in the tutorial sheet).
+
+Mark the images with the labels "true model", "fitted model", "bias". 
+Then, additionally use the next two images to explain in your own words why the different model shown in each has (potentially) large bias or small bias, and small variance or large variance.
+
+::: {.callout-tip collapse="true"}
+## Hint 1
+Check lecture 6 slides 7 to 17 for an explanation of bias and variance and the context for the images.
+:::
+
+::: {.callout-tip collapse="true"}
+## Hint 2
+A slightly different illustration of bias and variance in a plot can be seen in the first image of [this bias/variance and flexibility blog post](https://harrietmason.netlify.app/posts/bias_variance_flexibility/).
+:::
+
+#### 3. Digging deeper into diagnosing an error
+
+For this question we will work with the penguins data. Start with splitting it into a training and test set, as follows. 
+
+```{r}
+set.seed(923)
+p_split2 <- initial_split(p_tidy_std, 2/3,
+                          strata=species)
+p_tr2 <- training(p_split2)
+p_ts2 <- testing(p_split2)
+```
+
+a. Fit the random forest model to the full penguins data. 
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 6 slides 18 to 32 to see the details on random forests. The code specifically used to fit the model can be seen on slide 25. 
+
+Don't forget to do a training and test split!
+:::
+
+b. Report the confusion matrix.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 6 slide 25 for an example that displays the confusion matrix. 
+:::
+
+
+c. Combine a tour with a confusion matrix (known as linked brushing) to learn which was the Gentoo penguin that the model was confused about. When we looked at the data in a tour, there was one Gentoo penguin that was an outlier, appearing to be away from the other Gentoo's and closer to the Chinstrap group. We would expect this to be the penguin that the forest model is confused about. Is it?
+
+Have a look at the other misclassifications, to understand whether they are ones we'd expect to misclassify, or whether the model is not well constructed.
+
+```{r eval=FALSE}
+p_cl <- p_tr2 |>
+  mutate(pspecies = p_fit_rf$fit$predicted) |>
+  dplyr::select(bl:bm, species, pspecies) |>
+  mutate(sp_jit = jitter(as.numeric(species)),
+         psp_jit = jitter(as.numeric(pspecies)))
+p_cl_shared <- SharedData$new(p_cl)
+
+detour_plot <- detour(p_cl_shared, tour_aes(
+  projection = bl:bm,
+  colour = species)) |>
+  tour_path(grand_tour(2),
+            max_bases=50, fps = 60) |>
+  show_scatter(alpha = 0.9, axes = FALSE,
+               width = "100%", height = "450px")
+
+conf_mat <- plot_ly(p_cl_shared,
+                    x = ~psp_jit,
+                    y = ~sp_jit,
+                    color = ~species,
+                    colors = viridis_pal(option = "D")(3),
+                    height = 450) |>
+  highlight(on = "plotly_selected",
+            off = "plotly_doubleclick") |>
+  add_trace(type = "scatter",
+            mode = "markers")
+
+bscols(
+  detour_plot, conf_mat,
+  widths = c(5, 6)
+)
+```
+
+::: {.callout-note}
+#### General Note
+This question is an exploratory question so there isn't really a strict way to find the right or wrong question. You should still work through it though because you will have to answer similar questions in assessment.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint
+Try and think about the misclassification from the perspective of the model. If you didn't know the true class, and were only given the variables given to the model, what would you classify the misclassified observations as, and why?
+:::
+
+#### 4. Deciding on variables in a large data problem
+
+a. Fit a random forest to the bushfire data. You can read more about the bushfire data at https://dicook.github.io/mulgar_book/A2-data.html. Examine the votes matrix using a tour. What do you learn about the confusion between fire causes?
+
+This code might help:
+
+```{r}
+data(bushfires)
+
+bushfires_sub <- bushfires[,c(5, 8:45, 48:55, 57:60)] |>
+  mutate(cause = factor(cause))
+
+set.seed(1239)
+bf_split <- initial_split(bushfires_sub, 3/4, strata=cause)
+bf_tr <- training(bf_split)
+bf_ts <- testing(bf_split)
+
+rf_spec <- rand_forest(mtry=5, trees=1000) |>
+  set_mode("classification") |>
+  set_engine("ranger", probability = TRUE, 
+             importance="permutation")
+bf_fit_rf <- rf_spec |> 
+  fit(cause~., data = bf_tr)
+
+# Create votes matrix data
+bf_rf_votes <- bf_fit_rf$fit$predictions |>
+  as_tibble() |>
+  mutate(cause = bf_tr$cause)
+
+# Project 4D into 3D
+proj <- t(geozoo::f_helmert(4)[-1,])
+bf_rf_v_p <- as.matrix(bf_rf_votes[,1:4]) %*% proj
+colnames(bf_rf_v_p) <- c("x1", "x2", "x3")
+bf_rf_v_p <- bf_rf_v_p |>
+  as.data.frame() |>
+  mutate(cause = bf_tr$cause)
+  
+# Add simplex
+simp <- simplex(p=3)
+sp <- data.frame(simp$points)
+colnames(sp) <- c("x1", "x2", "x3")
+sp$cause = ""
+bf_rf_v_p_s <- bind_rows(sp, bf_rf_v_p) |>
+  mutate(cause = factor(cause))
+labels <- c("accident" , "arson", 
+                "burning_off", "lightning", 
+                rep("", nrow(bf_rf_v_p)))
+```
+
+Notice here that we use the `ranger` package engine rather than `randomForest` as this has functionality for permutation importance. An advantage of the `tidymodels` formulation is that you can use a different engine and the rest of your code stays the same. 
+
+A tour allows us to visualise the 4D predictions
+
+```{r eval=FALSE}
+# Examine votes matrix with bounding simplex
+x11()
+animate_xy(bf_rf_v_p_s[,1:3], col = bf_rf_v_p_s$cause, 
+           axes = "off", half_range = 1.3,
+           edges = as.matrix(simp$edges),
+           obs_labels = labels)
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 6 slides 26 to understand what a vote matrix is.
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Hints on what to Consider
+Whenever you look at a tour you should describe the shape of the data. For this particular question you should discuss:
+- the overall shape
+- if there is clustering and where it is
+- How this shape translates to meaning in terms of your variables and model
+- Why this shape might have occurred
+
+:::
+
+b. Check the variable importance. Plot the most important variables.
+
+This code might help:
+
+```{r eval=FALSE}
+bf_fit_rf$fit$variable.importance |> 
+  as_tibble() |> 
+  rename(imp=value) |>
+  mutate(var = colnames(bf_tr)[1:50]) |>
+  select(var, imp) |>
+  arrange(desc(imp)) |> 
+  print(n=50)
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 6 slides 27 and 28 to understand variable importance.
+:::
+
+#### 5. Can boosting better detect bushfire cause?
+
+Fit a boosted tree model using `xgboost` to the bushfires data. You can use the code below. Compute the confusion tables and the balanced accuracy for the test data for both the forest model and the boosted tree model, to make the comparison.
+
+```{r}
+set.seed(121)
+bf_spec2 <- boost_tree() |>
+  set_mode("classification") |>
+  set_engine("xgboost")
+bf_fit_bt <- bf_spec2 |> 
+  fit(cause~., data = bf_tr)
+```
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+Check lecture 6 slides 33 to 42 to see the details on boosted trees. 
+
+:::

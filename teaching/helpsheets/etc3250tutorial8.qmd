@@ -1,0 +1,167 @@
+---
+title: "ETC3250: Tutorial 8 Help Sheet"
+---
+
+# Exercises
+## Question 1
+
+a. What mathematical operations happen within a hidden or output neural network node
+
+::: {.callout-tip collapse="true"}
+### Hint
+Check lecture 7 slides 3-12 and for an overview of the components of a neural network.
+:::
+
+b. What is the difference between the activation and output functions in a Neural Network. 
+
+::: {.callout-tip collapse="true"}
+### Hint
+Check lecture 7 slides 12 and 24-26 for information on activation and output functions.
+:::
+
+c. Consider a neural network with 
+
++ An input layer with 4 nodes
++ One hidden layer with 2 nodes
++ An output layer with 3 nodes
++ The softmax output function
++ ReLU activation functions
+
+
+i) What type of supervised learning is this model doing
+
+::: {.callout-tip collapse="true"}
+### Hint
+Which component of the network will tell you what kind of question this is? The information is on a slide mentioned previously in this question.
+:::
+
+
+ii) Draw this Neural Network
+
+::: {.callout-tip collapse="true"}
+### Hint
+Lecutre 7 slides 8 and 23 have good examples of a drawing  of a neural network.
+:::
+
+
+iii) Define and sketch the activation function
+
+::: {.callout-tip collapse="true"}
+### Hint
+Lecture 7 slides 8 and 23 have good examples of a drawing  of a neural network.
+:::
+
+
+iv) What are the parameters of this neural network model, give their dimensions, and count how many parameters in total need to be estimated. 
+
+::: {.callout-tip collapse="true"}
+### Hint
+You can count this directly off the diagram you drew if you trust it.
+:::
+
+
+d) Demonstrate that a single hidden layer neural network with linear activation functions and sigmoid output function produces the same prediction function as a logistic regression model.
+
+Hint: A linear activation function would have the form $\phi(s) = ms + c$ for some $m\in \mathbb{R}$ and $c\in \mathbb{R}$
+
+::: {.callout-tip collapse="true"}
+Check lecture 7 slide 12 for some examples of drawn activation functions
+:::
+
+## Question 2
+We use the Fashion MNIST dataset which contains 70,000 grayscale images in 10 categories of articles sold on Zalando’s multi-brand, digital platform for fashion, beauty, and lifestyle.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for details on the data
+Before doing an analysis you should always get a good idea of the data you are working with. There are some details on the data set [here](https://tensorflow.rstudio.com/tutorials/keras/classification) and you can also call `?dataset_fashion_mnist` to get some details. 
+:::
+
+
+## Question 3
+Check how many observations are in the training and test sets, and plot some of the images.
+
+::: {.callout-tip collapse="true"}
+#### Hint 1: Where to go for information
+There are several functions for checking the details of a data set, they include `dim`, `glimpse`, `head`, `summarise`, etc. To plot the images, you can just use `ggplot`. The images are 28x28 pixel  
+:::
+
+::: {.callout-tip collapse="true"}
+#### Hint 2: Why this is important
+It is important to know what your data looks like after every transformation too. That way you understand the input and output of every function. After running those code `fashion_mnist$train` is a list that contains two datasets, `x` and `y`. `fashion_mnist$train$x` is an 60000 x 28 x 28 dimension array. That means
+:::
+
+
+## Question 5
+The model architecture will have:
+
+a flatten layer to turn the images into vectors
+one hidden layer with 128 nodes with (rectified) linear activation
+final layer with 10 nodes and logistic activation
+Why 10 nodes in the last layer? Why 128 nodes in the hidden layer?
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Where to go for layer information
+Check lecture 7 slides 3-12 and for an overview of the components of a neural network, and check lecture 7 slides 24-26 for an illustrated example with the penguins data.
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Extra hint
+Your final layer is related to what you are trying to predict, and your hidden layers are related to model flexibility.
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 3: Where to go for loss and optimiser information
+Read the help sheet for the compile function to understand these parameters. `?keras::compile.keras.engine.training.Model` should take you there (there are a lot of functions called compile so using the full name is easier).
+
+:::
+
+## Question 6
+Fit the model and diagnose convergence
+
+::: {.callout-tip collapse="true"}
+### Hint
+Check lecture 7 slides 29-31 for information on checking for convergence.
+:::
+
+## Question 7
+Evaluate the model
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Why you might get a different result
+Typically if you get a different result to someone else despite running identical code on an identical data set, it means the function uses randomness somewhere in the function. Think about where a neural network might use randomness and think about what function could be used to prevent this from happening. 
+:::
+
+## Question 8
+Predict the test set
+
+::: {.callout-tip collapse="true"}
+### Hint 1: How to read
+This code will provide you with a confusion matrix. If a particular class if frequently predicted as another class, this will appear in the confusion matrix as a large number off the diagonal. 
+:::
+
+## Question 9
+Compute the accuracy of the model on the test set. How does this compare with the accuracy reported when you fitted the model? 
+
+Is the model equally accurate on all classes? If not, which class(es) is(are) poorly fitted?
+
+::: {.callout-tip collapse="true"}
+### Hint
+Try and translate this to your mental model of clothing. Are shirts more like jumpers or boots? You have an internal metric of "distance" for clothing, see how well it aligns with the mistakes your model makes.
+:::
+
+## Question 10
+This section is motivated by the examples in Cook and Laa (2024). Focus on the test data to investigate the fit, and lack of fit.
+
+PCA can be used to reduce the dimension down from 784, to a small number of PCS, to examine the nature of differences between the classes. Compute the scree plot to decide on a reasonable number that can be examined in a tour. Plot the first two statically. Explain how the class structure matches any clustering.
+
+::: {.callout-tip collapse="true"}
+### Hint 1: Re-explain question
+By "Explain how the class structure matches any clustering" they mean you should explain if the classes are visibly separated in the plot.
+
+If one of these methods can separate the classes and another cannot, what does that say about our method and/or input?
+:::
+
+::: {.callout-tip collapse="true"}
+### Hint 2: Interpreting the 9D Simplex
+Lecture 6 slide 25 has an example of a simple case where you need to interpret a 3D simplex (three classes). This question requires you to translate that understand to a higher dimensional case.
+:::
