@@ -14,8 +14,6 @@ website:
         text: Blog
       - href: research/index.qmd
         text: Research
-      - href: teaching/index.qmd
-        text: Teaching Resources
       - href: CV/cv.pdf
         text: CV 
         
