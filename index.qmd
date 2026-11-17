@@ -16,7 +16,8 @@ about:
       href: "mailto:harriet.mason1@monash.edu"
 ---
 
-I'm Harriet, a PhD student at Monash University where I am currently supervised by [Di Cook](https://www.dicook.org/), [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin/), and [Susan Vanderplas](https://statistics.unl.edu/person/susan-vanderplas/). I am also part of the [NUMBATs](https://numbat.space/) research group. My main research interests are in visual statistics, statistical philosophy, and computational statistics. 
+I'm Harriet, a postdoctoral researcher at the University of Queensland.
+I did my PhD at Monash University, where I was supervised by [Di Cook](https://www.dicook.org/), [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin/), and [Susan Vanderplas](https://statistics.unl.edu/person/susan-vanderplas/) and was part of the [NUMBATs](https://numbat.space/) research group. My main research interests are in statistical graphics, statistics philosophy, and computational statistics. 
 
 This is public website that I use to share some of my work (and opinions). If you want to hear *me* complain about my software, you are in the right place. If you are looking for my [Github](https://github.com/harriet-mason) so that you can complain to me about my software, you are in the wrong place. 
 

@@ -2,6 +2,7 @@
   {
     "listing": "/posts/index.html",
     "items": [
+      "/posts/crackpotvis/index.html",
       "/posts/regularisation/index.html",
       "/posts/LDA/index.html",
       "/posts/pca/index.html",
