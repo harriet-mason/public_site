@@ -3,7 +3,7 @@ title: "If VIS wants rigor, it can't incentivise crackpot science."
 author: Harriet Mason
 format: html
 date: "2026-11-13T00:00:00Z"
-lastMod: "2026-11-17T00:00:00Z"
+lastMod: "2026-11-18T00:00:00Z"
 output:
     math: true
     fig_caption: true
@@ -19,12 +19,11 @@ I want to hedge this by saying that my main areas are visual inference, uncertai
 I understand this is a small piece of the VIS area (although that in and of itself is part of the problem).
 So, if you are reading this, and you are thinking "well this doesn't happen in MY VIS area" then I'm happy for you.
 There are many VIS fields with consistent epistemic principles, and if that applies to your field, you may go on your merry way.
-However, if you are sometimes left wondering what the greater goal
 
 
 ## I promise I am not a hater
-My point here is not to suggest that all of VIS research is worthless garbage (I mean, it wouldn't make sense for me to publish one of my papers at VIS if this wasn't the case). 
-So, to really show that I am not a hater, I want to start by mentioning some VIS papers that I really liked.
+My point here is not to suggest that all of VIS research is worthless garbage (I mean, it wouldn't make sense for me to publish one of my papers at VIS if this was the case). 
+TO really show that I am not a hater, I want to start by mentioning some VIS papers that I really liked.
 You can skip this if you are already assured of my hater (or non-hater) status.
 
 - I think the [product plots](https://ieeexplore.ieee.org/abstract/document/6064987?casa_token=I2UeFj1_oecAAAAA:MyzI_SXyAORuUvTMUti9q-go1KL4tf-T3hegJe3ZhfjEdCl5_awv-LtFeTJBwNpKkyjDhC-0sard) use of measure theory to connect the geometry and probability of graphics is neat.
@@ -37,7 +36,7 @@ You can skip this if you are already assured of my hater (or non-hater) status.
 - I have always thought tests into the seperability of marks, such as [Measuring the Separability of Shape, Size, and Color in Scatterplots](https://dl.acm.org/doi/10.1145/3290605.3300899) is really important because many of us (or at least many statisticians) treat them as independent axis.
 - Similar to the separability work, I really enjoyed this paper, [Perceptually Uniform Construction of Illustrative Textures](https://dl.acm.org/doi/abs/10.1109/TVCG.2023.3326574) when I saw it as IEEE VIS 2023. The idea that something we map in VIS is actually two different aesthetics that can curve around (i.e. they have that horseshoe shape) is deeply fascinating to me.
 - I like the recursive structure suggested by [gofish](https://ieeexplore.ieee.org/abstract/document/11274318/) and I think it identifies a real fundamental property in the structure of charts that we don't really talk about. 
-- In general the findings in this [Uncertainty in Science is Malleable](https://dl.acm.org/doi/10.1145/3706598.3713972) paper were about what I would expect BUT this paper has the single greatest line I have ever read in a paper and I think about it at least once a week: *"After numerous design and implementation iterations for visualization glyphs, our visualization system shows, by default, the uncertainty measures using simply a size encoding. After two years of work, did we simply create a visualization with a set of filters and a representation of uncertainty using size?"*. I LOVE the honesty from the authors here, and I am so glad the culture of VIS research let them keep that sentence in. 
+- In general the findings in this [Uncertainty in Science is Malleable](https://dl.acm.org/doi/10.1145/3706598.3713972) paper were about what I would expect BUT this paper has the single greatest line I have ever read in a paper and I think about it at least once a week: *"After numerous design and implementation iterations for visualization glyphs, our visualization system shows, by default, the uncertainty measures using simply a size encoding. After two years of work, did we simply create a visualization with a set of filters and a representation of uncertainty using size?"*. I LOVE the honesty from the authors here, and I am so glad that VIS has a culture that let them keep that sentence in. 
 
 
 *NOTE: I will add to this list if I remember or see papers that I really like - and am still updating this post. This is not a complete list, there are other papers I like, but I don't have all day, people. *
@@ -151,74 +150,85 @@ VIS is not suffering from a handful of crackpot researchers, I think the culture
 How does VIS view themselves as a field?
 Well, we can get a gist from [this bluesky comment](https://bsky.app/profile/mjskay.com/post/3mzugh56tvc2a) where I was told that "the correct project for VIS is not checking data formalisms against human interpretation, but building up models of how people read charts that combine those data formalisms with perceptual and cognitive operators".
 
-**(Correction: [Matt said](https://bsky.app/profile/mjskay.com/post/3n26lhggss22a) I misunderstood his comment and he is pro maths formalism. Sorry Matt, my bad. The following section is about encouraging maths formalism, but it is not in disagreement with Matt's comment.)**
+**(Correction: [Matt said](https://bsky.app/profile/mjskay.com/post/3n26lhggss22a) I misunderstood his comment and he is pro maths formalism and specifics (previously this section had comments on maths formalism). Sorry Matt, my bad. The following section is, from my understanding, not in disagreement with Matt's comment.)**
 
 **(Correction 2: I previously said Tamara Munzner agreed with Matt's point because she liked the post, but [she has clarified](https://bsky.app/profile/munzner.bsky.social/post/3n26udbxaek2e) that she does NOT endorse Matt's anti task rant )**
 
-One thing I find quite odd about this response is that it implies that math is some kind of limitation on the field that would reduce the number of testable theories. 
+
+In conversations, I have noticed a little animosity to the idea of limiting the scope of the VIS.
+I think a lot of VIS researchers see VIS as a melting pot of a field where they are coming up with a true "theory of visualisation" that can cover everything that visualisation touches. 
+Therefore, the breadth of visualisation is a strength, after all it allows them to take the best ideas from multiple fields, including statistics, computer science, and human psychology.
+
+The problem with this idea, is that it is a bit of a fantasy. 
+When you make a field *so* broad that it involves everyone, people who do work that is tedious and time-consuming end up outnumbered and ejected from the community.
+This is the case for statisticians whose field moves slower, so they publish far fewer articles than the average VIS researcher.
+I rarely come across a formally trained statisticians in VIS, the vast majority of people doing "statistical graphics" in VIS are computer scientists who do not have a large amount of statistical training.
+This is not a bad thing, I have seen people from all fields, including linguistics, biology, and music do great statistics research.
+The problem is that these people do statistics in a field of statisticians who can check the correctness of the work.
+
+Having such a broad range of domains means that authors with the expertise required to review a paper is few and far between.
+This is especially bad when you have the pace difference between the fields as decribed above.
+I often find myself outnumbered (on both sides of the reviewer-reviee relationship) when I try and correct incorrect statistical reasoning.
+I have found this to be anecdotally true as I know several statisticians, who have also had their comments shrugged off and treated as a "difference of opinion" rather than a self-evident statistical fact.
+
+This leads me to wonder if the openness at VIS not only prevents the idealised "melting pot" community, but also the persuit of it leads to a reduction in the quality of re.
+
+
+#### 2. It is lacking in mathematical rigor, experimental evidence, etc.
+I have noticed a bit of an aversion to mathematical rigor at VIS (see story above).
+One thing I find quite odd about this response is that it implies that math is some kind of limitation on the field that would reduce the number or flexibility of the theories. 
 I mean, I would hardly describe the fields within the purview of math, such as the physics of the entire universe, predicting the weather, and describing the economy, to be simple or trivial research.
 The idea that computer graphics is the one field that is too complicated for math to capture feels a little absurd to me.
 
 ![Math doesn't deserve this disrespect](images/simplestuff.jpeg)
 
-The second problem with this sentiment, is the animosity to the idea of limiting the scope of the VIS.
-I think a lot of VIS researchers see VIS as a melting pot of a field where they are coming up with a true "theory of visualisation" that can cover everything that visualisation touches. 
-Therefore, the breadth of visualisation is a strength, after all it allows them to take the best ideas from multiple fields, including statistics, computer science, and human psychology.
-
-The problem with this idea, is that it is a bit of a fantasy. 
-Statistics involves mathematical rigor which, as the comment above shows, VIS researchers doesn't adequately value.
-Mathematical rigor requires *much* more effort than hand waving taxonomies (trust me, I did both), so, on average, statisticians publish far fewer articles than a VIS researcher.
-When you make a field *so* broad that it involves everyone, people who do work that is tedious and time-consuming end up outnumbered and ejected from the community.
-This has shown to be anecdotally true, as I know several statisticians, who, like me, have tried to engage with the VIS community and correct some statistical mistakes, only to have their concerns shrugged off and treated as a "difference of opinion" rather than a self-evident statistical fact.
-This results in a community where statisticians are not incentivised to stay in VIS and often leave.
-
-So, the openness of the field may not be the idealised fantasy, but at least it's not hindering your research.
-I would actually argue that it is and it has led to a bit of a "statistics slop" problem in VIS.
-
-
-#### 2. It is lacking in mathematical rigor, experimental evidence, etc.
-
-I rarely come across a formally trained statisticians in VIS, the vast majority of people doing "statistical graphics" in VIS are computer scientists who do not have sufficient statistical training.
-This is not a bad thing, I have seen people from all fields, including linguistics, biology, and music do great statistics research.
-The problem is that these people do statistics in a field of statisticians who can check the correctness of the work.
-
-Unfortunately, this isn't the case for VIS, which means that the *vast* majority of statistical reasoning in the field is what I would call "slop" statistics.
-This reasoning has the *sheen* of statistics, they use the language of statistics, but the statistical reasoning is often built on confusing or questionable assumptions, and/or disconnected from standard statistical theory. 
-All the calculations in these papers are often correct, and if you take the sentiment of what the authors are saying at face value, there is no problem.
-Ultimately, these are often not issues you would recognise when reading a statistics textbook or paper, but rather things that fail the "sniff test", so it can be quite challenging to explain what is wrong with them.
-They are, what some hard science academics might call, "not even wrong".
+This aversion to formalism leads to what I would call a "statistics slop" issue in VIS.
+These are papers that have statistical arguments that have the *sheen* of statistics, but the statistical reasoning is often built on confusing or questionable assumptions, and/or disconnected from standard statistical theory. 
+All the calculations in these papers are often correct, with a logical flow, and they look just like what we would see in a statistics textbook, so on face value, there is no problem. 
+However these papers often fail what I would call the "statistics sniff test".
+They are, what some academics might call, "not even wrong".
   
 Before I give some examples of what I am talking about, I want to make it clear that the *authors of these papers are not to blame for this*. 
 As a matter of fact, to make this point clear, I want you to read the explanation as to why these papers have incorrect statistical logic and see if you, as a VIS researcher, would have clocked it.
-These are going to focus on uncertainty visualisation (that is my specific area of expertise and also where statistical reasoning is most relevant) but I have noticed similar issues in the papers I read outside the uncertainty vis literature.
+These are going to focus on uncertainty visualisation (that is my specific area of expertise and also where statistical reasoning is most relevant) but I have noticed similar issues in papers outside this specific literature.
 With that being said, here are some examples of the issues I'm talking about:
 
-- The [MapLineup paper](https://ieeexplore.ieee.org/abstract/document/7539286?casa_token=huSInJnxmp8AAAAA:xSuEnAW-Oiqvqpj_EZz5AXpwwbf6bJDOLncUw7sZOzfivRMbn3Jqdcuv6_X35ta9qqiJaiM8uPsa) paper, which criticises the lineup protocol, and suggests a different method on JND. This paper seems to have been was entirely borne from the authors misunderstanding about the fact that a lineup protocols must has a random null plot with no structure. Actually a lineup can have any null distribution you want. 
-I don't understand why the authors seem to think that spatial autocorrelation in the null would require a different method. They do not provide any justification for this in the paper. 
+- The [MapLineup paper](https://ieeexplore.ieee.org/abstract/document/7539286?casa_token=huSInJnxmp8AAAAA:xSuEnAW-Oiqvqpj_EZz5AXpwwbf6bJDOLncUw7sZOzfivRMbn3Jqdcuv6_X35ta9qqiJaiM8uPsa) paper, which criticises the lineup protocol, and suggests a different method to measure JND. This paper seems to have been was entirely borne from the authors misunderstanding about the fact that a lineup protocols must has a random null plot with no structure. Actually a lineup can have any null distribution you want. I don't understand why the authors seem to think that spatial autocorrelation in the null would require a different method. They do not provide any justification for this in the paper. 
 
-- This [Evaluating the Use of Uncertainty Visualisations for Imputations of Data Missing At Random in Scatterplots](https://ieeexplore.ieee.org/document/9904433) paper, which is visualising imputed missing random values, using things like confidence intervals or density plots. The confidence intervals are calculated using using the sampling distribution associated with the mean imputation. The proper confidence intervals for the missing values would have been the prediction intervals (which would be far wider than the intervals used in this visualisation). This is because the no-imputation case, is not conditional on the imputation, so by making the confidence intervals dependent on the mean imputation, these plots have two different "ground truth" values. Other than this issue, the statistics in this paper is totally correct (at least on my pass, but I don't know everything, lol) and since the statistical error is quite subtle, I actually think this one is one of the better ones (and it would pass review at a statistics journal). I found this to be a real shame, because I thought the experiment was well designed otherwise, and would have been interested in the results of this paper, especially if compared to the “in the gutter” approach from the [`naniar`](https://naniar.njtierney.com/) package. *Note: you can read Abhraneel's rebuttal [here](https://bsky.app/profile/abhsarma.bsky.social/post/3n27y6deh5c2e)*.
+- This [Evaluating the Use of Uncertainty Visualisations for Imputations of Data Missing At Random in Scatterplots](https://ieeexplore.ieee.org/document/9904433) paper, which is visualising imputed missing random values, using things like confidence intervals or density plots. The confidence intervals are calculated using using the sampling distribution associated with the mean imputation. The proper confidence intervals for the missing values would have been the prediction intervals (which would be far wider than the intervals used in this visualisation). This is because the no-imputation case, is not conditional on the imputation, so by making the confidence intervals dependent on the mean imputation, these plots have two different "ground truth" values. Other than this issue, the statistics in this paper is totally correct (at least on my pass, but I don't know everything, lol) and since the statistical error is quite subtle, I actually think this one is one of the better ones (and it would pass review at a statistics journal). I thought the experiment was well designed otherwise, and would have been interested in the results of this paper, especially if compared to the “in the gutter” approach from the [`naniar`](https://naniar.njtierney.com/) package. *Note: This version incorperates parts of Abhraneel's rebuttal, which can be found [here](https://bsky.app/profile/abhsarma.bsky.social/post/3n27y6deh5c2e)*.
 
 - The [value suppressing uncertainty palette paper](https://dl.acm.org/doi/10.1145/3173574.3174216) which suggests suggests a 2D palette, which blends colours together as they become more uncertainty.  The problem with this, is that really isn't a sensible way to represent a distribution as a single colour, so there isn't a statistically sensible way to blend the colours together. You could say it should align with some sort of hypothesis test, but hypothesis tests often don't agree. For example, if we consider three values, each of them might pass a paired t-test, so they should be the same colour, but fail an f-test, indicating that they shouldn't be the same colour. How do you set the scale such that this works? You can't. This issue arises from the fact that this mean/variance approach is a fundamental mischaracterisation of what a random variable is.
 
-- The [Effects of ensemble and summary displays on interpretations of geospatial uncertainty data](https://link.springer.com/article/10.1186/s41235-017-0076-1). This one is NOT a VIS paper, but it includes some VIS authors, and it is foundational work for uncertainty VIS, so I have included it here. The paper consists of several experiments that assess different approaches for visualising storm uncertainty. Experiment 1 and 2 have conflicting assumptions, which are not acknowledged by the authors, and make for a confusing read. The first experiment sets the ground truth on the assumption that the storm intensity is unrelated to the distance to the center of the distrbution, the third experiment assumes the opposite. I have read this paper three times, and I cannot get another interpretation of this study (this has driven me insane for years, so if someone has can explain what is happening here I would love to hear that I am wrong). *HOWEVER* the finding that people think an event is more probable if it lands on an outcome is *very* interesting.
+- The [Effects of ensemble and summary displays on interpretations of geospatial uncertainty data](https://link.springer.com/article/10.1186/s41235-017-0076-1). This one is NOT a VIS paper, but it includes some VIS authors, and it is foundational work for uncertainty VIS, so I have included it here. The paper consists of several experiments that assess different approaches for visualising storm uncertainty. Experiment 1 and 2 have conflicting assumptions, which are not acknowledged by the authors, and make for a confusing read. The first experiment sets the ground truth on the assumption that the storm intensity is unrelated to the distance to the center of the distrbution, the third experiment assumes the opposite. I have read this paper three times, and I cannot see another way to interpret this study. (This has driven me insane for years, so if someone can explain what is happening here I would love to find out that I am wrong.) *HOWEVER* this paper isn't all bad. The finding that people think an event is more probable if it lands directly on a simulated outcome is *very* interesting (and the statistical reasoning is correct).
 
 - The [Fitting Bell Curves to Data Distributions  Using Visualization](https://ieeexplore.ieee.org/document/9905944) paper asks people to fit a bell curve to a boxplot, histogram, dotplot, and stripline plot. These plots have wildly different statistical information with very little justification linking them. There are also questions about when plots of different resolutions can be compared (but expecting people to understand how resolution affects bias would be beyond completely unreasonable on my part).
 
-- The [How Visualizing Inferential Uncertainty Can Mislead Readers About Treatment Effects in Scientific Results](https://dl.acm.org/doi/10.1145/3313831.3376454) paper compares people's sense of uncertainty when shown confidence and prediction intervals. This one is.... confusing to me to say the least. Yes, you will have smaller uncertainty bands when you have a confidence interval. Yes, most people do not know the difference between a confidence interval and a prediction interval. I would argue the authors don't seem to fully understand the difference either. There isn't a way to compare the the two intervals on an inference question that wouldn't favour one of the plots. The paper seems to be built on the assumption that you can, or should be able to in some capacity? In this specific case, the participants were making a judgment on a new game outcome, I think the prediction interval is the correct distribution (but it is often so hard to work out what is going on in these papers, unless I read the appendix). Given the statistical discrepancy, I cannot wrap my head around the purpose of the human experiment in this paper. This boils down to comparing apples to organges on the basis of which makes better orange juice, but then confirming the results with a human taste test. I also suspect this paper is why I sometimes see VIS papers present a prediction interval (when they should be showing a confidence interval) so that they don't "misrepresent the uncertainty".
+- The [How Visualizing Inferential Uncertainty Can Mislead Readers About Treatment Effects in Scientific Results](https://dl.acm.org/doi/10.1145/3313831.3376454) paper compares people's sense of uncertainty when shown confidence and prediction intervals. This one is.... confusing to me to say the least. Yes, you will have smaller uncertainty bands when you have a confidence interval. Yes, most people do not know the difference between a confidence interval and a prediction interval. There isn't a way to compare the the two intervals on an inference question that wouldn't favour one of the plots. The paper seems to be built on the assumption that you can, or should be able to in some capacity? In this specific case, the participants were making a judgment on a new game outcome, so I think the prediction interval is the correct distribution (but the information to work this out is often hidden away in the methods or appendix of the paper). Given the statistical discrepancy, I cannot wrap my head around the purpose of the human experiment in this paper. This boils down to comparing apples to organges on the basis of which makes better orange juice, and then confirming the results with a human taste test. I also suspect this paper is why I sometimes see VIS papers present a prediction interval (when they should be showing a confidence interval) so that they don't "underreport the uncertainty".
 
-- The [Impact of Vertical Scaling on Normal Probability Density Function Plots](https://ieeexplore.ieee.org/abstract/document/10670477) paper scales individual density functions and checks it's impact on the human perception. Like the imputed missing values paper, this paper actually isn't particularly ergrigious, but the assumptions of the paper are so bizzare I can't really rationalise them. Yes, the y-axis on density curves is arbitrary. Yes, it is important to keep the area consistent for if you are comparing distributions as that is the common unit between plots. Yes I understand software allows you to independently scale distributions. The only case where I would scale two distributions is if one distribution was so spread out/concentrated on a common distribution it was unreadable, and only if you were not supposed to compare distributions accross independently scaled plots. Like the Hofman paper above, I get the impression that the core assumptions required for this paper is the sentiment that "people do statistics wrong". While I accept that this is probably a fair motivation in the VIS literature, I am often confused as to why this is proven with a human perception study. I often wonder if you guys are throwing human perception studies at every problem, and people like
+- The [Impact of Vertical Scaling on Normal Probability Density Function Plots](https://ieeexplore.ieee.org/abstract/document/10670477) paper scales individual density functions and checks it's impact on the human perception. Like the imputed missing values paper, this paper isn't particularly ergrigious, but the assumptions of the paper are so alien to me, I just had to include it.  Yes, the y-axis on density curves is arbitrary. Yes, it is important to keep the area consistent for if you are comparing distributions (that is the common unit between plots). Yes I understand software allows you to independently scale distributions. The only case where I would scale two distributions differently is if one distribution was so spread out/concentrated it was unreadable, and you are not supposed to compare distributions across independently scaled plots (only within plots). You should never independently scale distributions that are on the same scale. Like the Hofman paper above, I get the impression that the core assumptions required for this paper is the sentiment that "people do statistics wrong". While I accept that this is probably a fair motivation in the VIS literature, I am often confused as to why this is proven with a human perception study. 
 
 - The [Bar graphs depicting averages are perceptually misinterpreted: The within-the-bar bias](https://link.springer.com/article/10.3758/s13423-012-0247-5) again, not a VIS paper, but a lot of VIS papers are related to this, so it is worth mentioning. Bar charts should show a sum. It doesn't make sense to use a bar to show an average as a bar is an interval. This is even explicitly stated by the [*grammar of graphics*](https://link.springer.com/book/10.1007/0-387-28695-0). I am not sure why we need so many human perception studies on the within bar bias and how to correct it, when you shouldn't have used a bar in the first place.
 
 *NOTE: I have added to this list to spead out my criticism and avoid attacking a small handful of authors. I see this as a field level problem, and not due to a few individuals. This is not a complete list and I might update it when I think of papers that should be in this list. If your paper appears in this list and you disagree with my assessment, feel free to post/send me a rebuttal and I will link it to the discussion of your paper.*
 
-These are not all the examples I have (I could literally sit here all day and go through papers with these kinds of issues) but they are the examples that were at the top of my Zotero (or mind) when I made this post.
-These examples are also just symptoms of a much bigger issue, which is that an overwhelming amount of statistical reasoning in VIS is questionable (or straight up wrong).
-If you are particularly interested in these issues, specifically with respect to the uncertainty vis literature, Section 4 of [this paper](https://www.annualreviews.org/content/journals/10.1146/annurev-statistics-042825-110607) goes through it in detail.
-Additionally, often, the only way to work out the statistical reasoning of the paper is to painstakingly go through the methods and do the inferential reasoning that the authors themselves often didn't (or couldn't) do.
-Expecting these authors to get the statistics right, when the literature they are learning from is itself incorrect, is not really a fair expectation. 
+What is my point with these examples? 
+Well, mathematical rigor extends beyond individual mistakes or calculations, it can also suggest purpose.
+As a statistician, people assume you mostly deal with bad answers, but you actually spend almost all of your time on bad questions. 
+A bad answer is something like an incorrect statistical model, or maybe a failure to account for assumption violations (like missing values or heteroskedasticity).
+These issues are often trivial.
+A bad question is a different issue entirely.
+Bad questions are vague in what they want, can't decide how to measure it, and have competing, conflicting, assumptions. 
+When I look at these papers with their bizzare assumptions, confusing distribution choices, and inability to define what they are even trying to test, I do not see a field with bad answers, I see a field with bad questions. 
+The process of defining an idea mathematically allows you to clear up these problems.
+What do you mean when you say "best"? Do you mean easiest to interpret? Easiest to make? The one with the most information? 
+The mathematical definition of your goal goes back to your core beliefs about what it is the field is trying to do.
+What does "best" mean to you?
+If ten papers that all find the "best" design, each have their own definition of best, rooted in completely different views for the field, they will never coalesce into a single cohesive theory.
+You are doomed to painstakingly troll through the methods and appendix (as I had to do for the papers above), to work out what this papers definition of "best" is.
+We are not liberated by the avoidance of mathematical specifics, we are shackled by it.
 
-These problems are not limited to statistical arguments either.
+
+These problems are not limited to the statistical arguments either.
 Theoretical papers in VIS present ideas for how visualisations are made or used, but are often incredibly vague, and use their own bespoke terminology/symbols and are impossible to translate into the mathematical formalisation required to actually test it.
 The correctness of these papers seems to be based on how real they "feel", with the epistemics of the area having more in common with a religion than a science. 
 The most famous version of one of these papers I can think of is a [nested model for visualisation](https://ieeexplore.ieee.org/abstract/document/5290695) (no hate to Tamara though, this is just the main one that always comes to mind).
@@ -270,19 +280,28 @@ When I think about what it is we are trying to do in science, I often think of t
 
 > "Science is built up of facts, as a house is built of stones; but an accumulation of facts is no more a science than a heap of stones is a house."
 
-I often find that, in VIS research, a paper will toss away the existing house because their brick does not fit in the existing house.
-In statistics, it is my job to write my theories in a way that starts from the existing literature.
-If I disagree, I need to (convincingly) explain why, if I agree, I need to use it.
-This puts a larger burden on the author, as they must cut and shape their ideas to fit as a brick in the house, but this is what we must do if we want a house.
-There is a trade off in how accessible your field is to a reader or viewer.
-Do you overburden the reader and force them to spend years navigating conflicting literature, all talking at the same time, and build their own house, or do you put some burden on the authors, and ask them to frame their contributions in a way that they are contributing to the house, rather than building an entirely new one because the window isn't in the right spot.
+I often find that, in VIS research, a paper will offer their own bespoke validation of their own bespoke theory.
+They will toss away an existing house because their brick does not fit in.
+At the end of the day, you are left looking at a pile of stones, and nobody seems to be building a house.
+I think (or god, hope) that VIS can be more than this, so I implore the researchers to start thinking about the kind of research that helps to build a house.
 
+
+In statistics, it is my job to write my theories/arguments *that start from the existing literature*. 
+If I disagree, I need to (convincingly) explain why, otherwise, I need to build on top of the existing theories.
+This puts a larger burden on the author, as they must cut and shape their ideas so their brick fits into the existing structure of the house. 
 [This comment](https://bsky.app/profile/kalealex.bsky.social/post/3n2bvkif7ac2x) makes me wonder if the celebration of individualism in VIS is also inhibiting cohesive research.
 Good science is a collaborative effort, and collaboration in science, just as in life, means limiting our individual freedoms.
 The same is true for software design (a point I think is made quite well by [this comment](https://bsky.app/profile/story645.bsky.social/post/3n27fhenzxs2s)).
+
 You might read my post, which asks you to cut your stones so they fit in the house, and see it as an affront to the boundary pushing freedom of academic work.
-But I ask you not to read this from the perspective of an *author* but from the perspective of a *viewer*.
-The reader who you have given a pile of stones, many of which do not fit together, many of which *cannot* fit together even though you *talk* about them fitting together, and you have told this reader to build a house.
+But I ask you not to read this from the perspective of an *author* but from the perspective of a *reader*.
+The reader who you have given a pile of stones, many of which do not fit together, many of which *cannot* fit together even they are presented as though they fit together, and you have told this reader to build a house.
+
+There is a trade off in how accessible your field is to a reader or viewer, to stone maker and house constructor.
+Do you overburden the reader and force them to spend years navigating conflicting literature (with conversations that are so independent the literature doesn't acknowledge this conflict)?
+Are the readers each burdened to build their own house (exacerbating the problem where the field has no common theory)?
+Or, do you start putting some of the burden on the authors, and ask them to shape their work into something that talks to the existing literature?
+
 
 Ultimately, from my perspective, the VIS literature (specifically the sub-areas I am adjacent to) either need to:
 
