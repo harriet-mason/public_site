@@ -125,7 +125,7 @@ What was involved in this process? Specifically I had to:
     
 At every stage, I asked myself what a crackpot would do, and then tried to make sure I did the opposite.
 Ultimately, this approach had the extra benefit of leading to a flexible and generalised uncertainty visualisation system that can make an uncertain version of any plot, called [`ggdibbler`](https://github.com/harriet-mason/ggdibbler).
-A result which is clearly of interest to the VIS community, since two papers from this year - i.e. [1](https://ieeevis.org/year/2026/program/content/88ac885c-eced-46ef-80ce-ca8a1dacad1a/) and [2](https://ieeevis.org/year/2026/program/content/87e9069f-c5dd-411a-9cbf-5730077c7a18/) - are a subset of what can be done with this theory and software.
+A result which is clearly of interest to the VIS community, since two papers from this year - i.e. [1](https://ieeevis.org/year/2026/program/content/88ac885c-eced-46ef-80ce-ca8a1dacad1a/) and [2](https://ieeevis.org/year/2026/program/content/87e9069f-c5dd-411a-9cbf-5730077c7a18/) - make plots that do a similar thing. 
 
 ## OK hear me out, I think VIS has a little bit of crackpot stuff too
 
@@ -256,8 +256,8 @@ This means you need to be drawing inference on *something* for there to be any u
 Additionally, the uncertainty is limited to that one statistic.
 However, a lot of uncertainty visualisations papers treat uncertainty as a *vibe* or something that erupted from a nebulous void (e.g.  [1](https://ieeexplore.ieee.org/document/6327283/), [2](https://ieeexplore.ieee.org/abstract/document/10292709)). 
 Alternatively they think that uncertainty distributions on different estimates are freely exchangeable (e.g. [1](https://ieeexplore.ieee.org/document/9904433), [2](https://dl.acm.org/doi/abs/10.1145/3313831.3376454)).
-Or they are bizarrely specific and link the quantification of uncertainty to it's visualisation approach (e.g. [1](https://ieeevis.org/year/2026/program/content/88ac885c-eced-46ef-80ce-ca8a1dacad1a/) and [2](https://ieeevis.org/year/2026/program/content/87e9069f-c5dd-411a-9cbf-5730077c7a18/)), even though they are completely independent statistical concepts and the
-[uncertainty should never be quantified inside the visualisation](https://www.annualreviews.org/content/journals/10.1146/annurev-statistics-042825-110607).
+Or they link the quantification of uncertainty to it's visualisation approach (e.g. [1](https://ieeevis.org/year/2026/program/content/88ac885c-eced-46ef-80ce-ca8a1dacad1a/) and [2](https://ieeevis.org/year/2026/program/content/87e9069f-c5dd-411a-9cbf-5730077c7a18/)), even though
+[uncertainty really shouldn't be quantified inside the visualisation](https://www.annualreviews.org/content/journals/10.1146/annurev-statistics-042825-110607).
 
 ![If I hear this joke one more time I'm going to stab someone.](images/nemesis.jpeg)
 
